@@ -60,6 +60,7 @@ package Proj_Def is
 	Type Array_2x8x8 is Array(0 to 1) of Array_8x8;
 	Type Array_2x8x10 is Array(0 to 1) of Array_8x10;
 	Type Array_2x8x12 is Array(0 to 1) of Array_8x12;
+	Type Array_2x8x14 is Array(0 to 1) of Array_8x14;
 	Type Array_2x8x16 is Array(0 to 1) of Array_8x16;
 	
 	-- Signed arrays
@@ -69,6 +70,186 @@ package Proj_Def is
 	Type Arrays_2x3x12 is Array(0 to 1) of Arrays_3x12;
 	Type Arrays_8x2x12 is Array(0 to 1) of Arrays_8x12;
 	Type Arrays_8x2x16 is Array(0 to 1) of Arrays_8x16;
+
+
+	Type PtrArrayType is Array(0 to 15) of std_logic_vector(3 downto 0);
+	constant ChanArray : PtrArrayType := (X"0",X"1",X"2",X"3",X"4",X"5",X"6",X"7",
+										  X"8",X"9",X"A",X"B",X"C",X"D",X"E",X"F");
+
+
+----------------------- Address list -----------------------------
+
+Subtype AddrPtr is std_logic_vector(9 downto 0);
+
+-- Control and status register
+constant CSRRegAddr : AddrPtr  := "00" & X"00";
+-- SDRAM related pointers are 30 bit byte address pointers
+-- Given the 32 bit wide data I/O registers of the LPDDR interface
+-- the lower order two bits should be zero.
+-- LPDDR write address register
+constant SDRamWrtPtrHiAd : AddrPtr := "00" & X"02";
+constant SDRamWrtPtrLoAd : AddrPtr := "00" & X"03";
+
+-- LPDDR read address register
+constant SDRamRdPtrHiAd	: AddrPtr := "00" & X"04";
+constant SDRamRdPtrLoAd	: AddrPtr := "00" & X"05";
+
+-- Port for microcontroller read/write of SDRAM data
+constant SDRamSwapPort : AddrPtr := "00" & X"06";
+constant SDRamPortAd : AddrPtr := "00" & X"07";
+
+-- DDR status bits, read and write counter
+constant DDRStatAddr : AddrPtr := "00" & X"08";
+constant DDRCountAddr : AddrPtr := "00" & X"09";
+
+-- LVDS FEB to Controller link transmit address
+constant LVDSTxFIFOAd : AddrPtr := "00" & X"0A";
+constant LVDSTxFIFOStatAd : AddrPtr := "00" & X"0B";
+
+-- DDR read event data FIFO, evant FIFO words used
+constant PageFIFOAddr : AddrPtr := "00" & X"0C";
+constant PageFIFOWdsAd : AddrPtr := "00" & X"0D";
+
+-- Three bits showing the state of the DDR write sequencer
+constant WriteSeqStatAd : AddrPtr := "00" & X"0E";
+constant InseqStatAd : AddrPtr := "00" & X"0F";
+
+-- Histogramming logic parameter adresses
+constant HistCtrlAd   : AddrPtr := "00" & X"10";
+constant HistIntvalAd : AddrPtr := "00" & X"11";
+constant HistOfstAd : AddrPtr := "00" & X"12";
+constant HistPtrAd0  : AddrPtr := "00" & X"14";
+constant HistPtrAd1  : AddrPtr := "00" & X"15";
+constant HistRd0Ad   : AddrPtr := "00" & X"16";
+constant HistRd1Ad   : AddrPtr := "00" & X"17";
+
+-- Address for controlling analog mux used for I/V curve data
+constant MuxCtrlAd : AddrPtr  := "00" & X"20";
+-- Specify which channels to read out
+constant InputMaskAddr	: AddrPtr := "00" & X"21";
+-- Counter used to produce sequential data as a diagnostic
+constant TestCounterHiAd : AddrPtr := "00" & X"22";
+constant TestCounterLoAd : AddrPtr := "00" & X"23";
+
+-- Registers used for one wire link to the DS18B20 temperature sensor
+constant OneWireCmdAd : AddrPtr := "00" & X"24";
+constant TempCtrlAd : AddrPtr := "00" & X"25";
+
+constant TempDat0Ad : AddrPtr := "00" & X"26";
+constant TempDat1Ad : AddrPtr := "00" & X"27";
+constant TempDat2Ad : AddrPtr := "00" & X"28";
+constant TempDat3Ad : AddrPtr := "00" & X"29";
+constant TempDat4Ad : AddrPtr := "00" & X"2A";
+
+-- AFE Fifo emplty flags
+constant AFEFifoStatAd : AddrPtr := "00" & X"2F";
+
+-- SiPM Bias Trim DAC addresses
+constant DatArray0Min : AddrPtr  := "00" & X"30";
+constant DatArray0Max : AddrPtr  := "00" & X"37";
+constant DatArray1Min : AddrPtr  := "00" & X"38";
+constant DatArray1Max : AddrPtr  := "00" & X"3F";
+constant DatArray2Min : AddrPtr  := "00" & X"40";
+constant DatArray2Max : AddrPtr  := "00" & X"47";
+
+constant CtrlArray0Min : AddrPtr := "00" & X"48";
+constant CtrlArray0Max : AddrPtr := "00" & X"4F";
+constant CtrlArray1Min : AddrPtr := "00" & X"50";
+constant CtrlArray1Max : AddrPtr := "00" & X"57";
+constant CtrlArray2Min : AddrPtr := "00" & X"58";
+constant CtrlArray2Max : AddrPtr := "00" & X"5F";
+
+--Clock alignment slip control registers
+constant SlipCtrlAd 	 : AddrPtr := "00" & X"61";
+constant SlipCntRegAd : AddrPtr := "00" & X"62";
+constant AlignEnAd    : AddrPtr := "00" & X"63";
+
+--uBunch debugging
+constant uBHiAd       : AddrPtr := "00" & X"64";
+constant uBLoAd       : AddrPtr := "00" & X"65";
+constant uBBuffHiAd   : AddrPtr := "00" & X"66";
+constant uBBuffLoAd   : AddrPtr := "00" & X"67";
+constant uBBuffAdHiAd : AddrPtr := "00" & X"68";
+constant uBBuffAdLoAd : AddrPtr := "00" & X"69";
+
+-- Spill word count
+-- One second timer reset at FPGA config
+constant UpTimeRegAddrHi : AddrPtr := "00" & X"6C";
+constant UpTimeRegAddrLo : AddrPtr := "00" & X"6D";
+-- Diagnostic access to timestamp register
+constant TimeStampAdHi : AddrPtr := "00" & X"72";
+constant TimeStampAdLo : AddrPtr := "00" & X"73";
+
+-- Simon Debug
+constant FRDat0RegAd : AddrPtr := "00" & X"74";
+constant FRDat1RegAd : AddrPtr := "00" & X"75";
+constant DebugVersionAd : AddrPtr := "00" & X"76";
+constant PageRstAddr : AddrPtr := "00" & X"77";
+-- Spill indicator
+
+Type AddrArrayType is Array(0 to 7) of AddrPtr;
+Type RegArrayType is Array(0 to 1) of AddrArrayType;
+constant PedRegAddr : RegArrayType := (("00" & X"80","00" & X"81","00" & X"82","00" & X"83",
+													 "00" & X"84","00" & X"85","00" & X"86","00" & X"87"),
+													("00" & X"88","00" & X"89","00" & X"8A","00" & X"8B",
+													 "00" & X"8C","00" & X"8D","00" & X"8E","00" & X"8F"));
+constant ThreshRegAddr : RegArrayType := (("00" & X"90","00" & X"91","00" & X"92","00" & X"93",
+														 "00" & X"94","00" & X"95","00" & X"96","00" & X"97"),
+													   ("00" & X"98","00" & X"99","00" & X"9A","00" & X"9B",
+														 "00" & X"9C","00" & X"9D","00" & X"9E","00" & X"9F"));
+-- Register collecting data returned for the AFEs
+constant AFERdDataAd : AddrPtr  := "00" & X"FF";
+-- Map of the internal setup registers of the AFE chips
+constant AFE0ArrayMin : AddrPtr  := "01" & X"00";
+constant AFE0ArrayMax : AddrPtr  := "01" & X"66";
+constant AFE1ArrayMin : AddrPtr  := "10" & X"00";
+constant AFE1ArrayMax : AddrPtr  := "10" & X"66";
+
+---------------------- Broadcast addresses ------------------------------
+	
+-- Flash gate control register
+constant FlashCtrlAddr : AddrPtr := "11" & X"00";
+-- Flash gate on time and off time
+constant OnTimeAddr  : AddrPtr := "11" & X"01";
+constant OffTimeAddr : AddrPtr := "11" & X"02";
+
+-- Trigger control register
+constant TrigCtrlAddr : AddrPtr := "11" & X"03";
+
+-- Adjutable pipeline attached to serdes outpus
+constant PipeLineAddr	: AddrPtr := "11" & X"04";
+-- Adjustable gate used for use in the test beam
+constant BeamOnLengthAd  : AddrPtr := "11" & X"05";
+constant BeamOffLengthAd : AddrPtr := "11" & X"06";
+
+constant GateAddr	: AddrPtr := "11" & X"07";
+-- Adjust such that controller and FEB time stamps match
+constant CoarseInitRegAddr : AddrPtr  := "11" & X"0A";
+-- Adjust such that pulser trigs from the controller are in time
+constant PlsrTrgDlyRegAd : AddrPtr  := "11" & X"0B"; 
+-- TCLK start spill event register
+constant ADCSmplCntrAd : AddrPtr := "11" & X"0C";
+constant uBunchWidthAd : AddrPtr := "11" & X"0D";
+
+constant Inttrgenaddr : AddrPtr := "11" & X"0E";
+
+constant BrdCstRdPtrHiAd : AddrPtr := "11" & X"10";
+constant BrdCstRdPtrLoAd : AddrPtr := "11" & X"11";
+
+constant uBunchRdPtrHiAd : AddrPtr := "11" & X"12";
+constant uBunchRdPtrLoAd : AddrPtr := "11" & X"13";
+
+constant FEBAddresRegAd      : AddrPtr := "11" & X"14";
+constant HistCtrlBroadCastAd : AddrPtr := "11" & X"15";
+constant CSRBroadCastAd : AddrPtr := "11" & X"16";
+constant PageStatAddr : AddrPtr := "11" & X"17";
+constant LEDTimeAddr : AddrPtr := "11" & X"18";
+
+constant BrdCstAlgnReqAd : AddrPtr := "11" & X"19";
+
+----------------------------------------------------------------------
+
+
 
 
 	component AFE_Interface
@@ -102,15 +283,25 @@ package Proj_Def is
 	);
 	end component;
 
-component AFE_DataPath is
-  Port (
-	Clk_80MHz			: in std_logic; 
-	SysClk				: in std_logic; -- 160 MHz
-  -- Data output from the deserializer for AFE0 and AFE1 synchronized to 80 MHz clock
-    din_AFE0			: in Array_8x14; 
-    din_AFE1			: in Array_8x14  
-	);
-end component;	
+	component AFE_DataPath is
+	Port (
+		Clk_80MHz			: in std_logic; 
+		SysClk				: in std_logic; -- 160 MHz
+	-- Data output from the deserializer for AFE0 and AFE1 synchronized to 80 MHz clock
+		din_AFE0			: in Array_8x14; 
+		din_AFE1			: in Array_8x14;
+	-- Microcontroller strobes
+		CpldRst				: in std_logic;
+		CpldCS				: in std_logic;
+		uCRd				: in std_logic;
+		uCWr 				: in std_logic;		
+	-- Microcontroller data and address buses	
+		uCA 				: in std_logic_vector(11 downto 0);
+		uCD 				: inout std_logic_vector(15 downto 0);
+	-- Geographic address pins
+		GA 					: in std_logic_vector(1 downto 0)	
+		);
+	end component;	
 	
 	
 -----------------------------------------------------------------------

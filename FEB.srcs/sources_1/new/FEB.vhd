@@ -29,7 +29,7 @@ port(
 	Clk_80MHz			    : in  std_logic;
 	Clk_560MHz			    : in  std_logic;	
 	Clk_200MHz			    : in  std_logic;
-	SysClk				    : in std_logic;
+	SysClk				    : in std_logic;   -- 160 Mhz
 	-- AFE Data lines
 	AFE0Dat_P, AFE0Dat_N    : in std_logic_vector(7 downto 0); -- LVDS pairs from an AFE chip (8 channels)
 	AFE1Dat_P, AFE1Dat_N    : in std_logic_vector(7 downto 0);
@@ -45,8 +45,17 @@ port(
 	AFECS 				    : buffer std_logic_vector(1 downto 0);
 	AFERst 				    : buffer std_logic;
 	AFESClk, AFESDI  	    : buffer std_logic;
-	AFESDO 				    : in std_logic
-
+	AFESDO 				    : in std_logic;
+	-- Microcontroller strobes
+	CpldRst				: in std_logic;
+	CpldCS				: in std_logic;
+	uCRd				: in std_logic;
+	uCWr 				: in std_logic;
+	-- Microcontroller data and address buses
+	uCA 				: in std_logic_vector(11 downto 0);
+	uCD 				: inout std_logic_vector(15 downto 0);
+	-- Geographic address pins
+	GA 					: in std_logic_vector(1 downto 0)
   );
 end FEB;
 
@@ -57,6 +66,10 @@ signal done		              : std_logic_vector(1 downto 0);
 signal warn		              : std_logic_vector(1 downto 0); 
 signal dout_AFE0		      : Array_8x14; 
 signal dout_AFE1		      : Array_8x14;  
+
+signal ControllerNo        	  : std_logic_vector(4 downto 0);
+signal PortNo 			      : std_logic_vector(4 downto 0);
+
 
 begin
 
@@ -92,8 +105,8 @@ port map(
 	reset			=> reset,				  
 	done			=> done,				  
 	warn			=> warn,				  
-	dout_afe0		=> dout_AFE0,				  
-	dout_afe1		=> dout_AFE1				  
+	dout_AFE0		=> dout_AFE0,				  
+	dout_AFE1		=> dout_AFE1				  
 );
 
 AFE_Buffer : AFE_DataPath
@@ -101,7 +114,16 @@ port map (
 	Clk_80MHz	    => Clk_80MHz,		
 	SysClk			=> SysClk,
     din_AFE0		=> dout_AFE0,
-    din_AFE1		=> dout_AFE1
+    din_AFE1		=> dout_AFE1,
+
+	CpldRst			=> CpldRst,	
+	CpldCS			=> CpldCS,
+	uCRd			=> uCRd,
+	uCWr 			=> uCWr, 	
+	uCA				=> uCA,
+	uCD             => uCD,
+	GA              => GA 
+ 			    
 	);
 
 

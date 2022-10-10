@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "work" -L "secureip" -L "xpm" --snapshot "AFE_Interface_testbench_behav" "xil_defaultlib.AFE_Interface_testbench" -log "elaborate.log" 

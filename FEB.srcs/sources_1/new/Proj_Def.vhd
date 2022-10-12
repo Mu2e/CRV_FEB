@@ -287,9 +287,11 @@ constant BrdCstAlgnReqAd : AddrPtr := "11" & X"19";
 	Port (
 		Clk_80MHz			: in std_logic; 
 		SysClk				: in std_logic; -- 160 MHz
+		TrigReq				: in std_logic;
 	-- Data output from the deserializer for AFE0 and AFE1 synchronized to 80 MHz clock
 		din_AFE0			: in Array_8x14; 
 		din_AFE1			: in Array_8x14;
+		done				: in std_logic_vector(1 downto 0); -- status of automatic alignment FSM
 	-- Microcontroller strobes
 		CpldRst				: in std_logic;
 		CpldCS				: in std_logic;

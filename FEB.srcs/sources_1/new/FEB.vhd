@@ -67,9 +67,8 @@ signal warn		              : std_logic_vector(1 downto 0);
 signal dout_AFE0		      : Array_8x14; 
 signal dout_AFE1		      : Array_8x14;  
 
-signal ControllerNo        	  : std_logic_vector(4 downto 0);
-signal PortNo 			      : std_logic_vector(4 downto 0);
 
+signal TrigReq		          : std_logic;
 
 begin
 
@@ -113,8 +112,10 @@ AFE_Buffer : AFE_DataPath
 port map (
 	Clk_80MHz	    => Clk_80MHz,		
 	SysClk			=> SysClk,
+	TrigReq			=> TrigReq,
     din_AFE0		=> dout_AFE0,
     din_AFE1		=> dout_AFE1,
+	done 			=> done,
 
 	CpldRst			=> CpldRst,	
 	CpldCS			=> CpldCS,

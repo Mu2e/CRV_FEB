@@ -23,57 +23,59 @@ port(
 end component;
 
 
-component AFE_Interface
-port(
-	-- AFE Input clocks
-	AFE0Clk_P, AFE0Clk_N    : out std_logic; -- Copy of 80MHz master clock sent to AFE chips
-	AFE1Clk_P, AFE1Clk_N    : out std_logic;
-	-- AFE Data lines
-	AFE0Dat_P, AFE0Dat_N    : in std_logic_vector(7 downto 0); -- LVDS pairs from an AFE chip (8 channels)
-	AFE1Dat_P, AFE1Dat_N    : in std_logic_vector(7 downto 0);
-	-- AFE clock, framing lines
-	AFEDCLK_P, AFEDCLK_N    : in std_logic_vector(1 downto 0); -- Unused in this design 
-	AFE0FCLK_P, AFE0FCLK_N  : in std_logic; -- LVDS pairs of the Frame Clock
-	AFE1FCLK_P, AFE1FCLK_N  : in std_logic; -- LVDS pairs of the Frame Clock
-	-- AFE serial control lines
-	AFEPDn 				    : buffer std_logic_vector(1 downto 0);
-	AFECS 				    : buffer std_logic_vector(1 downto 0);
-	AFERst 				    : buffer std_logic;
-	AFESClk, AFESDI  	    : buffer std_logic;
-	AFESDO 				    : in std_logic;
-						    
-    -- FPGA interface       
-    Clk_80MHz			    : in  std_logic; 	-- Master clock 80MHz
-    Clk_560MHz			    : in  std_logic; 	-- 7 x Master clock = 560MHz
-    Clk_200MHz			    : in  std_logic; 	-- 200 MHz refclk for the IDELAY2
-    reset				    : in  std_logic;
-    done				    : out std_logic_vector(1 downto 0); -- status of automatic alignment FSM
-    warn				    : out std_logic_vector(1 downto 0); -- pulse to indicate an error was seen in the FCLK pattern
-    dout_afe0				: out Array_8x14; -- data synchronized to clock
-    dout_afe1				: out Array_8x14  -- data synchronized to clock
-	
-);
-end component;
-
-component AFE_DataPath is
-port (
-	Clk_80MHz			: in std_logic; 
-	SysClk				: in std_logic; -- 160 MHz
--- Data output from the deserializer for AFE0 and AFE1 synchronized to 80 MHz clock
-	din_AFE0			: in Array_8x14; 
-	din_AFE1			: in Array_8x14;
--- Microcontroller strobes
-	CpldRst				: in std_logic;
-	CpldCS				: in std_logic;
-	uCRd				: in std_logic;
-	uCWr 				: in std_logic;		
--- Microcontroller data and address buses	
-	uCA 				: in std_logic_vector(11 downto 0);
-	uCD 				: inout std_logic_vector(15 downto 0);
--- Geographic address pins
-	GA 					: in std_logic_vector(1 downto 0)	
-	);
-end component;	
+-- component AFE_Interface
+-- port(
+-- 	-- AFE Input clocks
+-- 	AFE0Clk_P, AFE0Clk_N    : out std_logic; -- Copy of 80MHz master clock sent to AFE chips
+-- 	AFE1Clk_P, AFE1Clk_N    : out std_logic;
+-- 	-- AFE Data lines
+-- 	AFE0Dat_P, AFE0Dat_N    : in std_logic_vector(7 downto 0); -- LVDS pairs from an AFE chip (8 channels)
+-- 	AFE1Dat_P, AFE1Dat_N    : in std_logic_vector(7 downto 0);
+-- 	-- AFE clock, framing lines
+-- 	AFEDCLK_P, AFEDCLK_N    : in std_logic_vector(1 downto 0); -- Unused in this design 
+-- 	AFE0FCLK_P, AFE0FCLK_N  : in std_logic; -- LVDS pairs of the Frame Clock
+-- 	AFE1FCLK_P, AFE1FCLK_N  : in std_logic; -- LVDS pairs of the Frame Clock
+-- 	-- AFE serial control lines
+-- 	AFEPDn 				    : buffer std_logic_vector(1 downto 0);
+-- 	AFECS 				    : buffer std_logic_vector(1 downto 0);
+-- 	AFERst 				    : buffer std_logic;
+-- 	AFESClk, AFESDI  	    : buffer std_logic;
+-- 	AFESDO 				    : in std_logic;
+-- 						    
+--     -- FPGA interface       
+--     Clk_80MHz			    : in  std_logic; 	-- Master clock 80MHz
+--     Clk_560MHz			    : in  std_logic; 	-- 7 x Master clock = 560MHz
+--     Clk_200MHz			    : in  std_logic; 	-- 200 MHz refclk for the IDELAY2
+--     reset				    : in  std_logic;
+--     done				    : out std_logic_vector(1 downto 0); -- status of automatic alignment FSM
+--     warn				    : out std_logic_vector(1 downto 0); -- pulse to indicate an error was seen in the FCLK pattern
+--     dout_afe0				: out Array_8x14; -- data synchronized to clock
+--     dout_afe1				: out Array_8x14  -- data synchronized to clock
+-- 	
+-- );
+-- end component;
+-- 
+-- component AFE_DataPath is
+-- Port (
+-- 	Clk_80MHz			: in std_logic; 
+-- 	SysClk				: in std_logic; -- 160 MHz
+-- 	TrigReq				: in std_logic;
+-- -- Data output from the deserializer for AFE0 and AFE1 synchronized to 80 MHz clock
+-- 	din_AFE0			: in Array_8x14; 
+-- 	din_AFE1			: in Array_8x14;
+-- 	done				: in std_logic_vector(1 downto 0); -- status of automatic alignment FSM
+-- -- Microcontroller strobes
+-- 	CpldRst				: in std_logic;
+-- 	CpldCS				: in std_logic;
+-- 	uCRd				: in std_logic;
+-- 	uCWr 				: in std_logic;		
+-- -- Microcontroller data and address buses	
+-- 	uCA 				: in std_logic_vector(11 downto 0);
+-- 	uCD 				: inout std_logic_vector(15 downto 0);
+-- -- Geographic address pins
+-- 	GA 					: in std_logic_vector(1 downto 0)	
+-- 	);
+-- end component;	
 
 constant sclk_period:   time := 5.0ns;   -- 200 MHz
 constant sysclk_period: time := 6.25ns;  -- 160 MHz
@@ -89,6 +91,7 @@ signal afe0_p, afe0_n		  : std_logic_vector(8 downto 0);
 signal afe1_p, afe1_n		  : std_logic_vector(8 downto 0); 
 signal dout_AFE0		      : Array_8x14; 
 signal dout_AFE1		      : Array_8x14; 
+signal done					  : std_logic_vector(1 downto 0);
 
 signal AFEDCLK_P, AFEDCLK_N   : std_logic_vector(1 downto 0); 
 signal AFEPDn 				  : std_logic_vector(1 downto 0);
@@ -104,17 +107,20 @@ signal uCWr 				  : std_logic;
 signal uCA 	  				  : std_logic_vector(11 downto 0);
 signal uCD 	  				  : std_logic_vector(15 downto 0);
 signal GA 					  : std_logic_vector(1 downto 0);
-
+signal TrigReq				  : std_logic;
 
 begin
 
+--make the reset
 reset <= '1', '0' after 96ns;
+CpldRst <= '0', '1' after 96ns;
 
--- make tha clocks
-
+-- make the clocks
 sclk <= not sclk after sclk_period/2;
 sysclk <= not sysclk after sysclk_period/2;
 aclk <= not aclk after aclk_period/2; 
+
+GA <= "00";
 
 fastclk_proc: process
 begin
@@ -180,6 +186,7 @@ port map(
     Clk_560MHz  => aclk7x,
     Clk_200MHz  => sclk,
     reset       => reset,
+	done        => done,
 	dout_afe0	=> dout_AFE0,				  
 	dout_afe1	=> dout_AFE1
   );
@@ -189,9 +196,11 @@ AFE_DataPath_inst: AFE_DataPath
 port map(
 	Clk_80MHz			=> aclk,
 	SysClk				=> sysclk, -- 160 MHz
-
+	TrigReq				=> TrigReq,
+	
 	din_AFE0			=> dout_AFE0, 
 	din_AFE1			=> dout_AFE1,
+	done 				=> done,
 	CpldRst				=> CpldRst,	
 	CpldCS				=> CpldCS,	
 	uCRd				=> uCRd,	

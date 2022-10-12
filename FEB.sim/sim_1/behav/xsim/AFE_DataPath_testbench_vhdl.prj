@@ -1,16 +1,12 @@
 # compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../FEB.srcs/sim_1/new/AFE5807.vhd" \
-
 vhdl work  \
+"../../../../FEB.srcs/sim_1/new/AFE5807.vhd" \
 "../../../../FEB.srcs/sources_1/new/Proj_Def.vhd" \
 "../../../../FEB.srcs/sources_1/new/AFE_DataPath.vhd" \
 "../../../../FEB.srcs/sources_1/new/AFE_Interface.vhd" \
 "../../../../FEB.srcs/sources_1/new/Auto_AFE.vhd" \
 "../../../../FEB.srcs/sources_1/new/auto_FSM.vhd" \
 "../../../../FEB.srcs/sources_1/new/febit.vhd" \
-
-vhdl xil_defaultlib  \
 "../../../../FEB.srcs/sim_1/new/AFE_DataPath_Testbench.vhd" \
 
 # Do not sort compile order

@@ -96,7 +96,7 @@ read_vhdl -library work {
   C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd
   C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd
 }
-read_ip -quiet c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/DPRAM_1Kx16_1/DPRAM_1Kx16.xci
+read_ip -quiet C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/DPRAM_1Kx16_1/DPRAM_1Kx16.xci
 set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16_ooc.xdc]
 
 OPTRACE "Adding files" END { }

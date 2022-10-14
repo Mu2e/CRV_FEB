@@ -45,18 +45,17 @@ end Phase_Detector;
 
 architecture Behavioral of Phase_Detector is
 
-begin
-
 -- Signals used by the phase detector
-signal TxEn,FMTxBuff_wreq,FMTxBuff_empty,FMTxBuff_full,BeamOn : std_logic;
 signal SqWav				: std_logic;
 signal PhDtct				: std_logic;
 signal FBDiv 				: std_logic_vector(2 downto 0);
-signal TxOuts 				: TxOutRec;
+
 -- Chip dependent drive
 signal RefIn				: std_logic;
 signal GPI0					: std_logic;
 
+
+begin
 
 -- IBUFDS: Differential Input Buffer
 GPI0DiffIn : IBUFDS
@@ -84,7 +83,7 @@ begin
 	
 elsif falling_edge(SysClk) then
 
- SqWav <= FBDiv(2);
+ SqWav <= FBDiv(2); -- 20 MHz (160 Mhz/8)
  FBDiv <= FBDiv + 1;
 
 end if; -- CpldRst

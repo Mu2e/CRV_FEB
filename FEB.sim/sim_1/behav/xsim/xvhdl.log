@@ -1,15 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sim_1/new/AFE5807.vhd" into library work
-INFO: [VRFC 10-3107] analyzing entity 'AFE5807'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd" into library work
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd" into library work
-INFO: [VRFC 10-3107] analyzing entity 'AFE_DataPath'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd" into library work
-INFO: [VRFC 10-3107] analyzing entity 'AFE_Interface'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd" into library work
-INFO: [VRFC 10-3107] analyzing entity 'Auto_AFE'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/auto_FSM.vhd" into library work
-INFO: [VRFC 10-3107] analyzing entity 'auto_FSM'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd" into library work
-INFO: [VRFC 10-3107] analyzing entity 'febit'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sim_1/new/AFE_DataPath_Testbench.vhd" into library work
-INFO: [VRFC 10-3107] analyzing entity 'AFE_DataPath_testbench'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sim_1/new/Phase_Detector_testbench.vhd" into library work
+INFO: [VRFC 10-3107] analyzing entity 'Phase_Detector_testbench'

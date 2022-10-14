@@ -4,8 +4,40 @@ Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-ERROR: [VRFC 10-3032] 'work.afe_interface' failed to restore
-ERROR: [VRFC 10-3032] 'work.afe_interface' failed to restore
-ERROR: [VRFC 10-3032] 'work.afe_interface' failed to restore
-WARNING: [VRFC 10-4940] 'afe_interface' remains a black box since it has no binding entity [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sim_1/new/AFE_DataPath_Testbench.vhd:159]
-ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package work.proj_def
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling package vl.vl_types
+Compiling module work.glbl
+Compiling architecture obufds_v of entity unisim.OBUFDS [\OBUFDS(slew="FAST")(1,9)(1,7)(1...]
+Compiling architecture ibufds_v of entity unisim.IBUFDS [\IBUFDS(1,9)(1,5)(1,1)(1,4)(1,7)...]
+Compiling architecture afe5807_arch of entity work.AFE5807 [afe5807_default]
+Compiling architecture obufds_v of entity unisim.OBUFDS [\OBUFDS(iostandard="LVDS")(1,9)(...]
+Compiling architecture idelayctrl_v of entity unisim.IDELAYCTRL [\IDELAYCTRL(1,7)\]
+Compiling architecture ibufds_v of entity unisim.IBUFDS [\IBUFDS(diff_term=true,ibuf_low_...]
+Compiling architecture idelaye2_v of entity unisim.IDELAYE2 [\IDELAYE2(high_performance_mode=...]
+Compiling architecture iserdese2_v of entity unisim.ISERDESE2 [\ISERDESE2(data_width=14,interfa...]
+Compiling architecture iserdese2_v of entity unisim.ISERDESE2 [\ISERDESE2(data_width=14,interfa...]
+Compiling architecture febit_arch of entity work.febit [febit_default]
+Compiling architecture auto_fsm_arch of entity work.auto_FSM [auto_fsm_default]
+Compiling architecture auto_afe_arch of entity work.Auto_AFE [auto_afe_default]
+Compiling architecture afe_interface_architecture of entity work.AFE_Interface [afe_interface_default]
+Compiling module unisims_ver.GND
+Compiling module unisims_ver.RB18_INTERNAL_VLOG(DOA_REG=1,DOB...
+Compiling module unisims_ver.RAMB18E1(DOA_REG=1,DOB_REG=1,REA...
+Compiling module xil_defaultlib.DPRAM_1Kx16
+Compiling architecture behavioral of entity work.AFE_DataPath [afe_datapath_default]
+Compiling architecture afe_datapath_testbench_arch of entity work.afe_datapath_testbench
+Built simulation snapshot AFE_DataPath_testbench_behav

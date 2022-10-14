@@ -3,3 +3,4 @@
 *.cache
 vivado*.jou
 *.ip_user_files
+lib

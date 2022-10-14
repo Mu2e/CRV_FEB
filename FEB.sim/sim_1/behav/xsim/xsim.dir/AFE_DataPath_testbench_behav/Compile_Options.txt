@@ -1,1 +1,1 @@
---incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "work" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "AFE_DataPath_testbench_behav" "xil_defaultlib.AFE_DataPath_testbench" "xil_defaultlib.glbl" -log "elaborate.log" 
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "work" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "AFE_DataPath_testbench_behav" "work.AFE_DataPath_testbench" "work.glbl" -log "elaborate.log" 

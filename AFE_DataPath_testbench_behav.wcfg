@@ -12,13 +12,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="609.500001 us"></ZoomEndTime>
-      <Cursor1Time time="83.950850 us"></Cursor1Time>
+      <ZoomStartTime time="83,807.050 ns"></ZoomStartTime>
+      <ZoomEndTime time="83,929.351 ns"></ZoomEndTime>
+      <Cursor1Time time="83,881.250 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="174"></NameColumnWidth>
-      <ValueColumnWidth column_width="208"></ValueColumnWidth>
+      <ValueColumnWidth column_width="204"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="21" />
    <wvobject fp_name="/AFE_DataPath_testbench/AFE_Interface_inst/done" type="array">

@@ -47,15 +47,18 @@ port(
 	AFESClk, AFESDI  	    : buffer std_logic;
 	AFESDO 				    : in std_logic;
 	-- Microcontroller strobes
-	CpldRst				: in std_logic;
-	CpldCS				: in std_logic;
-	uCRd				: in std_logic;
-	uCWr 				: in std_logic;
+	CpldRst					: in std_logic;
+	CpldCS					: in std_logic;
+	uCRd					: in std_logic;
+	uCWr 					: in std_logic;
 	-- Microcontroller data and address buses
-	uCA 				: in std_logic_vector(11 downto 0);
-	uCD 				: inout std_logic_vector(15 downto 0);
+	uCA 					: in std_logic_vector(11 downto 0);
+	uCD 					: inout std_logic_vector(15 downto 0);
 	-- Geographic address pins
-	GA 					: in std_logic_vector(1 downto 0)
+	GA 						: in std_logic_vector(1 downto 0);
+	-- Chip dependent I/O functions
+	A7,LVDSTX 				: buffer std_logic;
+	GPI0_N,GPI0_P,GPI1  	: in std_logic
   );
 end FEB;
 

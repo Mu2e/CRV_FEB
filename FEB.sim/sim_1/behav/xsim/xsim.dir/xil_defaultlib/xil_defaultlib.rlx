@@ -2,8 +2,7 @@
 2020.2
 Oct 19 2021
 03:16:22
-C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16_sim_netlist.v,1665416998,verilog,,,,DPRAM_1Kx16;DPRAM_1Kx16_blk_mem_gen_generic_cstr;DPRAM_1Kx16_blk_mem_gen_prim_width;DPRAM_1Kx16_blk_mem_gen_prim_wrapper;DPRAM_1Kx16_blk_mem_gen_top;DPRAM_1Kx16_blk_mem_gen_v8_4_5;DPRAM_1Kx16_blk_mem_gen_v8_4_5_synth,,,,,,,,
-C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.sim/sim_1/behav/xsim/glbl.v,1634335545,verilog,,,,glbl,,,,,,,,
+C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16_sim_netlist.v,1665671065,verilog,,,,DPRAM_1Kx16;DPRAM_1Kx16_blk_mem_gen_generic_cstr;DPRAM_1Kx16_blk_mem_gen_prim_width;DPRAM_1Kx16_blk_mem_gen_prim_wrapper;DPRAM_1Kx16_blk_mem_gen_top;DPRAM_1Kx16_blk_mem_gen_v8_4_5;DPRAM_1Kx16_blk_mem_gen_v8_4_5_synth;glbl,,,,,,,,
 C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sim_1/new/AFE5807.vhd,1665434713,vhdl,,,,afe5807,,,,,,,,
 C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sim_1/new/AFE_DataPath_Testbench.vhd,1665588204,vhdl,,,,afe_datapath_testbench,,,,,,,,
 C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sim_1/new/AFE_Interface_Testbench.vhd,1665434759,vhdl,,,,afe_interface_testbench,,,,,,,,

@@ -41,6 +41,7 @@ package Proj_Def is
 	Type Array_2x10 is Array(0 to 1) of std_logic_vector(9 downto 0); 
 	Type Array_2x11 is Array(0 to 1) of std_logic_vector(10 downto 0); 
 	Type Array_2x12 is Array(0 to 1) of std_logic_vector(11 downto 0);
+	Type Array_2x14 is Array(0 to 1) of std_logic_vector(13 downto 0);
 	Type Array_2x16 is Array(0 to 1) of std_logic_vector(15 downto 0); 
 	Type Array_2x32 is Array(0 to 1) of std_logic_vector(31 downto 0); 
 	
@@ -76,7 +77,39 @@ package Proj_Def is
 	constant ChanArray : PtrArrayType := (X"0",X"1",X"2",X"3",X"4",X"5",X"6",X"7",
 										  X"8",X"9",X"A",X"B",X"C",X"D",X"E",X"F");
 
+----------------------------- Type Defs -------------------------------
+-- Inter-module link FM serializer and deserializer type declarations
 
+	Type TxOutRec is record
+		FM,Done : std_logic;
+		end record;
+
+	Type RxInRec is record
+		FM,Clr_Err : std_logic;
+	end record;
+
+	Type RxOutRec is record
+		Done,Parity_Err : std_logic;
+	end record;
+	
+-- TClk FM serializer and deserializer type declarations
+	Type TClkTxInRec is record
+			En : std_logic;
+			Data : std_logic_vector(7 downto 0);
+	end record;
+	
+	Type TClkTxOutRec is record
+			FM,Done : std_logic;
+		end record;
+	
+	Type TClkRxInRec is record
+			FM,Clr_Err : std_logic;
+	end record;
+	
+	Type  TClkRxOutRec is record
+			Done,Parity_Err : std_logic;
+			Data : std_logic_vector(7 downto 0);
+	end record;
 ----------------------- Address list -----------------------------
 
 Subtype AddrPtr is std_logic_vector(9 downto 0);
@@ -279,7 +312,8 @@ constant BrdCstAlgnReqAd : AddrPtr := "11" & X"19";
 		done				    : out std_logic_vector(1 downto 0); -- status of automatic alignment FSM
 		warn				    : out std_logic_vector(1 downto 0); -- pulse to indicate an error was seen in the FCLK pattern
 		dout_afe0				: out Array_8x14; -- data synchronized to clock
-		dout_afe1				: out Array_8x14  -- data synchronized to clock  
+		dout_AFE1				: out Array_8x14 -- data synchronized to clock
+
 	);
 	end component;
 
@@ -292,6 +326,8 @@ constant BrdCstAlgnReqAd : AddrPtr := "11" & X"19";
 		din_AFE0			: in Array_8x14; 
 		din_AFE1			: in Array_8x14;
 		done				: in std_logic_vector(1 downto 0); -- status of automatic alignment FSM
+	-- Pipeline signals
+		PipelineSet 		: in std_logic_vector (7 downto 0);	
 	-- Microcontroller strobes
 		CpldRst				: in std_logic;
 		CpldCS				: in std_logic;
@@ -305,6 +341,90 @@ constant BrdCstAlgnReqAd : AddrPtr := "11" & X"19";
 		);
 	end component;	
 	
+component AFE_Pipeline is
+  Port (
+	Clk_80MHz			: in std_logic; 
+-- Data output from the deserializer for AFE0 and AFE1 synchronized to 80 MHz clock
+    din_AFE0			: in Array_8x14; 
+    din_AFE1			: in Array_8x14;
+	dout_AFE0			: out Array_8x14; 
+    dout_AFE1			: out Array_8x14;
+    done				: in std_logic_vector(1 downto 0); -- status of automatic alignment FSM
+-- Pipeline signals
+	PipelineSet 		: in std_logic_vector (7 downto 0);	
+-- Microcontroller strobes
+	CpldRst				: in std_logic
+	);
+end component;
+	
+component Phase_Detector is
+port (
+	SysClk				    : in std_logic;   -- 160 Mhz
+	-- Microcontroller strobes
+	CpldRst					: in std_logic; 
+	-- Geographic address pins
+	GA 						: in std_logic_vector(1 downto 0);
+	-- Chip dependent I/O functions
+	A7		 				: buffer std_logic;
+	GPI0_N,GPI0_P			: in std_logic;
+	-- Trigger Logic
+	TrgSrc					: in std_logic;
+	GPO						: in std_logic
+);
+end component;
+
+component FM_Tx is
+generic (Pwidth : positive);
+port(
+	clock					: in std_logic;
+	reset					: in std_logic;
+	Enable 					: in std_logic;
+	Data 					: in std_logic_vector(Pwidth - 1 downto 0);
+	Tx_Out 					: buffer TxOutRec);
+end component;
+
+component FM_Rx is
+generic (Pwidth : positive);
+port (
+	SysClk					: in std_logic;
+	RxClk					: in std_logic;
+	reset 					: in std_logic;
+	Rx_In 					: in RxInRec;
+    Data 					: buffer std_logic_vector (Pwidth - 1 downto 0);
+    Rx_Out 					: buffer RxOutRec);
+end component;
+
+component Trigger is
+  Port (
+  	SysClk				: in std_logic; -- 160 MHz
+	ResetHi  			: in std_logic;
+	TrigReq				: out std_logic;
+-- Microcontroller strobes
+	CpldRst				: in std_logic;
+	CpldCS				: in std_logic;
+	uCRd				: in std_logic;
+	uCWr 				: in std_logic;
+-- Microcontroller data and address buses	
+	uCA 				: in std_logic_vector(11 downto 0);
+	uCD 				: inout std_logic_vector(15 downto 0);
+-- Geographic address pins
+	GA 					: in std_logic_vector(1 downto 0);
+-- Synchronous edge detectors of uC read and write strobes
+	uWRDL 				: in std_logic_vector(1 downto 0);
+-- LED/Flash Gate select line
+	PulseSel 			: buffer std_logic;
+-- LED pulser/Flash Gate
+	Pulse 				: out std_logic;
+	
+	GPI0 				: in std_logic
+	);
+end component;
+
+
+
+
+
+
 	
 -----------------------------------------------------------------------
 ------------------------ Xilinx IP Components -------------------------
@@ -322,4 +442,18 @@ constant BrdCstAlgnReqAd : AddrPtr := "11" & X"19";
 	);
 	end component;
 	
+	
+	component AFE_DP_Pipeline
+	port (
+    clka 					  : in std_logic;
+	wea 					  : in std_logic_vector(0 downto 0);
+    addra					  : in std_logic_vector(7 downto 0);
+    dina  					  : in std_logic_vector(111 downto 0);
+	clkb  					  : in std_logic;
+	addrb 					  : in std_logic_vector(7 downto 0);
+    doutb 					  : out std_logic_vector(111 downto 0)
+    );
+end component;
+
+
 end package;

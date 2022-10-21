@@ -1,7 +1,0 @@
-Running: xsim.dir/AFE_Interface_testbench_behav/xsimk.exe -simmode gui -wdb AFE_Interface_testbench_behav.wdb -simrunnum 0 -socket 62728
-Design successfully loaded
-Design Loading Memory Usage: 27472 KB (Peak: 27472 KB)
-Design Loading CPU Usage: 46 ms
-Simulation completed
-Simulation Memory Usage: 40216 KB (Peak: 40216 KB)
-Simulation CPU Usage: 38967 ms

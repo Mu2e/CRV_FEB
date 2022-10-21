@@ -54,8 +54,8 @@ port(
     done				    : out std_logic_vector(1 downto 0); -- status of automatic alignment FSM
     warn				    : out std_logic_vector(1 downto 0); -- pulse to indicate an error was seen in the FCLK pattern
     dout_AFE0				: out Array_8x14; -- data synchronized to clock
-    dout_AFE1				: out Array_8x14  -- data synchronized to clock
-						    	
+    dout_AFE1				: out Array_8x14 -- data synchronized to clock
+	
 	
   );
 end AFE_Interface;

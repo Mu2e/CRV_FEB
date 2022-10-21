@@ -1,8 +1,9 @@
 Vivado Simulator v2021.2
 Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L work -L secureip -L xpm --snapshot Phase_Detector_testbench_behav work.Phase_Detector_testbench -log elaborate.log 
+Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_5 -L work -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Pipeline_testbench_behav work.Pipeline_testbench work.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+Pass Through NonSizing Optimizer
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -10,12 +11,17 @@ Time Resolution for simulation is 1ps
 Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
 Compiling package ieee.numeric_std
 Compiling package unisim.vcomponents
 Compiling package work.proj_def
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling architecture ibufds_v of entity unisim.IBUFDS [\IBUFDS(diff_term=true,ibuf_low_...]
-Compiling architecture behavioral of entity work.Phase_Detector [phase_detector_default]
-Compiling architecture behavioral of entity work.phase_detector_testbench
-Built simulation snapshot Phase_Detector_testbench_behav
+Compiling package vl.vl_types
+Compiling module work.glbl
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5_output_stage(...
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5(C_FAMILY="spa...
+Compiling module xil_defaultlib.OLD_AFE_DP_Pipeline
+Compiling architecture pipeline_testbench_arch of entity work.pipeline_testbench
+Built simulation snapshot Pipeline_testbench_behav

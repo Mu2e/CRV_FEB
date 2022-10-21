@@ -58,7 +58,11 @@ port(
 	GA 						: in std_logic_vector(1 downto 0);
 	-- Chip dependent I/O functions
 	A7,LVDSTX 				: buffer std_logic;
-	GPI0_N,GPI0_P,GPI1  	: in std_logic
+	GPI0_N,GPI0_P,GPI1  	: in std_logic;
+	-- LED/Flash Gate select line
+	PulseSel 				: buffer std_logic;
+	-- LED pulser/Flash Gate
+	Pulse 					: out std_logic
   );
 end FEB;
 
@@ -69,11 +73,29 @@ signal done		              : std_logic_vector(1 downto 0);
 signal warn		              : std_logic_vector(1 downto 0); 
 signal dout_AFE0		      : Array_8x14; 
 signal dout_AFE1		      : Array_8x14;  
-
+signal PipelineSet 			  : std_logic_vector (7 downto 0) := X"04";
+signal ResetHi         		  : std_logic;
+signal uWRDL				  : std_logic_vector(1 downto 0);
 
 signal TrigReq		          : std_logic;
+signal TrgSrc		          : std_logic;
+signal GPO		          	  : std_logic;
+signal GPI0		          	  : std_logic;
 
 begin
+
+
+-- IBUFDS: Differential Input Buffer
+GPI0DiffIn : IBUFDS
+generic map (
+	DIFF_TERM 	 => TRUE, -- Differential Termination
+	IBUF_LOW_PWR => FALSE, -- Low power (TRUE) vs. performance (FALSE) setting for referenced I/O standards
+	IOSTANDARD   => "DEFAULT")
+port map (
+	I  => GPI0_P, -- Diff_p buffer input (connect directly to top-level port)
+	IB => GPI0_N, -- Diff_n buffer input (connect directly to top-level port)
+	O  => GPI0);	  -- Buffer output
+
 
 AFE_Interface_inst : AFE_Interface
 port map(
@@ -108,10 +130,11 @@ port map(
 	done			=> done,				  
 	warn			=> warn,				  
 	dout_AFE0		=> dout_AFE0,				  
-	dout_AFE1		=> dout_AFE1				  
-);
+	dout_AFE1		=> dout_AFE1
+	
+	);
 
-AFE_Buffer : AFE_DataPath
+AFE_DataPath_inst : AFE_DataPath
 port map (
 	Clk_80MHz	    => Clk_80MHz,		
 	SysClk			=> SysClk,
@@ -119,6 +142,7 @@ port map (
     din_AFE0		=> dout_AFE0,
     din_AFE1		=> dout_AFE1,
 	done 			=> done,
+	PipelineSet		=> PipelineSet,
 
 	CpldRst			=> CpldRst,	
 	CpldCS			=> CpldCS,
@@ -130,6 +154,37 @@ port map (
  			    
 	);
 
+Phase_Detector_inst: Phase_Detector
+port map(
+	SysClk 			=> SysClk,	-- 160 MHz			    
+	CpldRst			=> CpldRst,				
+	GA 				=> GA,				
+	A7		 		=> A7,			
+	GPI0_N			=> GPI0_N,
+	GPI0_P			=> GPI0_P,
+	TrgSrc			=> TrgSrc, 					
+	GPO				=> GPO
+);
+
+
+Trigger_logic: Trigger 
+port map(
+  	SysClk			=> SysClk, -- 160 MHz
+	ResetHi  		=> ResetHi,
+	TrigReq			=> TrigReq,
+	CpldRst			=> CpldRst,	
+	CpldCS			=> CpldCS,
+	uCRd			=> uCRd,
+	uCWr 			=> uCWr, 	
+	uCA 			=> uCA,
+	uCD 			=> uCD,
+	GA 				=> GA, 
+	uWRDL 			=> uWRDL,
+	PulseSel 		=> PulseSel,
+	Pulse 			=> Pulse, 
+	
+	GPI0 			=> GPI0 
+);
 
 
 end behavioural;

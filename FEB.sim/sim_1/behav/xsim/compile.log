@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sim_1/new/Phase_Detector_testbench.vhd" into library work
-INFO: [VRFC 10-3107] analyzing entity 'Phase_Detector_testbench'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sim_1/new/Pipeline.vhd" into library work
+INFO: [VRFC 10-3107] analyzing entity 'Pipeline_testbench'

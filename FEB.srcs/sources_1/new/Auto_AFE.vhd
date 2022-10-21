@@ -79,7 +79,8 @@ begin
         cntvalue => cntvalue,
         q => fclk_patt
     );
-
+	
+	
     genfebit: for i in 7 downto 0 generate
         dfebit_inst: febit
         port map(

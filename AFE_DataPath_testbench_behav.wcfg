@@ -12,82 +12,83 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="83,807.050 ns"></ZoomStartTime>
-      <ZoomEndTime time="83,929.351 ns"></ZoomEndTime>
-      <Cursor1Time time="83,881.250 ns"></Cursor1Time>
+      <ZoomStartTime time="61,822.847 ns"></ZoomStartTime>
+      <ZoomEndTime time="61,856.498 ns"></ZoomEndTime>
+      <Cursor1Time time="61,846.997 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="174"></NameColumnWidth>
-      <ValueColumnWidth column_width="204"></ValueColumnWidth>
+      <ValueColumnWidth column_width="184"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="21" />
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_Interface_inst/done" type="array">
-      <obj_property name="ElementShortName">done[1:0]</obj_property>
-      <obj_property name="ObjectShortName">done[1:0]</obj_property>
+   <WVObjectSize size="22" />
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/Clk_80MHz" type="logic">
+      <obj_property name="ElementShortName">Clk_80MHz</obj_property>
+      <obj_property name="ObjectShortName">Clk_80MHz</obj_property>
    </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_Interface_inst/dout_AFE0[7]" type="array">
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/CpldRst" type="logic">
+      <obj_property name="ElementShortName">CpldRst</obj_property>
+      <obj_property name="ObjectShortName">CpldRst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/done[0]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0]</obj_property>
+      <obj_property name="ObjectShortName">[0]</obj_property>
+      <obj_property name="label">Done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/din_AFE0[7]" type="array">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[7][13:0]</obj_property>
       <obj_property name="ObjectShortName">[7][13:0]</obj_property>
-      <obj_property name="label">dout_AFE</obj_property>
+      <obj_property name="label">Din</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/din_AFE0[7]" type="array">
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/dout_AFE1[7]" type="array">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[7][13:0]</obj_property>
       <obj_property name="ObjectShortName">[7][13:0]</obj_property>
-      <obj_property name="label">din_AFE</obj_property>
+      <obj_property name="label">Dout</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider134">
-      <obj_property name="label">DPRAM_7</obj_property>
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/CpldRst" type="logic">
+      <obj_property name="ElementShortName">CpldRst</obj_property>
+      <obj_property name="ObjectShortName">CpldRst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/din_AFE[0][7]" type="array">
       <obj_property name="DisplayName">label</obj_property>
-   </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFEBuff/addra" type="array">
-      <obj_property name="ElementShortName">addra[9:0]</obj_property>
-      <obj_property name="ObjectShortName">addra[9:0]</obj_property>
+      <obj_property name="ElementShortName">[7][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+      <obj_property name="label">Din</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFEBuff/clka" type="logic">
-      <obj_property name="ElementShortName">clka</obj_property>
-      <obj_property name="ObjectShortName">clka</obj_property>
-   </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFEBuff/dina" type="array">
-      <obj_property name="ElementShortName">dina[15:0]</obj_property>
-      <obj_property name="ObjectShortName">dina[15:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFEBuff/wea" type="array">
-      <obj_property name="ElementShortName">wea[0:0]</obj_property>
-      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
-   </wvobject>
-   <wvobject type="divider" fp_name="divider167">
-      <obj_property name="label">DATAPATH</obj_property>
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/dout_AFE[0][7]" type="array">
       <obj_property name="DisplayName">label</obj_property>
-   </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/BufferIn[0][7]" type="array">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[7][15:0]</obj_property>
-      <obj_property name="ObjectShortName">[7][15:0]</obj_property>
-      <obj_property name="label">BufferIn</obj_property>
+      <obj_property name="ElementShortName">[7][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+      <obj_property name="label">Dout</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/PipelineWrtAdd[0]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][7:0]</obj_property>
+      <obj_property name="label">WrtAddr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/PipelineRdAdd[0]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][7:0]</obj_property>
+      <obj_property name="label">RdAddr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/PipelineWrtEn" type="array">
+      <obj_property name="ElementShortName">PipelineWrtEn[1:0]</obj_property>
+      <obj_property name="ObjectShortName">PipelineWrtEn[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/Input_Seqs[0][7]" type="other">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[7]</obj_property>
       <obj_property name="ObjectShortName">[7]</obj_property>
-      <obj_property name="label">Input_Seqs</obj_property>
-   </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/TrigReq" type="logic">
-      <obj_property name="ElementShortName">TrigReq</obj_property>
-      <obj_property name="ObjectShortName">TrigReq</obj_property>
-   </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/GateWidth[0]" type="array">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">[0][11:0]</obj_property>
-      <obj_property name="label">GateWidth</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="label">InpuitSeq</obj_property>
    </wvobject>
    <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/GateReq[0]" type="logic">
       <obj_property name="DisplayName">label</obj_property>
@@ -95,48 +96,55 @@
       <obj_property name="ObjectShortName">[0]</obj_property>
       <obj_property name="label">GateReq</obj_property>
    </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/BufferWE[0][7]" type="logic">
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/GateWidth[0]" type="array">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[7]</obj_property>
-      <obj_property name="ObjectShortName">[7]</obj_property>
-      <obj_property name="label">BufferWE</obj_property>
+      <obj_property name="ElementShortName">[0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][11:0]</obj_property>
+      <obj_property name="label">GateWidth</obj_property>
    </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/WrtCrrntWdCntAd[0][7]" type="array">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[7][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[7][9:0]</obj_property>
-      <obj_property name="label">WrtCrrntWdCntAd</obj_property>
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/TrigReq" type="logic">
+      <obj_property name="ElementShortName">TrigReq</obj_property>
+      <obj_property name="ObjectShortName">TrigReq</obj_property>
    </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/BufferWrtAdd[0][7]" type="array">
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/BeamOn" type="logic">
+      <obj_property name="ElementShortName">BeamOn</obj_property>
+      <obj_property name="ObjectShortName">BeamOn</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider80">
+      <obj_property name="label">Trigger Logic</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[7][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[7][9:0]</obj_property>
-      <obj_property name="label">BufferWrtAdd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/Diff_Reg[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+      <obj_property name="label">Diff_Reg</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/InWdCnt[0][7]" type="array">
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/din_AFE0[7]" type="array">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[7][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[7][9:0]</obj_property>
-      <obj_property name="label">InWdCnt</obj_property>
+      <obj_property name="ElementShortName">[7][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+      <obj_property name="label">Din_AFE</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/ADCSmplCntr[0][7]" type="array">
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/Ped_Reg[0][7]" type="array">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[7][3:0]</obj_property>
-      <obj_property name="ObjectShortName">[7][3:0]</obj_property>
-      <obj_property name="label">ADCSmplCntr</obj_property>
+      <obj_property name="ElementShortName">[7][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+      <obj_property name="label">Ped_Reg</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/ADCSmplCntReg" type="array">
-      <obj_property name="ElementShortName">ADCSmplCntReg[3:0]</obj_property>
-      <obj_property name="ObjectShortName">ADCSmplCntReg[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/WrtNxtWdCntAd[0][7]" type="array">
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/SlfTrgEdge[0][7][0]" type="logic">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[7][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[7][9:0]</obj_property>
-      <obj_property name="label">WrtNxtWdCntAd</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">[0]</obj_property>
+      <obj_property name="ObjectShortName">[0]</obj_property>
+      <obj_property name="label">SlfTrgEdge</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_testbench/AFE_DataPath_inst/IntTrgThresh[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+      <obj_property name="label">IntTrgThresh</obj_property>
    </wvobject>
 </wave_config>

@@ -36,6 +36,7 @@ package Proj_Def is
 	Type Array_2x4 is Array(0 to 1) of std_logic_vector(3 downto 0);
 	Type Array_2x5 is Array(0 to 1) of std_logic_vector(4 downto 0);
 	Type Array_2x6 is Array(0 to 1) of std_logic_vector(5 downto 0);
+	Type Array_2x7 is Array(0 to 1) of std_logic_vector(6 downto 0);
 	Type Array_2x8 is Array(0 to 1) of std_logic_vector(7 downto 0);
 	Type Array_2x9 is Array(0 to 1) of std_logic_vector(8 downto 0);
 	Type Array_2x10 is Array(0 to 1) of std_logic_vector(9 downto 0); 
@@ -67,9 +68,11 @@ package Proj_Def is
 	-- Signed arrays
 	Type Arrays_3x12 is Array(0 to 2) of signed(11 downto 0);
 	Type Arrays_8x12 is Array(0 to 7) of signed(11 downto 0);
+	Type Arrays_8x14 is Array(0 to 7) of signed(13 downto 0);
 	Type Arrays_8x16 is Array(0 to 7) of signed(15 downto 0);
 	Type Arrays_2x3x12 is Array(0 to 1) of Arrays_3x12;
 	Type Arrays_8x2x12 is Array(0 to 1) of Arrays_8x12;
+	Type Arrays_8x2x14 is Array(0 to 1) of Arrays_8x14;
 	Type Arrays_8x2x16 is Array(0 to 1) of Arrays_8x16;
 
 
@@ -285,61 +288,64 @@ constant BrdCstAlgnReqAd : AddrPtr := "11" & X"19";
 
 
 
-	component AFE_Interface
-	port(
-		-- AFE Input clocks
-		AFE0Clk_P, AFE0Clk_N    : out std_logic; -- Copy of 80MHz master clock sent to AFE chips
-		AFE1Clk_P, AFE1Clk_N    : out std_logic;
-		-- AFE Data lines
-		AFE0Dat_P, AFE0Dat_N    : in std_logic_vector(7 downto 0); -- LVDS pairs from an AFE chip (8 channels)
-		AFE1Dat_P, AFE1Dat_N    : in std_logic_vector(7 downto 0);
-		-- AFE clock, framing lines
-		AFEDCLK_P, AFEDCLK_N    : in std_logic_vector(1 downto 0); -- Unused in this design 
-		AFE0FCLK_P, AFE0FCLK_N  : in std_logic; -- LVDS pairs of the Frame Clock
-		AFE1FCLK_P, AFE1FCLK_N  : in std_logic; -- LVDS pairs of the Frame Clock
-		-- AFE serial control lines
-		AFEPDn 				    : buffer std_logic_vector(1 downto 0);
-		AFECS 				    : buffer std_logic_vector(1 downto 0);
-		AFERst 				    : buffer std_logic;
-		AFESClk, AFESDI  	    : buffer std_logic;
-		AFESDO 				    : in std_logic;
-								
-		-- FPGA interface       
-		Clk_80MHz			    : in  std_logic; 	-- Master clock 80MHz
-		Clk_560MHz			    : in  std_logic; 	-- 7 x Master clock = 560MHz
-		Clk_200MHz			    : in  std_logic; 	-- 200 MHz refclk for the IDELAY2
-		reset				    : in  std_logic;
-		done				    : out std_logic_vector(1 downto 0); -- status of automatic alignment FSM
-		warn				    : out std_logic_vector(1 downto 0); -- pulse to indicate an error was seen in the FCLK pattern
-		dout_afe0				: out Array_8x14; -- data synchronized to clock
-		dout_AFE1				: out Array_8x14 -- data synchronized to clock
+component AFE_Interface
+port(
+	-- AFE Input clocks
+	AFE0Clk_P, AFE0Clk_N    : out std_logic; -- Copy of 80MHz master clock sent to AFE chips
+	AFE1Clk_P, AFE1Clk_N    : out std_logic;
+	-- AFE Data lines
+	AFE0Dat_P, AFE0Dat_N    : in std_logic_vector(7 downto 0); -- LVDS pairs from an AFE chip (8 channels)
+	AFE1Dat_P, AFE1Dat_N    : in std_logic_vector(7 downto 0);
+	-- AFE clock, framing lines
+	AFEDCLK_P, AFEDCLK_N    : in std_logic_vector(1 downto 0); -- Unused in this design 
+	AFE0FCLK_P, AFE0FCLK_N  : in std_logic; -- LVDS pairs of the Frame Clock
+	AFE1FCLK_P, AFE1FCLK_N  : in std_logic; -- LVDS pairs of the Frame Clock
+	-- AFE serial control lines
+	AFEPDn 				    : buffer std_logic_vector(1 downto 0);
+	AFECS 				    : buffer std_logic_vector(1 downto 0);
+	AFERst 				    : buffer std_logic;
+	AFESClk, AFESDI  	    : buffer std_logic;
+	AFESDO 				    : in std_logic;
+							
+	-- FPGA interface       
+	Clk_80MHz			    : in  std_logic; 	-- Master clock 80MHz
+	Clk_560MHz			    : in  std_logic; 	-- 7 x Master clock = 560MHz
+	Clk_200MHz			    : in  std_logic; 	-- 200 MHz refclk for the IDELAY2
+	reset				    : in  std_logic;
+	done				    : out std_logic_vector(1 downto 0); -- status of automatic alignment FSM
+	warn				    : out std_logic_vector(1 downto 0); -- pulse to indicate an error was seen in the FCLK pattern
+	dout_afe0				: out Array_8x14; -- data synchronized to clock
+	dout_AFE1				: out Array_8x14 -- data synchronized to clock
 
+);
+end component;
+
+component AFE_DataPath is
+  Port (
+	Clk_80MHz			: in std_logic; 
+	SysClk				: in std_logic; -- 160 MHz
+	ResetHi				: in std_logic;
+-- Signals from Trigger Logic
+	TrigReq				: in std_logic;
+	BeamOn				: in std_logic;
+-- Data output from the deserializer for AFE0 and AFE1 synchronized to 80 MHz clock
+    din_AFE0			: in Array_8x14; 
+    din_AFE1			: in Array_8x14;
+    done				: in std_logic_vector(1 downto 0); -- status of automatic alignment FSM
+-- Pipeline signals
+	PipelineSet 		: in std_logic_vector (7 downto 0);	
+-- Microcontroller strobes
+	CpldRst				: in std_logic;
+	CpldCS				: in std_logic;
+	uCRd				: in std_logic;
+	uCWr 				: in std_logic;
+-- Microcontroller data and address buses	
+	uCA 				: in std_logic_vector(11 downto 0);
+	uCD 				: inout std_logic_vector(15 downto 0);
+-- Geographic address pins
+	GA 					: in std_logic_vector(1 downto 0)
 	);
-	end component;
-
-	component AFE_DataPath is
-	Port (
-		Clk_80MHz			: in std_logic; 
-		SysClk				: in std_logic; -- 160 MHz
-		TrigReq				: in std_logic;
-	-- Data output from the deserializer for AFE0 and AFE1 synchronized to 80 MHz clock
-		din_AFE0			: in Array_8x14; 
-		din_AFE1			: in Array_8x14;
-		done				: in std_logic_vector(1 downto 0); -- status of automatic alignment FSM
-	-- Pipeline signals
-		PipelineSet 		: in std_logic_vector (7 downto 0);	
-	-- Microcontroller strobes
-		CpldRst				: in std_logic;
-		CpldCS				: in std_logic;
-		uCRd				: in std_logic;
-		uCWr 				: in std_logic;		
-	-- Microcontroller data and address buses	
-		uCA 				: in std_logic_vector(11 downto 0);
-		uCD 				: inout std_logic_vector(15 downto 0);
-	-- Geographic address pins
-		GA 					: in std_logic_vector(1 downto 0)	
-		);
-	end component;	
+end component;
 	
 component AFE_Pipeline is
   Port (
@@ -398,7 +404,9 @@ component Trigger is
   Port (
   	SysClk				: in std_logic; -- 160 MHz
 	ResetHi  			: in std_logic;
-	TrigReq				: out std_logic;
+-- Signals for other logic
+	TrigReq				: buffer std_logic;
+	BeamOn 				: buffer std_logic;
 -- Microcontroller strobes
 	CpldRst				: in std_logic;
 	CpldCS				: in std_logic;

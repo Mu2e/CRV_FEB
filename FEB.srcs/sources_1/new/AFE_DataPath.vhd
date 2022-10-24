@@ -37,6 +37,7 @@ entity AFE_DataPath is
   Port (
 	Clk_80MHz			: in std_logic; 
 	SysClk				: in std_logic; -- 160 MHz
+	ResetHi				: in std_logic;
 -- Signals from Trigger Logic
 	TrigReq				: in std_logic;
 	BeamOn				: in std_logic;
@@ -61,9 +62,7 @@ end AFE_DataPath;
 
 architecture Behavioral of AFE_DataPath is
 
-signal Clk100MHz		: std_logic;
 signal AsyncRst			: std_logic;
-signal FrDat			: std_logic_vector(6 downto 0);
 signal ADCSmplCntr 		: Array_2x8x4;
 
 signal din_AFE			: Array_2x8x14;   -- 2 AFE x 8 channels x 14 bits
@@ -112,13 +111,13 @@ signal NoHIts : Array_2x8;
 
 
 -- Self trigger signals
-signal Diff_Reg			: Arrays_8x2x12;
-signal Ped_Reg			: Arrays_8x2x12;
+signal Diff_Reg			: Arrays_8x2x14;
+signal Ped_Reg			: Arrays_8x2x14;
 signal Pad_Avg_Count 	: Array_2x5;
 signal Avg_Req 			: std_logic_vector(1 downto 0);
 signal Ped_Avg 			: Arrays_8x2x16;
 signal Avg_En 			: Array_2x8;
-
+signal IntTrgThresh 	: Arrays_8x2x14;
 
 begin
 
@@ -143,19 +142,6 @@ AsyncRst <= '1' when ResetHi = '1' or (uCWr = '0' and CpldCS = '0' and uCD(5) = 
 					 
 					 
 Gen_Two_AFEs : for i in 0 to 1 generate					 
-
-FRDat_generator : process (Clk_80MHz, CpldRst)
-begin
-  if CpldRst = '0' then 
-    FrDat(i) <= (others => '0');
-  elsif rising_edge (Clk_80MHz) then
-    FrDat(i) <= (others => '0');
-  elsif rising_edge (Clk_80MHz) then
-    FrDat(i) <= (others => '1');
-  end if;
-end process;
-
-
 Gen_Eight_Chans : for k in 0 to 7 generate
 
 AFEBuff : DPRAM_1Kx16
@@ -197,12 +183,14 @@ if CpldRst = '0' then
 	BeamOnLength 		  <= X"050"; 
 	BeamOffLength 		  <= X"700";	
 	SlfTrgEdge(i)(k) 	  <= "00";
-	Diff_Reg(i)(k) 		  <=  X"000";
-	Ped_Reg(i)(k) 		  <= X"000";
+	Diff_Reg(i)(k) 		  <= (others => '0');
+	Ped_Reg(i)(k) 		  <= (others => '0');
 	Pad_Avg_Count(i) 	  <= (others => '0');
 	Avg_Req(i) 			  <= '0';
 	Ped_Avg(i)(k) 		  <= (others => '0');
 	Avg_En(i)(k) 		  <= '0';
+	IntTrgThresh(i)(k) 	  <= "00000000001100"; -- X"00C"
+	
 	
 -- Simulation 	
 	ControllerNo		  <= "11010";
@@ -237,19 +225,18 @@ end if;
 ---------------------------------------------------------------------
 
 -- Subtract off the pedestal before applying the threshold
-if FRDat(i) = 0 
-then Diff_Reg(i)(k) <= signed(Ins(i)(k)) - Ped_Reg(i)(k);
-else Diff_Reg(i)(k) <= Diff_Reg(i)(k);
-end if;
+Diff_Reg(i)(k) <= signed(din_AFE(i)(k)) - Ped_Reg(i)(k);
+SlfTrgEdge(i)(k)(1) <= SlfTrgEdge(i)(k)(0);
 
 -- Pedestal registers
 if iWrtDL(i) = 1 and uCA(11 downto 10) = GA and uCA(9 downto 0) = PedRegAddr(i)(k)
-then Ped_Reg(i)(k) <= signed(uCD(11 downto 0));
-elsif FRDat(i) = 0 and Pad_Avg_Count(i) = 1 then Ped_Reg(i)(k) <= Ped_Avg(i)(k)(15 downto 4);
+then Ped_Reg(i)(k) <= "00" & signed(uCD(11 downto 0));
+elsif Pad_Avg_Count(i) = 1 
+then Ped_Reg(i)(k) <= Ped_Avg(i)(k)(15 downto 2);
 else Ped_Reg(i)(k) <= Ped_Reg(i)(k);
 end if;
 
-if FRDat(i) = 0 and Pad_Avg_Count(i) /= 0 
+if Pad_Avg_Count(i) /= 0 
 then Avg_En(i)(k) <= '1';
 elsif Pad_Avg_Count(i) = 0 
 then Avg_En(i)(k) <= '0';
@@ -259,29 +246,23 @@ end if;
 -- Pedestal averaging 
 if Avg_En(i)(k) = '0' 
 then Ped_Avg(i)(k) <= (others => '0');
-elsif FRDat(i) = 0 and Avg_En(i)(k) = '1'
-then Ped_Avg(i)(k) <= Ped_Avg(i)(k) + signed(Ins(i)(k));
+elsif Avg_En(i)(k) = '1'
+then Ped_Avg(i)(k) <= Ped_Avg(i)(k) + signed(din_AFE(i)(k));
 else Ped_Avg(i)(k) <= Ped_Avg(i)(k);
 end if;
 
 -- Self trigger threshold registers
 if iWrtDL(i) = 1 and uCA(11 downto 10) = GA and uCA(9 downto 0) = ThreshRegAddr(i)(k)
-then IntTrgThresh(i)(k) <= signed(uCD(11 downto 0));
+then IntTrgThresh(i)(k) <= "00" & signed(uCD(11 downto 0));
 else IntTrgThresh(i)(k) <= IntTrgThresh(i)(k);
 end if;
 
 -- Self trigger synchronous edge detector
-if FRDat(i) = 0 and ADCSmplGate(i) = '1' 
-	and Diff_Reg(i)(k) > IntTrgThresh(i)(k) 
+if ADCSmplGate(i) = '1' and Diff_Reg(i)(k) > IntTrgThresh(i)(k) 
 then SlfTrgEdge(i)(k)(0) <= '1';
-elsif FRDat(i) = 0 and Diff_Reg(i)(k) <= IntTrgThresh(i)(k)
+elsif Diff_Reg(i)(k) <= IntTrgThresh(i)(k)
 then SlfTrgEdge(i)(k)(0) <= '0';
 else SlfTrgEdge(i)(k)(0) <= SlfTrgEdge(i)(k)(0);
-end if;
-
-if FRDat(i) = 0 
-then SlfTrgEdge(i)(k)(1) <= SlfTrgEdge(i)(k)(0);
-else SlfTrgEdge(i)(k)(1) <= SlfTrgEdge(i)(k)(1);
 end if;
 
 ---------------------------------------------------------------------
@@ -299,18 +280,18 @@ end if;
 -- Synchronize the live gate counter with the frame signal
 if AsyncRst = '1' 
 then GateWidth(i) <= (others => '0');
-elsif GateWidth(i) = 0 and FRDat(i) = 0 and GateReq(i) = '1' and BeamOn = '1'
+elsif GateWidth(i) = 0 and GateReq(i) = '1' and BeamOn = '1'
 then GateWidth(i) <= BeamOnLength;
-elsif GateWidth(i) = 0 and FRDat(i) = 0 and GateReq(i) = '1' and BeamOn = '0'
+elsif GateWidth(i) = 0 and GateReq(i) = '1' and BeamOn = '0'
 then GateWidth(i) <= BeamOffLength;
- elsif GateWidth(i) /= 0 and FRDat(i) = 0 
+ elsif GateWidth(i) /= 0
 then GateWidth(i) <= GateWidth(i) - 1;
 else GateWidth(i) <= GateWidth(i);
 end if;
 
-if GateWidth(i) = 0 and FRDat(i) = 0 and GateReq(i) = '1'
+if GateWidth(i) = 0 and GateReq(i) = '1'
 then ADCSmplGate(i) <= '1';
-elsif AsyncRst = '1' or (GateWidth(i) = (X"000" & (ADCSmplCntReg + 2)) and FRDat(i) = 0)
+elsif AsyncRst = '1' or (GateWidth(i) = X"000" & (ADCSmplCntReg + 2))
 then ADCSmplGate(i) <= '0';
 else ADCSmplGate(i) <= ADCSmplGate(i);
 end if;

@@ -1,6 +1,6 @@
 Vivado Simulator v2021.2
 Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_5 -L work -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Pipeline_testbench_behav work.Pipeline_testbench work.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_5 -L work -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Trigger_testbench_behav work.Trigger_testbench work.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -11,17 +11,25 @@ Time Resolution for simulation is 1ps
 Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
 Compiling package ieee.numeric_std
 Compiling package unisim.vcomponents
 Compiling package work.proj_def
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
 Compiling package vl.vl_types
 Compiling module work.glbl
 Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5_output_stage(...
 Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5_softecc_outpu...
 Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5_mem_module(C_...
 Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5(C_FAMILY="spa...
-Compiling module xil_defaultlib.OLD_AFE_DP_Pipeline
-Compiling architecture pipeline_testbench_arch of entity work.pipeline_testbench
-Built simulation snapshot Pipeline_testbench_behav
+Compiling module xil_defaultlib.AFE_DP_Pipeline
+Compiling architecture behavioral of entity work.AFE_Pipeline [afe_pipeline_default]
+Compiling module unisims_ver.GND
+Compiling module unisims_ver.RB18_INTERNAL_VLOG(DOA_REG=1,DOB...
+Compiling module unisims_ver.RAMB18E1(DOA_REG=1,DOB_REG=1,REA...
+Compiling module xil_defaultlib.DPRAM_1Kx16
+Compiling architecture behavioral of entity work.AFE_DataPath [afe_datapath_default]
+Compiling architecture behavioural_rx of entity work.FM_Rx [\FM_Rx(pwidth=24)\]
+Compiling architecture trigger_arch of entity work.Trigger [trigger_default]
+Compiling architecture trigger_testbench_arch of entity work.trigger_testbench
+Built simulation snapshot Trigger_testbench_behav

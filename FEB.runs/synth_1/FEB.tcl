@@ -71,6 +71,8 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param simulator.modelsimInstallPath C:/intelFPGA/20.1/modelsim_ae/win32aloem
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7s50fgga484-2
 
@@ -96,14 +98,16 @@ read_vhdl -library work {
   C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/auto_FSM.vhd
   C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd
   C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd
+  C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd
+  C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd
 }
-read_ip -quiet c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/OLD_AFE_DP_Pipeline/OLD_AFE_DP_Pipeline.xci
+read_ip -quiet C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/OLD_AFE_DP_Pipeline/OLD_AFE_DP_Pipeline.xci
 set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/OLD_AFE_DP_Pipeline/OLD_AFE_DP_Pipeline_ooc.xdc]
 
 read_ip -quiet C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/DPRAM_1Kx16_1/DPRAM_1Kx16.xci
 set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16_ooc.xdc]
 
-read_ip -quiet c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/AFE_DP_Pipeline/AFE_DP_Pipeline.xci
+read_ip -quiet C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/AFE_DP_Pipeline/AFE_DP_Pipeline.xci
 set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/AFE_DP_Pipeline/AFE_DP_Pipeline_ooc.xdc]
 
 OPTRACE "Adding files" END { }

@@ -108,12 +108,16 @@ signal uCA 	  				  : std_logic_vector(11 downto 0);
 signal uCD 	  				  : std_logic_vector(15 downto 0);
 signal GA 					  : std_logic_vector(1 downto 0);
 signal TrigReq				  : std_logic;
+signal PipelineSet 			  : std_logic_vector (7 downto 0) := X"04";
+signal ResetHi         		  : std_logic;
+signal BeamOn				  : std_logic;
+
 
 begin
 
 --make the reset
-reset <= '1', '0' after 96ns;
-CpldRst <= '0', '1' after 96ns;
+reset <= '1', '0' after 50ns;
+CpldRst <= '1', '0' after 5ns, '1' after 50ns;
 
 -- make the clocks
 sclk <= not sclk after sclk_period/2;
@@ -194,20 +198,24 @@ port map(
   
 AFE_DataPath_inst: AFE_DataPath
 port map(
-	Clk_80MHz			=> aclk,
-	SysClk				=> sysclk, -- 160 MHz
-	TrigReq				=> TrigReq,
+	Clk_80MHz		=> aclk,
+	SysClk			=> sysclk, -- 160 MHz
+	ResetHi			=> ResetHi,
+	TrigReq			=> TrigReq,
+	BeamOn			=> BeamOn,
 	
-	din_AFE0			=> dout_AFE0, 
-	din_AFE1			=> dout_AFE1,
-	done 				=> done,
-	CpldRst				=> CpldRst,	
-	CpldCS				=> CpldCS,	
-	uCRd				=> uCRd,	
-	uCWr 				=> uCWr, 	
-	uCA 				=> uCA, 	
-	uCD 				=> uCD, 	
-	GA 					=> GA 		
+	din_AFE0		=> dout_AFE0, 
+	din_AFE1		=> dout_AFE1,
+	done 			=> done,
+	PipelineSet		=> PipelineSet,
+		
+	CpldRst			=> CpldRst,	
+	CpldCS			=> CpldCS,	
+	uCRd			=> uCRd,	
+	uCWr 			=> uCWr, 	
+	uCA 			=> uCA, 	
+	uCD 			=> uCD, 	
+	GA 				=> GA 		
   );
 
 end AFE_DataPath_testbench_arch;

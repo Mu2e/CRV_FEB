@@ -75,6 +75,7 @@ signal dout_AFE0		      : Array_8x14;
 signal dout_AFE1		      : Array_8x14;  
 signal PipelineSet 			  : std_logic_vector (7 downto 0) := X"04";
 signal ResetHi         		  : std_logic;
+signal BeamOn				  : std_logic;
 signal uWRDL				  : std_logic_vector(1 downto 0);
 
 signal TrigReq		          : std_logic;
@@ -138,7 +139,9 @@ AFE_DataPath_inst : AFE_DataPath
 port map (
 	Clk_80MHz	    => Clk_80MHz,		
 	SysClk			=> SysClk,
+	ResetHi			=> ResetHi,
 	TrigReq			=> TrigReq,
+	BeamOn			=> BeamOn,
     din_AFE0		=> dout_AFE0,
     din_AFE1		=> dout_AFE1,
 	done 			=> done,
@@ -172,6 +175,7 @@ port map(
   	SysClk			=> SysClk, -- 160 MHz
 	ResetHi  		=> ResetHi,
 	TrigReq			=> TrigReq,
+	BeamOn			=> BeamOn,
 	CpldRst			=> CpldRst,	
 	CpldCS			=> CpldCS,
 	uCRd			=> uCRd,

@@ -12,8 +12,8 @@ entity Trigger is
   	SysClk				: in std_logic; -- 160 MHz
 	ResetHi  			: in std_logic;
 -- Signals for other logic
-	TrigReq				: out std_logic;
-	BeamOn 				: out std_logic;
+	TrigReq				: buffer std_logic;
+	BeamOn 				: buffer std_logic;
 -- Microcontroller strobes
 	CpldRst				: in std_logic;
 	CpldCS				: in std_logic;
@@ -42,7 +42,7 @@ architecture Trigger_arch of Trigger is
 	signal Rx1Dat   : std_logic_vector(23 downto 0);
 	signal Rx1DatReg: std_logic_vector(23 downto 0);
 	-- Synchronous edge detectors of uC read and write strobes
-	signal uWRDL 	: std_logic_vector(1 downto 0);
+	signal RDDL 	: std_logic_vector(1 downto 0);
 	signal WRDL 	: std_logic_vector(1 downto 0);
 	-- uC data bus
 	signal TrigType : std_logic_vector(11 downto 0);
@@ -64,7 +64,7 @@ architecture Trigger_arch of Trigger is
 	signal LEDTime	   : std_logic_vector (8 downto 0);
 	-- Signals used by the phase detector
 	--signal TxEn,FMTxBuff_wreq,FMTxBuff_empty,FMTxBuff_full,PhDtct,SqWav,BeamOn : std_logic;
-	signal BeamOn 	: std_logic;
+	--signal BeamOn 	: std_logic;
 	-- Self trigger signals
 	signal uBunchGuard : std_logic;
 	signal uBunch   : std_logic_vector(31 downto 0);
@@ -93,6 +93,7 @@ main : process(SysClk, CpldRst)
 begin 
 -- asynchronous reset/preset
 if CpldRst = '0' then
+	RDDL <= "00";
 	TrigReq <= '0';
 	TrigReqD <= '0';
 	GPOCount <= "000";

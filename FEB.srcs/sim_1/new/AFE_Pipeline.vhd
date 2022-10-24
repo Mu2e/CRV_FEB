@@ -26,7 +26,7 @@ end AFE_Pipeline;
 architecture Behavioral of AFE_Pipeline is
 
 signal din_AFE			: Array_2x8x14;   -- 2 AFE x 8 channels x 14 bits
-signal dout_AFE			: Array_2x8x14;   -- 2 AFE x 8 channels x 14 bits
+--signal dout_AFE			: Array_2x8x14;   -- 2 AFE x 8 channels x 14 bits
 -- Pipeline : AFE_DP_Pipeline Signals
 signal PipelineWrtAdd 	: Array_2x8;
 signal PipelineRdAdd 	: Array_2x8;
@@ -80,7 +80,7 @@ if CpldRst = '0' then
 	
 elsif rising_edge (Clk_80MHz) then
 
-if done(i) = '1'
+if done = 1
 then PipelineWrtEn(i) <= '1';
 else PipelineWrtEn(i) <= '0';
 end if;

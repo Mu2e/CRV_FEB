@@ -241,6 +241,23 @@ constant AFE0ArrayMax : AddrPtr  := "01" & X"66";
 constant AFE1ArrayMin : AddrPtr  := "10" & X"00";
 constant AFE1ArrayMax : AddrPtr  := "10" & X"66";
 
+constant PageSize : std_logic_vector (15 downto 0) := X"01FE";
+
+
+
+
+
+-- Timing constants assuming 160 MHz clock
+-- 1us timer
+constant Count1us : std_logic_vector (7 downto 0) := X"63"; -- 99 D
+-- 10us timer
+constant Count10us : std_logic_vector (10 downto 0) := "011" & X"E7"; -- 999 (10us)
+-- 1msec timer
+constant Count1ms : std_logic_vector (17 downto 0) := "01" & X"869F"; -- 99999 (1ms)
+-- 1Second timer
+constant Count1s : std_logic_vector (27 downto 0) := X"5F5E0FF"; -- 99,999,999 Decimal
+
+
 ---------------------- Broadcast addresses ------------------------------
 	
 -- Flash gate control register
@@ -328,6 +345,16 @@ component AFE_DataPath is
 -- Signals from Trigger Logic
 	TrigReq				: in std_logic;
 	BeamOn				: in std_logic;
+-- Signals for EventBuilder
+	MaskReg				: buffer Array_2x8;
+	BufferRdAdd			: in Array_2x8x10;
+	BufferOut 			: out Array_2x8x16;
+-- Signals from uC
+	ControllerNo 		: in std_logic_vector (4 downto 0);
+	PortNo 				: in std_logic_vector (4 downto 0);
+	BeamOnLength 		: in std_logic_vector (11 downto 0);
+	BeamOffLength 		: in std_logic_vector (11 downto 0);
+	ADCSmplCntReg 		: in std_logic_vector (3 downto 0);
 -- Data output from the deserializer for AFE0 and AFE1 synchronized to 80 MHz clock
     din_AFE0			: in Array_8x14; 
     din_AFE1			: in Array_8x14;
@@ -406,7 +433,10 @@ component Trigger is
 	ResetHi  			: in std_logic;
 -- Signals for other logic
 	TrigReq				: buffer std_logic;
+	SlfTrgEn 			: buffer std_logic;
 	BeamOn 				: buffer std_logic;
+	uBunch   			: buffer std_logic_vector(31 downto 0);
+	uBunchWrt			: out std_logic;
 -- Microcontroller strobes
 	CpldRst				: in std_logic;
 	CpldCS				: in std_logic;
@@ -423,45 +453,122 @@ component Trigger is
 	PulseSel 			: buffer std_logic;
 -- LED pulser/Flash Gate
 	Pulse 				: out std_logic;
-	
+	LEDSrc				: buffer std_logic;
 	GPI0 				: in std_logic
 	);
 end component;
 
+component EventBuilder is
+port (
+	SysClk				: in std_logic; -- 160 MHz
+	CpldRst				: in std_logic;
+	ResetHi				: in std_logic;
+-- Signals from/to AFE Buffer
+	MaskReg				: in Array_2x8;
+	BufferRdAdd			: out Array_2x8x10;
+	BufferOut 			: in Array_2x8x16;
+-- Signals from Trigger Logic
+	SlfTrgEn 			: in std_logic;
+	uBunchWrt			: in std_logic;
+	uBunch				: in std_logic_vector(31 downto 0);
+-- Signals with DDR	
+	EvBuffRd			: in std_logic;
+	EvBufffOut			: out std_logic_vector(15 downto 0);
+	EvBuffEmpty			: out std_logic;
+	EvBuffWdsUsed		: out std_logic_vector(10 downto 0)
+	);
+end component;
 
 
+component One_Wire is
+port(
+	clock  				: in std_logic;
+	reset  				: in std_logic;
+	CpldCS  			: in std_logic;
+	uCWr  				: in std_logic;
+	GA  				: in std_logic_vector(1 downto 0);
+	uCA 				: in std_logic_vector(11 downto 0);
+	uCD 				: in std_logic_vector(15 downto 0);
+	Temp 				: in  std_logic_vector(3 downto 0);
+	TempEn 				: buffer std_logic;
+	TempCtrl 			: buffer std_logic_vector(3 downto 0);
+	One_Wire_Out 		: buffer std_logic_vector(15 downto 0));
+end component;
 
-
-
-	
+component LVDSTX is
+port (
+	Clk_100MHz				: in std_logic;
+	ResetHi					: in std_logic; 
+	-- Microcontroller data and address buses
+	uCA 					: in std_logic_vector(11 downto 0);
+	uCD 					: inout std_logic_vector(15 downto 0);
+	-- Microcontroller strobes
+	CpldRst					: in std_logic;
+	CpldCS					: in std_logic;
+	uCRd					: in std_logic;
+	uCWr 					: in std_logic;
+	-- Geographic address pins
+	GA 						: in std_logic_vector(1 downto 0);
+	-- Chip dipendent I/O functions 
+	LVDSTX 					: buffer std_logic
+);
+end component;
 -----------------------------------------------------------------------
 ------------------------ Xilinx IP Components -------------------------
 -----------------------------------------------------------------------	
 
-	component DPRAM_1Kx16 is
-	port (
-    clka 					  : in std_logic;
-    wea   					  : in std_logic_vector(0 downto 0);
-    addra 					  : in std_logic_vector(9 downto 0);
-    dina  					  : in std_logic_vector(15 downto 0);
-    clkb  					  : in std_logic;
-    addrb 					  : in std_logic_vector(9 downto 0);
-    doutb 					  : out std_logic_vector(15 downto 0)
-	);
-	end component;
-	
-	
-	component AFE_DP_Pipeline
-	port (
-    clka 					  : in std_logic;
-	wea 					  : in std_logic_vector(0 downto 0);
-    addra					  : in std_logic_vector(7 downto 0);
-    dina  					  : in std_logic_vector(111 downto 0);
+component DPRAM_1Kx16 is
+port (
+	clka 					  : in std_logic;
+	wea   					  : in std_logic_vector(0 downto 0);
+	addra 					  : in std_logic_vector(9 downto 0);
+	dina  					  : in std_logic_vector(15 downto 0);
 	clkb  					  : in std_logic;
-	addrb 					  : in std_logic_vector(7 downto 0);
-    doutb 					  : out std_logic_vector(111 downto 0)
-    );
+	addrb 					  : in std_logic_vector(9 downto 0);
+	doutb 					  : out std_logic_vector(15 downto 0)
+);
 end component;
 
+
+component AFE_DP_Pipeline
+port (
+	clka 					  : in std_logic;
+	wea 					  : in std_logic_vector(0 downto 0);
+	addra					  : in std_logic_vector(7 downto 0);
+	dina  					  : in std_logic_vector(111 downto 0);
+	clkb  					  : in std_logic;
+	addrb 					  : in std_logic_vector(7 downto 0);
+	doutb 					  : out std_logic_vector(111 downto 0)
+);
+end component;
+
+
+component SCFIFO_32x256
+port (
+	rst,clk,wr_en,rd_en 	  : in std_logic;
+    din 					  : in std_logic_vector(31 downto 0);
+    dout 					  : out std_logic_vector(31 downto 0);
+    empty,full 				  : out std_logic
+);
+end component;
+
+component SCFIFO_1kx16
+port (
+	clk,rst, wr_en,rd_en 	  : in std_logic;
+    din 					  : in std_logic_vector(15 downto 0);
+    dout 					  : out std_logic_vector(15 downto 0);
+    full,empty 				  : out std_logic;
+    data_count 				  : out std_logic_vector(10 downto 0)
+);
+end component;
+
+component LVDSTxBuff
+port (
+	rst,clk,wr_en,rd_en : in std_logic;
+    din 				: in std_logic_vector(15 downto 0);
+    dout 				: out std_logic_vector(15 downto 0);
+	full,empty 			: out std_logic
+);
+end component;
 
 end package;

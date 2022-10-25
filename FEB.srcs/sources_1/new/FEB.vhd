@@ -62,12 +62,15 @@ port(
 	-- LED/Flash Gate select line
 	PulseSel 				: buffer std_logic;
 	-- LED pulser/Flash Gate
-	Pulse 					: out std_logic
+	Pulse 					: out std_logic;
+	-- Temperature sensor lines
+	Temp : inout std_logic_vector(3 downto 0)
   );
 end FEB;
 
 architecture behavioural of FEB is
 
+signal Clk_100MHz			  : std_logic;
 signal reset		          : std_logic;
 signal done		              : std_logic_vector(1 downto 0); 
 signal warn		              : std_logic_vector(1 downto 0); 
@@ -77,14 +80,38 @@ signal PipelineSet 			  : std_logic_vector (7 downto 0) := X"04";
 signal ResetHi         		  : std_logic;
 signal BeamOn				  : std_logic;
 signal uWRDL				  : std_logic_vector(1 downto 0);
+signal uBunch   			  : std_logic_vector(31 downto 0);
+signal uBunchWrt			  : std_logic;
+signal ControllerNo 		  : std_logic_vector (4 downto 0):= "00000";
+signal PortNo 				  : std_logic_vector (4 downto 0):= "00000";
+signal BeamOnLength 		  : std_logic_vector (11 downto 0) := X"050";
+signal BeamOffLength 		  : std_logic_vector (11 downto 0) := X"700";
+signal ADCSmplCntReg 		  : std_logic_vector (3 downto 0) := X"8";
+signal MaskReg				  : Array_2x8;
+signal BufferRdAdd			  : Array_2x8x10;
+signal BufferOut 			  : Array_2x8x16;
 
 signal TrigReq		          : std_logic;
+signal SlfTrgEn				  : std_logic;
 signal TrgSrc		          : std_logic;
 signal GPO		          	  : std_logic;
 signal GPI0		          	  : std_logic;
+signal LEDSrc		          : std_logic;
+
+signal EvBuffRd				  : std_logic;
+signal EvBufffOut	          : std_logic_vector(15 downto 0);
+signal EvBuffEmpty	          : std_logic;
+signal EvBuffWdsUsed          : std_logic_vector(10 downto 0);
+
+signal TempEn 				  : std_logic;
+signal TempCtrl 			  : std_logic_vector(3 downto 0);
+signal One_Wire_Out 		  : std_logic_vector(15 downto 0);
+
+
 
 begin
 
+ResetHi <= not CpldRst;
 
 -- IBUFDS: Differential Input Buffer
 GPI0DiffIn : IBUFDS
@@ -140,11 +167,24 @@ port map (
 	Clk_80MHz	    => Clk_80MHz,		
 	SysClk			=> SysClk,
 	ResetHi			=> ResetHi,
+-- Signals from Trigger Logic
 	TrigReq			=> TrigReq,
 	BeamOn			=> BeamOn,
+-- Signals for EventBuilder
+	MaskReg			=> MaskReg,			
+	BufferRdAdd		=> BufferRdAdd,		
+	BufferOut 		=> BufferOut, 		
+-- Signals from uC
+	ControllerNo 	=> ControllerNo, 
+	PortNo 			=> PortNo,	
+	BeamOnLength    => BeamOnLength,
+	BeamOffLength   => BeamOffLength, 
+	ADCSmplCntReg   => ADCSmplCntReg,
+-- Data output from the deserializer for AFE0 and AFE1 synchronized to 80 MHz clock
     din_AFE0		=> dout_AFE0,
     din_AFE1		=> dout_AFE1,
 	done 			=> done,
+-- Pipeline signals 	
 	PipelineSet		=> PipelineSet,
 
 	CpldRst			=> CpldRst,	
@@ -174,8 +214,13 @@ Trigger_logic: Trigger
 port map(
   	SysClk			=> SysClk, -- 160 MHz
 	ResetHi  		=> ResetHi,
+	
 	TrigReq			=> TrigReq,
+	SlfTrgEn		=> SlfTrgEn,
 	BeamOn			=> BeamOn,
+	uBunch   		=> uBunch,   
+	uBunchWrt		=> uBunchWrt,
+	
 	CpldRst			=> CpldRst,	
 	CpldCS			=> CpldCS,
 	uCRd			=> uCRd,
@@ -186,9 +231,50 @@ port map(
 	uWRDL 			=> uWRDL,
 	PulseSel 		=> PulseSel,
 	Pulse 			=> Pulse, 
-	
+	LEDSrc 			=> LEDSrc,
 	GPI0 			=> GPI0 
 );
 
+EventBuilder_logic :  EventBuilder
+port map(
+	SysClk			=> SysClk,	 -- 160 MHz
+	CpldRst			=> CpldRst,
+	ResetHi			=> ResetHi,
+-- Signals from/to AFE Buffer
+	MaskReg			=> MaskReg,
+	BufferRdAdd		=> BufferRdAdd,	
+	BufferOut 		=> BufferOut, 	
+-- Signals from Trigger Logic
+	SlfTrgEn		=> SlfTrgEn,
+	uBunchWrt		=> uBunchWrt,
+	uBunch   		=> uBunch,
+-- Signals with DDR	
+	EvBuffRd		=> EvBuffRd,		
+	EvBufffOut		=> EvBufffOut,			
+	EvBuffEmpty		=> EvBuffEmpty,			
+	EvBuffWdsUsed	=> EvBuffWdsUsed		
+	);
+
+
+-- Read the temperature/ID chip on the four connectoed CMBs
+OneWire : One_Wire 
+port map(
+	reset 			=> CpldRst, 
+	clock 			=> Clk_100MHz,
+	CpldCS 			=> CpldCS, 
+	uCWr 		  	=> uCWr, 
+	GA 				=> GA, 
+	uCA 			=> uCA, 
+	uCD 			=> uCD,
+	Temp 			=> Temp, 
+	TempEn 			=> TempEn, 
+	TempCtrl		=> TempCtrl, 
+	One_Wire_Out 	=> One_Wire_Out
+);
+
+Temp(0) <= '0' when TempEn = '1' and TempCtrl = "0001" else 'Z';
+Temp(1) <= '0' when TempEn = '1' and TempCtrl = "0010" else 'Z';
+Temp(2) <= '0' when TempEn = '1' and TempCtrl = "0100" else 'Z';
+Temp(3) <= '0' when TempEn = '1' and TempCtrl = "1000" else 'Z';
 
 end behavioural;

@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 4
 set_param simulator.modelsimInstallPath C:/intelFPGA/20.1/modelsim_ae/win32aloem
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
@@ -82,7 +83,7 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.cache/wt [current_project]
 set_property parent.project_path C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.xpr [current_project]
-set_property XPM_LIBRARIES XPM_MEMORY [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_output_repo c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.cache/ip [current_project]
@@ -100,6 +101,10 @@ read_vhdl -library work {
   C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd
   C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd
   C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd
+  C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Serializer.vhd
+  C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Deserializer.vhd
+  C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd
+  C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd
 }
 read_ip -quiet C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/OLD_AFE_DP_Pipeline/OLD_AFE_DP_Pipeline.xci
 set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/OLD_AFE_DP_Pipeline/OLD_AFE_DP_Pipeline_ooc.xdc]
@@ -109,6 +114,14 @@ set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desk
 
 read_ip -quiet C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/AFE_DP_Pipeline/AFE_DP_Pipeline.xci
 set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/AFE_DP_Pipeline/AFE_DP_Pipeline_ooc.xdc]
+
+read_ip -quiet c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/SCFIFO_32x256/SCFIFO_32x256.xci
+set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_32x256/SCFIFO_32x256.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_32x256/SCFIFO_32x256_ooc.xdc]
+
+read_ip -quiet c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/SCFIFO_1Kx16/SCFIFO_1Kx16.xci
+set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_1Kx16/SCFIFO_1Kx16.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_1Kx16/SCFIFO_1Kx16_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

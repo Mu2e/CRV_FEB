@@ -20,6 +20,8 @@ component Trigger is
 -- Signals for other logic
 	TrigReq				: buffer std_logic;
 	BeamOn 				: buffer std_logic;
+	uBunch   			: buffer std_logic_vector(31 downto 0);
+	uBunchWrt			: out std_logic;
 -- Microcontroller strobes
 	CpldRst				: in std_logic;
 	CpldCS				: in std_logic;
@@ -36,7 +38,7 @@ component Trigger is
 	PulseSel 			: buffer std_logic;
 -- LED pulser/Flash Gate
 	Pulse 				: out std_logic;
-	
+	LEDSrc				: buffer std_logic;
 	GPI0 				: in std_logic
 	);
 end component;
@@ -98,6 +100,8 @@ signal BeamOn				  : std_logic;
 signal PulseSel				  : std_logic;
 signal Pulse				  : std_logic;
 signal GPI0 				  : std_logic;
+signal LEDSrc		          : std_logic;
+
 
 signal d0_vec: std_logic_vector(13 downto 0) := "00100000000001"; -- 0x801
 signal d1_vec: std_logic_vector(13 downto 0) := "00110000000011"; -- 0x803
@@ -196,7 +200,7 @@ port map(
 	uWRDL 			=> uWRDL,
 	PulseSel 		=> PulseSel,
 	Pulse 			=> Pulse, 
-	
+	LEDSrc 			=> LEDSrc,	
 	GPI0 			=> GPI0 
 );
 

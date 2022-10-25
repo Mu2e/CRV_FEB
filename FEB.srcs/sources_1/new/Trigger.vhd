@@ -13,7 +13,10 @@ entity Trigger is
 	ResetHi  			: in std_logic;
 -- Signals for other logic
 	TrigReq				: buffer std_logic;
+	SlfTrgEn 			: buffer std_logic;
 	BeamOn 				: buffer std_logic;
+	uBunch   			: buffer std_logic_vector(31 downto 0);
+	uBunchWrt			: out std_logic;
 -- Microcontroller strobes
 	CpldRst				: in std_logic;
 	CpldCS				: in std_logic;
@@ -30,7 +33,7 @@ entity Trigger is
 	PulseSel 			: buffer std_logic;
 -- LED pulser/Flash Gate
 	Pulse 				: out std_logic;
-	
+	LEDSrc				: buffer std_logic;
 	GPI0 				: in std_logic
 	);
 end Trigger;
@@ -42,7 +45,6 @@ architecture Trigger_arch of Trigger is
 	signal Rx1Dat   : std_logic_vector(23 downto 0);
 	signal Rx1DatReg: std_logic_vector(23 downto 0);
 	-- Synchronous edge detectors of uC read and write strobes
-	signal RDDL 	: std_logic_vector(1 downto 0);
 	signal WRDL 	: std_logic_vector(1 downto 0);
 	-- uC data bus
 	signal TrigType : std_logic_vector(11 downto 0);
@@ -51,26 +53,19 @@ architecture Trigger_arch of Trigger is
 	-- Chip dependent drive
 	signal GPO 		: std_logic;
 	-- trigger logic signals
-	signal SlfTrgEn : std_logic; 
 	signal TmgSrcSel: std_logic; 
 	signal TrigReqD : std_logic; 
 	signal FlashEn  : std_logic; 
-	signal LEDSrc   : std_logic;
 	signal FlashGate: std_logic;
 	-- Timing interval counters
 	signal GateCounter : std_logic_vector (8 downto 0);
 	signal TurnOnTime  : std_logic_vector (8 downto 0);
 	signal TurnOffTime : std_logic_vector (8 downto 0);
 	signal LEDTime	   : std_logic_vector (8 downto 0);
-	-- Signals used by the phase detector
-	--signal TxEn,FMTxBuff_wreq,FMTxBuff_empty,FMTxBuff_full,PhDtct,SqWav,BeamOn : std_logic;
-	--signal BeamOn 	: std_logic;
 	-- Self trigger signals
 	signal uBunchGuard : std_logic;
-	signal uBunch   : std_logic_vector(31 downto 0);
-	signal uBunchWrt: std_logic;
-	signal uBunchRd : std_logic;
-		 
+
+	 
 
 begin
 
@@ -93,7 +88,7 @@ main : process(SysClk, CpldRst)
 begin 
 -- asynchronous reset/preset
 if CpldRst = '0' then
-	RDDL <= "00";
+
 	TrigReq <= '0';
 	TrigReqD <= '0';
 	GPOCount <= "000";
@@ -113,14 +108,10 @@ if CpldRst = '0' then
 	uBunchGuard <= '0';
 	uBunch <= (others => '0');
 	uBunchWrt <= '0'; 
-	uBunchRd <= '0';
 	Rx1DatReg <= (others => '0');
 	
 
 elsif rising_edge (SysClk) then
-
-RDDL(0) <= not uCRD and not CpldCS;
-RDDL(1) <= RDDL(0);
 
 WRDL(0) <= not uCWR and not CpldCS;
 WRDL(1) <= WRDL(0);
@@ -129,12 +120,12 @@ if WRDL = 1 and uCA(9 downto 0) = FlashCtrlAddr
 -- Flash gate enable bit
 then FlashEn <= uCD(0);
 -- Choose between LED and flashgate
-	  PulseSel <= uCD(1);
+	 PulseSel <= uCD(1);
 -- Select source for LED flasher pulse
-	  LEDSrc <= uCD(2);
+	 LEDSrc <= uCD(2);
 else FlashEn <= FlashEn;
-	  PulseSel <= PulseSel;
-	  LEDSrc <= LEDSrc;
+	 PulseSel <= PulseSel;
+	 LEDSrc <= LEDSrc;
 end if;
 
 -- Register for determining the turn on time 
@@ -153,8 +144,6 @@ if WRDL = 1 and uCA(9 downto 0) = LEDTimeAddr
 then LEDTime <= uCD(8 downto 0);
 else LEDTime <= LEDTime;
 end if;
-
-
 
 -- Trigger control register bits
 if uWRDL = 1 and uCA(9 downto 0) = IntTrgEnAddr 
@@ -258,11 +247,6 @@ then Rx1DatReg <= Rx1Dat;
 else Rx1DatReg <= Rx1DatReg;
 end if;
 
--- Read the uBunch number after calculating and writing the event word count.
---if Event_Builder = WrtuBunchLo or (SlfTrgEn = '0' and uBunchBuffEmpty = '0') 
---	then uBunchRd <= '1';
---else uBunchRd <= '0';
---end if;
 
 if SlfTrgEn = '1' and ((GateCounter = TurnOnTime and TmgSrcSel = '1')
    or (RxOut.Done = '1' and TmgSrcSel = '0'))

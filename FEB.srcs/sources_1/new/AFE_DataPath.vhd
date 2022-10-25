@@ -41,6 +41,16 @@ entity AFE_DataPath is
 -- Signals from Trigger Logic
 	TrigReq				: in std_logic;
 	BeamOn				: in std_logic;
+-- Signals for EventBuilder
+	MaskReg				: buffer Array_2x8;
+	BufferRdAdd			: in Array_2x8x10;
+	BufferOut 			: out Array_2x8x16;
+-- Signals from uC
+	ControllerNo 		: in std_logic_vector (4 downto 0);
+	PortNo 				: in std_logic_vector (4 downto 0);
+	BeamOnLength 		: in std_logic_vector (11 downto 0);
+	BeamOffLength 		: in std_logic_vector (11 downto 0);
+	ADCSmplCntReg 		: in std_logic_vector (3 downto 0);
 -- Data output from the deserializer for AFE0 and AFE1 synchronized to 80 MHz clock
     din_AFE0			: in Array_8x14; 
     din_AFE1			: in Array_8x14;
@@ -63,18 +73,13 @@ end AFE_DataPath;
 architecture Behavioral of AFE_DataPath is
 
 signal AsyncRst			: std_logic;
-signal ADCSmplCntr 		: Array_2x8x4;
 
 signal din_AFE			: Array_2x8x14;   -- 2 AFE x 8 channels x 14 bits
 signal dout_AFE			: Array_2x8x14;   -- 2 AFE x 8 channels x 14 bits
 -- AFEBuff : DPRAM_1Kx16 Signals
 signal BufferIn 		: Array_2x8x16;   -- 2 AFE x 8 channels x 16 bits
-signal BufferOut		: Array_2x8x16;   -- 2 AFE x 8 channels x 16 bits
 signal BufferWE			: Array_2x8;	  -- 2 AFE x 8 channels
 signal BufferWrtAdd		: Array_2x8x10;   -- 2 AFE x 8 channels: address 10 bits for 1024 depth of RAM
-signal BufferRdAdd		: Array_2x8x10;   -- 2 AFE x 8 channels: address 10 bits for 1024 depth of RAM
-signal WrtPtrRst		: std_logic_vector (1 downto 0);
-
 
 Type Input_Seq_FSM is (Idle,Increment,WrtChanNo,WrtTimeStamp,WrtHits,
 						WrtHitWdCnt,LdNxtWrtAd);
@@ -84,31 +89,19 @@ signal Input_Seqs : In_Seq_Array_2x8;
 signal In_Seq_Stat : Array_2x8;
 
 
-signal ADCSmplCntReg 	: std_logic_vector (3 downto 0);
-signal ControllerNo 	: std_logic_vector (4 downto 0);
-signal PortNo 			: std_logic_vector (4 downto 0);
+signal ADCSmplCntr 		: Array_2x8x4;
 signal InWdCnt 			: Array_2x8x10;
 signal uBunchOffset 	: Array_2x12;
 signal GateWidth	    : Array_2x12;
 signal GateReq 			: std_logic_vector (1 downto 0);
-
-signal BeamOnLength 	: std_logic_vector (11 downto 0);
-signal BeamOffLength 	: std_logic_vector (11 downto 0);
 signal SlfTrgEdge 		: Array_2x8x2;
-
 signal ADCSmplGate		: std_logic_vector (1 downto 0);
 
--- Synchronous edge detectors of uC read and write strobes
-signal RDDL, uRDDL, WRDL, uWRDL : std_logic_vector(1 downto 0);
-signal MaskReg			: Array_2x8;
 signal iWrtDL 			: Array_2x2;
 
 -- Input buffer (aka AFE buffer) memory control signals
 signal WrtCrrntWdCntAd 	: Array_2x8x10;
 signal WrtNxtWdCntAd 	: Array_2x8x10;
-signal Buff_Rd_Ptr,NextEvAddr,Buff_Wrt_Ptr : Array_2x8x10;
-signal NoHIts : Array_2x8;
-
 
 -- Self trigger signals
 signal Diff_Reg			: Arrays_8x2x14;
@@ -141,7 +134,84 @@ AsyncRst <= '1' when ResetHi = '1' or (uCWr = '0' and CpldCS = '0' and uCD(5) = 
 					 or uCA(9 downto 0) =  CSRBroadCastAd)) else '0';
 					 
 					 
-Gen_Two_AFEs : for i in 0 to 1 generate					 
+Gen_Two_AFEs : for i in 0 to 1 generate		
+Two_AFEs : process (Clk_80MHz, CpldRst)
+begin
+if CpldRst = '0' then 
+	Avg_Req(i) 			  <= '0';
+	ADCSmplGate(i) 		  <= '0';
+	GateReq(i) 			  <= '0';
+	uBunchOffset(i) 	  <= (others => '0');
+	Pad_Avg_Count(i) 	  <= (others => '0');
+	MaskReg(i) 			  <= X"FF";
+	iWrtDL(i) 			  <= "00";
+	GateWidth(i) 		  <= (others => '0');
+	
+elsif rising_edge (Clk_80MHz) then
+
+-- Synchronous edge detector for uC write strobe w.r.t. deserializer output clock
+iWrtDL(i)(0) <= not CpldCS and not uCWR;
+iWrtDL(i)(1) <= iWrtDL(i)(0);
+
+if iWrtDL(i) = 1 and uCD(8) = '1' and
+	((uCA(11 downto 10) = GA and uCA(9 downto 0) = CSRRegAddr)
+	or uCA(9 downto 0) = CSRBroadCastAd)
+then Avg_Req(i) <= '1';
+elsif Pad_Avg_Count(i) /= 0 
+then Avg_Req(i) <= '0';
+end if;
+
+if Pad_Avg_Count(i) = 0 and Avg_Req(i) = '1'
+then Pad_Avg_Count(i) <= "10001";
+elsif Pad_Avg_Count(i) /= 0 
+then Pad_Avg_Count(i) <= Pad_Avg_Count(i) - 1;
+else Pad_Avg_Count(i) <= Pad_Avg_Count(i);
+end if;
+
+-- Channel mask register.
+if iWrtDL(i) = 1 and uCA(11 downto 10) = GA and uCA(9 downto 0) = InputMaskAddr
+then MaskReg(i) <= uCD(8*i+7 downto 8*i); 
+else MaskReg(i) <= MaskReg(i);
+end if;
+
+-- Use this counter to append time since microbunch start to the ADC data
+if TrigReq = '1' and GateWidth(i) = 0 
+then uBunchOffset(i) <= (others => '0');
+elsif GateWidth(i) /= 0
+then uBunchOffset(i) <= uBunchOffset(i) + 1;
+else uBunchOffset(i) <= uBunchOffset(i);
+end if;
+
+-- Hold Gate request high until the next complete ADC sample is available
+if GateReq(i) = '0' and GateWidth(i) = 0 and TrigReq = '1'
+then GateReq(i) <= '1'; 
+elsif GateReq(i) = '1' and GateWidth(i) /= 0
+then GateReq(i) <= '0';
+else GateReq(i) <= GateReq(i);
+end if;
+
+-- Synchronize the live gate counter with the frame signal
+if AsyncRst = '1' 
+then GateWidth(i) <= (others => '0');
+elsif GateWidth(i) = 0 and GateReq(i) = '1' and BeamOn = '1'
+then GateWidth(i) <= BeamOnLength;
+elsif GateWidth(i) = 0 and GateReq(i) = '1' and BeamOn = '0'
+then GateWidth(i) <= BeamOffLength;
+ elsif GateWidth(i) /= 0
+then GateWidth(i) <= GateWidth(i) - 1;
+else GateWidth(i) <= GateWidth(i);
+end if;
+
+if GateWidth(i) = 0 and GateReq(i) = '1'
+then ADCSmplGate(i) <= '1';
+elsif AsyncRst = '1' or (GateWidth(i) = X"000" & (ADCSmplCntReg + 2))
+then ADCSmplGate(i) <= '0';
+else ADCSmplGate(i) <= ADCSmplGate(i);
+end if;
+
+end if;
+end process;
+		 
 Gen_Eight_Chans : for k in 0 to 7 generate
 
 AFEBuff : DPRAM_1Kx16
@@ -162,64 +232,23 @@ if CpldRst = '0' then
 		
 	BufferWE(i)(k)		  <= '0'; 
 	BufferWrtAdd(i)(k)	  <= (others => '0'); 
-	BufferRdAdd(i)(k)	  <= (others => '0'); 
-	WrtPtrRst(i) 		  <= '0';
 	WrtCrrntWdCntAd(i)(k) <= (others => '0');
 	WrtNxtWdCntAd(i)(k)   <= (others => '0'); 
 	
 	Input_Seqs(i)(k) 	  <= Idle;
 	In_Seq_Stat(i)(k) 	  <= '0';
-	
-	MaskReg(i) 			  <= X"FF";
-	iWrtDL(i) 			  <= "00";
 	InWdCnt(i)(k) 		  <= (others => '0');
-	uBunchOffset(i) 	  <= (others => '0');
 	ADCSmplCntr(i)(k) 	  <= "0000";
-	ADCSmplCntReg 		  <= X"8";
-	ADCSmplGate(i) 		  <= '0';
-	
-	GateReq(i) 			  <= '0';
-	GateWidth(i) 		  <= (others => '0');  
-	BeamOnLength 		  <= X"050"; 
-	BeamOffLength 		  <= X"700";	
 	SlfTrgEdge(i)(k) 	  <= "00";
+	
 	Diff_Reg(i)(k) 		  <= (others => '0');
 	Ped_Reg(i)(k) 		  <= (others => '0');
-	Pad_Avg_Count(i) 	  <= (others => '0');
-	Avg_Req(i) 			  <= '0';
 	Ped_Avg(i)(k) 		  <= (others => '0');
 	Avg_En(i)(k) 		  <= '0';
 	IntTrgThresh(i)(k) 	  <= "00000000001100"; -- X"00C"
-	
-	
--- Simulation 	
-	ControllerNo		  <= "11010";
-	PortNo                <= "11011";
- 
+
 	
 elsif rising_edge (Clk_80MHz) then
-
-
--- Synchronous edge detector for uC write strobe w.r.t. deserializer output clock
-iWrtDL(i)(0) <= not CpldCS and not uCWR;
-iWrtDL(i)(1) <= iWrtDL(i)(0);
-
-if iWrtDL(i) = 1 and uCD(8) = '1' and
-	((uCA(11 downto 10) = GA and uCA(9 downto 0) = CSRRegAddr)
-	or uCA(9 downto 0) = CSRBroadCastAd)
-then Avg_Req(i) <= '1';
-elsif Pad_Avg_Count(i) /= 0 
-then Avg_Req(i) <= '0';
-end if;
-
-
-if Pad_Avg_Count(i) = 0 and Avg_Req(i) = '1'
-then Pad_Avg_Count(i) <= "10001";
-elsif Pad_Avg_Count(i) /= 0 
-then Pad_Avg_Count(i) <= Pad_Avg_Count(i) - 1;
-else Pad_Avg_Count(i) <= Pad_Avg_Count(i);
-end if;
-
 ---------------------------------------------------------------------
 ----------------- Pedestal registers, self trigger ------------------
 ---------------------------------------------------------------------
@@ -265,38 +294,6 @@ then SlfTrgEdge(i)(k)(0) <= '0';
 else SlfTrgEdge(i)(k)(0) <= SlfTrgEdge(i)(k)(0);
 end if;
 
----------------------------------------------------------------------
----------------------------------------------------------------------
-
-
--- Hold Gate request high until the next complete ADC sample is available
-if GateReq(i) = '0' and GateWidth(i) = 0 and TrigReq = '1'
-then GateReq(i) <= '1'; 
-elsif GateReq(i) = '1' and GateWidth(i) /= 0
-then GateReq(i) <= '0';
-else GateReq(i) <= GateReq(i);
-end if;
-
--- Synchronize the live gate counter with the frame signal
-if AsyncRst = '1' 
-then GateWidth(i) <= (others => '0');
-elsif GateWidth(i) = 0 and GateReq(i) = '1' and BeamOn = '1'
-then GateWidth(i) <= BeamOnLength;
-elsif GateWidth(i) = 0 and GateReq(i) = '1' and BeamOn = '0'
-then GateWidth(i) <= BeamOffLength;
- elsif GateWidth(i) /= 0
-then GateWidth(i) <= GateWidth(i) - 1;
-else GateWidth(i) <= GateWidth(i);
-end if;
-
-if GateWidth(i) = 0 and GateReq(i) = '1'
-then ADCSmplGate(i) <= '1';
-elsif AsyncRst = '1' or (GateWidth(i) = X"000" & (ADCSmplCntReg + 2))
-then ADCSmplGate(i) <= '0';
-else ADCSmplGate(i) <= ADCSmplGate(i);
-end if;
-
-
 
 -- =========================================================================
 -- ================================== FSM ==================================
@@ -337,7 +334,7 @@ end case;
 
 -- Set BufferWE 
 if (Input_Seqs(i)(k) = WrtHits or 
-    Input_Seqs(i)(k) = WrtChanNo or
+    (Input_Seqs(i)(k) = WrtChanNo and SlfTrgEdge(i)(k) = 1) or
     Input_Seqs(i)(k) = WrtTimeStamp or
     Input_Seqs(i)(k) = WrtHitWdCnt)
     and MaskReg(i)(k) = '1' then 
@@ -345,11 +342,7 @@ if (Input_Seqs(i)(k) = WrtHits or
 else 
 		BufferWE(i)(k) <= '0';
 end if;
--- Channel mask register.
-if iWrtDL(i) = 1 and uCA(11 downto 10) = GA and uCA(9 downto 0) = InputMaskAddr
-then MaskReg(i) <= uCD(8*i+7 downto 8*i); 
-else MaskReg(i) <= MaskReg(i);
-end if;
+
 
 --============ DATA FORMAT ===================
 -- -------------------------------------------
@@ -377,11 +370,13 @@ then
 	BufferIn(i)(k) <= "00" & dout_AFE(i)(k);
 elsif Input_Seqs(i)(k) = WrtChanNo 
 then 		
-	BufferWrtAdd(i)(k) <= BufferWrtAdd(i)(k) + 1; -- Increment Writing Address
-	ADCSmplCntr(i)(k) <= ADCSmplCntReg;
-	InWdCnt(i)(k) <= InWdCnt(i)(k) + 1;			  -- Increment Event word counter
-	BufferIn(i)(k) <= ControllerNo & PortNo & GA & ChanArray(8*i+k);
+	ADCSmplCntr(i)(k) <= ADCSmplCntReg;	
 	WrtCrrntWdCntAd(i)(k) <= WrtCrrntWdCntAd(i)(k);
+	if SlfTrgEdge(i)(k) = 1
+		then InWdCnt(i)(k) <= InWdCnt(i)(k) + 1;			  -- Increment Event word counter
+			 BufferIn(i)(k) <= ControllerNo & PortNo & GA & ChanArray(8*i+k);
+			 BufferWrtAdd(i)(k) <= BufferWrtAdd(i)(k) + 1; -- Increment Writing Address
+	end if;
 elsif Input_Seqs(i)(k) = WrtTimeStamp 
 then 		
 	BufferWrtAdd(i)(k) <= BufferWrtAdd(i)(k) + 1; -- Increment Writing Address

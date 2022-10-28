@@ -23,60 +23,6 @@ port(
 end component;
 
 
--- component AFE_Interface
--- port(
--- 	-- AFE Input clocks
--- 	AFE0Clk_P, AFE0Clk_N    : out std_logic; -- Copy of 80MHz master clock sent to AFE chips
--- 	AFE1Clk_P, AFE1Clk_N    : out std_logic;
--- 	-- AFE Data lines
--- 	AFE0Dat_P, AFE0Dat_N    : in std_logic_vector(7 downto 0); -- LVDS pairs from an AFE chip (8 channels)
--- 	AFE1Dat_P, AFE1Dat_N    : in std_logic_vector(7 downto 0);
--- 	-- AFE clock, framing lines
--- 	AFEDCLK_P, AFEDCLK_N    : in std_logic_vector(1 downto 0); -- Unused in this design 
--- 	AFE0FCLK_P, AFE0FCLK_N  : in std_logic; -- LVDS pairs of the Frame Clock
--- 	AFE1FCLK_P, AFE1FCLK_N  : in std_logic; -- LVDS pairs of the Frame Clock
--- 	-- AFE serial control lines
--- 	AFEPDn 				    : buffer std_logic_vector(1 downto 0);
--- 	AFECS 				    : buffer std_logic_vector(1 downto 0);
--- 	AFERst 				    : buffer std_logic;
--- 	AFESClk, AFESDI  	    : buffer std_logic;
--- 	AFESDO 				    : in std_logic;
--- 						    
---     -- FPGA interface       
---     Clk_80MHz			    : in  std_logic; 	-- Master clock 80MHz
---     Clk_560MHz			    : in  std_logic; 	-- 7 x Master clock = 560MHz
---     Clk_200MHz			    : in  std_logic; 	-- 200 MHz refclk for the IDELAY2
---     reset				    : in  std_logic;
---     done				    : out std_logic_vector(1 downto 0); -- status of automatic alignment FSM
---     warn				    : out std_logic_vector(1 downto 0); -- pulse to indicate an error was seen in the FCLK pattern
---     dout_afe0				: out Array_8x14; -- data synchronized to clock
---     dout_afe1				: out Array_8x14  -- data synchronized to clock
--- 	
--- );
--- end component;
--- 
--- component AFE_DataPath is
--- Port (
--- 	Clk_80MHz			: in std_logic; 
--- 	SysClk				: in std_logic; -- 160 MHz
--- 	TrigReq				: in std_logic;
--- -- Data output from the deserializer for AFE0 and AFE1 synchronized to 80 MHz clock
--- 	din_AFE0			: in Array_8x14; 
--- 	din_AFE1			: in Array_8x14;
--- 	done				: in std_logic_vector(1 downto 0); -- status of automatic alignment FSM
--- -- Microcontroller strobes
--- 	CpldRst				: in std_logic;
--- 	CpldCS				: in std_logic;
--- 	uCRd				: in std_logic;
--- 	uCWr 				: in std_logic;		
--- -- Microcontroller data and address buses	
--- 	uCA 				: in std_logic_vector(11 downto 0);
--- 	uCD 				: inout std_logic_vector(15 downto 0);
--- -- Geographic address pins
--- 	GA 					: in std_logic_vector(1 downto 0)	
--- 	);
--- end component;	
-
 constant sclk_period:   time := 5.0ns;   -- 200 MHz
 constant sysclk_period: time := 6.25ns;  -- 160 MHz
 constant aclk_period:   time := 12.5ns;  -- 80 MHz
@@ -111,7 +57,14 @@ signal TrigReq				  : std_logic;
 signal PipelineSet 			  : std_logic_vector (7 downto 0) := X"04";
 signal ResetHi         		  : std_logic;
 signal BeamOn				  : std_logic;
-
+signal MaskReg				  : Array_2x8;
+signal BufferRdAdd			  : Array_2x8x10;
+signal BufferOut 			  : Array_2x8x16;
+signal ControllerNo 		  : std_logic_vector (4 downto 0);
+signal PortNo 				  : std_logic_vector (4 downto 0);
+signal BeamOnLength 		  : std_logic_vector (11 downto 0);
+signal BeamOffLength 		  : std_logic_vector (11 downto 0);
+signal ADCSmplCntReg 		  : std_logic_vector (3 downto 0);
 
 begin
 
@@ -195,28 +148,35 @@ port map(
 	dout_afe1	=> dout_AFE1
   );
   
-  
-AFE_DataPath_inst: AFE_DataPath
-port map(
-	Clk_80MHz		=> aclk,
-	SysClk			=> sysclk, -- 160 MHz
+
+AFE_DataPath_inst : AFE_DataPath
+port map (
+	Clk_80MHz	    => aclk,		
+	SysClk			=> sysclk,
 	ResetHi			=> ResetHi,
 	TrigReq			=> TrigReq,
 	BeamOn			=> BeamOn,
-	
-	din_AFE0		=> dout_AFE0, 
-	din_AFE1		=> dout_AFE1,
+	MaskReg			=> MaskReg,					
+	BufferRdAdd		=> BufferRdAdd,				
+	BufferOut 		=> BufferOut, 
+	ControllerNo 	=> ControllerNo, 
+	PortNo 		    => PortNo, 		
+	BeamOnLength    => BeamOnLength, 
+	BeamOffLength   => BeamOffLength,
+	ADCSmplCntReg	=> ADCSmplCntReg,
+    din_AFE0		=> dout_AFE0,
+    din_AFE1		=> dout_AFE1,
 	done 			=> done,
 	PipelineSet		=> PipelineSet,
-		
-	CpldRst			=> CpldRst,	
-	CpldCS			=> CpldCS,	
-	uCRd			=> uCRd,	
-	uCWr 			=> uCWr, 	
-	uCA 			=> uCA, 	
-	uCD 			=> uCD, 	
-	GA 				=> GA 		
-  );
 
+	CpldRst			=> CpldRst,	
+	CpldCS			=> CpldCS,
+	uCRd			=> uCRd,
+	uCWr 			=> uCWr, 	
+	uCA				=> uCA,
+	uCD             => uCD,
+	GA              => GA 
+ 			    
+	);
 end AFE_DataPath_testbench_arch;
 

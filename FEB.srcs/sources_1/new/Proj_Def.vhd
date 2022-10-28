@@ -465,13 +465,13 @@ port (
 	ResetHi				: in std_logic;
 -- Signals from/to AFE Buffer
 	MaskReg				: in Array_2x8;
-	BufferRdAdd			: out Array_2x8x10;
+	BufferRdAdd			: buffer Array_2x8x10;
 	BufferOut 			: in Array_2x8x16;
 -- Signals from Trigger Logic
 	SlfTrgEn 			: in std_logic;
 	uBunchWrt			: in std_logic;
 	uBunch				: in std_logic_vector(31 downto 0);
--- Signals with DDR	
+-- Signals for the DDR	
 	EvBuffRd			: in std_logic;
 	EvBufffOut			: out std_logic_vector(15 downto 0);
 	EvBuffEmpty			: out std_logic;
@@ -495,22 +495,22 @@ port(
 	One_Wire_Out 		: buffer std_logic_vector(15 downto 0));
 end component;
 
-component LVDSTX is
+component LVDS_TX is
 port (
-	Clk_100MHz				: in std_logic;
-	ResetHi					: in std_logic; 
+	Clk_100MHz			: in std_logic;
+	ResetHi				: in std_logic; 
 	-- Microcontroller data and address buses
-	uCA 					: in std_logic_vector(11 downto 0);
-	uCD 					: inout std_logic_vector(15 downto 0);
+	uCA 				: in std_logic_vector(11 downto 0);
+	uCD 				: inout std_logic_vector(15 downto 0);
 	-- Microcontroller strobes
-	CpldRst					: in std_logic;
-	CpldCS					: in std_logic;
-	uCRd					: in std_logic;
-	uCWr 					: in std_logic;
+	CpldRst				: in std_logic;
+	CpldCS				: in std_logic;
+	uCRd				: in std_logic;
+	uCWr 				: in std_logic;
 	-- Geographic address pins
-	GA 						: in std_logic_vector(1 downto 0);
+	GA 					: in std_logic_vector(1 downto 0);
 	-- Chip dipendent I/O functions 
-	LVDSTX 					: buffer std_logic
+	LVDSTX 				: buffer std_logic
 );
 end component;
 -----------------------------------------------------------------------

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="AFE_DataPath_light_testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="AFE_DataPath_light_testbench" />
+            <top_module name="glbl" />
+            <top_module name="proj_def" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="248.600 ns"></ZoomStartTime>
+      <ZoomEndTime time="587.101 ns"></ZoomEndTime>
+      <Cursor1Time time="330.925 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="174"></NameColumnWidth>
+      <ValueColumnWidth column_width="180"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="18" />
+   <wvobject fp_name="/AFE_DataPath_light_testbench/Clk80MHz" type="logic">
+      <obj_property name="ElementShortName">Clk80MHz</obj_property>
+      <obj_property name="ObjectShortName">Clk80MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/CpldRst" type="logic">
+      <obj_property name="ElementShortName">CpldRst</obj_property>
+      <obj_property name="ObjectShortName">CpldRst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/done[0]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0]</obj_property>
+      <obj_property name="ObjectShortName">[0]</obj_property>
+      <obj_property name="label">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/Input_Seqs[0][7]" type="other">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7]</obj_property>
+      <obj_property name="ObjectShortName">[7]</obj_property>
+      <obj_property name="label">Input_Seq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/TrigReq" type="logic">
+      <obj_property name="ElementShortName">TrigReq</obj_property>
+      <obj_property name="ObjectShortName">TrigReq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/GateReq[0]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0]</obj_property>
+      <obj_property name="ObjectShortName">[0]</obj_property>
+      <obj_property name="label">GateReq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/GateWidth[0]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][11:0]</obj_property>
+      <obj_property name="label">GateWidth</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/SlfTrgEdge[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][1:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][1:0]</obj_property>
+      <obj_property name="label">SlfTrgEdge</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/BufferWE[0][7]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7]</obj_property>
+      <obj_property name="ObjectShortName">[7]</obj_property>
+      <obj_property name="label">BufferWE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/dout_AFE[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+      <obj_property name="label">Dout</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/BufferIn[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][15:0]</obj_property>
+      <obj_property name="label">BufferIn</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/BufferWrtAdd[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][9:0]</obj_property>
+      <obj_property name="label">BufferWrtAddr</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/BufferOut[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][15:0]</obj_property>
+      <obj_property name="label">BufferOut</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/BufferRdAdd[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][9:0]</obj_property>
+      <obj_property name="label">BufferRdAddr</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider372">
+      <obj_property name="label">SelfTrigger</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/ADCSmplGate[0]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0]</obj_property>
+      <obj_property name="ObjectShortName">[0]</obj_property>
+      <obj_property name="label">ADCSampleGate</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/Diff_Reg[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+      <obj_property name="label">DiffReg</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AFE_DataPath_light_testbench/AFE_DataPath_inst/IntTrgThresh[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+      <obj_property name="label">IntTrgThresh</obj_property>
+   </wvobject>
+</wave_config>

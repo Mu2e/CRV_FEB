@@ -90,6 +90,8 @@ set_property ip_output_repo c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.cac
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+add_files -quiet c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/OLD_AFE_DP_Pipeline/OLD_AFE_DP_Pipeline.dcp
+set_property used_in_implementation false [get_files c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/OLD_AFE_DP_Pipeline/OLD_AFE_DP_Pipeline.dcp]
 read_vhdl -library work {
   C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd
   C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd
@@ -105,10 +107,8 @@ read_vhdl -library work {
   C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Deserializer.vhd
   C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd
   C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd
+  C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd
 }
-read_ip -quiet C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/OLD_AFE_DP_Pipeline/OLD_AFE_DP_Pipeline.xci
-set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/OLD_AFE_DP_Pipeline/OLD_AFE_DP_Pipeline_ooc.xdc]
-
 read_ip -quiet C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/DPRAM_1Kx16_1/DPRAM_1Kx16.xci
 set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16_ooc.xdc]
 
@@ -122,6 +122,10 @@ set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desk
 read_ip -quiet c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/SCFIFO_1Kx16/SCFIFO_1Kx16.xci
 set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_1Kx16/SCFIFO_1Kx16.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_1Kx16/SCFIFO_1Kx16_ooc.xdc]
+
+read_ip -quiet c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/LVDSTxBuff/LVDSTxBuff.xci
+set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/LVDSTxBuff/LVDSTxBuff.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/LVDSTxBuff/LVDSTxBuff_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

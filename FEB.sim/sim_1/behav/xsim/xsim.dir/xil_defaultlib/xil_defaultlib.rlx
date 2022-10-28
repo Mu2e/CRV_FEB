@@ -2,6 +2,9 @@
 2020.2
 Oct 19 2021
 03:16:22
-C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/AFE_DP_Pipeline/sim/AFE_DP_Pipeline.v,1666304780,verilog,,C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/OLD_AFE_DP_Pipeline/sim/OLD_AFE_DP_Pipeline.v,,AFE_DP_Pipeline,,,,,,,,
+C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/AFE_DP_Pipeline/sim/AFE_DP_Pipeline.v,1666304780,verilog,,C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_32x256/sim/SCFIFO_32x256.v,,AFE_DP_Pipeline,,,,,,,,
 C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16_sim_netlist.v,1665671065,verilog,,C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/AFE_DP_Pipeline/sim/AFE_DP_Pipeline.v,,DPRAM_1Kx16;DPRAM_1Kx16_blk_mem_gen_generic_cstr;DPRAM_1Kx16_blk_mem_gen_prim_width;DPRAM_1Kx16_blk_mem_gen_prim_wrapper;DPRAM_1Kx16_blk_mem_gen_top;DPRAM_1Kx16_blk_mem_gen_v8_4_5;DPRAM_1Kx16_blk_mem_gen_v8_4_5_synth;glbl,,,,,,,,
+C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/LVDSTxBuff/sim/LVDSTxBuff.v,1666734445,verilog,,C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/OLD_AFE_DP_Pipeline/sim/OLD_AFE_DP_Pipeline.v,,LVDSTxBuff,,,,,,,,
 C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/OLD_AFE_DP_Pipeline/sim/OLD_AFE_DP_Pipeline.v,1666305006,verilog,,,,OLD_AFE_DP_Pipeline,,,,,,,,
+C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_1Kx16/sim/SCFIFO_1Kx16.v,1666727138,verilog,,C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/LVDSTxBuff/sim/LVDSTxBuff.v,,SCFIFO_1Kx16,,,,,,,,
+C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_32x256/sim/SCFIFO_32x256.v,1666725042,verilog,,C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_1Kx16/sim/SCFIFO_1Kx16.v,,SCFIFO_32x256,,,,,,,,

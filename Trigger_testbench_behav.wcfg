@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Trigger_testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Trigger_testbench" />
+            <top_module name="glbl" />
+            <top_module name="proj_def" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="135.401 ns"></ZoomEndTime>
+      <Cursor1Time time="46.875 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="174"></NameColumnWidth>
+      <ValueColumnWidth column_width="180"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/Trigger_testbench/Clk80MHz" type="logic">
+      <obj_property name="ElementShortName">Clk80MHz</obj_property>
+      <obj_property name="ObjectShortName">Clk80MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Trigger_testbench/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Trigger_testbench/CpldRst" type="logic">
+      <obj_property name="ElementShortName">CpldRst</obj_property>
+      <obj_property name="ObjectShortName">CpldRst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Trigger_testbench/AFE_DataPath_inst/Input_Seqs[0][7]" type="other">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7]</obj_property>
+      <obj_property name="ObjectShortName">[7]</obj_property>
+      <obj_property name="label">Input_Seq</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider221">
+      <obj_property name="label">Trigger Logic</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Trigger_testbench/Trigger_logic/GateCounter" type="array">
+      <obj_property name="ElementShortName">GateCounter[8:0]</obj_property>
+      <obj_property name="ObjectShortName">GateCounter[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Trigger_testbench/Trigger_logic/WRDL" type="array">
+      <obj_property name="ElementShortName">WRDL[1:0]</obj_property>
+      <obj_property name="ObjectShortName">WRDL[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Trigger_testbench/uWRDL" type="array">
+      <obj_property name="ElementShortName">uWRDL[1:0]</obj_property>
+      <obj_property name="ObjectShortName">uWRDL[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Trigger_testbench/uCA" type="array">
+      <obj_property name="ElementShortName">uCA[11:0]</obj_property>
+      <obj_property name="ObjectShortName">uCA[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Trigger_testbench/uCD" type="array">
+      <obj_property name="ElementShortName">uCD[15:0]</obj_property>
+      <obj_property name="ObjectShortName">uCD[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Trigger_testbench/Trigger_logic/TmgSrcSel" type="logic">
+      <obj_property name="ElementShortName">TmgSrcSel</obj_property>
+      <obj_property name="ObjectShortName">TmgSrcSel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Trigger_testbench/Trigger_logic/SlfTrgEn" type="logic">
+      <obj_property name="ElementShortName">SlfTrgEn</obj_property>
+      <obj_property name="ObjectShortName">SlfTrgEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Trigger_testbench/Trigger_logic/TrigReq" type="logic">
+      <obj_property name="ElementShortName">TrigReq</obj_property>
+      <obj_property name="ObjectShortName">TrigReq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Trigger_testbench/Trigger_logic/FlashEn" type="logic">
+      <obj_property name="ElementShortName">FlashEn</obj_property>
+      <obj_property name="ObjectShortName">FlashEn</obj_property>
+   </wvobject>
+</wave_config>

@@ -22,9 +22,9 @@ WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis b
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 11988
+INFO: [Synth 8-7075] Helper process launched with PID 22268
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1419.141 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1419.305 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'FEB' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:71]
 	Parameter DIFF_TERM bound to: 1 - type: bool 
@@ -99,31 +99,31 @@ INFO: [Synth 8-3491] module 'AFE_DataPath' declared at 'C:/Users/mrigatti/Deskto
 INFO: [Synth 8-638] synthesizing module 'AFE_DataPath' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:73]
 INFO: [Synth 8-3491] module 'AFE_Pipeline' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:10' bound to instance 'AFE_Pipeline_inst' of component 'AFE_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:117]
 INFO: [Synth 8-638] synthesizing module 'AFE_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:26]
-INFO: [Synth 8-3491] module 'AFE_DP_Pipeline' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:5' bound to instance 'Pipeline' of component 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:45]
-INFO: [Synth 8-638] synthesizing module 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:18]
-INFO: [Synth 8-3491] module 'AFE_DP_Pipeline' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:5' bound to instance 'Pipeline' of component 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:45]
+INFO: [Synth 8-3491] module 'AFE_DP_Pipeline' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:5' bound to instance 'Pipeline' of component 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:45]
+INFO: [Synth 8-638] synthesizing module 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'AFE_DP_Pipeline' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:5' bound to instance 'Pipeline' of component 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:45]
 WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'Gen_Two_AFEs[0].Gen_Eight_Chans[0].PipelineWrtEn_reg' in module 'AFE_Pipeline' in the same process may cause logic issues. 
  Please split the sync and async parts into different processes [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:48]
 WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'Gen_Two_AFEs[1].Gen_Eight_Chans[0].PipelineWrtEn_reg' in module 'AFE_Pipeline' in the same process may cause logic issues. 
  Please split the sync and async parts into different processes [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:48]
 INFO: [Synth 8-256] done synthesizing module 'AFE_Pipeline' (5#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:26]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-638] synthesizing module 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:18]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-638] synthesizing module 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
 WARNING: [Synth 8-5856] 3D RAM Diff_Reg_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-5856] 3D RAM SlfTrgEdge_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-5856] 3D RAM Ped_Reg_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
@@ -174,14 +174,14 @@ WARNING: [Synth 8-6014] Unused sequential element Rx1DatReg_reg was removed.  [C
 INFO: [Synth 8-256] done synthesizing module 'Trigger' (9#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:41]
 INFO: [Synth 8-3491] module 'EventBuilder' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:26' bound to instance 'EventBuilder_logic' of component 'EventBuilder' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:238]
 INFO: [Synth 8-638] synthesizing module 'EventBuilder' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:47]
-WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:529]
-WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:529]
-INFO: [Synth 8-3491] module 'SCFIFO_32x256' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/SCFIFO_32x256_stub.vhdl:5' bound to instance 'uBunchBuffer' of component 'SCFIFO_32x256' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:87]
-INFO: [Synth 8-638] synthesizing module 'SCFIFO_32x256' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/SCFIFO_32x256_stub.vhdl:21]
-WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:538]
-WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:538]
-INFO: [Synth 8-3491] module 'SCFIFO_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/SCFIFO_1Kx16_stub.vhdl:5' bound to instance 'EventBuff' of component 'SCFIFO_1kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:100]
-INFO: [Synth 8-638] synthesizing module 'SCFIFO_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-23392-CD-135239/realtime/SCFIFO_1Kx16_stub.vhdl:22]
+WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:546]
+WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:546]
+INFO: [Synth 8-3491] module 'SCFIFO_32x256' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/SCFIFO_32x256_stub.vhdl:5' bound to instance 'uBunchBuffer' of component 'SCFIFO_32x256' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:87]
+INFO: [Synth 8-638] synthesizing module 'SCFIFO_32x256' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/SCFIFO_32x256_stub.vhdl:21]
+WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:555]
+WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:555]
+INFO: [Synth 8-3491] module 'SCFIFO_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/SCFIFO_1Kx16_stub.vhdl:5' bound to instance 'EventBuff' of component 'SCFIFO_1kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:100]
+INFO: [Synth 8-638] synthesizing module 'SCFIFO_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/SCFIFO_1Kx16_stub.vhdl:22]
 WARNING: [Synth 8-5856] 3D RAM NextEvAddr_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-5856] 3D RAM BufferRdAdd_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-6014] Unused sequential element Read_Seq_Stat_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:144]
@@ -193,14 +193,26 @@ INFO: [Synth 8-638] synthesizing module 'One_Wire' [C:/Users/mrigatti/Desktop/CR
 WARNING: [Synth 8-614] signal 'OneWrRdROM' is read in the process but is not in the sensitivity list [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:53]
 WARNING: [Synth 8-6014] Unused sequential element ResponseBit_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:61]
 INFO: [Synth 8-256] done synthesizing module 'One_Wire' (11#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:18]
-WARNING: [Synth 8-3848] Net LVDSTX in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:60]
+INFO: [Synth 8-3491] module 'LVDS_TX' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:12' bound to instance 'uC_to_LVDSTX' of component 'LVDS_TX' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:282]
+INFO: [Synth 8-638] synthesizing module 'LVDS_TX' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:31]
+	Parameter Pwidth bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'FM_Tx' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Serializer.vhd:18' bound to instance 'FMTx' of component 'FM_Tx' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:43]
+INFO: [Synth 8-638] synthesizing module 'FM_Tx' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Serializer.vhd:29]
+	Parameter Pwidth bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'FM_Tx' (12#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Serializer.vhd:29]
+WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:565]
+WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:565]
+INFO: [Synth 8-3491] module 'LVDSTxBuff' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/LVDSTxBuff_stub.vhdl:5' bound to instance 'FMTx_Buff' of component 'LVDSTxBuff' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:58]
+INFO: [Synth 8-638] synthesizing module 'LVDSTxBuff' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-16652-CD-135239/realtime/LVDSTxBuff_stub.vhdl:21]
+INFO: [Synth 8-256] done synthesizing module 'LVDS_TX' (13#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:31]
 WARNING: [Synth 8-3848] Net reset in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:74]
+WARNING: [Synth 8-3848] Net Clk_100MHz in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:73]
 WARNING: [Synth 8-3848] Net uWRDL in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:82]
 WARNING: [Synth 8-3848] Net TrgSrc in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:96]
 WARNING: [Synth 8-3848] Net GPO in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:97]
-WARNING: [Synth 8-3848] Net Clk_100MHz in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:73]
 WARNING: [Synth 8-3848] Net EvBuffRd in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:101]
-INFO: [Synth 8-256] done synthesizing module 'FEB' (12#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:71]
+INFO: [Synth 8-256] done synthesizing module 'FEB' (14#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:71]
+WARNING: [Synth 8-7129] Port uCRd in module LVDS_TX is either unconnected or has no load
 WARNING: [Synth 8-7129] Port SysClk in module FM_Rx is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uCD[15] in module Trigger is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uCD[14] in module Trigger is either unconnected or has no load
@@ -223,21 +235,20 @@ WARNING: [Synth 8-7129] Port AFEDCLK_P[0] in module AFE_Interface is either unco
 WARNING: [Synth 8-7129] Port AFEDCLK_N[1] in module AFE_Interface is either unconnected or has no load
 WARNING: [Synth 8-7129] Port AFEDCLK_N[0] in module AFE_Interface is either unconnected or has no load
 WARNING: [Synth 8-7129] Port AFESDO in module AFE_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port LVDSTX in module FEB is either unconnected or has no load
 WARNING: [Synth 8-7129] Port GPI1 in module FEB is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1419.141 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1419.305 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1435.949 ; gain = 16.809
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1438.688 ; gain = 19.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1435.949 ; gain = 16.809
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1438.688 ; gain = 19.383
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.095 . Memory (MB): peak = 1445.031 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.098 . Memory (MB): peak = 1438.688 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 76 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -284,6 +295,8 @@ Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1
 Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_32x256/SCFIFO_32x256/SCFIFO_32x256_in_context.xdc] for cell 'EventBuilder_logic/uBunchBuffer'
 Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_1Kx16/SCFIFO_1Kx16/SCFIFO_1Kx16_in_context.xdc] for cell 'EventBuilder_logic/EventBuff'
 Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_1Kx16/SCFIFO_1Kx16/SCFIFO_1Kx16_in_context.xdc] for cell 'EventBuilder_logic/EventBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/LVDSTxBuff/LVDSTxBuff/LVDSTxBuff_in_context.xdc] for cell 'uC_to_LVDSTX/FMTx_Buff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/LVDSTxBuff/LVDSTxBuff/LVDSTxBuff_in_context.xdc] for cell 'uC_to_LVDSTX/FMTx_Buff'
 Parsing XDC File [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc]
 Finished Parsing XDC File [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/FEB_propImpl.xdc].
@@ -292,11 +305,11 @@ Parsing XDC File [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/
 Finished Parsing XDC File [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1561.168 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1526.477 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 1561.168 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 1526.477 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[0].AFEBuff' at clock pin 'clka' is different from the actual clock period '12.500', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[1].AFEBuff' at clock pin 'clka' is different from the actual clock period '12.500', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[2].AFEBuff' at clock pin 'clka' is different from the actual clock period '12.500', this can lead to different synthesis results.
@@ -318,14 +331,14 @@ WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context s
 WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis because the design is too small; reverting to default synthesis
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1563.117 ; gain = 143.977
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1528.672 ; gain = 109.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50fgga484-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1563.117 ; gain = 143.977
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1528.672 ; gain = 109.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -350,8 +363,9 @@ Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/AFE_Pipeline_in
 Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/AFE_Pipeline_inst/\Gen_Two_AFEs[1].Pipeline . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for EventBuilder_logic/uBunchBuffer. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for EventBuilder_logic/EventBuff. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for uC_to_LVDSTX/FMTx_Buff. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1563.117 ; gain = 143.977
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1528.672 ; gain = 109.367
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'auto_FSM'
 INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[0].Input_Seqs_reg[0][0]' in module 'AFE_DataPath'
@@ -373,6 +387,8 @@ INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[1].Gen_Eight_C
 INFO: [Synth 8-802] inferred FSM for state register 'Rx_State_reg' in module 'FM_Rx'
 INFO: [Synth 8-802] inferred FSM for state register 'Event_Builder_reg' in module 'EventBuilder'
 INFO: [Synth 8-802] inferred FSM for state register 'OneWireSeq_reg' in module 'One_Wire'
+INFO: [Synth 8-802] inferred FSM for state register 'TxBitWdth_reg' in module 'FM_Tx'
+INFO: [Synth 8-802] inferred FSM for state register 'Tx_State_reg' in module 'FM_Tx'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -623,8 +639,30 @@ INFO: [Synth 8-3354] encoded FSM with state register 'Event_Builder_reg' using e
                  readgap |                         00000010 |                             1000
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'OneWireSeq_reg' using encoding 'one-hot' in module 'One_Wire'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE3 |                              000 |                              000
+                  iSTATE |                              001 |                              001
+                 iSTATE1 |                              010 |                              010
+                 iSTATE0 |                              011 |                              011
+                 iSTATE2 |                              100 |                              100
+                 iSTATE4 |                              101 |                              101
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'TxBitWdth_reg' using encoding 'sequential' in module 'FM_Tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  txidle |                            00010 |                              000
+                 txstrta |                            10000 |                              001
+                 txstrtb |                            01000 |                              010
+                  shfttx |                            00100 |                              011
+                paritytx |                            00001 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Tx_State_reg' using encoding 'one-hot' in module 'FM_Tx'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1563.117 ; gain = 143.977
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1528.672 ; gain = 109.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -639,7 +677,7 @@ Detailed RTL Component Info :
 	   2 Input    9 Bit       Adders := 5     
 	   2 Input    8 Bit       Adders := 8     
 	   2 Input    5 Bit       Adders := 9     
-	   2 Input    4 Bit       Adders := 18    
+	   2 Input    4 Bit       Adders := 19    
 	   2 Input    3 Bit       Adders := 2     
 	   2 Input    2 Bit       Adders := 1     
 +---XORs : 
@@ -648,21 +686,21 @@ Detailed RTL Component Info :
 	               72 Bit    Registers := 1     
 	               32 Bit    Registers := 1     
 	               24 Bit    Registers := 1     
-	               16 Bit    Registers := 20    
+	               16 Bit    Registers := 21    
 	               14 Bit    Registers := 52    
 	               12 Bit    Registers := 2     
 	               10 Bit    Registers := 96    
 	                9 Bit    Registers := 7     
 	                8 Bit    Registers := 12    
 	                5 Bit    Registers := 6     
-	                4 Bit    Registers := 19    
+	                4 Bit    Registers := 20    
 	                3 Bit    Registers := 2     
-	                2 Bit    Registers := 23    
-	                1 Bit    Registers := 56    
+	                2 Bit    Registers := 25    
+	                1 Bit    Registers := 61    
 +---Muxes : 
 	   2 Input   32 Bit        Muxes := 4     
 	   5 Input   16 Bit        Muxes := 16    
-	   2 Input   16 Bit        Muxes := 26    
+	   2 Input   16 Bit        Muxes := 27    
 	   4 Input   16 Bit        Muxes := 1     
 	   2 Input   14 Bit        Muxes := 16    
 	  13 Input   13 Bit        Muxes := 3     
@@ -677,14 +715,16 @@ Detailed RTL Component Info :
 	   8 Input    8 Bit        Muxes := 1     
 	   3 Input    8 Bit        Muxes := 1     
 	   2 Input    7 Bit        Muxes := 1     
-	   2 Input    5 Bit        Muxes := 12    
+	   2 Input    5 Bit        Muxes := 17    
 	  13 Input    5 Bit        Muxes := 2     
-	   2 Input    4 Bit        Muxes := 23    
+	   5 Input    5 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 25    
 	   7 Input    3 Bit        Muxes := 32    
-	   2 Input    3 Bit        Muxes := 83    
+	   2 Input    3 Bit        Muxes := 86    
+	   6 Input    3 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 11    
 	   4 Input    2 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 269   
+	   2 Input    1 Bit        Muxes := 276   
 	  13 Input    1 Bit        Muxes := 8     
 	   4 Input    1 Bit        Muxes := 34    
 	   7 Input    1 Bit        Muxes := 32    
@@ -707,6 +747,7 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port uCRd in module LVDS_TX is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uCD[15] in module Trigger is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uCD[14] in module Trigger is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uCD[13] in module Trigger is either unconnected or has no load
@@ -728,7 +769,6 @@ WARNING: [Synth 8-7129] Port AFEDCLK_P[0] in module AFE_Interface is either unco
 WARNING: [Synth 8-7129] Port AFEDCLK_N[1] in module AFE_Interface is either unconnected or has no load
 WARNING: [Synth 8-7129] Port AFEDCLK_N[0] in module AFE_Interface is either unconnected or has no load
 WARNING: [Synth 8-7129] Port AFESDO in module AFE_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port LVDSTX in module FEB is either unconnected or has no load
 WARNING: [Synth 8-7129] Port GPI1 in module FEB is either unconnected or has no load
 WARNING: [Synth 8-3332] Sequential element (OneWire/FSM_onehot_OneWireSeq_reg[7]) is unused and will be removed from module FEB.
 WARNING: [Synth 8-3332] Sequential element (OneWire/FSM_onehot_OneWireSeq_reg[6]) is unused and will be removed from module FEB.
@@ -738,20 +778,28 @@ WARNING: [Synth 8-3332] Sequential element (OneWire/FSM_onehot_OneWireSeq_reg[3]
 WARNING: [Synth 8-3332] Sequential element (OneWire/FSM_onehot_OneWireSeq_reg[2]) is unused and will be removed from module FEB.
 WARNING: [Synth 8-3332] Sequential element (OneWire/FSM_onehot_OneWireSeq_reg[1]) is unused and will be removed from module FEB.
 WARNING: [Synth 8-3332] Sequential element (OneWire/FSM_onehot_OneWireSeq_reg[0]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (uC_to_LVDSTX/FMTx/FSM_sequential_TxBitWdth_reg[2]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (uC_to_LVDSTX/FMTx/FSM_sequential_TxBitWdth_reg[1]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (uC_to_LVDSTX/FMTx/FSM_sequential_TxBitWdth_reg[0]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (uC_to_LVDSTX/FMTx/FSM_onehot_Tx_State_reg[4]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (uC_to_LVDSTX/FMTx/FSM_onehot_Tx_State_reg[3]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (uC_to_LVDSTX/FMTx/FSM_onehot_Tx_State_reg[2]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (uC_to_LVDSTX/FMTx/FSM_onehot_Tx_State_reg[1]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (uC_to_LVDSTX/FMTx/FSM_onehot_Tx_State_reg[0]) is unused and will be removed from module FEB.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1563.117 ; gain = 143.977
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1528.672 ; gain = 109.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1563.117 ; gain = 143.977
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1528.672 ; gain = 109.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1563.117 ; gain = 143.977
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1528.672 ; gain = 109.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
@@ -858,7 +906,7 @@ INFO: [Synth 8-4765] Removing register instance (\AFE_DataPath_inst/AFE_Pipeline
 INFO: [Synth 8-4765] Removing register instance (\AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[1].PipelineRdAdd_reg[0][3] ) from module (FEB) as it is equivalent to (\AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineRdAdd_reg[0][3] ) and driving same net [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
 INFO: [Common 17-14] Message 'Synth 8-4765' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1573.219 ; gain = 154.078
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1573.023 ; gain = 153.719
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -876,37 +924,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1586.738 ; gain = 167.598
+Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1586.602 ; gain = 167.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1586.738 ; gain = 167.598
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1586.602 ; gain = 167.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1586.738 ; gain = 167.598
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1586.602 ; gain = 167.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1586.738 ; gain = 167.598
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1586.602 ; gain = 167.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1586.738 ; gain = 167.598
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1586.602 ; gain = 167.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1586.738 ; gain = 167.598
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1586.602 ; gain = 167.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -920,6 +968,7 @@ Report BlackBoxes:
 |2     |AFE_DP_Pipeline |         2|
 |3     |SCFIFO_32x256   |         1|
 |4     |SCFIFO_1Kx16    |         1|
+|5     |LVDSTxBuff      |         1|
 +------+----------------+----------+
 
 Report Cell Usage: 
@@ -928,54 +977,55 @@ Report Cell Usage:
 +------+---------------------+------+
 |1     |AFE_DP_Pipeline_bbox |     2|
 |3     |DPRAM_1Kx16_bbox     |    16|
-|19    |SCFIFO_1Kx16_bbox    |     1|
-|20    |SCFIFO_32x256_bbox   |     1|
-|21    |BUFG                 |     3|
-|22    |CARRY4               |   189|
-|23    |IDELAYCTRL           |     1|
-|24    |IDELAYE2             |    18|
-|25    |ISERDESE2            |    36|
-|27    |LUT1                 |    46|
-|28    |LUT2                 |   623|
-|29    |LUT3                 |   738|
-|30    |LUT4                 |   497|
-|31    |LUT5                 |   332|
-|32    |LUT6                 |   829|
-|33    |MUXF7                |    37|
-|34    |MUXF8                |    18|
-|35    |FDCE                 |  2138|
-|36    |FDPE                 |    89|
-|37    |FDRE                 |   387|
-|38    |IBUF                 |    37|
-|39    |IBUFDS               |    20|
-|40    |OBUF                 |     3|
-|41    |OBUFDS               |     2|
-|42    |OBUFT                |     8|
+|19    |LVDSTxBuff_bbox      |     1|
+|20    |SCFIFO_1Kx16_bbox    |     1|
+|21    |SCFIFO_32x256_bbox   |     1|
+|22    |BUFG                 |     3|
+|23    |CARRY4               |   189|
+|24    |IDELAYCTRL           |     1|
+|25    |IDELAYE2             |    18|
+|26    |ISERDESE2            |    36|
+|28    |LUT1                 |    46|
+|29    |LUT2                 |   623|
+|30    |LUT3                 |   738|
+|31    |LUT4                 |   497|
+|32    |LUT5                 |   332|
+|33    |LUT6                 |   829|
+|34    |MUXF7                |    37|
+|35    |MUXF8                |    18|
+|36    |FDCE                 |  2138|
+|37    |FDPE                 |    89|
+|38    |FDRE                 |   387|
+|39    |IBUF                 |    37|
+|40    |IBUFDS               |    20|
+|41    |OBUF                 |     4|
+|42    |OBUFDS               |     2|
+|43    |OBUFT                |     7|
 +------+---------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1586.738 ; gain = 167.598
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1586.602 ; gain = 167.297
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 32 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:39 . Memory (MB): peak = 1586.738 ; gain = 40.430
-Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1586.738 ; gain = 167.598
+Synthesis finished with 0 errors, 0 critical warnings and 40 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:38 . Memory (MB): peak = 1586.602 ; gain = 77.312
+Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1586.602 ; gain = 167.297
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.132 . Memory (MB): peak = 1586.738 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.130 . Memory (MB): peak = 1586.602 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 320 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 CRITICAL WARNING: [Shape Builder 18-119] Failed to create I/OLOGIC Route Through shape for instance Phase_Detector_inst/GPI0DiffIn. Found overlapping instances within the shape: GPI0DiffIn and Phase_Detector_inst/GPI0DiffIn.
 CRITICAL WARNING: [Shape Builder 18-119] Failed to create BUFDS-blocked-IOB shape for instance Phase_Detector_inst/GPI0DiffIn. Found overlapping instances within the shape: GPI0DiffIn and Phase_Detector_inst/GPI0DiffIn.
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 36 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1603.484 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1602.254 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: d2be5dd4
+Synth Design complete, checksum: 95bad865
 INFO: [Common 17-83] Releasing license: Synthesis
-239 Infos, 133 Warnings, 2 Critical Warnings and 0 Errors encountered.
+251 Infos, 142 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:53 . Memory (MB): peak = 1603.484 ; gain = 184.344
+synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:52 . Memory (MB): peak = 1602.254 ; gain = 182.949
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/FEB.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file FEB_utilization_synth.rpt -pb FEB_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Oct 25 16:11:57 2022...
+INFO: [Common 17-206] Exiting Vivado at Wed Oct 26 09:13:01 2022...

@@ -36,7 +36,7 @@ port (
 	SlfTrgEn 			: in std_logic;
 	uBunchWrt			: in std_logic;
 	uBunch				: in std_logic_vector(31 downto 0);
--- Signals with DDR	
+-- Signals for the DDR	
 	EvBuffRd			: in std_logic;
 	EvBufffOut			: out std_logic_vector(15 downto 0);
 	EvBuffEmpty			: out std_logic;
@@ -63,9 +63,6 @@ signal EvBuffDat			: std_logic_vector(15 downto 0);
 signal EvBuffWrt			: std_logic;
 signal EvBuffFull			: std_logic;
 
--- Event Buffer Stat FIFO signals
-signal EvBuffStatFIFO_Empty : std_logic_vector(1 downto 0);
-signal EvBuffStat_rden 		: std_logic;
 
 signal RdDone				: std_logic;
 signal EvOvf 				: Array_2x8;
@@ -115,25 +112,29 @@ begin
 if CpldRst = '0' then
 	BufferRdAdd(0) <= (others => (others => '0'));
 	BufferRdAdd(1) <= (others => (others => '0'));
-	NextEvAddr(0) <= (others => (others => '0'));
-	NextEvAddr(1) <= (others => (others => '0'));
+	NextEvAddr(0)  <= (others => (others => '0'));
+	NextEvAddr(1)  <= (others => (others => '0'));
+	
+	uBunchRd	  <= '0';	
+	
+	EvBuffWrt     <= '0';
+	EvBuffDat 	  <= (others => '0');	
 	
 	Event_Builder <= Idle;
-	RdDone <= '0';
-	EvBuffStat_rden <= '0';
-	EvOvf <=(others => X"FF");
-	AFE_Num <= 0; 
-	Chan_Num <= 0;
-	NoHIts <= (others => X"00");
 	
-	EvBuffDat <= (others => '0');
-	EventWdCnt <= (others => '0');
-	NxtWdCount <= (others => '0');
-	EvBuffWrt <= '0';
-	BuffRdCount <= (others => '0');
-	SampleCount <= (others => '0');
+	RdDone        <= '0';
+	EvOvf 		  <=(others => X"FF");
+	AFE_Num 	  <= 0; 
+	Chan_Num 	  <= 0;
+	NoHIts 		  <= (others => X"00");
 	
-	uBunchRd <= '0';
+	EventWdCnt 	  <= (others => '0');
+	NxtWdCount 	  <= (others => '0');
+
+	BuffRdCount   <= (others => '0');
+	SampleCount   <= (others => '0');
+	
+
 
 
 elsif rising_edge (SysClk) then
@@ -142,7 +143,7 @@ elsif rising_edge (SysClk) then
 -- =========================================================================
 Case Event_Builder is
    When Idle => Read_Seq_Stat <= X"0";
-	 	if EvBuffStatFIFO_Empty = 0 and SlfTrgEn = '1' and RdDone = '0'
+	 	if SlfTrgEn = '1' and RdDone = '0'
 		then Event_Builder <= Check_Mask0;
 		else Event_Builder <= Idle;
 		end if;
@@ -287,13 +288,6 @@ if Event_Builder = Incr_Chan1 and AFE_Num = 1 and Chan_Num = 7
 	then RdDone <= '1';
 else RdDone <= '0';
 end if;
-
-if Event_Builder = Add_Wd_Count or (SlfTrgEn = '0' and EvBuffStatFIFO_Empty = 0)
-   then EvBuffStat_rden <= '1';
-else EvBuffStat_rden <= '0';
-end if; 
-
-
 
 
 

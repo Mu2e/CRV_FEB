@@ -19,6 +19,7 @@ component Trigger is
 	ResetHi  			: in std_logic;
 -- Signals for other logic
 	TrigReq				: buffer std_logic;
+	SlfTrgEn 			: buffer std_logic;
 	BeamOn 				: buffer std_logic;
 	uBunch   			: buffer std_logic_vector(31 downto 0);
 	uBunchWrt			: out std_logic;
@@ -52,6 +53,16 @@ component AFE_DataPath is
 -- Signals from Trigger Logic
 	TrigReq				: in std_logic;
 	BeamOn				: in std_logic;
+-- Signals for EventBuilder
+	MaskReg				: buffer Array_2x8;
+	BufferRdAdd			: in Array_2x8x10;
+	BufferOut 			: out Array_2x8x16;
+-- Signals from uC
+	ControllerNo 		: in std_logic_vector (4 downto 0);
+	PortNo 				: in std_logic_vector (4 downto 0);
+	BeamOnLength 		: in std_logic_vector (11 downto 0);
+	BeamOffLength 		: in std_logic_vector (11 downto 0);
+	ADCSmplCntReg 		: in std_logic_vector (3 downto 0);
 -- Data output from the deserializer for AFE0 and AFE1 synchronized to 80 MHz clock
     din_AFE0			: in Array_8x14; 
     din_AFE1			: in Array_8x14;
@@ -71,14 +82,14 @@ component AFE_DataPath is
 	);
 end component;
 
-constant Clk200MHz_period:   time := 5.0ns;   -- 200 MHz
+constant Clk200MHz_period: time := 5.0ns;   -- 200 MHz
 constant Clk160MHz_period: time := 6.25ns;  -- 160 MHz
-constant Clk80MHz_period:   time := 12.5ns;  -- 80 MHz
+constant Clk80MHz_period:  time := 12.5ns;  -- 80 MHz
 constant Clk560MHz_period: time := 1.786ns; -- 80 MHz * 7 = 560MHz
 
-signal reset: std_logic := '1';
-signal ResetHi: std_logic := '1';
-signal CpldRst: std_logic := '1';
+signal reset	: std_logic := '1';
+signal ResetHi	: std_logic := '1';
+signal CpldRst	: std_logic := '1';
 signal Clk200MHz, Clk160MHz, Clk80MHz, Clk560MHz: std_logic := '0';
 
 
@@ -101,6 +112,17 @@ signal PulseSel				  : std_logic;
 signal Pulse				  : std_logic;
 signal GPI0 				  : std_logic;
 signal LEDSrc		          : std_logic;
+signal MaskReg				  : Array_2x8;
+signal BufferRdAdd			  : Array_2x8x10;
+signal BufferOut 			  : Array_2x8x16;
+signal ControllerNo 		  : std_logic_vector (4 downto 0);
+signal PortNo 				  : std_logic_vector (4 downto 0);
+signal BeamOnLength 		  : std_logic_vector (11 downto 0);
+signal BeamOffLength 		  : std_logic_vector (11 downto 0);
+signal ADCSmplCntReg 		  : std_logic_vector (3 downto 0);
+signal SlfTrgEn 			  : std_logic;
+signal uBunch   			  : std_logic_vector(31 downto 0);
+signal uBunchWrt			  : std_logic;
 
 
 signal d0_vec: std_logic_vector(13 downto 0) := "00100000000001"; -- 0x801
@@ -116,12 +138,15 @@ signal d8_vec: std_logic_vector(13 downto 0) := "11111110000000"; -- aka FCLK sh
 begin
 
 --make the reset
-reset <= '1', '0' after 13ns;
+reset 	<= '1', '0' after 13ns;
 CpldRst <= '1', '0' after 12.5ns, '1' after 25ns;
-ResetHi <= '1', '0' after 12.5ns, '1' after 25ns;
+ResetHi <= not CpldRst;
+uCWR	<= '0';
+CpldCS	<= '0';
+
 
 -- make the clocks
-Clk80MHz <= not Clk80MHz after Clk80MHz_period/2;
+Clk80MHz  <= not Clk80MHz  after Clk80MHz_period/2;
 Clk160MHz <= not Clk160MHz after Clk160MHz_period/2;
 Clk200MHz <= not Clk200MHz after Clk200MHz_period/2;
 Clk560MHz <= not Clk560MHz after Clk560MHz_period/2;
@@ -129,7 +154,6 @@ Clk560MHz <= not Clk560MHz after Clk560MHz_period/2;
 done <= "00", "11" after 50ns;
 
 GA <= "00";
-
 
 sender: process
 begin
@@ -169,6 +193,14 @@ port map (
 	ResetHi			=> ResetHi,
 	TrigReq			=> TrigReq,
 	BeamOn			=> BeamOn,
+	MaskReg			=> MaskReg,					
+	BufferRdAdd		=> BufferRdAdd,				
+	BufferOut 		=> BufferOut, 
+	ControllerNo 	=> ControllerNo, 
+	PortNo 		    => PortNo, 		
+	BeamOnLength    => BeamOnLength, 
+	BeamOffLength   => BeamOffLength,
+	ADCSmplCntReg	=> ADCSmplCntReg,
     din_AFE0		=> dout_AFE0,
     din_AFE1		=> dout_AFE1,
 	done 			=> done,
@@ -189,7 +221,10 @@ port map(
   	SysClk			=> Clk160MHz, -- 160 MHz
 	ResetHi  		=> ResetHi,
 	TrigReq			=> TrigReq,
-	BeamOn			=> BeamOn,
+	SlfTrgEn 		=> SlfTrgEn, 
+	BeamOn 	        => BeamOn, 	
+	uBunch          => uBunch,   
+	uBunchWrt       => uBunchWrt,
 	CpldRst			=> CpldRst,	
 	CpldCS			=> CpldCS,
 	uCRd			=> uCRd,
@@ -203,6 +238,17 @@ port map(
 	LEDSrc 			=> LEDSrc,	
 	GPI0 			=> GPI0 
 );
+
+trigger_request: process
+begin
+	wait until rising_edge(Clk160MHz);
+	uWRDL 			  <= "01";
+	uCA(11 downto 10) <= "00";
+	uCA(9 downto 0)   <= FlashCtrlAddr;	
+	uCA(9 downto 0)   <= IntTrgEnAddr after Clk80MHz_period*4;
+
+end process;
+
 
 end Trigger_testbench_arch;
 

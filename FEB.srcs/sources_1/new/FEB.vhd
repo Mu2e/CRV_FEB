@@ -248,7 +248,7 @@ port map(
 	SlfTrgEn		=> SlfTrgEn,
 	uBunchWrt		=> uBunchWrt,
 	uBunch   		=> uBunch,
--- Signals with DDR	
+-- Signals for the DDR
 	EvBuffRd		=> EvBuffRd,		
 	EvBufffOut		=> EvBufffOut,			
 	EvBuffEmpty		=> EvBuffEmpty,			
@@ -276,5 +276,27 @@ Temp(0) <= '0' when TempEn = '1' and TempCtrl = "0001" else 'Z';
 Temp(1) <= '0' when TempEn = '1' and TempCtrl = "0010" else 'Z';
 Temp(2) <= '0' when TempEn = '1' and TempCtrl = "0100" else 'Z';
 Temp(3) <= '0' when TempEn = '1' and TempCtrl = "1000" else 'Z';
+
+
+-- Data written from the uC to the LVDS Tx port
+uC_to_LVDSTX : LVDS_TX
+port map(
+	Clk_100MHz		=> Clk_100MHz,
+	ResetHi			=> ResetHi,
+	-- Microcontroller data and address buses
+	uCA 			=> uCA,
+	uCD 			=> uCD,
+	-- Microcontroller strobes
+	CpldRst			=> CpldRst,		
+	CpldCS			=> CpldCS,	
+	uCRd			=> uCRd,	
+	uCWr 			=> uCWr, 		
+	-- Geographic address pins
+	GA 				=> GA,
+	-- Chip dipendent I/O functions 
+	LVDSTX 			=> LVDSTX	
+);
+
+
 
 end behavioural;

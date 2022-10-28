@@ -5,14 +5,18 @@ use IEEE.numeric_std.all;
 use work.Proj_Def.all;
 
 entity One_Wire is
-	 port(clock,reset,CpldCS,uCWr : in std_logic;
-			GA : in std_logic_vector(1 downto 0);
-			uCA : in std_logic_vector(11 downto 0);
-			uCD : in std_logic_vector(15 downto 0);
-			Temp : in  std_logic_vector(3 downto 0);
-			TempCtrl : buffer std_logic_vector(3 downto 0);
-			TempEn : buffer std_logic;
-			One_Wire_Out : buffer std_logic_vector(15 downto 0));
+port(
+	clock		: in std_logic;
+	reset		: in std_logic;
+	CpldCS		: in std_logic;
+	uCWr 		: in std_logic;
+	GA 			: in std_logic_vector(1 downto 0);
+	uCA 		: in std_logic_vector(11 downto 0);
+	uCD 		: in std_logic_vector(15 downto 0);
+	Temp 		: in  std_logic_vector(3 downto 0);
+	TempCtrl 	: buffer std_logic_vector(3 downto 0);
+	TempEn 		: buffer std_logic;
+	One_Wire_Out : buffer std_logic_vector(15 downto 0));
 end One_Wire;
 
 architecture onewire_behave of One_Wire is

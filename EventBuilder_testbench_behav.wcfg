@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="EventBuilder_testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="EventBuilder_testbench" />
+            <top_module name="glbl" />
+            <top_module name="proj_def" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="13,292.440 ns"></ZoomStartTime>
+      <ZoomEndTime time="13,404.641 ns"></ZoomEndTime>
+      <Cursor1Time time="13,346.875 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="174"></NameColumnWidth>
+      <ValueColumnWidth column_width="180"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="22" />
+   <wvobject fp_name="/EventBuilder_testbench/Clk160MHz" type="logic">
+      <obj_property name="ElementShortName">Clk160MHz</obj_property>
+      <obj_property name="ObjectShortName">Clk160MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/CpldRst" type="logic">
+      <obj_property name="ElementShortName">CpldRst</obj_property>
+      <obj_property name="ObjectShortName">CpldRst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/Event_Builder" type="other">
+      <obj_property name="ElementShortName">Event_Builder</obj_property>
+      <obj_property name="ObjectShortName">Event_Builder</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/AFE_Num" type="other">
+      <obj_property name="ElementShortName">AFE_Num</obj_property>
+      <obj_property name="ObjectShortName">AFE_Num</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/Chan_Num" type="other">
+      <obj_property name="ElementShortName">Chan_Num</obj_property>
+      <obj_property name="ObjectShortName">Chan_Num</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/EventWdCnt" type="array">
+      <obj_property name="ElementShortName">EventWdCnt[15:0]</obj_property>
+      <obj_property name="ObjectShortName">EventWdCnt[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider525">
+      <obj_property name="label">EvBufferFIFO</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/EvBuffDat" type="array">
+      <obj_property name="ElementShortName">EvBuffDat[15:0]</obj_property>
+      <obj_property name="ObjectShortName">EvBuffDat[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/EvBuffWrt" type="logic">
+      <obj_property name="ElementShortName">EvBuffWrt</obj_property>
+      <obj_property name="ObjectShortName">EvBuffWrt</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider526">
+      <obj_property name="label">uBunch Buffer</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch" type="array">
+      <obj_property name="ElementShortName">uBunch[31:0]</obj_property>
+      <obj_property name="ObjectShortName">uBunch[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="vbus582" type="vbus">
+      <obj_property name="label">uBunchLo</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[15]" type="logic">
+         <obj_property name="ElementShortName">[15]</obj_property>
+         <obj_property name="ObjectShortName">[15]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[14]" type="logic">
+         <obj_property name="ElementShortName">[14]</obj_property>
+         <obj_property name="ObjectShortName">[14]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[13]" type="logic">
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">[13]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[12]" type="logic">
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">[12]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[11]" type="logic">
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">[11]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[10]" type="logic">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">[10]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[9]" type="logic">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">[9]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[8]" type="logic">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">[8]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[7]" type="logic">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">[7]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[6]" type="logic">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">[6]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[5]" type="logic">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[4]" type="logic">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[3]" type="logic">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[2]" type="logic">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[1]" type="logic">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunch[0]" type="logic">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchWrt" type="logic">
+      <obj_property name="ElementShortName">uBunchWrt</obj_property>
+      <obj_property name="ObjectShortName">uBunchWrt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut" type="array">
+      <obj_property name="ElementShortName">uBunchBuffOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">uBunchBuffOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="vbus631" type="vbus">
+      <obj_property name="label">uBunchLo</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[15]" type="logic">
+         <obj_property name="ElementShortName">[15]</obj_property>
+         <obj_property name="ObjectShortName">[15]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[14]" type="logic">
+         <obj_property name="ElementShortName">[14]</obj_property>
+         <obj_property name="ObjectShortName">[14]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[13]" type="logic">
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">[13]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[12]" type="logic">
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">[12]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[11]" type="logic">
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">[11]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[10]" type="logic">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">[10]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[9]" type="logic">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">[9]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[8]" type="logic">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">[8]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[7]" type="logic">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">[7]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[6]" type="logic">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">[6]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[5]" type="logic">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[4]" type="logic">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[3]" type="logic">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[2]" type="logic">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[1]" type="logic">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchBuffOut[0]" type="logic">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/EventBuilder_logic/uBunchRd" type="logic">
+      <obj_property name="ElementShortName">uBunchRd</obj_property>
+      <obj_property name="ObjectShortName">uBunchRd</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider527">
+      <obj_property name="label">AFE DATA Buffer</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/dina" type="array">
+      <obj_property name="ElementShortName">dina[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/addra" type="array">
+      <obj_property name="ElementShortName">addra[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/wea" type="array">
+      <obj_property name="ElementShortName">wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/BufferOut[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][15:0]</obj_property>
+      <obj_property name="label">BufferOut</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EventBuilder_testbench/BufferRdAdd[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][9:0]</obj_property>
+      <obj_property name="label">BufferRdAdd</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

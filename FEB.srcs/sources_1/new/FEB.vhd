@@ -25,11 +25,8 @@ use work.Proj_Def.all;
 
 entity FEB is
 port(
-    -- Clocks
-	Clk_80MHz			    : in  std_logic;
-	Clk_560MHz			    : in  std_logic;	
-	Clk_200MHz			    : in  std_logic;
-	SysClk				    : in std_logic;   -- 160 Mhz
+	-- 160 MHz VXO clock
+	VXO_P,VXO_N 			: in std_logic;
 	-- AFE Data lines
 	AFE0Dat_P, AFE0Dat_N    : in std_logic_vector(7 downto 0); -- LVDS pairs from an AFE chip (8 channels)
 	AFE1Dat_P, AFE1Dat_N    : in std_logic_vector(7 downto 0);
@@ -46,6 +43,20 @@ port(
 	AFERst 				    : buffer std_logic;
 	AFESClk, AFESDI  	    : buffer std_logic;
 	AFESDO 				    : in std_logic;
+	-- DDR3L pins
+	DDR_DATA 				: inout std_logic_vector(15 downto 0);
+	DDR_ADDR 				: out std_logic_vector(14 downto 0);
+	BA 						: out std_logic_vector(2 downto 0);
+	DDR_CKE	 				: out std_logic_vector(0 downto 0);
+	ODT 					: out std_logic_vector(0 downto 0);
+	CS 						: out std_logic_vector(0 downto 0);
+	DM 						: out std_logic_vector(1 downto 0);
+	RAS,CAS					: out std_logic; 
+	DDR_WE 					: out std_logic;
+	DDR_CLKP,DDR_CLKN 		: out  std_logic_vector(0 downto 0);
+	LDQS_P, LDQS_N 			: inout std_logic;
+	UDQS_P, UDQS_N 			: inout std_logic;
+	SDRzq 					: inout std_logic;
 	-- Microcontroller strobes
 	CpldRst					: in std_logic;
 	CpldCS					: in std_logic;
@@ -70,7 +81,13 @@ end FEB;
 
 architecture behavioural of FEB is
 
-signal Clk_100MHz			  : std_logic;
+    -- Clocks
+signal Clk_80MHz			  : std_logic;
+signal Clk_100MHz			  : std_logic;	
+signal Clk_200MHz			  : std_logic;
+signal Clk_560MHz			  : std_logic;
+signal SysClk				  : std_logic;   -- 160 Mhz
+
 signal reset		          : std_logic;
 signal done		              : std_logic_vector(1 downto 0); 
 signal warn		              : std_logic_vector(1 downto 0); 
@@ -107,11 +124,22 @@ signal TempEn 				  : std_logic;
 signal TempCtrl 			  : std_logic_vector(3 downto 0);
 signal One_Wire_Out 		  : std_logic_vector(15 downto 0);
 
-
+-- Synchronous edge detectors of uC read and write strobes
+signal WRDL 	: std_logic_vector(1 downto 0);
 
 begin
 
 ResetHi <= not CpldRst;
+global_signals : process(SysClk, CpldRst)
+begin 
+if CpldRst = '0' then
+elsif rising_edge (SysClk) then
+
+	WRDL(0) <= not uCWR and not CpldCS;
+	WRDL(1) <= WRDL(0);
+
+end if;
+end process;
 
 -- IBUFDS: Differential Input Buffer
 GPI0DiffIn : IBUFDS
@@ -229,6 +257,7 @@ port map(
 	uCD 			=> uCD,
 	GA 				=> GA, 
 	uWRDL 			=> uWRDL,
+	WRDL 			=> WRDL,	
 	PulseSel 		=> PulseSel,
 	Pulse 			=> Pulse, 
 	LEDSrc 			=> LEDSrc,
@@ -255,6 +284,54 @@ port map(
 	EvBuffWdsUsed	=> EvBuffWdsUsed		
 	);
 
+
+DDR_Interface_inst : DDR_Interface
+port map(
+	VXO_P			=> VXO_P,	
+	VXO_N 			=> VXO_N, 	
+	SysClk			=> SysClk,	
+	ResetHi			=> ResetHi,
+-- DDR3L pins
+	DDR_DATA		=> DDR_DATA,	
+	DDR_ADDR		=> DDR_ADDR,	
+	BA 				=> BA, 			
+	DDR_CKE	 		=> DDR_CKE,		
+	ODT 			=> ODT, 		
+	CS 				=> CS, 			
+	DM 				=> DM, 			
+	RAS				=> RAS,
+	CAS				=> CAS,		
+	DDR_WE 			=> DDR_WE, 		
+	DDR_CLKP        => DDR_CLKP,
+	DDR_CLKN 	    => DDR_CLKN,
+	LDQS_P          => LDQS_P,
+	LDQS_N 		    => LDQS_N, 	
+	UDQS_P          => UDQS_P,
+	UDQS_N 		    => UDQS_N, 	
+	SDRzq 			=> SDRzq, 		
+-- Signals for the DDR	
+	EvBuffRd		=> EvBuffRd,	
+	EvBuffOut		=> EvBufffOut,	
+	EvBuffEmpty		=> EvBuffEmpty,	
+	EvBuffWdsUsed	=> EvBuffWdsUsed,
+-- Signals from Trigger Logic
+	SlfTrgEn 		=> SlfTrgEn, 	
+	uBunchWrt		=> uBunchWrt,	
+	uBunch			=> uBunch,		
+-- Microcontroller strobes
+	CpldRst			=> CpldRst,	
+	CpldCS			=> CpldCS,	
+	uCRd			=> uCRd,
+	uCWr 			=> uCWr, 	
+-- Microcontroller data and address buses	
+	uCA 			=> uCA,
+	uCD 			=> uCD,
+-- Geographic address pins
+	GA 				=> GA,
+-- Synchronous edge detectors of uC read and write strobes
+	--uWRDL 				: in std_logic_vector(1 downto 0);
+	WRDL 			=> WRDL
+);
 
 -- Read the temperature/ID chip on the four connectoed CMBs
 OneWire : One_Wire 

@@ -29,6 +29,7 @@ entity Trigger is
 	GA 					: in std_logic_vector(1 downto 0);
 -- Synchronous edge detectors of uC read and write strobes
 	uWRDL 				: in std_logic_vector(1 downto 0);
+	WRDL 				: in std_logic_vector(1 downto 0);
 -- LED/Flash Gate select line
 	PulseSel 			: buffer std_logic;
 -- LED pulser/Flash Gate
@@ -44,8 +45,6 @@ architecture Trigger_arch of Trigger is
 	signal RxOut    : RxOutRec;
 	signal Rx1Dat   : std_logic_vector(23 downto 0);
 	signal Rx1DatReg: std_logic_vector(23 downto 0);
-	-- Synchronous edge detectors of uC read and write strobes
-	signal WRDL 	: std_logic_vector(1 downto 0);
 	-- uC data bus
 	signal TrigType : std_logic_vector(11 downto 0);
 	-- Counter that determines the trig out pulse width
@@ -112,9 +111,6 @@ if CpldRst = '0' then
 	
 
 elsif rising_edge (SysClk) then
-
-WRDL(0) <= not uCWR and not CpldCS;
-WRDL(1) <= WRDL(0);
 
 if WRDL = 1 and uCA(9 downto 0) = FlashCtrlAddr 
 -- Flash gate enable bit

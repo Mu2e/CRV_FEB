@@ -38,7 +38,7 @@ port (
 	uBunch				: in std_logic_vector(31 downto 0);
 -- Signals for the DDR	
 	EvBuffRd			: in std_logic;
-	EvBufffOut			: out std_logic_vector(15 downto 0);
+	EvBuffOut			: out std_logic_vector(15 downto 0);
 	EvBuffEmpty			: out std_logic;
 	EvBuffWdsUsed		: out std_logic_vector(10 downto 0)
 	);
@@ -101,7 +101,7 @@ port map (
 	wr_en 		=> EvBuffWrt,
 	rd_en 		=> EvBuffRd,
 	din 		=> EvBuffDat,
-    dout		=> EvBufffOut, 
+    dout		=> EvBuffOut, 
     empty 		=> EvBuffEmpty,
 	full 		=> EvBuffFull,
 	data_count  => EvBuffWdsUsed

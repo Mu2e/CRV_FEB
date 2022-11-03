@@ -2,8 +2,8 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Fri Oct 28 15:50:48 2022
-# Process ID: 19132
+# Start of session at: Wed Nov  2 11:50:47 2022
+# Process ID: 22976
 # Current directory: C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1
 # Command line: vivado.exe -log FEB.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source FEB.tcl
 # Log file: C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/FEB.vds
@@ -23,18 +23,1345 @@ WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis b
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 11828
+INFO: [Synth 8-7075] Helper process launched with PID 18688
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1418.961 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1419.230 ; gain = 0.000
 ---------------------------------------------------------------------------------
-ERROR: [Synth 8-1031] strt_req is not declared [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:394]
-INFO: [Synth 8-2810] unit behavioral ignored due to previous errors [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:70]
+INFO: [Synth 8-638] synthesizing module 'FEB' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:82]
+	Parameter DIFF_TERM bound to: 1 - type: bool 
+	Parameter IBUF_LOW_PWR bound to: 0 - type: bool 
+	Parameter IOSTANDARD bound to: DEFAULT - type: string 
+INFO: [Synth 8-113] binding component instance 'GPI0DiffIn' to cell 'IBUFDS' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:145]
+INFO: [Synth 8-3491] module 'AFE_Interface' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:30' bound to instance 'AFE_Interface_inst' of component 'AFE_Interface' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:156]
+INFO: [Synth 8-638] synthesizing module 'AFE_Interface' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:63]
+	Parameter IOSTANDARD bound to: LVDS - type: string 
+INFO: [Synth 8-113] binding component instance 'OBUFDS_inst0' to cell 'OBUFDS' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:103]
+	Parameter IOSTANDARD bound to: LVDS - type: string 
+INFO: [Synth 8-113] binding component instance 'OBUFDS_inst1' to cell 'OBUFDS' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:107]
+INFO: [Synth 8-113] binding component instance 'IDELAYCTRL_inst' to cell 'IDELAYCTRL' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:136]
+INFO: [Synth 8-3491] module 'Auto_AFE' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:20' bound to instance 'afe0_inst' of component 'auto_afe' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:149]
+INFO: [Synth 8-638] synthesizing module 'Auto_AFE' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:35]
+INFO: [Synth 8-3491] module 'febit' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:16' bound to instance 'ffebit_inst' of component 'febit' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:70]
+INFO: [Synth 8-638] synthesizing module 'febit' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:29]
+	Parameter DIFF_TERM bound to: 1 - type: bool 
+	Parameter IBUF_LOW_PWR bound to: 0 - type: bool 
+	Parameter IOSTANDARD bound to: LVDS - type: string 
+INFO: [Synth 8-113] binding component instance 'IBUFDS_inst' to cell 'IBUFDS' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:39]
+	Parameter CINVCTRL_SEL bound to: FALSE - type: string 
+	Parameter DELAY_SRC bound to: IDATAIN - type: string 
+	Parameter HIGH_PERFORMANCE_MODE bound to: TRUE - type: string 
+	Parameter IDELAY_TYPE bound to: VAR_LOAD - type: string 
+	Parameter IDELAY_VALUE bound to: 0 - type: integer 
+	Parameter PIPE_SEL bound to: FALSE - type: string 
+	Parameter REFCLK_FREQUENCY bound to: 200.000000 - type: double 
+	Parameter SIGNAL_PATTERN bound to: DATA - type: string 
+INFO: [Synth 8-113] binding component instance 'IDELAYE2_inst' to cell 'IDELAYE2' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:53]
+	Parameter DATA_RATE bound to: DDR - type: string 
+	Parameter DATA_WIDTH bound to: 14 - type: integer 
+	Parameter DYN_CLKDIV_INV_EN bound to: FALSE - type: string 
+	Parameter DYN_CLK_INV_EN bound to: FALSE - type: string 
+	Parameter INTERFACE_TYPE bound to: NETWORKING - type: string 
+	Parameter IOBDELAY bound to: IFD - type: string 
+	Parameter NUM_CE bound to: 2 - type: integer 
+	Parameter OFB_USED bound to: FALSE - type: string 
+	Parameter SERDES_MODE bound to: MASTER - type: string 
+INFO: [Synth 8-113] binding component instance 'iserdese2_master_inst' to cell 'ISERDESE2' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:83]
+	Parameter DATA_RATE bound to: DDR - type: string 
+	Parameter DATA_WIDTH bound to: 14 - type: integer 
+	Parameter DYN_CLKDIV_INV_EN bound to: FALSE - type: string 
+	Parameter DYN_CLK_INV_EN bound to: FALSE - type: string 
+	Parameter INTERFACE_TYPE bound to: NETWORKING - type: string 
+	Parameter IOBDELAY bound to: IFD - type: string 
+	Parameter NUM_CE bound to: 2 - type: integer 
+	Parameter OFB_USED bound to: FALSE - type: string 
+	Parameter SERDES_MODE bound to: SLAVE - type: string 
+INFO: [Synth 8-113] binding component instance 'iserdese2_slave_inst' to cell 'ISERDESE2' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:126]
+INFO: [Synth 8-256] done synthesizing module 'febit' (1#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:29]
+INFO: [Synth 8-3491] module 'febit' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:16' bound to instance 'dfebit_inst' of component 'febit' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:85]
+INFO: [Synth 8-3491] module 'febit' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:16' bound to instance 'dfebit_inst' of component 'febit' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:85]
+INFO: [Synth 8-3491] module 'febit' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:16' bound to instance 'dfebit_inst' of component 'febit' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:85]
+INFO: [Synth 8-3491] module 'febit' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:16' bound to instance 'dfebit_inst' of component 'febit' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:85]
+INFO: [Synth 8-3491] module 'febit' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:16' bound to instance 'dfebit_inst' of component 'febit' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:85]
+INFO: [Synth 8-3491] module 'febit' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:16' bound to instance 'dfebit_inst' of component 'febit' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:85]
+INFO: [Synth 8-3491] module 'febit' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:16' bound to instance 'dfebit_inst' of component 'febit' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:85]
+INFO: [Synth 8-3491] module 'febit' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/febit.vhd:16' bound to instance 'dfebit_inst' of component 'febit' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:85]
+INFO: [Synth 8-3491] module 'auto_FSM' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/auto_FSM.vhd:28' bound to instance 'auto_fsm_inst' of component 'auto_FSM' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:99]
+INFO: [Synth 8-638] synthesizing module 'auto_FSM' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/auto_FSM.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'auto_FSM' (2#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/auto_FSM.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'Auto_AFE' (3#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:35]
+INFO: [Synth 8-3491] module 'Auto_AFE' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Auto_AFE.vhd:20' bound to instance 'afe1_inst' of component 'auto_afe' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:161]
+WARNING: [Synth 8-3848] Net AFEPDn in module/entity AFE_Interface does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:43]
+WARNING: [Synth 8-3848] Net AFECS in module/entity AFE_Interface does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:44]
+WARNING: [Synth 8-3848] Net AFERst in module/entity AFE_Interface does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:45]
+WARNING: [Synth 8-3848] Net AFESClk in module/entity AFE_Interface does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:46]
+WARNING: [Synth 8-3848] Net AFESDI in module/entity AFE_Interface does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:46]
+INFO: [Synth 8-256] done synthesizing module 'AFE_Interface' (4#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:63]
+INFO: [Synth 8-3491] module 'AFE_DataPath' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:36' bound to instance 'AFE_DataPath_inst' of component 'AFE_DataPath' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:193]
+INFO: [Synth 8-638] synthesizing module 'AFE_DataPath' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:73]
+INFO: [Synth 8-3491] module 'AFE_Pipeline' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:10' bound to instance 'AFE_Pipeline_inst' of component 'AFE_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:117]
+INFO: [Synth 8-638] synthesizing module 'AFE_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:26]
+INFO: [Synth 8-3491] module 'AFE_DP_Pipeline' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:5' bound to instance 'Pipeline' of component 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:45]
+INFO: [Synth 8-638] synthesizing module 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'AFE_DP_Pipeline' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:5' bound to instance 'Pipeline' of component 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:45]
+WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'Gen_Two_AFEs[0].Gen_Eight_Chans[0].PipelineWrtEn_reg' in module 'AFE_Pipeline' in the same process may cause logic issues. 
+ Please split the sync and async parts into different processes [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:48]
+WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'Gen_Two_AFEs[1].Gen_Eight_Chans[0].PipelineWrtEn_reg' in module 'AFE_Pipeline' in the same process may cause logic issues. 
+ Please split the sync and async parts into different processes [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'AFE_Pipeline' (5#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:26]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-638] synthesizing module 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:217]
+WARNING: [Synth 8-5856] 3D RAM Diff_Reg_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM SlfTrgEdge_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM Ped_Reg_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM Ped_Avg_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM IntTrgThresh_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM Input_Seqs_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM InWdCnt_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM BufferIn_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM WrtCrrntWdCntAd_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM ADCSmplCntr_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM BufferWrtAdd_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM WrtNxtWdCntAd_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[0].Gen_Eight_Chans[0].In_Seq_Stat_reg[0] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[0].Gen_Eight_Chans[1].In_Seq_Stat_reg[0] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[0].Gen_Eight_Chans[2].In_Seq_Stat_reg[0] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[0].Gen_Eight_Chans[3].In_Seq_Stat_reg[0] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[0].Gen_Eight_Chans[4].In_Seq_Stat_reg[0] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[0].Gen_Eight_Chans[5].In_Seq_Stat_reg[0] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[0].Gen_Eight_Chans[6].In_Seq_Stat_reg[0] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[0].Gen_Eight_Chans[7].In_Seq_Stat_reg[0] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[1].Gen_Eight_Chans[0].In_Seq_Stat_reg[1] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[1].Gen_Eight_Chans[1].In_Seq_Stat_reg[1] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[1].Gen_Eight_Chans[2].In_Seq_Stat_reg[1] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[1].Gen_Eight_Chans[3].In_Seq_Stat_reg[1] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[1].Gen_Eight_Chans[4].In_Seq_Stat_reg[1] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[1].Gen_Eight_Chans[5].In_Seq_Stat_reg[1] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[1].Gen_Eight_Chans[6].In_Seq_Stat_reg[1] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+WARNING: [Synth 8-6014] Unused sequential element Gen_Two_AFEs[1].Gen_Eight_Chans[7].In_Seq_Stat_reg[1] was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:239]
+INFO: [Synth 8-256] done synthesizing module 'AFE_DataPath' (6#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:73]
+INFO: [Synth 8-3491] module 'Phase_Detector' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Phase_Detector.vhd:30' bound to instance 'Phase_Detector_inst' of component 'Phase_Detector' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:228]
+INFO: [Synth 8-638] synthesizing module 'Phase_Detector' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Phase_Detector.vhd:46]
+	Parameter DIFF_TERM bound to: 1 - type: bool 
+	Parameter IBUF_LOW_PWR bound to: 0 - type: bool 
+	Parameter IOSTANDARD bound to: DEFAULT - type: string 
+INFO: [Synth 8-113] binding component instance 'GPI0DiffIn' to cell 'IBUFDS' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Phase_Detector.vhd:61]
+INFO: [Synth 8-256] done synthesizing module 'Phase_Detector' (7#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Phase_Detector.vhd:46]
+INFO: [Synth 8-3491] module 'Trigger' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:10' bound to instance 'Trigger_logic' of component 'Trigger' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:241]
+INFO: [Synth 8-638] synthesizing module 'Trigger' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:42]
+	Parameter Pwidth bound to: 24 - type: integer 
+INFO: [Synth 8-3491] module 'FM_Rx' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Deserializer.vhd:17' bound to instance 'FMRx1' of component 'FM_Rx' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:72]
+INFO: [Synth 8-638] synthesizing module 'FM_Rx' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Deserializer.vhd:29]
+	Parameter Pwidth bound to: 24 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'FM_Rx' (8#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Deserializer.vhd:29]
+WARNING: [Synth 8-6014] Unused sequential element GPOCount_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:93]
+WARNING: [Synth 8-6014] Unused sequential element GPO_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:94]
+WARNING: [Synth 8-6014] Unused sequential element TrigType_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:106]
+WARNING: [Synth 8-6014] Unused sequential element Rx1DatReg_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:110]
+INFO: [Synth 8-256] done synthesizing module 'Trigger' (9#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:42]
+WARNING: [Synth 8-5640] Port 'asp' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:461]
+INFO: [Synth 8-3491] module 'EventBuilder' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:26' bound to instance 'EventBuilder_logic' of component 'EventBuilder' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:267]
+INFO: [Synth 8-638] synthesizing module 'EventBuilder' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:48]
+WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:600]
+WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:600]
+INFO: [Synth 8-3491] module 'SCFIFO_32x256' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/SCFIFO_32x256_stub.vhdl:5' bound to instance 'uBunchBuffer' of component 'SCFIFO_32x256' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:85]
+INFO: [Synth 8-638] synthesizing module 'SCFIFO_32x256' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/SCFIFO_32x256_stub.vhdl:21]
+WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:609]
+WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:609]
+INFO: [Synth 8-3491] module 'SCFIFO_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/SCFIFO_1Kx16_stub.vhdl:5' bound to instance 'EventBuff' of component 'SCFIFO_1kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:98]
+INFO: [Synth 8-638] synthesizing module 'SCFIFO_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/SCFIFO_1Kx16_stub.vhdl:22]
+WARNING: [Synth 8-5856] 3D RAM NextEvAddr_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM BufferRdAdd_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-6014] Unused sequential element Read_Seq_Stat_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:146]
+INFO: [Synth 8-256] done synthesizing module 'EventBuilder' (10#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:48]
+INFO: [Synth 8-3491] module 'DDR_Interface' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:26' bound to instance 'DDR_Interface_inst' of component 'DDR_Interface' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:288]
+INFO: [Synth 8-638] synthesizing module 'DDR_Interface' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:70]
+WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:600]
+WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:600]
+INFO: [Synth 8-3491] module 'SCFIFO_32x256' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/SCFIFO_32x256_stub.vhdl:5' bound to instance 'DDRAddrBuff' of component 'SCFIFO_32x256' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:139]
+INFO: [Synth 8-3491] module 'DDR3LController' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DDR3LController_stub.vhdl:5' bound to instance 'DDR_Controller' of component 'DDR3LController' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:165]
+INFO: [Synth 8-638] synthesizing module 'DDR3LController' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/DDR3LController_stub.vhdl:53]
+WARNING: [Synth 8-6014] Unused sequential element Buff_Rst_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:235]
+WARNING: [Synth 8-6014] Unused sequential element DDRWrtSeqStat_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:241]
+INFO: [Synth 8-256] done synthesizing module 'DDR_Interface' (11#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:70]
+INFO: [Synth 8-3491] module 'One_Wire' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:7' bound to instance 'OneWire' of component 'One_Wire' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:337]
+INFO: [Synth 8-638] synthesizing module 'One_Wire' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:22]
+WARNING: [Synth 8-614] signal 'OneWrRdROM' is read in the process but is not in the sensitivity list [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:57]
+WARNING: [Synth 8-6014] Unused sequential element ResponseBit_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:65]
+INFO: [Synth 8-256] done synthesizing module 'One_Wire' (12#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:22]
+INFO: [Synth 8-3491] module 'LVDS_TX' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:12' bound to instance 'uC_to_LVDSTX' of component 'LVDS_TX' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:359]
+INFO: [Synth 8-638] synthesizing module 'LVDS_TX' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:31]
+	Parameter Pwidth bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'FM_Tx' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Serializer.vhd:18' bound to instance 'FMTx' of component 'FM_Tx' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:43]
+INFO: [Synth 8-638] synthesizing module 'FM_Tx' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Serializer.vhd:29]
+	Parameter Pwidth bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'FM_Tx' (13#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Serializer.vhd:29]
+WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:619]
+WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:619]
+INFO: [Synth 8-3491] module 'LVDSTxBuff' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/LVDSTxBuff_stub.vhdl:5' bound to instance 'FMTx_Buff' of component 'LVDSTxBuff' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:58]
+INFO: [Synth 8-638] synthesizing module 'LVDSTxBuff' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-22976-CD-135239/realtime/LVDSTxBuff_stub.vhdl:21]
+INFO: [Synth 8-256] done synthesizing module 'LVDS_TX' (14#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:31]
+WARNING: [Synth 8-3848] Net Clk_80MHz in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:85]
+WARNING: [Synth 8-3848] Net Clk_560MHz in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:88]
+WARNING: [Synth 8-3848] Net Clk_200MHz in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:87]
+WARNING: [Synth 8-3848] Net reset in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:91]
+WARNING: [Synth 8-3848] Net SysClk in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:89]
+WARNING: [Synth 8-3848] Net SysClk in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:89]
+WARNING: [Synth 8-3848] Net Clk_100MHz in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:86]
+WARNING: [Synth 8-3848] Net uWRDL in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:99]
+WARNING: [Synth 8-3848] Net TrgSrc in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:113]
+WARNING: [Synth 8-3848] Net GPO in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:114]
+INFO: [Synth 8-256] done synthesizing module 'FEB' (15#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:82]
+WARNING: [Synth 8-7129] Port uCRd in module LVDS_TX is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SDRzq in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[15] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[14] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[13] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[12] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[11] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[10] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[9] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[8] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[7] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[6] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[5] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[4] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[3] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[2] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[1] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[0] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CpldCS in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCRd in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCWr in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[11] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[10] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[9] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[8] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[7] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[6] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[5] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[4] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[3] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[2] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[1] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[0] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GA[1] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GA[0] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WRDL[1] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WRDL[0] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SysClk in module FM_Rx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[15] in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[14] in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[13] in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[12] in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[11] in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[10] in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[9] in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CpldCS in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCRd in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCWr in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCRd in module AFE_DataPath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AFEPDn[1] in module AFE_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AFEPDn[0] in module AFE_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AFECS[1] in module AFE_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AFECS[0] in module AFE_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AFERst in module AFE_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AFESClk in module AFE_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AFESDI in module AFE_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AFEDCLK_P[1] in module AFE_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AFEDCLK_P[0] in module AFE_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AFEDCLK_N[1] in module AFE_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AFEDCLK_N[0] in module AFE_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AFESDO in module AFE_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GPI1 in module FEB is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1418.961 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1433.902 ; gain = 14.672
 ---------------------------------------------------------------------------------
-RTL Elaboration failed
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1451.781 ; gain = 32.551
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1451.781 ; gain = 32.551
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.104 . Memory (MB): peak = 1451.781 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 76 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[0].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[0].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[1].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[1].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[2].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[2].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[3].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[3].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[4].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[4].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[5].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[5].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[6].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[6].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[0].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[0].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[1].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[1].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[2].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[2].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[3].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[3].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[4].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[4].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[5].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[5].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[6].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[6].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].AFEBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DPRAM_1Kx16/DPRAM_1Kx16/DPRAM_1Kx16_in_context.xdc] for cell 'AFE_DataPath_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].AFEBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/AFE_DP_Pipeline/AFE_DP_Pipeline/AFE_DP_Pipeline_in_context.xdc] for cell 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Pipeline'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/AFE_DP_Pipeline/AFE_DP_Pipeline/AFE_DP_Pipeline_in_context.xdc] for cell 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Pipeline'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/AFE_DP_Pipeline/AFE_DP_Pipeline/AFE_DP_Pipeline_in_context.xdc] for cell 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Pipeline'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/AFE_DP_Pipeline/AFE_DP_Pipeline/AFE_DP_Pipeline_in_context.xdc] for cell 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Pipeline'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_32x256/SCFIFO_32x256/SCFIFO_32x256_in_context.xdc] for cell 'EventBuilder_logic/uBunchBuffer'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_32x256/SCFIFO_32x256/SCFIFO_32x256_in_context.xdc] for cell 'EventBuilder_logic/uBunchBuffer'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_32x256/SCFIFO_32x256/SCFIFO_32x256_in_context.xdc] for cell 'DDR_Interface_inst/DDRAddrBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_32x256/SCFIFO_32x256/SCFIFO_32x256_in_context.xdc] for cell 'DDR_Interface_inst/DDRAddrBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_1Kx16/SCFIFO_1Kx16/SCFIFO_1Kx16_in_context.xdc] for cell 'EventBuilder_logic/EventBuff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SCFIFO_1Kx16/SCFIFO_1Kx16/SCFIFO_1Kx16_in_context.xdc] for cell 'EventBuilder_logic/EventBuff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/LVDSTxBuff/LVDSTxBuff/LVDSTxBuff_in_context.xdc] for cell 'uC_to_LVDSTX/FMTx_Buff'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/LVDSTxBuff/LVDSTxBuff/LVDSTxBuff_in_context.xdc] for cell 'uC_to_LVDSTX/FMTx_Buff'
+Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc] for cell 'DDR_Interface_inst/DDR_Controller'
+Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc] for cell 'DDR_Interface_inst/DDR_Controller'
+Parsing XDC File [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc]
+WARNING: [Vivado 12-584] No ports matched 'Clk_200MHz'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:105]
+WARNING: [Vivado 12-584] No ports matched 'Clk_80MHz'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:106]
+WARNING: [Vivado 12-584] No ports matched 'Clk_560MHz'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:107]
+WARNING: [Vivado 12-584] No ports matched 'Clk_200MHz'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:193]
+WARNING: [Vivado 12-584] No ports matched 'Clk_560MHz'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:194]
+WARNING: [Vivado 12-584] No ports matched 'SysClk'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:197]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[0]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:206]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[1]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:207]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[2]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:208]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[3]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:209]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[4]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:210]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[5]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:211]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[6]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:212]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[7]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:213]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[8]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:214]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[9]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:215]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[10]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:216]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[11]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:217]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[12]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:218]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[13]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:219]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[14]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:220]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[0]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:224]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[1]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:225]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[2]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:226]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[3]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:227]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[4]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:228]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[5]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:229]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[6]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:230]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[7]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:231]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[8]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:232]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[9]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:233]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[10]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:234]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[11]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:235]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[12]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:236]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[13]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:237]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[14]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:238]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[15]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:239]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[14]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:253]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[13]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:254]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[12]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:255]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[11]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:256]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[10]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:257]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[9]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:258]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[8]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:259]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[7]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:260]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[6]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:261]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[5]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:262]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[4]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:263]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[3]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:264]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[2]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:265]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[1]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:266]
+WARNING: [Vivado 12-584] No ports matched 'DDR_A[0]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:267]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[15]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:273]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[14]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:274]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[13]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:275]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[12]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:276]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[11]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:277]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[10]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:278]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[9]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:279]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[8]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:280]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[7]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:281]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[6]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:282]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[5]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:283]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[4]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:284]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[3]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:285]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[2]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:286]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[1]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:287]
+WARNING: [Vivado 12-584] No ports matched 'DDR_D[0]'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:288]
+Finished Parsing XDC File [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/FEB_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/FEB_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/FEB_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1540.059 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 1540.059 ; gain = 0.000
+WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis because the design is too small; reverting to default synthesis
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s50fgga484-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 8).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 9).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[10]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 10).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[10]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 11).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[11]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 12).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[11]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 13).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[12]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 14).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[12]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 15).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[13]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 16).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[13]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 17).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[14]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 18).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[14]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 19).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 20).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 21).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 22).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 23).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[3]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 24).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[3]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 25).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[4]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 26).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[4]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 27).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[5]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 28).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[5]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 29).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[6]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 30).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[6]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 31).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[7]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 32).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[7]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 33).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[8]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 34).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[8]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 35).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[9]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 36).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[9]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 37).
+Applied set_property IO_BUFFER_TYPE = NONE for BA[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 38).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for BA[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 39).
+Applied set_property IO_BUFFER_TYPE = NONE for BA[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 40).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for BA[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 41).
+Applied set_property IO_BUFFER_TYPE = NONE for BA[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 42).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for BA[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 43).
+Applied set_property IO_BUFFER_TYPE = NONE for CAS. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 44).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for CAS. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 45).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_CLKN[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 46).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_CLKN[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 47).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_CLKP[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 48).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_CLKP[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 49).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_CKE[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 50).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_CKE[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 51).
+Applied set_property IO_BUFFER_TYPE = NONE for CS[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 52).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for CS[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 53).
+Applied set_property IO_BUFFER_TYPE = NONE for DM[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 54).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DM[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 55).
+Applied set_property IO_BUFFER_TYPE = NONE for DM[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 56).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DM[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 57).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 58).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 59).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[10]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 60).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[10]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 61).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[11]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 62).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[11]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 63).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[12]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 64).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[12]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 65).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[13]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 66).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[13]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 67).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[14]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 68).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[14]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 69).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[15]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 70).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[15]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 71).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 72).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 73).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 74).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 75).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[3]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 76).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[3]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 77).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[4]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 78).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[4]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 79).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[5]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 80).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[5]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 81).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[6]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 82).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[6]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 83).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[7]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 84).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[7]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 85).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[8]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 86).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[8]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 87).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[9]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 88).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[9]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 89).
+Applied set_property IO_BUFFER_TYPE = NONE for UDQS_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 90).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for UDQS_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 91).
+Applied set_property IO_BUFFER_TYPE = NONE for UDQS_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 92).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for UDQS_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 93).
+Applied set_property IO_BUFFER_TYPE = NONE for LDQS_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 94).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for LDQS_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 95).
+Applied set_property IO_BUFFER_TYPE = NONE for LDQS_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 96).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for LDQS_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 97).
+Applied set_property IO_BUFFER_TYPE = NONE for ODT[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 98).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for ODT[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 99).
+Applied set_property IO_BUFFER_TYPE = NONE for RAS. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 100).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RAS. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 101).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_WE. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 104).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_WE. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 105).
+Applied set_property IO_BUFFER_TYPE = NONE for VXO_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 106).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for VXO_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 107).
+Applied set_property IO_BUFFER_TYPE = NONE for VXO_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 108).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for VXO_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 109).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[0].Gen_Eight_Chans[0].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[0].Gen_Eight_Chans[1].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[0].Gen_Eight_Chans[2].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[0].Gen_Eight_Chans[3].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[0].Gen_Eight_Chans[4].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[0].Gen_Eight_Chans[5].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[0].Gen_Eight_Chans[6].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[0].Gen_Eight_Chans[7].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[1].Gen_Eight_Chans[0].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[1].Gen_Eight_Chans[1].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[1].Gen_Eight_Chans[2].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[1].Gen_Eight_Chans[3].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[1].Gen_Eight_Chans[4].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[1].Gen_Eight_Chans[5].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[1].Gen_Eight_Chans[6].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/\Gen_Two_AFEs[1].Gen_Eight_Chans[7].AFEBuff . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/AFE_Pipeline_inst/\Gen_Two_AFEs[0].Pipeline . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for AFE_DataPath_inst/AFE_Pipeline_inst/\Gen_Two_AFEs[1].Pipeline . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for DDR_Interface_inst/DDRAddrBuff. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for EventBuilder_logic/uBunchBuffer. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for EventBuilder_logic/EventBuff. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for uC_to_LVDSTX/FMTx_Buff. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for DDR_Interface_inst/DDR_Controller. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'auto_FSM'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[0].Input_Seqs_reg[0][0]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[1].Input_Seqs_reg[0][1]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[2].Input_Seqs_reg[0][2]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[3].Input_Seqs_reg[0][3]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[4].Input_Seqs_reg[0][4]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[5].Input_Seqs_reg[0][5]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[6].Input_Seqs_reg[0][6]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[7].Input_Seqs_reg[0][7]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[0].Input_Seqs_reg[1][0]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[1].Input_Seqs_reg[1][1]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[2].Input_Seqs_reg[1][2]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[3].Input_Seqs_reg[1][3]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[4].Input_Seqs_reg[1][4]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[5].Input_Seqs_reg[1][5]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[6].Input_Seqs_reg[1][6]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[7].Input_Seqs_reg[1][7]' in module 'AFE_DataPath'
+INFO: [Synth 8-802] inferred FSM for state register 'Rx_State_reg' in module 'FM_Rx'
+INFO: [Synth 8-802] inferred FSM for state register 'Event_Builder_reg' in module 'EventBuilder'
+INFO: [Synth 8-802] inferred FSM for state register 'DDR_Write_Seq_reg' in module 'DDR_Interface'
+INFO: [Synth 8-802] inferred FSM for state register 'OneWireSeq_reg' in module 'One_Wire'
+INFO: [Synth 8-802] inferred FSM for state register 'TxBitWdth_reg' in module 'FM_Tx'
+INFO: [Synth 8-802] inferred FSM for state register 'Tx_State_reg' in module 'FM_Tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                     rst |                    0000000000001 |                             0000
+      load_cntvalue_init |                    0000000000010 |                             0001
+      wait_cntvalue_init |                    0000000000100 |                             0010
+             sample_init |                    0000000001000 |                             0011
+           load_cntvalue |                    0000000010000 |                             0100
+           wait_cntvalue |                    0000000100000 |                             0101
+              edge_check |                    0000001000000 |                             0110
+     load_cntvalue_final |                    0000010000000 |                             0111
+     wait_cntvalue_final |                    0000100000000 |                             1000
+               chk_frame |                    0001000000000 |                             1001
+                 aligned |                    0010000000000 |                             1100
+                  slipit |                    0100000000000 |                             1010
+               wait_slip |                    1000000000000 |                             1011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'auto_FSM'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[0].Input_Seqs_reg[0][0]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[1].Input_Seqs_reg[0][1]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[2].Input_Seqs_reg[0][2]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[3].Input_Seqs_reg[0][3]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[4].Input_Seqs_reg[0][4]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[5].Input_Seqs_reg[0][5]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[6].Input_Seqs_reg[0][6]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[7].Input_Seqs_reg[0][7]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[0].Input_Seqs_reg[1][0]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[1].Input_Seqs_reg[1][1]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[2].Input_Seqs_reg[1][2]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[3].Input_Seqs_reg[1][3]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[4].Input_Seqs_reg[1][4]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[5].Input_Seqs_reg[1][5]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[6].Input_Seqs_reg[1][6]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+               increment |                              110 |                              001
+               wrtchanno |                              100 |                              010
+            wrttimestamp |                              101 |                              011
+                 wrthits |                              011 |                              100
+             wrthitwdcnt |                              010 |                              101
+              ldnxtwrtad |                              000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Gen_Two_AFEs[1].Gen_Eight_Chans[7].Input_Seqs_reg[1][7]' using encoding 'sequential' in module 'AFE_DataPath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE2 |                               00 |                               00
+                  iSTATE |                               01 |                               01
+                 iSTATE0 |                               10 |                               10
+                 iSTATE1 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Rx_State_reg' using encoding 'sequential' in module 'FM_Rx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                    0001000000000 |                             0000
+             check_mask0 |                    0000000000001 |                             0100
+               check_ovf |                    0000000000010 |                             0001
+            add_wd_count |                    0000000010000 |                             0010
+              incr_chan0 |                    0000000000100 |                             0011
+              wdcountwrt |                    0000000001000 |                             0101
+             wrtubunchhi |                    1000000000000 |                             0110
+             wrtubunchlo |                    0010000000000 |                             0111
+             check_mask1 |                    0100000000000 |                             1001
+                   wait1 |                    0000100000000 |                             1010
+                   wait2 |                    0000010000000 |                             1011
+                 wrtdata |                    0000000100000 |                             1100
+              incr_chan1 |                    0000001000000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Event_Builder_reg' using encoding 'one-hot' in module 'EventBuilder'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              000 |                              000
+                  setwrt |                              001 |                              001
+                wrtdata1 |                              010 |                              010
+                wrtdata2 |                              011 |                              011
+                wrtdata3 |                              100 |                              100
+                wrtdata4 |                              101 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'DDR_Write_Seq_reg' using encoding 'sequential' in module 'DDR_Interface'
+WARNING: [Synth 8-327] inferring latch for variable 'DDR3_wrt_end_reg' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:191]
+WARNING: [Synth 8-327] inferring latch for variable 'RESET_N_reg' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:177]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                         00000001 |                             0000
+               sendreset |                         10000000 |                             0001
+                resetgap |                         01000000 |                             0010
+            waitpresence |                         00100000 |                             0011
+               sendwrite |                         00010000 |                             0100
+                writegap |                         00001000 |                             0101
+                sendread |                         00000100 |                             0110
+                 readgap |                         00000010 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'OneWireSeq_reg' using encoding 'one-hot' in module 'One_Wire'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE3 |                              000 |                              000
+                  iSTATE |                              001 |                              001
+                 iSTATE1 |                              010 |                              010
+                 iSTATE0 |                              011 |                              011
+                 iSTATE2 |                              100 |                              100
+                 iSTATE4 |                              101 |                              101
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'TxBitWdth_reg' using encoding 'sequential' in module 'FM_Tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  txidle |                            00010 |                              000
+                 txstrta |                            10000 |                              001
+                 txstrtb |                            01000 |                              010
+                  shfttx |                            00100 |                              011
+                paritytx |                            00001 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Tx_State_reg' using encoding 'one-hot' in module 'FM_Tx'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   29 Bit       Adders := 1     
+	   2 Input   16 Bit       Adders := 1     
+	   3 Input   14 Bit       Adders := 16    
+	   2 Input   12 Bit       Adders := 3     
+	   2 Input   11 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 33    
+	   3 Input   10 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 5     
+	   2 Input    8 Bit       Adders := 8     
+	   2 Input    5 Bit       Adders := 9     
+	   2 Input    4 Bit       Adders := 19    
+	   2 Input    3 Bit       Adders := 2     
+	   2 Input    2 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
++---Registers : 
+	               72 Bit    Registers := 1     
+	               64 Bit    Registers := 1     
+	               32 Bit    Registers := 1     
+	               29 Bit    Registers := 1     
+	               24 Bit    Registers := 1     
+	               16 Bit    Registers := 21    
+	               14 Bit    Registers := 52    
+	               12 Bit    Registers := 2     
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 96    
+	                9 Bit    Registers := 7     
+	                8 Bit    Registers := 12    
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 20    
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 25    
+	                1 Bit    Registers := 65    
++---Muxes : 
+	   6 Input   64 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 4     
+	   2 Input   29 Bit        Muxes := 1     
+	   6 Input   16 Bit        Muxes := 16    
+	   2 Input   16 Bit        Muxes := 12    
+	   4 Input   16 Bit        Muxes := 1     
+	   2 Input   14 Bit        Muxes := 16    
+	  13 Input   13 Bit        Muxes := 3     
+	   2 Input   13 Bit        Muxes := 20    
+	   2 Input   12 Bit        Muxes := 6     
+	   2 Input   11 Bit        Muxes := 1     
+	   5 Input   10 Bit        Muxes := 16    
+	   2 Input   10 Bit        Muxes := 41    
+	   2 Input    9 Bit        Muxes := 11    
+	   8 Input    9 Bit        Muxes := 1     
+	  13 Input    8 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 82    
+	   8 Input    8 Bit        Muxes := 1     
+	   3 Input    8 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 17    
+	  13 Input    5 Bit        Muxes := 2     
+	   5 Input    5 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 25    
+	   7 Input    3 Bit        Muxes := 16    
+	   2 Input    3 Bit        Muxes := 91    
+	   6 Input    3 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 12    
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 245   
+	  13 Input    1 Bit        Muxes := 8     
+	   4 Input    1 Bit        Muxes := 6     
+	   7 Input    1 Bit        Muxes := 32    
+	   5 Input    1 Bit        Muxes := 33    
+	   3 Input    1 Bit        Muxes := 50    
+	   6 Input    1 Bit        Muxes := 18    
+	   8 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port uCRd in module LVDS_TX is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SDRzq in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[15] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[14] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[13] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[12] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[11] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[10] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[9] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[8] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[7] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[6] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[5] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[4] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[3] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[2] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[1] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[0] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CpldCS in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCRd in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCWr in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[11] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[10] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[9] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[8] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[7] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[6] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[5] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[4] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[3] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[2] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[1] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCA[0] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GA[1] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GA[0] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WRDL[1] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WRDL[0] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[15] in module Trigger is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (afe0_inst/auto_fsm_inst/FSM_onehot_state_reg[10]) is unused and will be removed from module AFE_Interface.
+WARNING: [Synth 8-3332] Sequential element (afe1_inst/auto_fsm_inst/FSM_onehot_state_reg[10]) is unused and will be removed from module AFE_Interface.
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineWrtEn_reg[1]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:77]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineWrtEn_reg[0]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:77]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineWrtAdd_reg[0][7]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineWrtAdd_reg[0][6]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineWrtAdd_reg[0][5]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineWrtAdd_reg[0][4]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineWrtAdd_reg[0][3]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineWrtAdd_reg[0][2]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineWrtAdd_reg[0][1]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineWrtAdd_reg[0][0]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineRdAdd_reg[0][7]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineRdAdd_reg[0][6]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineRdAdd_reg[0][5]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineRdAdd_reg[0][4]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineRdAdd_reg[0][3]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineRdAdd_reg[0][2]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineRdAdd_reg[0][1]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineRdAdd_reg[0][0]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineWrtAdd_reg[1][7]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineWrtAdd_reg[1][6]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineWrtAdd_reg[1][5]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineWrtAdd_reg[1][4]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineWrtAdd_reg[1][3]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineWrtAdd_reg[1][2]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineWrtAdd_reg[1][1]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineWrtAdd_reg[1][0]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineRdAdd_reg[1][7]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineRdAdd_reg[1][6]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineRdAdd_reg[1][5]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineRdAdd_reg[1][4]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineRdAdd_reg[1][3]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineRdAdd_reg[1][2]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineRdAdd_reg[1][1]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[1].Gen_Eight_Chans[7].PipelineRdAdd_reg[1][0]/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[0].Input_Seqs_reg[0][0][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[0].Input_Seqs_reg[0][0][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[0].Input_Seqs_reg[0][0][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[1].Input_Seqs_reg[0][1][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[1].Input_Seqs_reg[0][1][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[1].Input_Seqs_reg[0][1][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[2].Input_Seqs_reg[0][2][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[2].Input_Seqs_reg[0][2][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[2].Input_Seqs_reg[0][2][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[3].Input_Seqs_reg[0][3][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[3].Input_Seqs_reg[0][3][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[3].Input_Seqs_reg[0][3][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[4].Input_Seqs_reg[0][4][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[4].Input_Seqs_reg[0][4][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[4].Input_Seqs_reg[0][4][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[5].Input_Seqs_reg[0][5][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[5].Input_Seqs_reg[0][5][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[5].Input_Seqs_reg[0][5][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[6].Input_Seqs_reg[0][6][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[6].Input_Seqs_reg[0][6][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[6].Input_Seqs_reg[0][6][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[7].Input_Seqs_reg[0][7][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[7].Input_Seqs_reg[0][7][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[0].Gen_Eight_Chans[7].Input_Seqs_reg[0][7][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[0].Input_Seqs_reg[1][0][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[0].Input_Seqs_reg[1][0][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[0].Input_Seqs_reg[1][0][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[1].Input_Seqs_reg[1][1][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[1].Input_Seqs_reg[1][1][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[1].Input_Seqs_reg[1][1][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[2].Input_Seqs_reg[1][2][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[2].Input_Seqs_reg[1][2][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[2].Input_Seqs_reg[1][2][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[3].Input_Seqs_reg[1][3][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[3].Input_Seqs_reg[1][3][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[3].Input_Seqs_reg[1][3][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[4].Input_Seqs_reg[1][4][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[4].Input_Seqs_reg[1][4][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[4].Input_Seqs_reg[1][4][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[5].Input_Seqs_reg[1][5][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[5].Input_Seqs_reg[1][5][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[5].Input_Seqs_reg[1][5][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[6].Input_Seqs_reg[1][6][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[6].Input_Seqs_reg[1][6][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[6].Input_Seqs_reg[1][6][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[7].Input_Seqs_reg[1][7][2]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[7].Input_Seqs_reg[1][7][1]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_Gen_Two_AFEs[1].Gen_Eight_Chans[7].Input_Seqs_reg[1][7][0]) is unused and will be removed from module AFE_DataPath.
+WARNING: [Synth 8-3332] Sequential element (FMRx1/FSM_sequential_Rx_State_reg[1]) is unused and will be removed from module Trigger.
+WARNING: [Synth 8-3332] Sequential element (FMRx1/FSM_sequential_Rx_State_reg[0]) is unused and will be removed from module Trigger.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[12]) is unused and will be removed from module EventBuilder.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[11]) is unused and will be removed from module EventBuilder.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[10]) is unused and will be removed from module EventBuilder.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[9]) is unused and will be removed from module EventBuilder.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[8]) is unused and will be removed from module EventBuilder.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[7]) is unused and will be removed from module EventBuilder.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[6]) is unused and will be removed from module EventBuilder.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[5]) is unused and will be removed from module EventBuilder.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[4]) is unused and will be removed from module EventBuilder.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[3]) is unused and will be removed from module EventBuilder.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[2]) is unused and will be removed from module EventBuilder.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[1]) is unused and will be removed from module EventBuilder.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[0]) is unused and will be removed from module EventBuilder.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_DDR_Write_Seq_reg[2]) is unused and will be removed from module DDR_Interface.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_DDR_Write_Seq_reg[1]) is unused and will be removed from module DDR_Interface.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_DDR_Write_Seq_reg[0]) is unused and will be removed from module DDR_Interface.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_OneWireSeq_reg[7]) is unused and will be removed from module One_Wire.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_OneWireSeq_reg[6]) is unused and will be removed from module One_Wire.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_OneWireSeq_reg[5]) is unused and will be removed from module One_Wire.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_OneWireSeq_reg[4]) is unused and will be removed from module One_Wire.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_OneWireSeq_reg[3]) is unused and will be removed from module One_Wire.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_OneWireSeq_reg[2]) is unused and will be removed from module One_Wire.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_OneWireSeq_reg[1]) is unused and will be removed from module One_Wire.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_OneWireSeq_reg[0]) is unused and will be removed from module One_Wire.
+WARNING: [Synth 8-3332] Sequential element (FMTx/FSM_sequential_TxBitWdth_reg[2]) is unused and will be removed from module LVDS_TX.
+WARNING: [Synth 8-3332] Sequential element (FMTx/FSM_sequential_TxBitWdth_reg[1]) is unused and will be removed from module LVDS_TX.
+WARNING: [Synth 8-3332] Sequential element (FMTx/FSM_sequential_TxBitWdth_reg[0]) is unused and will be removed from module LVDS_TX.
+WARNING: [Synth 8-3332] Sequential element (FMTx/FSM_onehot_Tx_State_reg[4]) is unused and will be removed from module LVDS_TX.
+WARNING: [Synth 8-3332] Sequential element (FMTx/FSM_onehot_Tx_State_reg[3]) is unused and will be removed from module LVDS_TX.
+WARNING: [Synth 8-3332] Sequential element (FMTx/FSM_onehot_Tx_State_reg[2]) is unused and will be removed from module LVDS_TX.
+WARNING: [Synth 8-3332] Sequential element (FMTx/FSM_onehot_Tx_State_reg[1]) is unused and will be removed from module LVDS_TX.
+WARNING: [Synth 8-3332] Sequential element (FMTx/FSM_onehot_Tx_State_reg[0]) is unused and will be removed from module LVDS_TX.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe0_inst/auto_fsm_inst/FSM_onehot_state_reg[12]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe0_inst/auto_fsm_inst/FSM_onehot_state_reg[11]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe0_inst/auto_fsm_inst/FSM_onehot_state_reg[9]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe0_inst/auto_fsm_inst/FSM_onehot_state_reg[8]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe0_inst/auto_fsm_inst/FSM_onehot_state_reg[7]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe0_inst/auto_fsm_inst/FSM_onehot_state_reg[6]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe0_inst/auto_fsm_inst/FSM_onehot_state_reg[5]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe0_inst/auto_fsm_inst/FSM_onehot_state_reg[4]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe0_inst/auto_fsm_inst/FSM_onehot_state_reg[3]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe0_inst/auto_fsm_inst/FSM_onehot_state_reg[2]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe0_inst/auto_fsm_inst/FSM_onehot_state_reg[1]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe0_inst/auto_fsm_inst/FSM_onehot_state_reg[0]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe1_inst/auto_fsm_inst/FSM_onehot_state_reg[12]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe1_inst/auto_fsm_inst/FSM_onehot_state_reg[11]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe1_inst/auto_fsm_inst/FSM_onehot_state_reg[9]) is unused and will be removed from module FEB.
+WARNING: [Synth 8-3332] Sequential element (AFE_Interface_inst/afe1_inst/auto_fsm_inst/FSM_onehot_state_reg[8]) is unused and will be removed from module FEB.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin DDR_Interface_inst/sys_rst with 1st driver pin 'DDR_Interface_inst/RESET_N_reg/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:177]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin DDR_Interface_inst/sys_rst with 2nd driver pin 'DDR_Interface_inst/DDR_Controller/ddr3_reset_n' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:165]
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        1|Failed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+----------------+----------+
+|      |BlackBox name   |Instances |
++------+----------------+----------+
+|1     |DPRAM_1Kx16     |        16|
+|2     |AFE_DP_Pipeline |         2|
+|3     |SCFIFO_32x256   |         2|
+|4     |DDR3LController |         1|
+|5     |SCFIFO_1Kx16    |         1|
+|6     |LVDSTxBuff      |         1|
++------+----------------+----------+
+
+Report Cell Usage: 
++------+---------------------+------+
+|      |Cell                 |Count |
++------+---------------------+------+
+|1     |AFE_DP_Pipeline_bbox |     2|
+|3     |DDR3LController_bbox |     1|
+|4     |DPRAM_1Kx16_bbox     |    16|
+|20    |LVDSTxBuff_bbox      |     1|
+|21    |SCFIFO_1Kx16_bbox    |     1|
+|22    |SCFIFO_32x256_bbox   |     2|
+|24    |BUFG                 |     1|
+|25    |IDELAYCTRL           |     1|
+|26    |IDELAYE2             |    18|
+|27    |ISERDESE2            |    36|
+|29    |LUT1                 |     1|
+|30    |LD                   |     2|
+|31    |IBUF                 |    17|
+|32    |IBUFDS               |    20|
+|33    |OBUF                 |     4|
+|34    |OBUFDS               |     2|
+|35    |OBUFT                |     7|
++------+---------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1540.059 ; gain = 120.828
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 104 critical warnings and 172 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1540.059 ; gain = 32.551
+Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1540.059 ; gain = 120.828
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1540.059 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 78 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+CRITICAL WARNING: [Shape Builder 18-119] Failed to create I/OLOGIC Route Through shape for instance Phase_Detector_inst/GPI0DiffIn. Found overlapping instances within the shape: GPI0DiffIn and Phase_Detector_inst/GPI0DiffIn.
+CRITICAL WARNING: [Shape Builder 18-119] Failed to create BUFDS-blocked-IOB shape for instance Phase_Detector_inst/GPI0DiffIn. Found overlapping instances within the shape: GPI0DiffIn and Phase_Detector_inst/GPI0DiffIn.
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 2 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1540.059 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2 instances were transformed.
+  LD => LDCE (inverted pins: G): 2 instances
+
+Synth Design complete, checksum: c7d2e773
 INFO: [Common 17-83] Releasing license: Synthesis
-10 Infos, 1 Warnings, 0 Critical Warnings and 2 Errors encountered.
-synth_design failed
-ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
-INFO: [Common 17-206] Exiting Vivado at Fri Oct 28 15:51:12 2022...
+160 Infos, 339 Warnings, 106 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:43 . Memory (MB): peak = 1540.059 ; gain = 120.828
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Common 17-1381] The checkpoint 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/FEB.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file FEB_utilization_synth.rpt -pb FEB_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Nov  2 11:51:40 2022...

@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="DDR_Interface_testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="DDR_Interface_testbench" />
+            <top_module name="glbl" />
+            <top_module name="proj_def" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000000 us"></ZoomStartTime>
+      <ZoomEndTime time="12.000000000 us"></ZoomEndTime>
+      <Cursor1Time time="11.765625000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="200"></NameColumnWidth>
+      <ValueColumnWidth column_width="100"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="87" />
+   <wvobject fp_name="/DDR_Interface_testbench/Clk80MHz" type="logic">
+      <obj_property name="ElementShortName">Clk80MHz</obj_property>
+      <obj_property name="ObjectShortName">Clk80MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/dout_AFE0[0]" type="array">
+      <obj_property name="ElementShortName">[0][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/dout_AFE0[1]" type="array">
+      <obj_property name="ElementShortName">[1][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/dout_AFE0[2]" type="array">
+      <obj_property name="ElementShortName">[2][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[2][13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/dout_AFE0[3]" type="array">
+      <obj_property name="ElementShortName">[3][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[3][13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/dout_AFE0[4]" type="array">
+      <obj_property name="ElementShortName">[4][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[4][13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/dout_AFE0[5]" type="array">
+      <obj_property name="ElementShortName">[5][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[5][13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/dout_AFE0[6]" type="array">
+      <obj_property name="ElementShortName">[6][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[6][13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/dout_AFE0[7]" type="array">
+      <obj_property name="ElementShortName">[7][13:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider160">
+      <obj_property name="label">AFE Datapath</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/Clk80MHz" type="logic">
+      <obj_property name="ElementShortName">Clk80MHz</obj_property>
+      <obj_property name="ObjectShortName">Clk80MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/Input_Seqs[0][7]" type="other">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7]</obj_property>
+      <obj_property name="ObjectShortName">[7]</obj_property>
+      <obj_property name="label">InputSeq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/SlfTrgEdge[0]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][0:7][1:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][0:7][1:0]</obj_property>
+      <obj_property name="label">SlfTrgEdge[0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/SlfTrgEdge[1]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[1][0:7][1:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][0:7][1:0]</obj_property>
+      <obj_property name="label">SlfTrgEdge[1]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/GateWidth[0]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][11:0]</obj_property>
+      <obj_property name="label">GateWidth</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferWrtAdd[0][0]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][9:0]</obj_property>
+      <obj_property name="label">BufferWrtAddr</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferWE[0][0]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0]</obj_property>
+      <obj_property name="ObjectShortName">[0]</obj_property>
+      <obj_property name="label">BufferWE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferIn[0][0]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferIn[0][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferIn[0][1]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[1][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferIn[1][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferIn[0][2]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[2][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferIn[2][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferIn[0][3]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[3][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferIn[3][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferIn[0][4]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[4][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[4][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferIn[4][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferIn[0][5]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[5][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[5][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferIn[5][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferIn[0][6]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[6][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[6][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferIn[6][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferIn[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="label">BufferIn[7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/ADCSmplCntr[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][3:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][3:0]</obj_property>
+      <obj_property name="label">ADCSmplCntr[7][3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferOut[0][0]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferOut[0][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferOut[0][1]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[1][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferOut[1][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferOut[0][2]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[2][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferOut[2][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferOut[0][3]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[3][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferOut[3][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferOut[0][4]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[4][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[4][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferOut[4][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferOut[0][5]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[5][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[5][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferOut[5][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferOut[0][6]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[6][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[6][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferOut[6][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferOut[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferOut[7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferRdAdd[0][0]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="label">BufferRdAdd[0][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferRdAdd[0][1]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[1][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][9:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferRdAdd[1][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferRdAdd[0][2]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[2][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[2][9:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferRdAdd[2][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferRdAdd[0][3]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[3][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[3][9:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferRdAdd[3][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferRdAdd[0][4]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[4][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[4][9:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferRdAdd[4][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferRdAdd[0][5]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[5][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[5][9:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferRdAdd[5][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferRdAdd[0][6]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[6][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[6][9:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferRdAdd[6][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/BufferRdAdd[0][7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[7][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[7][9:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">BufferRdAdd[7][9:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider389">
+      <obj_property name="label">uBunchBuffer</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/uBunchBuffer/din" type="array">
+      <obj_property name="ElementShortName">din[31:0]</obj_property>
+      <obj_property name="ObjectShortName">din[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/uBunchBuffer/wr_en" type="logic">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/uBunchBuffer/rd_en" type="logic">
+      <obj_property name="ElementShortName">rd_en</obj_property>
+      <obj_property name="ObjectShortName">rd_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/uBunchBuffer/dout" type="array">
+      <obj_property name="ElementShortName">dout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider291">
+      <obj_property name="label">DDRAddrBuffer</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDRAddrBuff/din" type="array">
+      <obj_property name="ElementShortName">din[31:0]</obj_property>
+      <obj_property name="ObjectShortName">din[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDRAddrBuff/wr_en" type="logic">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDRAddrBuff/rd_en" type="logic">
+      <obj_property name="ElementShortName">rd_en</obj_property>
+      <obj_property name="ObjectShortName">rd_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDRAddrBuff/dout" type="array">
+      <obj_property name="ElementShortName">dout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider167">
+      <obj_property name="label">EventBuilder</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/SysClk" type="logic">
+      <obj_property name="ElementShortName">SysClk</obj_property>
+      <obj_property name="ObjectShortName">SysClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/AFE_Num" type="other">
+      <obj_property name="ElementShortName">AFE_Num</obj_property>
+      <obj_property name="ObjectShortName">AFE_Num</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/Chan_Num" type="other">
+      <obj_property name="ElementShortName">Chan_Num</obj_property>
+      <obj_property name="ObjectShortName">Chan_Num</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/Event_Builder" type="other">
+      <obj_property name="ElementShortName">Event_Builder</obj_property>
+      <obj_property name="ObjectShortName">Event_Builder</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/Read_Seq_Stat" type="array">
+      <obj_property name="ElementShortName">Read_Seq_Stat[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Read_Seq_Stat[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/SampleCount" type="array">
+      <obj_property name="ElementShortName">SampleCount[8:0]</obj_property>
+      <obj_property name="ObjectShortName">SampleCount[8:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/BuffRdCount" type="array">
+      <obj_property name="ElementShortName">BuffRdCount[8:0]</obj_property>
+      <obj_property name="ObjectShortName">BuffRdCount[8:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/NoHIts[0]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][7:0]</obj_property>
+      <obj_property name="label">NoHits[0][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/NoHIts[1]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[1][7:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][7:0]</obj_property>
+      <obj_property name="label">NoHits[1][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/EvOvf[0]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][7:0]</obj_property>
+      <obj_property name="label">EvOvf[0][7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/EventWdCnt" type="array">
+      <obj_property name="ElementShortName">EventWdCnt[15:0]</obj_property>
+      <obj_property name="ObjectShortName">EventWdCnt[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/NextEvAddr[0]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][0:7][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][0:7][9:0]</obj_property>
+      <obj_property name="label">NextEvAddr[0][0:7][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/NxtWdCount" type="array">
+      <obj_property name="ElementShortName">NxtWdCount[15:0]</obj_property>
+      <obj_property name="ObjectShortName">NxtWdCount[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider150">
+      <obj_property name="label">Event Buffer FIFO</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/SysClk" type="logic">
+      <obj_property name="ElementShortName">SysClk</obj_property>
+      <obj_property name="ObjectShortName">SysClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/EvBuffDat" type="array">
+      <obj_property name="ElementShortName">EvBuffDat[15:0]</obj_property>
+      <obj_property name="ObjectShortName">EvBuffDat[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/EvBuffWrt" type="logic">
+      <obj_property name="ElementShortName">EvBuffWrt</obj_property>
+      <obj_property name="ObjectShortName">EvBuffWrt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/EvBuffWdsUsed" type="array">
+      <obj_property name="ElementShortName">EvBuffWdsUsed[10:0]</obj_property>
+      <obj_property name="ObjectShortName">EvBuffWdsUsed[10:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/EvBuffOut" type="array">
+      <obj_property name="ElementShortName">EvBuffOut[15:0]</obj_property>
+      <obj_property name="ObjectShortName">EvBuffOut[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/EventBuilder_logic/EvBuffRd" type="logic">
+      <obj_property name="ElementShortName">EvBuffRd</obj_property>
+      <obj_property name="ObjectShortName">EvBuffRd</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider158">
+      <obj_property name="label">DDR</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Write_Seq" type="other">
+      <obj_property name="ElementShortName">DDR_Write_Seq</obj_property>
+      <obj_property name="ObjectShortName">DDR_Write_Seq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDRWrtSeqStat" type="array">
+      <obj_property name="ElementShortName">DDRWrtSeqStat[2:0]</obj_property>
+      <obj_property name="ObjectShortName">DDRWrtSeqStat[2:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/EvBuffRd" type="logic">
+      <obj_property name="ElementShortName">EvBuffRd</obj_property>
+      <obj_property name="ObjectShortName">EvBuffRd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDRAddrRd" type="logic">
+      <obj_property name="ElementShortName">DDRAddrRd</obj_property>
+      <obj_property name="ObjectShortName">DDRAddrRd</obj_property>
+   </wvobject>
+   <wvobject fp_name="vbus422" type="vbus">
+      <obj_property name="label">Page</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[28]" type="logic">
+         <obj_property name="ElementShortName">[28]</obj_property>
+         <obj_property name="ObjectShortName">[28]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[27]" type="logic">
+         <obj_property name="ElementShortName">[27]</obj_property>
+         <obj_property name="ObjectShortName">[27]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[26]" type="logic">
+         <obj_property name="ElementShortName">[26]</obj_property>
+         <obj_property name="ObjectShortName">[26]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[25]" type="logic">
+         <obj_property name="ElementShortName">[25]</obj_property>
+         <obj_property name="ObjectShortName">[25]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[24]" type="logic">
+         <obj_property name="ElementShortName">[24]</obj_property>
+         <obj_property name="ObjectShortName">[24]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[23]" type="logic">
+         <obj_property name="ElementShortName">[23]</obj_property>
+         <obj_property name="ObjectShortName">[23]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[22]" type="logic">
+         <obj_property name="ElementShortName">[22]</obj_property>
+         <obj_property name="ObjectShortName">[22]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[21]" type="logic">
+         <obj_property name="ElementShortName">[21]</obj_property>
+         <obj_property name="ObjectShortName">[21]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[20]" type="logic">
+         <obj_property name="ElementShortName">[20]</obj_property>
+         <obj_property name="ObjectShortName">[20]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[19]" type="logic">
+         <obj_property name="ElementShortName">[19]</obj_property>
+         <obj_property name="ObjectShortName">[19]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[18]" type="logic">
+         <obj_property name="ElementShortName">[18]</obj_property>
+         <obj_property name="ObjectShortName">[18]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[17]" type="logic">
+         <obj_property name="ElementShortName">[17]</obj_property>
+         <obj_property name="ObjectShortName">[17]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[16]" type="logic">
+         <obj_property name="ElementShortName">[16]</obj_property>
+         <obj_property name="ObjectShortName">[16]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[15]" type="logic">
+         <obj_property name="ElementShortName">[15]</obj_property>
+         <obj_property name="ObjectShortName">[15]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[14]" type="logic">
+         <obj_property name="ElementShortName">[14]</obj_property>
+         <obj_property name="ObjectShortName">[14]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[13]" type="logic">
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">[13]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[12]" type="logic">
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">[12]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[11]" type="logic">
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">[11]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[10]" type="logic">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">[10]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="vbus411" type="vbus">
+      <obj_property name="label">DDR3_addr</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[9]" type="logic">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">[9]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[8]" type="logic">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">[8]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[7]" type="logic">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">[7]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[6]" type="logic">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">[6]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[5]" type="logic">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[4]" type="logic">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[3]" type="logic">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[2]" type="logic">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[1]" type="logic">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_addr[0]" type="logic">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_cmd" type="array">
+      <obj_property name="ElementShortName">DDR3_cmd[2:0]</obj_property>
+      <obj_property name="ObjectShortName">DDR3_cmd[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_en" type="logic">
+      <obj_property name="ElementShortName">DDR3_en</obj_property>
+      <obj_property name="ObjectShortName">DDR3_en</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider406">
+      <obj_property name="label">Data</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_wrt_data" type="array">
+      <obj_property name="ElementShortName">DDR3_wrt_data[63:0]</obj_property>
+      <obj_property name="ObjectShortName">DDR3_wrt_data[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/EvBuffOut" type="array">
+      <obj_property name="ElementShortName">EvBuffOut[15:0]</obj_property>
+      <obj_property name="ObjectShortName">EvBuffOut[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_wrt_en" type="logic">
+      <obj_property name="ElementShortName">DDR3_wrt_en</obj_property>
+      <obj_property name="ObjectShortName">DDR3_wrt_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_wrt_end" type="logic">
+      <obj_property name="ElementShortName">DDR3_wrt_end</obj_property>
+      <obj_property name="ObjectShortName">DDR3_wrt_end</obj_property>
+   </wvobject>
+</wave_config>

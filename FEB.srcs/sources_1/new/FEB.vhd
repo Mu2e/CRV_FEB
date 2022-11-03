@@ -116,7 +116,7 @@ signal GPI0		          	  : std_logic;
 signal LEDSrc		          : std_logic;
 
 signal EvBuffRd				  : std_logic;
-signal EvBufffOut	          : std_logic_vector(15 downto 0);
+signal EvBuffOut	          : std_logic_vector(15 downto 0);
 signal EvBuffEmpty	          : std_logic;
 signal EvBuffWdsUsed          : std_logic_vector(10 downto 0);
 
@@ -279,7 +279,7 @@ port map(
 	uBunch   		=> uBunch,
 -- Signals for the DDR
 	EvBuffRd		=> EvBuffRd,		
-	EvBufffOut		=> EvBufffOut,			
+	EvBuffOut		=> EvBuffOut,			
 	EvBuffEmpty		=> EvBuffEmpty,			
 	EvBuffWdsUsed	=> EvBuffWdsUsed		
 	);
@@ -311,7 +311,7 @@ port map(
 	SDRzq 			=> SDRzq, 		
 -- Signals for the DDR	
 	EvBuffRd		=> EvBuffRd,	
-	EvBuffOut		=> EvBufffOut,	
+	EvBuffOut		=> EvBuffOut,	
 	EvBuffEmpty		=> EvBuffEmpty,	
 	EvBuffWdsUsed	=> EvBuffWdsUsed,
 -- Signals from Trigger Logic

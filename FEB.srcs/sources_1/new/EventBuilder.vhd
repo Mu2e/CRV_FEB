@@ -40,7 +40,8 @@ port (
 	EvBuffRd			: in std_logic;
 	EvBuffOut			: out std_logic_vector(15 downto 0);
 	EvBuffEmpty			: out std_logic;
-	EvBuffWdsUsed		: out std_logic_vector(10 downto 0)
+	EvBuffWdsUsed		: out std_logic_vector(10 downto 0);
+	asp					: in std_logic
 	);
 end EventBuilder;
 
@@ -143,7 +144,7 @@ elsif rising_edge (SysClk) then
 -- =========================================================================
 Case Event_Builder is
    When Idle => Read_Seq_Stat <= X"0";
-	 	if SlfTrgEn = '1' and RdDone = '0'
+	 	if SlfTrgEn = '1' and RdDone = '0' and asp = '1'
 		then Event_Builder <= Check_Mask0;
 		else Event_Builder <= Idle;
 		end if;
@@ -244,18 +245,20 @@ NextEvAddr(AFE_Num)(Chan_Num) <= BufferRdAdd(AFE_Num)(Chan_Num)
 	else BufferRdAdd(AFE_Num)(Chan_Num) <= BufferRdAdd(AFE_Num)(Chan_Num);
 	end if;
 
-if Event_Builder = Idle then EventWdCnt <= X"0003";
+if Event_Builder = Idle 
+	then EventWdCnt <= X"0003";
 elsif Event_Builder = Incr_Chan0 and MaskReg(AFE_Num)(Chan_Num) = '1' and EvOvf(AFE_Num)(Chan_Num) = '0'
 	then EventWdCnt <= EventWdCnt + BufferOut(AFE_Num)(Chan_Num); -- BuffOut_Mux; 
 	else EventWdCnt <= EventWdCnt;
-	end if;
+end if;
 
 NxtWdCount <= EventWdCnt + BufferOut(AFE_Num)(Chan_Num);
 
-if Event_Builder = Idle then EvOvf <= (others => X"00");
+if Event_Builder = Idle 
+	then EvOvf <= (others => X"00");
 elsif Event_Builder = Check_Ovf and MaskReg(AFE_Num)(Chan_Num) = '1' 
 then 
-   if NxtWdCount >= PageSize
+	if NxtWdCount >= PageSize
 	then EvOvf(AFE_Num)(Chan_Num) <= '1';
 	else EvOvf <= EvOvf;
 	end if;
@@ -264,14 +267,14 @@ end if;
 
 -- Count down the words stored in the uBunch event for this channel
 if Event_Builder = Check_Mask1 and MaskReg(AFE_Num)(Chan_Num) = '1' and EvOvf(AFE_Num)(Chan_Num) = '0' 
-	then SampleCount <= BufferOut(AFE_Num)(Chan_Num)(8 downto 0); -- BuffOut_Mux(8 downto 0);
+	then SampleCount <= BufferOut(AFE_Num)(Chan_Num)(8 downto 0);
 elsif Event_Builder = WrtData and SampleCount /= 0
 then SampleCount <= SampleCount - 1;
 else SampleCount <= SampleCount;
 end if;
 -- The same as above but with slightly different conditions
 if Event_Builder = Check_Mask1 and MaskReg(AFE_Num)(Chan_Num) = '1' and EvOvf(AFE_Num)(Chan_Num) = '0' 
-	then BuffRdCount <= BufferOut(AFE_Num)(Chan_Num)(8 downto 0); -- BuffOut_Mux(8 downto 0);
+	then BuffRdCount <= BufferOut(AFE_Num)(Chan_Num)(8 downto 0); 
 elsif (Event_Builder = WrtData or Event_Builder = Wait1 or Event_Builder = Wait2) and BuffRdCount /= 0
 then BuffRdCount <= BuffRdCount - 1;
 else BuffRdCount <= BuffRdCount;
@@ -288,7 +291,6 @@ if Event_Builder = Incr_Chan1 and AFE_Num = 1 and Chan_Num = 7
 	then RdDone <= '1';
 else RdDone <= '0';
 end if;
-
 
 
 end if;

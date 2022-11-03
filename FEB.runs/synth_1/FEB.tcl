@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
 set_param simulator.modelsimInstallPath C:/intelFPGA/20.1/modelsim_ae/win32aloem
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7s50fgga484-2
@@ -126,7 +125,7 @@ read_ip -quiet C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/i
 set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/LVDSTxBuff/LVDSTxBuff.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/LVDSTxBuff/LVDSTxBuff_ooc.xdc]
 
-read_ip -quiet c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/DDR3LController/DDR3LController.xci
+read_ip -quiet C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/ip/DDR3LController/DDR3LController.xci
 set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/user_design/constraints/DDR3LController.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/user_design/constraints/DDR3LController_ooc.xdc]
 

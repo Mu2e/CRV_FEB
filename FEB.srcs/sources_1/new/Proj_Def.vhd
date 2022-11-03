@@ -241,9 +241,8 @@ constant AFE0ArrayMax : AddrPtr  := "01" & X"66";
 constant AFE1ArrayMin : AddrPtr  := "10" & X"00";
 constant AFE1ArrayMax : AddrPtr  := "10" & X"66";
 
-constant PageSize : std_logic_vector (15 downto 0) := X"01FE";
-
-
+--constant PageSize : std_logic_vector (15 downto 0) := X"01FE";
+constant PageSize : std_logic_vector (15 downto 0) := X"FFFF";
 
 
 
@@ -474,7 +473,7 @@ port (
 	uBunch				: in std_logic_vector(31 downto 0);
 -- Signals for the DDR	
 	EvBuffRd			: in std_logic;
-	EvBufffOut			: out std_logic_vector(15 downto 0);
+	EvBuffOut			: out std_logic_vector(15 downto 0);
 	EvBuffEmpty			: out std_logic;
 	EvBuffWdsUsed		: out std_logic_vector(10 downto 0)
 	);

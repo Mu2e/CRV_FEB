@@ -122,7 +122,7 @@ Fill_RAM : process
 begin 
 
 	wait until rising_edge(CpldRst);
-	for i in 0 to 256 loop
+	for i in 0 to 1024 loop
 	wea <= "1";
 	addra <= std_logic_vector(unsigned(addra)+1);
 	dina  <= std_logic_vector(unsigned(dina)+1);
@@ -145,7 +145,7 @@ uBunch_gen : process
 begin 
 	uBunch <= (others => '0');
 	wait until rising_edge(Clk160MHz);
-	for i in 0 to 256 loop
+	for i in 0 to 1024 loop
 	uBunchWrt <= '1';
 	uBunch <= std_logic_vector(unsigned(uBunch)+1);
 	wait for Clk80MHz_period;

@@ -75,13 +75,12 @@ signal clk				  : std_logic;
 signal Buff_Rst		  	  : std_logic;
 signal reset			  : std_logic;
 
-signal Even_Odd		  	  : std_logic;
-signal WrtHi_LoSel	  	  : std_logic;
-signal SDwr_en			  : std_logic;
-signal DDR3_addr_staged   : std_logic_vector(28 downto 0); 
-signal SDwr_empty		  : std_logic;
+--signal Even_Odd		  	  : std_logic;
+--signal WrtHi_LoSel	  	  : std_logic;
+--signal DDR3_addr_staged   : std_logic_vector(28 downto 0); 
+
 -- uC data bus
-signal CDStage			  : std_logic_vector(15 downto 0);
+--signal CDStage			  : std_logic_vector(15 downto 0);
 
 
 signal DDR3_addr          : std_logic_vector(28 downto 0); 
@@ -124,8 +123,7 @@ signal DDRAddrFull		  : std_logic;
 signal DDRAddrOut 		  : std_logic_vector(31 downto 0);
 
 -- Signals for DDR READ FSM
-Type Write_Seq_FSM is (Idle,ChkWrtBuff,SndCmd,WtCmdMtpy,AddrRd,
-						SetWrtPtr,WrtDDR,Wait1,WritePad,WaitWrtDn);
+Type Write_Seq_FSM is (Idle, SetWrt, WrtData1, WrtData2, WrtData3, WrtData4);
 signal DDR_Write_Seq 	  : Write_Seq_FSM;
 signal DDRWrtSeqStat 	  : std_logic_vector(2 downto 0);
 signal DDRWrtCount 		  : std_logic_vector(10 downto 0);
@@ -134,6 +132,7 @@ signal DDRWrtCount 		  : std_logic_vector(10 downto 0);
 Type Read_Seq_FSM is (Idle,CheckEmpty,FirstCmd,CheckRdBuff0,
 						RdWdCount,CheckRdBuff1,RdDataHi,RdDataLo);
 signal DDR_Read_Seq 	  : Read_Seq_FSM;
+
 
 begin
 
@@ -148,7 +147,21 @@ port map (
     empty 	=> DDRAddrEmpty,
 	full 	=> DDRAddrFull
 );
-	
+
+
+--====================================================================================================
+--   COL_WIDTH             : integer := 10; -- # of memory Column Address bits.
+--   CS_WIDTH              : integer := 1; -- # of unique CS outputs to memory.
+--   DM_WIDTH              : integer := 2; -- # of DM (data mask)
+--   DQ_WIDTH              : integer := 16;-- # of DQ (data)
+--   DQS_CNT_WIDTH         : integer := 1;-- = ceil(log2(DQS_WIDTH))
+--   DRAM_WIDTH            : integer := 8;-- # of DQ per DQS
+--   ECC_TEST              : string  := "OFF";
+--   RANKS                 : integer := 1; -- # of Ranks.
+--   ROW_WIDTH             : integer := 15; -- # of memory Row Address bits.
+--   ADDR_WIDTH            : integer := 29; -- # = RANK_WIDTH + BANK_WIDTH + ROW_WIDTH + COL_WIDTH;
+--====================================================================================================
+
 DDR_Controller : DDR3LController
 port map(
     ddr3_dq       	  => DDR_DATA,
@@ -220,18 +233,18 @@ if CpldRst = '0' then
 	clk_ref_n       <= '0';  
 	
 	Buff_Rst 		<= '0';
-	Even_Odd 		<= '0';
-	WrtHi_LoSel 	<= '0';
-	DDR3_addr_staged<= (others => '0');
-	SDwr_empty	    <= '0';
+	--Even_Odd 		<= '0';
+	--WrtHi_LoSel 	<= '0';
+	--DDR3_addr_staged<= (others => '0');
 
 	DDR_Write_Seq	<= Idle;
 	DDRWrtSeqStat 	<= "000";
 	DDRWrtCount 	<= (others => '0');
 	EvBuffRd 		<= '0';
 	DDR_Read_Seq 	<= Idle; 
+	DDRAddrRd 		<= '0';
     -- Upper DRAM word staging register
-	CDStage <= (others => '0');    
+	--CDStage 		<= (others => '0');    
 
 elsif rising_edge (SysClk) then
 
@@ -248,156 +261,138 @@ end if;
 Case DDR_Write_Seq is
 When Idle => 
 	DDRWrtSeqStat <= "000"; 
-	-- If the FIFO words used is > leading word count, 
-	-- then at least one event is ready for copying to DRAM
+	-- If in the Event Buffer FIFO are saved more words than how many AFE data are
+	-- in one window (gate width), the Event Buffer FIFO is storing at least one 
+	-- event that can be written in the DDR 
 	if SlfTrgEn = '1' and EvBuffWdsUsed >= EvBuffOut(10 downto 0) 
-	 and EvBuffEmpty = '0' 
-	then DDR_Write_Seq <= ChkWrtBuff;
+	 and EvBuffEmpty = '0' and DDR3_rdy ='1' and DDR3_wrt_rdy ='1'
+	then DDR_Write_Seq <= SetWrt;
 	else DDR_Write_Seq <= Idle;
 	end if;
--- If there is stale data in the MIG transmit FIFO, force a burst write
-	When ChkWrtBuff => 
-	DDRWrtSeqStat <= "001";
-	if SDwr_empty = '0' then DDR_Write_Seq <= SndCmd;
-	else DDR_Write_Seq <= SetWrtPtr;
-	end if;
--- Send a MIG burst write command
-	When SndCmd => 
-	DDRWrtSeqStat <= "010";
-	DDR_Write_Seq <= WtCmdMtpy; 
--- Wait for the MIG write FIFO to go empty
-	When WtCmdMtpy => 
-	DDRWrtSeqStat <= "011";
-	if SDwr_empty = '1' then DDR_Write_Seq <= SetWrtPtr;
-	else DDR_Write_Seq <= WtCmdMtpy;
-	end if;
--- When the input FIFOs have at least one event, copy the data to the DDR
-	When SetWrtPtr =>  
-	DDRWrtSeqStat <= "100";
-	DDR_Write_Seq <= Wait1;
-	When Wait1 =>
+	
+	When SetWrt =>  
 	DDRWrtSeqStat <= "101";
-	DDR_Write_Seq <= WrtDDR;
-	When WrtDDR =>  
-	DDRWrtSeqStat <= "110";
-	if DDRWrtCount <= 1 then DDR_Write_Seq <= WritePad;
-	else DDR_Write_Seq <= WrtDDR;
+	if DDR3_wrt_rdy = '1'
+	then DDR_Write_Seq <= WrtData1;
+	else DDR_Write_Seq <= SetWrt;
 	end if;
+	
+	When WrtData1 =>
+	 DDRWrtSeqStat <= "001";
+	 if DDRWrtCount <= 1 then DDR_Write_Seq <= Idle;
+	 else DDR_Write_Seq <= WrtData2;
+	 end if;
+	When WrtData2 =>
+	 DDRWrtSeqStat <= "010";
+	 if DDRWrtCount <= 1 then DDR_Write_Seq <= Idle;
+	 else DDR_Write_Seq <= WrtData3;	 
+	 end if;
+	When WrtData3 =>
+	 DDRWrtSeqStat <= "011";
+	 if DDRWrtCount <= 1 then DDR_Write_Seq <= Idle;
+	 else DDR_Write_Seq <= WrtData4;	
+	 end if;	 
+	When WrtData4 =>
+	 DDRWrtSeqStat <= "100";
+	 if DDRWrtCount <= 1 then DDR_Write_Seq <= Idle;
+	 else DDR_Write_Seq <= WrtData1;	 
+	 end if;
 -- At the end of each event flush the last data words from the write FIFO into the DDR
-	When WritePad => 
-	DDRWrtSeqStat <= "111";  		
-	if DDR3_addr(4 downto 0) = "11100" 
-	then DDR_Write_Seq <= WaitWrtDn;
-	else DDR_Write_Seq <= WritePad;
-	end if;
-	When WaitWrtDn =>
-	if SDwr_empty = '1' then DDR_Write_Seq <= Idle;
-	else DDR_Write_Seq <= WaitWrtDn;
-	end if;
+--	When WritePad => 
+--	DDRWrtSeqStat <= "111";  		
+--	if DDR3_addr(4 downto 0) = "11100" 
+--	then DDR_Write_Seq <= WaitWrtDn;
+--	else DDR_Write_Seq <= WritePad;
+--	end if;
+--	When WaitWrtDn =>
+--	if SDwr_empty = '1' then DDR_Write_Seq <= Idle;
+--	else DDR_Write_Seq <= WaitWrtDn;
+--	end if;
 	When others => DDR_Write_Seq <= Idle;
 end case;
 
-if DDR_Write_Seq = Wait1 or (SlfTrgEn = '0' and DDRAddrEmpty = '0')
-then DDRAddrRd <= '1';
-else DDRAddrRd <= '0';
-end if;
-
-if DDR_Write_Seq = SetWrtPtr and EvBuffOut(10 downto 0) > 0 
-then DDRWrtCount <= EvBuffOut(10 downto 0);
-elsif DDR_Write_Seq = WrtDDR and DDRWrtCount /= 0 
-then DDRWrtCount <= DDRWrtCount - 1;
-else DDRWrtCount <= DDRWrtCount;
-end if;
-
-if DDR_Write_Seq =  Wait1 
-then EvBuffRd <= '1';  
-elsif (DDR_Write_Seq = WrtDDR and DDRWrtCount <= 1) or DDR_Write_Seq = Idle
-then EvBuffRd <= '0';
-else EvBuffRd <= EvBuffRd;
-end if;
-
-if DDR_Write_Seq = SetWrtPtr or Buff_Rst = '1'
-then Even_Odd <= '0';
-elsif DDR_Write_Seq = WrtDDR 
-then Even_Odd <= not Even_Odd;
- else Even_Odd <= Even_Odd;
-end if;
-
--- Toggle between upper and lower words during writes to the DDR
-if (WRDL = 1 and uCA(11 downto 10) = GA and uCA(9 downto 0) = SDRamWrtPtrLoAd)
-		 or Buff_Rst = '1' or DDR_Write_Seq = SetWrtPtr 
-then WrtHi_LoSel <= '0'; 
-elsif (WRDL = 1 and uCA(11 downto 10) = GA and uCA(9 downto 0) = SDRamPortAd)
-	     or DDR_Write_Seq = WrtDDR
- then WrtHi_LoSel <= not WrtHi_LoSel;
- end if;
-
--- Second staging register
-if WRDL = 1 and  uCA(11 downto 10) = GA and 
- 	uCA(9 downto 0) = SDRamPortAd and WrtHi_LoSel = '0'
-then CDStage <= uCD;
-elsif (DDR_Write_Seq = WrtDDR and Even_Odd = '0')
-then CDStage <= EvBuffOut; -- BuffOut_Mux;
-else CDStage <= CDStage;
-end if;
-
--- Multiplexer to feed the appropriate data to the DRAM write FIFO
-if DDR_Write_Seq = WrtDDR and Even_Odd = '1' 
-then DDR3_wrt_data <= CDStage & EvBuffOut; -- BuffOut_Mux;
-else DDR3_wrt_data <= CDStage & uCD;
-end if;
-
--- When the number of writes = burst size, send a write command
-if (SDwr_en = '1' and DDR3_addr(4 downto 0) = "11100") 
-or (WRDL = 1 and uCA(11 downto 10) = GA and uCA(9 downto 0) = SDRamWrtPtrLoAd)
-or DDR_Write_Seq = SndCmd
-then DDR3_cmd <= "010";
-	 DDR3_en <= '1';
-else DDR3_cmd <= "000";
-	 DDR3_en <= '0';
-end if;
-
--- Writes to the MIG write FIFO
-if (WRDL = 1 and  uCA(11 downto 10) = GA and uCA(9 downto 0) = SDRamPortAd and WrtHi_LoSel = '1')
-  or (DDR_Write_Seq = WrtDDR and WrtHi_LoSel = '1')
-  or (DDR_Write_Seq = WritePad and (SDwr_en = '0' or DDR3_addr(4 downto 0) /= "11100")) 
-then SDwr_en <= '1';
-else SDwr_en <= '0'; 
-end if;
-
--- DDR Write address register
--- Microcontroller access upper
-if WRDL = 1 and uCA(11 downto 10) = GA and uCA(9 downto 0) = SDRamWrtPtrHiAd 
-then DDR3_addr <= uCD(13 downto 0) & DDR3_addr(15 downto 0);
--- Microcontroller access lower
-elsif WRDL = 1 and uCA(11 downto 10) = GA and uCA(9 downto 0) = SDRamWrtPtrLoAd
-then DDR3_addr <= DDR3_addr(29 downto 16) & uCD;
--- Increment by 4 for each long word write
-elsif SDwr_en = '1'
-then DDR3_addr <= DDR3_addr + 4;
---Use the stored microbunch number shifted left by 9 places 
--- to advance to the next requested page
-elsif DDR_Write_Seq = SetWrtPtr 
-then DDR3_addr(9 downto 0) <= (others => '0');
-	  DDR3_addr(29 downto 10) <= DDRAddrOut(19 downto 0);
-else DDR3_addr <= DDR3_addr;
-end if;
-
--- DDR Write address staging register
--- Microcontroller access upper
-if WRDL = 1 and uCA(11 downto 10) = GA and uCA(9 downto 0) = SDRamWrtPtrHiAd 
-then DDR3_addr_staged <= uCD(13 downto 0) & DDR3_addr_staged(15 downto 0);
--- Microcontroller access lower
-elsif WRDL = 1 and uCA(11 downto 10) = GA and uCA(9 downto 0) = SDRamWrtPtrLoAd
-then DDR3_addr_staged <= DDR3_addr_staged(29 downto 16) & uCD;
--- Reset the address at spill beginning
-elsif Strt_req = '1' then DDR3_addr_staged <= (others => '0');
--- Keep the address from the last update until the write command has been sent
-elsif DDR3_en = '1' and DDR_Write_Seq /= SetWrtPtr then DDR3_addr_staged <= DDR3_addr;
-elsif DDR_Write_Seq = SetWrtPtr 
-then DDR3_addr_staged(9 downto 0) <= (others => '0');
-	  DDR3_addr_staged(29 downto 10) <= DDRAddrOut(19 downto 0);
-else DDR3_addr_staged <= DDR3_addr_staged;
+	 
+if DDR_Write_Seq = Idle 
+then 
+	EvBuffRd 				<= '0';
+	DDRAddrRd 				<= '0';
+	DDRWrtCount 			<= DDRWrtCount;
+	DDR3_addr 				<= DDR3_addr;
+	DDR3_cmd 				<= "000";
+    DDR3_en 				<= '0';
+	DDR3_wrt_en 			<= '0';
+	DDR3_wrt_end 			<= '0';
+elsif DDR_Write_Seq = SetWrt 
+then 
+	EvBuffRd 				<= '1';
+	DDRAddrRd 				<= '1';
+	DDRWrtCount 			<= EvBuffOut(10 downto 0);
+	DDR3_addr(9 downto 0)   <= (others => '0');
+	DDR3_addr(28 downto 10) <= DDRAddrOut(18 downto 0); -- Set the page = uBunch number
+	DDR3_cmd 				<= "010";
+    DDR3_en 				<= '1';
+	DDR3_wrt_en 			<= '0';
+	DDR3_wrt_end 			<= '0';
+elsif DDR_Write_Seq = WrtData1
+then 
+	DDR3_wrt_data(63 downto 48) <= EvBuffOut;
+	DDR3_wrt_en 			<= '0';
+	EvBuffRd 				<= '1';
+	DDRAddrRd 				<= '0';
+	DDRWrtCount 			<= DDRWrtCount - 1;
+	DDR3_wrt_end 			<= '0';
+	if DDRWrtSeqStat = "101"
+	then DDR3_addr(9 downto 0)  <= (others => '0');	
+	else DDR3_addr 				<= DDR3_addr + 4;
+	end if;
+	if DDRWrtCount <= 1
+	then EvBuffRd  <= '0';
+		 DDR3_wrt_data(47 downto 0) <= (others => '0');
+		 DDR3_wrt_en 		<= '1';
+		 DDR3_wrt_end 		<= '1';
+	end if;
+elsif DDR_Write_Seq = WrtData2
+then 
+	DDR3_wrt_data(47 downto 32) <= EvBuffOut;
+	DDR3_wrt_en 			<= '0';
+	EvBuffRd 				<= '1';
+	DDRAddrRd 				<= '0';
+	DDRWrtCount 			<= DDRWrtCount - 1;
+	DDR3_addr 				<= DDR3_addr;
+	DDR3_wrt_end 			<= '0';
+	if DDRWrtCount <= 1
+	then EvBuffRd  <= '0';
+		 DDR3_wrt_data(31 downto 0) <= (others => '0');
+		 DDR3_wrt_en 		<= '1';
+		 DDR3_wrt_end 		<= '1';
+	end if;
+elsif DDR_Write_Seq = WrtData3
+then 
+	DDR3_wrt_data(31 downto 16) <= EvBuffOut;
+	DDR3_wrt_en 			<= '0';
+	EvBuffRd 				<= '1';
+	DDRAddrRd 				<= '0';
+	DDRWrtCount 			<= DDRWrtCount - 1;
+	DDR3_addr 				<= DDR3_addr;
+	DDR3_wrt_end 			<= '0';
+	if DDRWrtCount <= 1
+	then EvBuffRd  <= '0';
+		 DDR3_wrt_data(15 downto 0) <= (others => '0');
+		 DDR3_wrt_en 		<= '1';
+		 DDR3_wrt_end 		<= '1';
+	end if;
+elsif DDR_Write_Seq = WrtData4
+then 
+	DDR3_wrt_data(15 downto 0) <= EvBuffOut;
+	DDR3_wrt_en 			<= '1';
+	DDR3_wrt_end 			<= '1';
+	EvBuffRd 				<= '1';
+	DDRAddrRd 				<= '0';
+	DDRWrtCount 			<= DDRWrtCount - 1;
+	DDR3_addr 				<= DDR3_addr;
+	if DDRWrtCount <= 1
+	then EvBuffRd  <= '0';
+	end if;
 end if;
 
 

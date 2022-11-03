@@ -331,6 +331,60 @@ case Input_Seqs(i)(k) is
 	Input_Seqs(i)(k) <= Idle;
 end case;
 
+---- ADC Sample counter
+--if Input_Seqs(i)(k) = WrtChanNo 
+--	then ADCSmplCntr(i)(k) <= ADCSmplCntReg;
+--elsif Input_Seqs(i)(k) = WrtHits
+--	then ADCSmplCntr(i)(k) <= ADCSmplCntr(i)(k) - 1;
+--	else ADCSmplCntr(i)(k) <= ADCSmplCntr(i)(k);
+--end if;
+--
+---- Event word counter
+--if Input_Seqs(i)(k) = Idle 
+--	then InWdCnt(i)(k) <= (others => '0');
+--elsif Input_Seqs(i)(k) = WrtTimeStamp or (Input_Seqs(i)(k) = WrtChanNo and SlfTrgEdge(i)(k) = 1) or Input_Seqs(i)(k) = WrtHits
+--	then InWdCnt(i)(k) <= InWdCnt(i)(k) + 1;
+--end if;
+--
+---- Store present write pointer so a leading word count can be stored at the end of the microbunch
+--if Input_Seqs(i)(k) = Increment 
+--	then WrtCrrntWdCntAd(i)(k) <= BufferWrtAdd(i)(k);
+--	else WrtCrrntWdCntAd(i)(k) <= WrtCrrntWdCntAd(i)(k);
+--end if;
+--
+---- After writing the leading word count the pointer needs to go to the end of the event
+--if Input_Seqs(i)(k) = WrtHitWdCnt 
+--	then WrtNxtWdCntAd(i)(k) <= BufferWrtAdd(i)(k) + 1;
+--	else WrtNxtWdCntAd(i)(k) <= WrtNxtWdCntAd(i)(k);
+--end if;
+--
+---- DPRam write pointer
+--if (Input_Seqs(i)(k) = WrtChanNo and SlfTrgEdge(i)(k) = 1) -- Diff_Reg(i)(k) > IntTrgThresh(i)(k))
+--	or Input_Seqs(i)(k) = WrtTimeStamp
+--	or Input_Seqs(i)(k) = WrtHits 
+--	then BufferWrtAdd(i)(k) <= BufferWrtAdd(i)(k) + 1;
+--elsif Input_Seqs(i)(k) = WrtHitWdCnt 
+--	then BufferWrtAdd(i)(k) <= WrtCrrntWdCntAd(i)(k);
+--elsif Input_Seqs(i)(k) = LdNxtWrtAd 
+--	then BufferWrtAdd(i)(k) <= WrtNxtWdCntAd(i)(k);
+--else BufferWrtAdd(i)(k) <= BufferWrtAdd(i)(k);
+--end if;
+--
+---- Qualify writes with the mask register bits
+--if (Input_Seqs(i)(k) = WrtHits or (Input_Seqs(i)(k) = WrtChanNo and SlfTrgEdge(i)(k) = 1) or Input_Seqs(i)(k) = WrtTimeStamp or Input_Seqs(i)(k) = WrtHitWdCnt) and MaskReg(i)(k) = '1'
+--	then BufferWE(i)(k) <= '1';
+--	else BufferWE(i)(k) <= '0';
+--end if;
+--
+---- Write the microbunch number, channel number, and timestamp followed by ADC data
+--if Input_Seqs(i)(k) = WrtChanNo and SlfTrgEdge(i)(k) = 1 -- Diff_Reg(i)(k) > IntTrgThresh(i)(k)
+--	then BufferIn(i)(k) <= ControllerNo & PortNo & GA & ChanArray(8*i+k);
+--elsif Input_Seqs(i)(k) = WrtTimeStamp 
+--	then BufferIn(i)(k) <= ADCSmplCntReg & uBunchOffset(i);
+--elsif Input_Seqs(i)(k) = WrtHitWdCnt 
+--	then BufferIn(i)(k) <= X"0" & "00" & InWdCnt(i)(k);
+--	else BufferIn(i)(k) <= "00" & dout_AFE(i)(k);
+--end if;
 
 -- Set BufferWE 
 if (Input_Seqs(i)(k) = WrtHits or 
@@ -358,7 +412,7 @@ end if;
 -- Channel (16 bits) = ControllerNo (5 bits) + Port Number (5 bits) +
 -- geo address (2 bits of which FPGA on a FEB) + channel (4 bits)
 
-if Input_Seqs(i)(k) <= Idle 
+if Input_Seqs(i)(k) = Idle 
 then 
 	In_Seq_Stat(i)(k) <= '0';
 	InWdCnt(i)(k) <= (others => '0');

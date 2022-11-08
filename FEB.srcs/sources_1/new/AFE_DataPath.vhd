@@ -64,7 +64,7 @@ entity AFE_DataPath is
 	uCWr 				: in std_logic;
 -- Microcontroller data and address buses	
 	uCA 				: in std_logic_vector(11 downto 0);
-	uCD 				: inout std_logic_vector(15 downto 0);
+	uCD 				: in std_logic_vector(15 downto 0);
 -- Geographic address pins
 	GA 					: in std_logic_vector(1 downto 0)
 	);

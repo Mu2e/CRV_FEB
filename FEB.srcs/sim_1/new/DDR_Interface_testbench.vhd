@@ -303,6 +303,20 @@ begin
 	SlfTrgEn		<= '1';
 end process;
 
+Read_request: process
+begin
+	wait until rising_edge(Clk160MHz);
+	WRDL			<= "01";
+	wait for 10 us;
+	uCA(9 downto 0) <= uBunchRdPtrLoAd;
+	wait for Clk80MHz_period;
+	uCA(9 downto 0) <= BrdCstRdPtrHiAd;
+	uCD(15 downto 0) <= X"0000";
+	wait for 1 us;
+	uCA(9 downto 0) <= BrdCstRdPtrLoAd;
+	uCD(15 downto 0) <= "0001100000000000";
+	wait;
+end process;
 
 DDR_Interface_inst : DDR_Interface
 port map(

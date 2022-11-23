@@ -67,6 +67,9 @@ port(
 	uCD 					: inout std_logic_vector(15 downto 0);
 	-- Geographic address pins
 	GA 						: in std_logic_vector(1 downto 0);
+	-- Analog Mux address lines
+	MuxEn 					: buffer std_logic_vector(3 downto 0);
+	Muxad 					: buffer std_logic_vector(1 downto 0);
 	-- Chip dependent I/O functions
 	A7,LVDSTX 				: buffer std_logic;
 	GPI0_N,GPI0_P,GPI1  	: in std_logic;
@@ -88,15 +91,17 @@ signal Clk_200MHz			  : std_logic;
 signal Clk_560MHz			  : std_logic;
 signal SysClk				  : std_logic;   -- 160 Mhz
 
+signal asp					  : std_logic := '0';
 signal reset		          : std_logic;
 signal done		              : std_logic_vector(1 downto 0); 
 signal warn		              : std_logic_vector(1 downto 0); 
 signal dout_AFE0		      : Array_8x14; 
 signal dout_AFE1		      : Array_8x14;  
-signal PipelineSet 			  : std_logic_vector (7 downto 0) := X"04";
+signal PipelineSet 			  : std_logic_vector (7 downto 0);
 signal ResetHi         		  : std_logic;
 signal BeamOn				  : std_logic;
 signal uWRDL				  : std_logic_vector(1 downto 0);
+signal uRDDL				  : std_logic_vector(1 downto 0);
 signal uBunch   			  : std_logic_vector(31 downto 0);
 signal uBunchWrt			  : std_logic;
 signal ControllerNo 		  : std_logic_vector (4 downto 0):= "00000";
@@ -123,6 +128,12 @@ signal EvBuffWdsUsed          : std_logic_vector(10 downto 0);
 signal TempEn 				  : std_logic;
 signal TempCtrl 			  : std_logic_vector(3 downto 0);
 signal One_Wire_Out 		  : std_logic_vector(15 downto 0);
+
+signal Diff_Reg				  : Arrays_8x2x14;
+signal GateWidth	    	  : Array_2x12;
+signal GateReq 				  : std_logic_vector (1 downto 0);
+signal FMTxBuff_wreq		  : std_logic;
+
 
 -- Synchronous edge detectors of uC read and write strobes
 signal WRDL 	: std_logic_vector(1 downto 0);
@@ -214,7 +225,11 @@ port map (
 	done 			=> done,
 -- Pipeline signals 	
 	PipelineSet		=> PipelineSet,
-
+-- Histogram signals
+	Diff_Reg		=> Diff_Reg,	
+	GateWidth	    => GateWidth,
+	GateReq 		=> GateReq, 	
+	
 	CpldRst			=> CpldRst,	
 	CpldCS			=> CpldCS,
 	uCRd			=> uCRd,
@@ -231,8 +246,7 @@ port map(
 	CpldRst			=> CpldRst,				
 	GA 				=> GA,				
 	A7		 		=> A7,			
-	GPI0_N			=> GPI0_N,
-	GPI0_P			=> GPI0_P,
+	GPI0			=> GPI0,
 	TrgSrc			=> TrgSrc, 					
 	GPO				=> GPO
 );
@@ -281,7 +295,8 @@ port map(
 	EvBuffRd		=> EvBuffRd,		
 	EvBuffOut		=> EvBuffOut,			
 	EvBuffEmpty		=> EvBuffEmpty,			
-	EvBuffWdsUsed	=> EvBuffWdsUsed		
+	EvBuffWdsUsed	=> EvBuffWdsUsed,
+	asp 			=> asp
 	);
 
 
@@ -360,6 +375,7 @@ uC_to_LVDSTX : LVDS_TX
 port map(
 	Clk_100MHz		=> Clk_100MHz,
 	ResetHi			=> ResetHi,
+	FMTxBuff_wreq	=> FMTxBuff_wreq,
 	-- Microcontroller data and address buses
 	uCA 			=> uCA,
 	uCD 			=> uCD,
@@ -371,9 +387,65 @@ port map(
 	-- Geographic address pins
 	GA 				=> GA,
 	-- Chip dipendent I/O functions 
-	LVDSTX 			=> LVDSTX	
+	LVDSTX 			=> LVDSTX
 );
 
+uC : uControllerRegister 
+port map(
+	Clk_100MHz		=> Clk_100MHz,
+	-- AFE serial control lines
+	AFEPDn 			=> AFEPDn,
+	-- Microcontroller strobes
+	CpldRst			=> CpldRst,	
+	CpldCS			=> CpldCS,	
+	uCRd			=> uCRd,	
+	uCWr 			=> uCWr, 	
+	-- Microcontroller data and address buses
+	uCA 			=> uCA,
+	uCD 			=> uCD,
+	-- Geographic address pins
+	GA  			=> GA,
+	-- Analog Mux address lines
+	MuxEn 			=> MuxEn, 			
+	Muxad 			=> Muxad, 			
+  
+	uWRDL 			=> uWRDL, 			
+	uRDDL 			=> uRDDL, 			
+	TrgSrc			=> TrgSrc,			
+	ADCSmplCntReg 	=> ADCSmplCntReg, 	
+	ControllerNo 	=> ControllerNo, 	
+	PortNo 		 	=> PortNo, 		 	
+	FMTxBuff_wreq	=> FMTxBuff_wreq,	
+	PipelineSet		=> PipelineSet		
+  );
+
+
+
+
+
+
+
+
+
+Hist : Histogram 
+port map(
+	Clk_80MHz	 	=> Clk_80MHz,
+	Clk_100MHz	 	=> Clk_100MHz,
+	ResetHi	 		=> ResetHi, 
+	-- Microcontroller strobes
+	CpldRst			=> CpldRst,
+	-- Microcontroller data and address buses
+	uCA				=> uCA,
+	uCD				=> uCD,
+	-- Geographic address pins
+	GA				=> GA,
+
+	Diff_Reg		=> Diff_Reg,	
+	GateWidth	    => GateWidth,
+	GateReq 		=> GateReq, 	
+	uWRDL 			=> uWRDL,
+	uRDDL 			=> uRDDL	
+  );
 
 
 end behavioural;

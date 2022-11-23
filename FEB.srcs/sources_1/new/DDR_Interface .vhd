@@ -131,12 +131,12 @@ signal DRAMRdBuffWdsUsed  : std_logic_vector(10 downto 0);
 Type DDR_FSM is (Idle, SetWrt, WrtData1, WrtData2, WrtData3, WrtData4, 
 					SetRd, RdWdCount, RdData1, RdData2, RdData3, RdData4);
 signal DDR_Seq 	  : DDR_FSM;
-signal DDRSeqStat 	 	  : std_logic_vector(2 downto 0);
+signal DDRSeqStat 	 	  : std_logic_vector(3 downto 0);
 signal DDRWrtCount 		  : std_logic_vector(10 downto 0);
 signal PageRdReq		  : std_logic;
 signal PageWdCount 		  : std_logic_vector(10 downto 0);
 signal DDRRdPtr  		  : std_logic_vector(28 downto 0);
-signal DDR3_RD_addr       : std_logic_vector(28 downto 0);
+signal DDR3_rd_addr       : std_logic_vector(28 downto 0);
 
 begin
 
@@ -240,7 +240,7 @@ main : process(SysClk, CpldRst)
 begin 
 if CpldRst = '0' then
 
-	RESET_N			<= '1';		  
+	RESET_N			<= '0';		  
 	
 	DDR3_addr		<= (others => '0');         
 	DDR3_cmd    	<= (others => '0');       
@@ -256,11 +256,11 @@ if CpldRst = '0' then
 	AddrReg 		<= (others => '0');
 	
 	-- Write DDR Signals
-	DDR_Seq	<= Idle;
-	DDRSeqStat 	<= "000";
+	DDR_Seq			<= Idle;
+	DDRSeqStat 		<= "0000";
 	DDRWrtCount 	<= (others => '0');
 	EvBuffRd 		<= '0';
-	DDR_Seq 	<= Idle; 
+	DDR_Seq 		<= Idle; 
 	DDRAddrRd 		<= '0';
 
 	-- Read DDR Signals
@@ -270,10 +270,11 @@ if CpldRst = '0' then
 	DRAMRdBuffRd 	<= '0';
 	DRAMRdBuffDat 	<= (others => '0');
 	DDRRdPtr 		<= (others => '0');
-	DDR3_RD_addr	<= (others => '0');
+	DDR3_rd_addr	<= (others => '0');
 	
 elsif rising_edge (SysClk) then
 
+	RESET_N			<= '1';	
 -- Global reset term
 if WRDL = 1 and uCD(5) = '1' and ((uCA(11 downto 10) = GA and uCA(9 downto 0) = CSRRegAddr)
 	or uCA(9 downto 0) = CSRBroadCastAd)
@@ -300,24 +301,28 @@ end if;
 rstDDRRdBuff <= ResetHi or rstDRAMBuffHi;
 
 
+-- ========================================================
+-- ============== ACTUNG: TO BE FIXED =====================
+-- ========================================================
+
 -- DDR Read address register
 -- Microcontroller access upper
 if WRDL = 1 and ((uCA(11 downto 10) = GA and uCA(9 downto 0) = SDRamRdPtrHiAd)
 				or uCA(9 downto 0) = BrdCstRdPtrHiAd)
 -- ORIGINAL then DDR3_addr <= uCD(13 downto 0) & DDR3_addr(15 downto 0);
-then DDR3_RD_addr <= uCD(12 downto 0) & DDR3_RD_addr(15 downto 0);
+then DDR3_rd_addr <= uCD(12 downto 0) & DDR3_rd_addr(15 downto 0);
 -- Microcontroller access lower
 elsif WRDL = 1 and ((uCA(11 downto 10) = GA and uCA(9 downto 0) = SDRamRdPtrLoAd)
 				or uCA(9 downto 0) = BrdCstRdPtrLoAd)
 -- ORIGINAL then DDR3_addr <= DDR3_addr(29 downto 16) & uCD;
-then DDR3_RD_addr <= DDR3_RD_addr(28 downto 16) & uCD;
+then DDR3_rd_addr <= DDR3_rd_addr(28 downto 16) & uCD;
 -- Convert the microcontroller data to a page number
 elsif WRDL = 1 and uCA(9 downto 0) = uBunchRdPtrHiAd
 -- ORIGINAL  then DDR3_addr <= uCD(3 downto 0) & DDR3_addr(25 downto 0);
-then DDR3_RD_addr <= uCD(2 downto 0) & DDR3_RD_addr(25 downto 0);
+then DDR3_rd_addr <= uCD(2 downto 0) & DDR3_rd_addr(25 downto 0);
 elsif WRDL = 1 and uCA(9 downto 0) = uBunchRdPtrLoAd
 -- ORIGINAL  then DDR3_addr <= DDR3_addr(29 downto 26) & uCD & "00" & X"00";
-then DDR3_RD_addr <= DDR3_RD_addr(28 downto 26) & uCD & "00" & X"00";
+then DDR3_rd_addr <= DDR3_rd_addr(28 downto 26) & uCD & "00" & X"00";
 end if;
 
 
@@ -326,7 +331,7 @@ end if;
 --=============================  DDR FSM  ================================
 Case DDR_Seq is
 When Idle => 
-	DDRSeqStat <= "000"; 
+	DDRSeqStat <= "0000"; 
 	-- If in the Event Buffer FIFO are saved more words than how many AFE data are
 	-- in one window (gate width), the Event Buffer FIFO is storing at least one 
 	-- event that can be written in the DDR 
@@ -338,61 +343,62 @@ When Idle =>
 	then DDR_Seq <= SetRd;
 	else DDR_Seq <= Idle;
 	end if;
-
 	
 	When SetWrt =>  
-	DDRSeqStat <= "101";
+	DDRSeqStat <= "1101";
 	if DDR3_wrt_rdy = '1'
 	then DDR_Seq <= WrtData1;
 	else DDR_Seq <= SetWrt;
 	end if;
 	
 	When WrtData1 =>
-	 DDRSeqStat <= "001";
+	 DDRSeqStat <= "0001";
 	 if DDRWrtCount <= 1 then DDR_Seq <= Idle;
 	 else DDR_Seq <= WrtData2;
 	 end if;
 	When WrtData2 =>
-	 DDRSeqStat <= "010";
+	 DDRSeqStat <= "0010";
 	 if DDRWrtCount <= 1 then DDR_Seq <= Idle;
 	 else DDR_Seq <= WrtData3;	 
 	 end if;
 	When WrtData3 =>
-	 DDRSeqStat <= "011";
+	 DDRSeqStat <= "0011";
 	 if DDRWrtCount <= 1 then DDR_Seq <= Idle;
 	 else DDR_Seq <= WrtData4;	
 	 end if;	 
 	When WrtData4 =>
-	 DDRSeqStat <= "100";
+	 DDRSeqStat <= "0100";
 	 if DDRWrtCount <= 1 then DDR_Seq <= Idle;
 	 else DDR_Seq <= WrtData1;	 
 	 end if;
 
 	When SetRd => 
-		if PageRdReq = '1'
-		then DDR_Seq <= RdWdCount;
-		else DDR_Seq <= Idle;
-		end if;
+	 DDRSeqStat <= "1110";
+	 if PageRdReq = '1'
+	 then DDR_Seq <= RdWdCount;
+	 else DDR_Seq <= Idle;
+	 end if;
 	When RdWdCount => 
-		DDR_Seq <= RdData1;
+	 DDRSeqStat <= "1111";
+	 DDR_Seq <= RdData1;
 
 	When RdData1 =>
-	 DDRSeqStat <= "001";
+	 DDRSeqStat <= "1001";
 	 if PageWdCount = 0 then DDR_Seq <= Idle;
 	 else DDR_Seq <= RdData2;
 	 end if;
 	When RdData2 =>
-	 DDRSeqStat <= "010";
+	 DDRSeqStat <= "1010";
 	 if PageWdCount = 0 then DDR_Seq <= Idle;
 	 else DDR_Seq <= RdData3;	 
 	 end if;
 	When RdData3 =>
-	 DDRSeqStat <= "011";
+	 DDRSeqStat <= "1011";
 	 if PageWdCount = 0 then DDR_Seq <= Idle;
 	 else DDR_Seq <= RdData4;	
 	 end if;	 
 	When RdData4 =>
-	 DDRSeqStat <= "100";
+	 DDRSeqStat <= "1100";
 	 if PageWdCount = 0 then DDR_Seq <= Idle;
 	 else DDR_Seq <= RdData1;	 
 	 end if;
@@ -418,6 +424,7 @@ then
 	DDR3_wrt_en 			<= '0';
 	DDR3_wrt_end 			<= '0';
 	PageWdCount 			<= (others => '0');
+	DRAMRdBuffWrt			<= '0';
 elsif DDR_Seq = SetWrt 
 then 
 	EvBuffRd 				<= '1';
@@ -441,7 +448,7 @@ then
 	DDRWrtCount 			<= DDRWrtCount - 1;
 	DDR3_wrt_end 			<= '0';
 	DDR3_en 				<= '1';
-	if DDRSeqStat = "101"
+	if DDRSeqStat = "0101"
 	then DDR3_addr(9 downto 0)  <= (others => '0');	
 	else DDR3_addr 				<= DDR3_addr + 4;
 	end if;
@@ -506,69 +513,45 @@ then
 	then EvBuffRd  <= '0';
 	end if;
 
--- ========================================================
--- ============== ACTUNG: TO BE FIXED =====================
--- ========================================================
-
-
-
--- -- DDR Read address pointer
--- -- Microcontroller access upper
---  if WRDL = 1 and ((uCA(11 downto 10) = GA and uCA(9 downto 0) = SDRamRdPtrHiAd)
--- 				or uCA(9 downto 0) = BrdCstRdPtrHiAd)
--- -- ORIGINAL then DDR3_addr <= uCD(13 downto 0) & DDR3_addr(15 downto 0);
--- then DDR3_addr <= uCD(12 downto 0) & DDR3_addr(15 downto 0);
--- -- Microcontroller access lower
--- elsif WRDL = 1 and ((uCA(11 downto 10) = GA and uCA(9 downto 0) = SDRamRdPtrLoAd)
--- 				or uCA(9 downto 0) = BrdCstRdPtrLoAd)
--- -- ORIGINAL then DDR3_addr <= DDR3_addr(29 downto 16) & uCD;
--- then DDR3_addr <= DDR3_addr(28 downto 16) & uCD;
--- -- Convert the microcontroller data to a page number
--- elsif WRDL = 1 and uCA(9 downto 0) = uBunchRdPtrHiAd
--- -- ORIGINAL  then DDR3_addr <= uCD(3 downto 0) & DDR3_addr(25 downto 0);
--- then DDR3_addr <= uCD(2 downto 0) & DDR3_addr(25 downto 0);
--- elsif WRDL = 1 and uCA(9 downto 0) = uBunchRdPtrLoAd
--- -- ORIGINAL  then DDR3_addr <= DDR3_addr(29 downto 26) & uCD & "00" & X"00";
--- then DDR3_addr <= DDR3_addr(28 downto 26) & uCD & "00" & X"00";
--- -- Increment by 8 long words for each burst read command
--- elsif DDR3_en = '1' then 
--- 	 DDR3_addr <= DDR3_addr + 32;
--- else DDR3_addr <= DDR3_addr;
--- end if;
-
 elsif DDR_Seq = SetRd 
 then
 	if uCA(9 downto 0) = SDRamRdPtrLoAd	or uCA(9 downto 0) = BrdCstRdPtrLoAd or uCA(9 downto 0) = uBunchRdPtrLoAd
-	then DDR3_addr <= DDR3_RD_addr;
+	then DDR3_addr <= DDR3_rd_addr;
 	-- Increment by 8 long words for each burst read command
 	else DDR3_addr <= DDR3_addr + 32;
 	end if;
 	DDR3_cmd 				<= "001";
     DDR3_en 				<= '1';
+	DRAMRdBuffWrt			<= '0';
 elsif DDR_Seq = RdWdCount
 then
 	PageWdCount  			<= DDR3_rd_data(10 downto 0);
+	DRAMRdBuffWrt			<= '0';
 elsif DDR_Seq = RdData1
 then 
 	DRAMRdBuffDat 			<= DDR3_rd_data(63 downto 48);
+	DRAMRdBuffWrt			<= '1';
 	if PageWdCount /= 0 then PageWdCount <= PageWdCount - 1;
 	else PageWdCount <= PageWdCount;
 	end if;
 elsif DDR_Seq = RdData2
 then 
 	DRAMRdBuffDat 			<= DDR3_rd_data(47 downto 32);
+	DRAMRdBuffWrt			<= '1';
 	if PageWdCount /= 0 then PageWdCount <= PageWdCount - 1;
 	else PageWdCount <= PageWdCount;
 	end if;
 elsif DDR_Seq = RdData3
 then 
 	DRAMRdBuffDat 			<= DDR3_rd_data(31 downto 16);
+	DRAMRdBuffWrt			<= '1';
 	if PageWdCount /= 0 then PageWdCount <= PageWdCount - 1;
 	else PageWdCount <= PageWdCount;
 	end if;
 elsif DDR_Seq = RdData4
 then 
 	DRAMRdBuffDat 			<= DDR3_rd_data(15 downto 0);
+	DRAMRdBuffWrt			<= '1';
 	if PageWdCount /= 0 then PageWdCount <= PageWdCount - 1;
 	else PageWdCount <= PageWdCount;
 	end if;

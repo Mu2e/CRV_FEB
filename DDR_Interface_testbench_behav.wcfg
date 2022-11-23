@@ -12,18 +12,22 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="11,011.575000 ns"></ZoomStartTime>
-      <ZoomEndTime time="11,085.075001 ns"></ZoomEndTime>
-      <Cursor1Time time="11,034.375000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000 ns"></ZoomStartTime>
+      <ZoomEndTime time="3,715.000001 ns"></ZoomEndTime>
+      <Cursor1Time time="15.000000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="200"></NameColumnWidth>
-      <ValueColumnWidth column_width="96"></ValueColumnWidth>
+      <NameColumnWidth column_width="194"></NameColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="103" />
+   <WVObjectSize size="133" />
    <wvobject fp_name="/DDR_Interface_testbench/Clk80MHz" type="logic">
       <obj_property name="ElementShortName">Clk80MHz</obj_property>
       <obj_property name="ObjectShortName">Clk80MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/CpldRst" type="logic">
+      <obj_property name="ElementShortName">CpldRst</obj_property>
+      <obj_property name="ObjectShortName">CpldRst</obj_property>
    </wvobject>
    <wvobject fp_name="/DDR_Interface_testbench/AFE_DataPath_inst/AFE_Pipeline_inst/dout_AFE0[0]" type="array">
       <obj_property name="ElementShortName">[0][13:0]</obj_property>
@@ -595,6 +599,10 @@
       <obj_property name="ElementShortName">DDR3_wrt_end</obj_property>
       <obj_property name="ObjectShortName">DDR3_wrt_end</obj_property>
    </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDRWrtCount" type="array">
+      <obj_property name="ElementShortName">DDRWrtCount[10:0]</obj_property>
+      <obj_property name="ObjectShortName">DDRWrtCount[10:0]</obj_property>
+   </wvobject>
    <wvobject type="divider" fp_name="divider896">
       <obj_property name="label">uC</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -602,79 +610,79 @@
    <wvobject fp_name="vbus875" type="vbus">
       <obj_property name="label">DDR3_RD_page</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[28]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[28]" type="logic">
          <obj_property name="ElementShortName">[28]</obj_property>
          <obj_property name="ObjectShortName">[28]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[27]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[27]" type="logic">
          <obj_property name="ElementShortName">[27]</obj_property>
          <obj_property name="ObjectShortName">[27]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[26]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[26]" type="logic">
          <obj_property name="ElementShortName">[26]</obj_property>
          <obj_property name="ObjectShortName">[26]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[25]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[25]" type="logic">
          <obj_property name="ElementShortName">[25]</obj_property>
          <obj_property name="ObjectShortName">[25]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[24]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[24]" type="logic">
          <obj_property name="ElementShortName">[24]</obj_property>
          <obj_property name="ObjectShortName">[24]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[23]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[23]" type="logic">
          <obj_property name="ElementShortName">[23]</obj_property>
          <obj_property name="ObjectShortName">[23]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[22]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[22]" type="logic">
          <obj_property name="ElementShortName">[22]</obj_property>
          <obj_property name="ObjectShortName">[22]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[21]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[21]" type="logic">
          <obj_property name="ElementShortName">[21]</obj_property>
          <obj_property name="ObjectShortName">[21]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[20]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[20]" type="logic">
          <obj_property name="ElementShortName">[20]</obj_property>
          <obj_property name="ObjectShortName">[20]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[19]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[19]" type="logic">
          <obj_property name="ElementShortName">[19]</obj_property>
          <obj_property name="ObjectShortName">[19]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[18]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[18]" type="logic">
          <obj_property name="ElementShortName">[18]</obj_property>
          <obj_property name="ObjectShortName">[18]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[17]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[17]" type="logic">
          <obj_property name="ElementShortName">[17]</obj_property>
          <obj_property name="ObjectShortName">[17]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[16]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[16]" type="logic">
          <obj_property name="ElementShortName">[16]</obj_property>
          <obj_property name="ObjectShortName">[16]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[15]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[15]" type="logic">
          <obj_property name="ElementShortName">[15]</obj_property>
          <obj_property name="ObjectShortName">[15]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[14]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[14]" type="logic">
          <obj_property name="ElementShortName">[14]</obj_property>
          <obj_property name="ObjectShortName">[14]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[13]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[13]" type="logic">
          <obj_property name="ElementShortName">[13]</obj_property>
          <obj_property name="ObjectShortName">[13]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[12]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[12]" type="logic">
          <obj_property name="ElementShortName">[12]</obj_property>
          <obj_property name="ObjectShortName">[12]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[11]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[11]" type="logic">
          <obj_property name="ElementShortName">[11]</obj_property>
          <obj_property name="ObjectShortName">[11]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[10]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[10]" type="logic">
          <obj_property name="ElementShortName">[10]</obj_property>
          <obj_property name="ObjectShortName">[10]</obj_property>
       </wvobject>
@@ -682,43 +690,43 @@
    <wvobject fp_name="vbus864" type="vbus">
       <obj_property name="label">DDR3_RD_addr</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[9]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[9]" type="logic">
          <obj_property name="ElementShortName">[9]</obj_property>
          <obj_property name="ObjectShortName">[9]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[8]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[8]" type="logic">
          <obj_property name="ElementShortName">[8]</obj_property>
          <obj_property name="ObjectShortName">[8]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[7]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[7]" type="logic">
          <obj_property name="ElementShortName">[7]</obj_property>
          <obj_property name="ObjectShortName">[7]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[6]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[6]" type="logic">
          <obj_property name="ElementShortName">[6]</obj_property>
          <obj_property name="ObjectShortName">[6]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[5]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[5]" type="logic">
          <obj_property name="ElementShortName">[5]</obj_property>
          <obj_property name="ObjectShortName">[5]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[4]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[4]" type="logic">
          <obj_property name="ElementShortName">[4]</obj_property>
          <obj_property name="ObjectShortName">[4]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[3]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[3]" type="logic">
          <obj_property name="ElementShortName">[3]</obj_property>
          <obj_property name="ObjectShortName">[3]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[2]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[2]" type="logic">
          <obj_property name="ElementShortName">[2]</obj_property>
          <obj_property name="ObjectShortName">[2]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[1]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[1]" type="logic">
          <obj_property name="ElementShortName">[1]</obj_property>
          <obj_property name="ObjectShortName">[1]</obj_property>
       </wvobject>
-      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_RD_addr[0]" type="logic">
+      <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR3_rd_addr[0]" type="logic">
          <obj_property name="ElementShortName">[0]</obj_property>
          <obj_property name="ObjectShortName">[0]</obj_property>
       </wvobject>
@@ -938,5 +946,117 @@
    <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DRAMRdBuffDat" type="array">
       <obj_property name="ElementShortName">DRAMRdBuffDat[15:0]</obj_property>
       <obj_property name="ObjectShortName">DRAMRdBuffDat[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider681">
+      <obj_property name="label">DDRRdBuff</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDRRdBuff/din" type="array">
+      <obj_property name="ElementShortName">din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">din[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDRRdBuff/wr_en" type="logic">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDRRdBuff/dout" type="array">
+      <obj_property name="ElementShortName">dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDRRdBuff/rd_en" type="logic">
+      <obj_property name="ElementShortName">rd_en</obj_property>
+      <obj_property name="ObjectShortName">rd_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDRRdBuff/data_count" type="array">
+      <obj_property name="ElementShortName">data_count[10:0]</obj_property>
+      <obj_property name="ObjectShortName">data_count[10:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider1097">
+      <obj_property name="label">DDR model</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/CpldRst" type="logic">
+      <obj_property name="ElementShortName">CpldRst</obj_property>
+      <obj_property name="ObjectShortName">CpldRst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/SysClk" type="logic">
+      <obj_property name="ElementShortName">SysClk</obj_property>
+      <obj_property name="ObjectShortName">SysClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/app_rd_data" type="array">
+      <obj_property name="ElementShortName">app_rd_data[63:0]</obj_property>
+      <obj_property name="ObjectShortName">app_rd_data[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/app_wdf_data" type="array">
+      <obj_property name="ElementShortName">app_wdf_data[63:0]</obj_property>
+      <obj_property name="ObjectShortName">app_wdf_data[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_addr" type="array">
+      <obj_property name="ElementShortName">ddr3_addr[14:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_addr[14:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_ba" type="array">
+      <obj_property name="ElementShortName">ddr3_ba[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_ba[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_cas_n" type="logic">
+      <obj_property name="ElementShortName">ddr3_cas_n</obj_property>
+      <obj_property name="ObjectShortName">ddr3_cas_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_ck_n" type="array">
+      <obj_property name="ElementShortName">ddr3_ck_n[0:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_ck_n[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_ck_p" type="array">
+      <obj_property name="ElementShortName">ddr3_ck_p[0:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_ck_p[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_cke" type="array">
+      <obj_property name="ElementShortName">ddr3_cke[0:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_cke[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_cs_n" type="array">
+      <obj_property name="ElementShortName">ddr3_cs_n[0:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_cs_n[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_dm" type="array">
+      <obj_property name="ElementShortName">ddr3_dm[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_dm[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_dq" type="array">
+      <obj_property name="ElementShortName">ddr3_dq[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_dq[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_dqs_n" type="array">
+      <obj_property name="ElementShortName">ddr3_dqs_n[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_dqs_n[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_dqs_p" type="array">
+      <obj_property name="ElementShortName">ddr3_dqs_p[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_dqs_p[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_odt" type="array">
+      <obj_property name="ElementShortName">ddr3_odt[0:0]</obj_property>
+      <obj_property name="ObjectShortName">ddr3_odt[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_ras_n" type="logic">
+      <obj_property name="ElementShortName">ddr3_ras_n</obj_property>
+      <obj_property name="ObjectShortName">ddr3_ras_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_reset_n" type="logic">
+      <obj_property name="ElementShortName">ddr3_reset_n</obj_property>
+      <obj_property name="ObjectShortName">ddr3_reset_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/ddr3_we_n" type="logic">
+      <obj_property name="ElementShortName">ddr3_we_n</obj_property>
+      <obj_property name="ObjectShortName">ddr3_we_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/DDR_Controller/sys_rst" type="logic">
+      <obj_property name="ElementShortName">sys_rst</obj_property>
+      <obj_property name="ObjectShortName">sys_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_Interface_testbench/DDR_Interface_inst/RESET_N" type="logic">
+      <obj_property name="ElementShortName">RESET_N</obj_property>
+      <obj_property name="ObjectShortName">RESET_N</obj_property>
    </wvobject>
 </wave_config>

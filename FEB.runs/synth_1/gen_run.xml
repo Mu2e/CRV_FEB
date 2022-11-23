@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7s50fgga484-2" LaunchTime="1667407845" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/FEB.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7s50fgga484-2" LaunchTime="1669240517" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/FEB.dcp">
   <File Type="PA-TCL" Name="FEB.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="FEB_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="FEB_reports.tcl"/>
   <File Type="RDS-RDS" Name="FEB.vds"/>
   <File Type="RDS-UTIL" Name="FEB_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="FEB_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="FEB.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="FEB_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="FEB_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/Proj_Def.vhd">
@@ -137,6 +140,13 @@
         <Attr Name="ScopedToCell" Val="DDR3LController"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/Histogram.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="work"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="FEB"/>
@@ -174,10 +184,11 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="DPRAM_1Kx16"/>
   <BlockFileSet Type="BlockSrcs" Name="AFE_DP_Pipeline"/>
+  <BlockFileSet Type="BlockSrcs" Name="DPRAM_1Kx16"/>
   <BlockFileSet Type="BlockSrcs" Name="SCFIFO_32x256"/>
-  <BlockFileSet Type="BlockSrcs" Name="SCFIFO_1Kx16"/>
   <BlockFileSet Type="BlockSrcs" Name="LVDSTxBuff"/>
+  <BlockFileSet Type="BlockSrcs" Name="SCFIFO_1Kx16"/>
   <BlockFileSet Type="BlockSrcs" Name="DDR3LController"/>
+  <BlockFileSet Type="BlockSrcs" Name="Hist_Ram"/>
 </GenRun>

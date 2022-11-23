@@ -13,70 +13,91 @@ end DDR_Interface_testbench;
 
 architecture DDR_Interface_testbench_arch of DDR_Interface_testbench is
 
-component DDR_Interface is
-port (
-	VXO_P,VXO_N 		: in std_logic; 
-	SysClk				: in std_logic; -- 160 MHz
-	ResetHi				: in std_logic;
--- DDR3L pins
-	DDR_DATA			: inout std_logic_vector(15 downto 0);
-	DDR_ADDR			: out std_logic_vector(14 downto 0);
-	BA 					: out std_logic_vector(2 downto 0);
-	DDR_CKE	 			: out std_logic_vector(0 downto 0);
-	ODT 				: out std_logic_vector(0 downto 0);
-	CS 					: out std_logic_vector(0 downto 0);
-	DM 					: out std_logic_vector(1 downto 0);
-	RAS,CAS				: out std_logic; 
-	DDR_WE 				: out std_logic;
-	DDR_CLKP,DDR_CLKN 	: out  std_logic_vector(0 downto 0);
-	LDQS_P, LDQS_N 		: inout std_logic;
-	UDQS_P, UDQS_N 		: inout std_logic;
-	SDRzq 				: inout std_logic;
--- Signals for the DDR	
-	EvBuffRd			: buffer std_logic;
-	EvBuffOut			: in std_logic_vector(15 downto 0);
-	EvBuffEmpty			: in std_logic;
-	EvBuffWdsUsed		: in std_logic_vector(10 downto 0);
--- Signals from Trigger Logic
-	SlfTrgEn 			: in std_logic;
-	uBunchWrt			: in std_logic;
-	uBunch				: in std_logic_vector(31 downto 0);
--- Microcontroller strobes
-	CpldRst				: in std_logic;
-	CpldCS				: in std_logic;
-	uCRd				: in std_logic;
-	uCWr 				: in std_logic;
--- Microcontroller data and address buses	
-	uCA 				: in std_logic_vector(11 downto 0);
-	uCD 				: inout std_logic_vector(15 downto 0);
--- Geographic address pins
-	GA 					: in std_logic_vector(1 downto 0);
--- Synchronous edge detectors of uC read and write strobes
-	--uWRDL 				: in std_logic_vector(1 downto 0);
-	WRDL 				: in std_logic_vector(1 downto 0)
-	);
-end component;
+--component DDR_Interface is
+--port (
+--	VXO_P,VXO_N 		: in std_logic; 
+--	SysClk				: in std_logic; -- 160 MHz
+--	ResetHi				: in std_logic;
+---- DDR3L pins
+--	DDR_DATA			: inout std_logic_vector(15 downto 0);
+--	DDR_ADDR			: out std_logic_vector(14 downto 0);
+--	BA 					: out std_logic_vector(2 downto 0);
+--	DDR_CKE	 			: out std_logic_vector(0 downto 0);
+--	ODT 				: out std_logic_vector(0 downto 0);
+--	CS 					: out std_logic_vector(0 downto 0);
+--	DM 					: out std_logic_vector(1 downto 0);
+--	RAS,CAS				: out std_logic; 
+--	DDR_WE 				: out std_logic;
+--	DDR_CLKP,DDR_CLKN 	: out  std_logic_vector(0 downto 0);
+--	LDQS_P, LDQS_N 		: inout std_logic;
+--	UDQS_P, UDQS_N 		: inout std_logic;
+--	SDRzq 				: inout std_logic;
+---- Signals for the DDR	
+--	EvBuffRd			: buffer std_logic;
+--	EvBuffOut			: in std_logic_vector(15 downto 0);
+--	EvBuffEmpty			: in std_logic;
+--	EvBuffWdsUsed		: in std_logic_vector(10 downto 0);
+---- Signals from Trigger Logic
+--	SlfTrgEn 			: in std_logic;
+--	uBunchWrt			: in std_logic;
+--	uBunch				: in std_logic_vector(31 downto 0);
+---- Microcontroller strobes
+--	CpldRst				: in std_logic;
+--	CpldCS				: in std_logic;
+--	uCRd				: in std_logic;
+--	uCWr 				: in std_logic;
+---- Microcontroller data and address buses	
+--	uCA 				: in std_logic_vector(11 downto 0);
+--	uCD 				: inout std_logic_vector(15 downto 0);
+---- Geographic address pins
+--	GA 					: in std_logic_vector(1 downto 0);
+---- Synchronous edge detectors of uC read and write strobes
+--	--uWRDL 				: in std_logic_vector(1 downto 0);
+--	WRDL 				: in std_logic_vector(1 downto 0)
+--	);
+--end component;
+--
+--component EventBuilder is
+--port (
+--	SysClk				: in std_logic; -- 160 MHz
+--	CpldRst				: in std_logic;
+--	ResetHi				: in std_logic;
+---- Signals from/to AFE Buffer
+--	MaskReg				: in Array_2x8;
+--	BufferRdAdd			: buffer Array_2x8x10;
+--	BufferOut 			: in Array_2x8x16;
+---- Signals from Trigger Logic
+--	SlfTrgEn 			: in std_logic;
+--	uBunchWrt			: in std_logic;
+--	uBunch				: in std_logic_vector(31 downto 0);
+---- Signals with DDR	
+--	EvBuffRd			: in std_logic;
+--	EvBuffOut			: out std_logic_vector(15 downto 0);
+--	EvBuffEmpty			: out std_logic;
+--	EvBuffWdsUsed		: out std_logic_vector(10 downto 0);
+--	asp					: in std_logic
+--	);
+--end component;
 
-component EventBuilder is
+component ddr3_model is 
 port (
-	SysClk				: in std_logic; -- 160 MHz
-	CpldRst				: in std_logic;
-	ResetHi				: in std_logic;
--- Signals from/to AFE Buffer
-	MaskReg				: in Array_2x8;
-	BufferRdAdd			: buffer Array_2x8x10;
-	BufferOut 			: in Array_2x8x16;
--- Signals from Trigger Logic
-	SlfTrgEn 			: in std_logic;
-	uBunchWrt			: in std_logic;
-	uBunch				: in std_logic_vector(31 downto 0);
--- Signals with DDR	
-	EvBuffRd			: in std_logic;
-	EvBuffOut			: out std_logic_vector(15 downto 0);
-	EvBuffEmpty			: out std_logic;
-	EvBuffWdsUsed		: out std_logic_vector(10 downto 0);
-	asp					: in std_logic
-	);
+    rst_n 		: in std_logic;
+    ck			: in std_logic;
+    ck_n		: in std_logic;
+    cke			: in std_logic_vector(0 downto 0);
+    cs_n		: in std_logic_vector(0 downto 0);
+    ras_n		: in std_logic;
+    cas_n		: in std_logic;
+    we_n		: in std_logic;
+    dm_tdqs		: inout std_logic_vector(1 downto 0);
+    ba			: in std_logic_vector(2 downto 0);
+    addr		: in std_logic_vector(14 downto 0);
+    dq			: inout std_logic_vector(15 downto 0);
+    dqs			: inout std_logic_vector(1 downto 0);
+    dqs_n		: inout std_logic_vector(1 downto 0);
+    tdqs_n		: out std_logic_vector(1 downto 0);
+    odt 		: in std_logic_vector(0 downto 0)
+);
 end component;
 
 signal asp	: std_logic := '0';
@@ -152,6 +173,7 @@ signal DDR_CLKP,DDR_CLKN 	  : std_logic_vector(0 downto 0);
 signal LDQS_P, LDQS_N 		  : std_logic;
 signal UDQS_P, UDQS_N 		  : std_logic;
 signal SDRzq 				  : std_logic;
+signal tdqs_n 				  : std_logic_vector(1 downto 0);
 
 -- signal d0_vec: std_logic_vector(13 downto 0) := "00100000000001"; -- 0x801
 -- signal d1_vec: std_logic_vector(13 downto 0) := "00110000000011"; -- 0x803
@@ -163,14 +185,14 @@ signal SDRzq 				  : std_logic;
 -- signal d7_vec: std_logic_vector(13 downto 0) := "00000000000000"; -- count up
 -- signal d8_vec: std_logic_vector(13 downto 0) := "11111110000000"; -- aka FCLK should be 0x3F80
 
-signal d0_vec: std_logic_vector(13 downto 0) := "00" & X"AAA"; -- 0x0AA
-signal d1_vec: std_logic_vector(13 downto 0) := "00" & X"BBB"; -- 0x803
-signal d2_vec: std_logic_vector(13 downto 0) := "00" & X"CCC"; -- 0xAAA
-signal d3_vec: std_logic_vector(13 downto 0) := "00" & X"DDD"; -- 0x555
-signal d4_vec: std_logic_vector(13 downto 0) := "00" & X"EEE"; -- 0xFFF
-signal d5_vec: std_logic_vector(13 downto 0) := "00" & X"FFF"; -- 0x055 
-signal d6_vec: std_logic_vector(13 downto 0) := "00" & X"ABC"; -- 0x0ABC
-signal d7_vec: std_logic_vector(13 downto 0) := "00" & X"000"; -- count up
+signal d0_vec: std_logic_vector(13 downto 0) := "00" & X"AAA"; 
+signal d1_vec: std_logic_vector(13 downto 0) := "00" & X"BBB"; 
+signal d2_vec: std_logic_vector(13 downto 0) := "00" & X"CCC"; 
+signal d3_vec: std_logic_vector(13 downto 0) := "00" & X"DDD"; 
+signal d4_vec: std_logic_vector(13 downto 0) := "00" & X"EEE"; 
+signal d5_vec: std_logic_vector(13 downto 0) := "00" & X"FFF"; 
+signal d6_vec: std_logic_vector(13 downto 0) := "00" & X"ABC"; 
+signal d7_vec: std_logic_vector(13 downto 0) := "00" & X"000"; 
 signal d8_vec: std_logic_vector(13 downto 0) := "11111110000000"; -- aka FCLK should be 0x3F80
 
 begin
@@ -186,7 +208,7 @@ Clk160MHz <= not Clk160MHz after Clk160MHz_period/2;
 Clk200MHz <= not Clk200MHz after Clk200MHz_period/2;
 Clk560MHz <= not Clk560MHz after Clk560MHz_period/2;
 VXO_N <= not VXO_P;
-VXO_N <= not VXO_P after Clk160MHz_period/2;
+VXO_P <= not VXO_P after Clk160MHz_period/2;
 
 done <= "00", "11" after 50ns;
 asp  <= '1' after 2us;
@@ -253,8 +275,6 @@ port map (
 	);
 
 
-
-
 EventBuilder_logic :  EventBuilder
 port map(
 	SysClk			=> Clk160MHz,	 -- 160 MHz
@@ -275,48 +295,6 @@ port map(
 	EvBuffWdsUsed	=> EvBuffWdsUsed,
 	asp				=> asp	
 	);
-	
-uBunch_gen : process
-begin 
-	uBunch <= (others => '0');
-	wait until rising_edge(Clk160MHz);
-	for i in 0 to 256 loop
-	uBunchWrt <= '1';
-	uBunch <= std_logic_vector(unsigned(uBunch)+1);
-	wait for Clk80MHz_period;
-	end loop;
-	
-end process;	
-	
-trigger_request: process
-begin
-	wait until rising_edge(Clk160MHz);
-	TrigReq	 		<= '1';
-	BeamOn			<= '1';
-	MaskReg(0)		<= X"FF";
-	MaskReg(1)		<= X"FF";
-	ControllerNo	<= "11111";
-    PortNo			<= "11111";		
---	BeamOnLength 	<= X"050"; REAL
-	BeamOnLength 	<= X"030"; --Simulation
-	BeamOffLength   <= X"700";
-	SlfTrgEn		<= '1';
-end process;
-
-Read_request: process
-begin
-	wait until rising_edge(Clk160MHz);
-	WRDL			<= "01";
-	wait for 10 us;
-	uCA(9 downto 0) <= uBunchRdPtrLoAd;
-	wait for Clk80MHz_period;
-	uCA(9 downto 0) <= BrdCstRdPtrHiAd;
-	uCD(15 downto 0) <= X"0000";
-	wait for 1 us;
-	uCA(9 downto 0) <= BrdCstRdPtrLoAd;
-	uCD(15 downto 0) <= "0001100000000000";
-	wait;
-end process;
 
 DDR_Interface_inst : DDR_Interface
 port map(
@@ -366,14 +344,69 @@ port map(
 	WRDL 			=> WRDL
 );
 
+uBunch_gen : process
+begin 
+	uBunch <= (others => '0');
+	wait until rising_edge(Clk160MHz);
+	for i in 0 to 256 loop
+	uBunchWrt <= '1';
+	uBunch <= std_logic_vector(unsigned(uBunch)+1);
+	wait for Clk80MHz_period;
+	end loop;
+	
+end process;	
+	
+trigger_request: process
+begin
+	wait until rising_edge(Clk160MHz);
+	TrigReq	 		<= '1';
+	BeamOn			<= '1';
+	MaskReg(0)		<= X"FF";
+	MaskReg(1)		<= X"FF";
+	ControllerNo	<= "11111";
+    PortNo			<= "11111";		
+--	BeamOnLength 	<= X"050"; REAL
+	BeamOnLength 	<= X"030"; --Simulation
+	BeamOffLength   <= X"700";
+	SlfTrgEn		<= '1';
+end process;
 
+Read_request: process
+begin
+	wait until rising_edge(Clk160MHz);
+	WRDL			<= "01";
+	wait for 10 us;
+	uCA(9 downto 0) <= uBunchRdPtrLoAd; -- Set PageRdReq
+	wait for Clk80MHz_period;
+	uCA(9 downto 0) <= BrdCstRdPtrHiAd; -- Set reading address 
+	uCD(15 downto 0) <= X"0000";
+	wait for 1 us;
+	uCA(9 downto 0) <= BrdCstRdPtrLoAd;  -- Set reading address 
+	uCD(15 downto 0) <= "0001100000000000";
+	wait;
+end process;
 
-
-
-
-
-
-
+DDR3_model_inst : ddr3_model  
+port map(
+    rst_n 			=> ResetHi,
+    ck				=> VXO_P,
+    ck_n			=> VXO_N,
+    cke				=> DDR_CKE,
+    cs_n			=> CS,
+    ras_n			=> RAS,
+    cas_n			=> CAS,
+    we_n			=> DDR_WE,
+    dm_tdqs			=> DM,
+    ba				=> BA,
+    addr			=> DDR_ADDR,
+    dq				=> DDR_DATA,
+    dqs(0)			=> LDQS_P,
+	dqs(1)			=> UDQS_P,
+    dqs_n(0)		=> LDQS_N,
+	dqs_n(1)		=> UDQS_N,
+    tdqs_n			=> tdqs_n,
+    odt 			=> ODT
+);
 
 
 

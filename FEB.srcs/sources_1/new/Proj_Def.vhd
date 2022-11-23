@@ -67,10 +67,12 @@ package Proj_Def is
 	
 	-- Signed arrays
 	Type Arrays_3x12 is Array(0 to 2) of signed(11 downto 0);
+	Type Arrays_3x14 is Array(0 to 2) of signed(13 downto 0);
 	Type Arrays_8x12 is Array(0 to 7) of signed(11 downto 0);
 	Type Arrays_8x14 is Array(0 to 7) of signed(13 downto 0);
 	Type Arrays_8x16 is Array(0 to 7) of signed(15 downto 0);
 	Type Arrays_2x3x12 is Array(0 to 1) of Arrays_3x12;
+	Type Arrays_2x3x14 is Array(0 to 1) of Arrays_3x14;
 	Type Arrays_8x2x12 is Array(0 to 1) of Arrays_8x12;
 	Type Arrays_8x2x14 is Array(0 to 1) of Arrays_8x14;
 	Type Arrays_8x2x16 is Array(0 to 1) of Arrays_8x16;
@@ -360,6 +362,10 @@ component AFE_DataPath is
     done				: in std_logic_vector(1 downto 0); -- status of automatic alignment FSM
 -- Pipeline signals
 	PipelineSet 		: in std_logic_vector (7 downto 0);	
+-- Histogram signals
+	Diff_Reg			: inout Arrays_8x2x14;
+	GateWidth	    	: inout Array_2x12;
+	GateReq 			: inout std_logic_vector (1 downto 0);
 -- Microcontroller strobes
 	CpldRst				: in std_logic;
 	CpldCS				: in std_logic;
@@ -398,7 +404,7 @@ port (
 	GA 						: in std_logic_vector(1 downto 0);
 	-- Chip dependent I/O functions
 	A7		 				: buffer std_logic;
-	GPI0_N,GPI0_P			: in std_logic;
+	GPI0					: in std_logic;
 	-- Trigger Logic
 	TrgSrc					: in std_logic;
 	GPO						: in std_logic
@@ -475,7 +481,8 @@ port (
 	EvBuffRd			: in std_logic;
 	EvBuffOut			: out std_logic_vector(15 downto 0);
 	EvBuffEmpty			: out std_logic;
-	EvBuffWdsUsed		: out std_logic_vector(10 downto 0)
+	EvBuffWdsUsed		: out std_logic_vector(10 downto 0);
+	asp					: in std_logic
 	);
 end component;
 
@@ -510,7 +517,9 @@ port (
 	-- Geographic address pins
 	GA 					: in std_logic_vector(1 downto 0);
 	-- Chip dipendent I/O functions 
-	LVDSTX 				: buffer std_logic
+	LVDSTX 				: buffer std_logic;
+	-- Other Logic 
+	FMTxBuff_wreq		: in std_logic
 );
 end component;
 
@@ -559,9 +568,56 @@ port (
 end component;
 
 
+component Histogram is
+port(
+	Clk_80MHz	 			: in std_logic;
+	Clk_100MHz	 			: in std_logic;	
+	ResetHi	 				: in std_logic;
+	-- Microcontroller strobes
+	CpldRst					: in std_logic;
+	-- Microcontroller data and address buses
+	uCA 					: in std_logic_vector(11 downto 0);
+	uCD 					: inout std_logic_vector(15 downto 0);
+	-- Geographic address pins
+	GA 						: in std_logic_vector(1 downto 0);
+	
+	Diff_Reg				: inout Arrays_8x2x14;
+	GateWidth	    		: inout Array_2x12;
+	GateReq 				: inout std_logic_vector (1 downto 0);	
+	uWRDL 					: in std_logic_vector(1 downto 0);
+	uRDDL 					: in std_logic_vector(1 downto 0)
+);
+end component;
 
-
-
+component uControllerRegister is
+port(
+	Clk_100MHz	 			: in std_logic;	
+	-- AFE serial control lines
+	AFEPDn 				    : buffer std_logic_vector(1 downto 0);
+	-- Microcontroller strobes
+	CpldRst					: in std_logic;
+	CpldCS					: in std_logic;
+	uCRd					: in std_logic;
+	uCWr 					: in std_logic;
+	-- Microcontroller data and address buses
+	uCA 					: in std_logic_vector(11 downto 0);
+	uCD 					: inout std_logic_vector(15 downto 0);
+	-- Geographic address pins
+	GA 						: in std_logic_vector(1 downto 0);
+	-- Analog Mux address lines
+	MuxEn 					: buffer std_logic_vector(3 downto 0);
+	Muxad 					: buffer std_logic_vector(1 downto 0);	
+	
+	uWRDL 					: inout std_logic_vector(1 downto 0);
+	uRDDL 					: inout std_logic_vector(1 downto 0);
+	TrgSrc					: inout std_logic;
+	ADCSmplCntReg 			: inout std_logic_vector (3 downto 0);
+	ControllerNo 			: inout std_logic_vector (4 downto 0);
+	PortNo 		 			: inout std_logic_vector (4 downto 0);
+	FMTxBuff_wreq			: out std_logic;
+	PipelineSet				: inout std_logic_vector (7 downto 0)
+  );
+end component;
 
 
 
@@ -674,7 +730,19 @@ component DDR3LController is
   );
 end component;
 
-
+-- Histogrammer memory 512x32
+component Hist_Ram
+  port (
+    rsta,rstb,clka,clkb : in std_logic;
+    wea,web 			: in std_logic_vector(0 downto 0);
+    addra 				: in std_logic_vector(9 downto 0);
+	addrb 				: in std_logic_vector(10 downto 0);
+    dina  				: in std_logic_vector(31 downto 0);
+	dinb  				: in std_logic_vector(15 downto 0);
+    douta 				: out std_logic_vector(31 downto 0);
+	doutb 				: out std_logic_vector(15 downto 0)
+  );
+end component;
 
 
 

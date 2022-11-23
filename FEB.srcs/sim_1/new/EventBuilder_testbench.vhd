@@ -28,9 +28,10 @@ port (
 	uBunch				: in std_logic_vector(31 downto 0);
 -- Signals with DDR	
 	EvBuffRd			: in std_logic;
-	EvBufffOut			: out std_logic_vector(15 downto 0);
+	EvBuffOut			: out std_logic_vector(15 downto 0);
 	EvBuffEmpty			: out std_logic;
-	EvBuffWdsUsed		: out std_logic_vector(10 downto 0)
+	EvBuffWdsUsed		: out std_logic_vector(10 downto 0);
+	asp					: in std_logic
 	);
 end component;
 
@@ -45,6 +46,7 @@ signal CpldRst	: std_logic := '1';
 signal givetime	: std_logic := '1';
 signal Clk200MHz, Clk160MHz, Clk80MHz, Clk560MHz: std_logic := '0';
 
+signal asp	: std_logic := '0';
 		
 
 signal TrigReq				  : std_logic;
@@ -58,7 +60,7 @@ signal uBunch   			  : std_logic_vector(31 downto 0);
 signal uBunchWrt			  : std_logic;
 
 signal EvBuffRd				  : std_logic;
-signal EvBufffOut			  : std_logic_vector(15 downto 0);
+signal EvBuffOut			  : std_logic_vector(15 downto 0);
 signal EvBuffEmpty			  : std_logic;
 signal EvBuffWdsUsed		  : std_logic_vector(10 downto 0);
 
@@ -96,9 +98,10 @@ port map(
 	uBunch   		=> uBunch,
 -- Signals with DDR	
 	EvBuffRd		=> EvBuffRd,		
-	EvBufffOut		=> EvBufffOut,			
+	EvBuffOut		=> EvBuffOut,			
 	EvBuffEmpty		=> EvBuffEmpty,			
-	EvBuffWdsUsed	=> EvBuffWdsUsed		
+	EvBuffWdsUsed	=> EvBuffWdsUsed,
+	asp 			=> asp
 	);
 	
 	

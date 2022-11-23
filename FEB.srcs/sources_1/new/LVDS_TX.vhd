@@ -24,7 +24,10 @@ port (
 	-- Geographic address pins
 	GA 						: in std_logic_vector(1 downto 0);
 	-- Chip dipendent I/O functions 
-	LVDSTX 					: buffer std_logic
+	LVDSTX 					: buffer std_logic;
+	-- Other Logic 
+	FMTxBuff_wreq			: in std_logic
+	
 );
 end LVDS_TX;
 
@@ -34,7 +37,6 @@ signal uWRDL 	: std_logic_vector(1 downto 0);
 signal TxPDat	: std_logic_vector(15 downto 0);
 signal TxEn		: std_logic;
 signal FMTxBuff_empty : std_logic;
-signal FMTxBuff_wreq  : std_logic;
 signal FMTxBuff_full  : std_logic;
 signal TxOuts 	: TxOutRec;
 

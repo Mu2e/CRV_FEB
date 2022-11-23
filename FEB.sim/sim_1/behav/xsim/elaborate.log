@@ -1,6 +1,6 @@
 Vivado Simulator v2021.2
 Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_5 -L fifo_generator_v13_2_6 -L work -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot DDR_Interface_testbench_behav work.DDR_Interface_testbench work.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_5 -L fifo_generator_v13_2_6 -L work -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot DDR_Interface_testbench_behav work.DDR_Interface_testbench work.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -164,5 +164,6 @@ Compiling module xil_defaultlib.mig_7series_v4_2_memc_ui_top_std...
 Compiling architecture arch_ddr3lcontroller_mig of entity xil_defaultlib.DDR3LController_mig [\DDR3LController_mig(1,3)(1,3)(1...]
 Compiling architecture arch_ddr3lcontroller of entity xil_defaultlib.DDR3LController [ddr3lcontroller_default]
 Compiling architecture behavioral of entity work.DDR_Interface [ddr_interface_default]
+Compiling module work.ddr3_model(TCK_MIN=1070,TJIT_PER...
 Compiling architecture ddr_interface_testbench_arch of entity work.ddr_interface_testbench
 Built simulation snapshot DDR_Interface_testbench_behav

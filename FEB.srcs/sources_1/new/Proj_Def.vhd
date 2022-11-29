@@ -303,9 +303,6 @@ constant BrdCstAlgnReqAd : AddrPtr := "11" & X"19";
 
 ----------------------------------------------------------------------
 
-
-
-
 component AFE_Interface
 port(
 	-- AFE Input clocks
@@ -360,6 +357,7 @@ component AFE_DataPath is
     din_AFE0			: in Array_8x14; 
     din_AFE1			: in Array_8x14;
     done				: in std_logic_vector(1 downto 0); -- status of automatic alignment FSM
+	SerdesRst			: out std_logic_vector(1 downto 0);
 -- Pipeline signals
 	PipelineSet 		: in std_logic_vector (7 downto 0);	
 -- Histogram signals
@@ -376,7 +374,7 @@ component AFE_DataPath is
 	uCD 				: in std_logic_vector(15 downto 0);
 -- Geographic address pins
 	GA 					: in std_logic_vector(1 downto 0)
-	);
+);
 end component;
 	
 component AFE_Pipeline is
@@ -442,6 +440,7 @@ component Trigger is
 	BeamOn 				: buffer std_logic;
 	uBunch   			: buffer std_logic_vector(31 downto 0);
 	uBunchWrt			: out std_logic;
+	GPO			 		: inout std_logic;
 -- Microcontroller strobes
 	CpldRst				: in std_logic;
 	CpldCS				: in std_logic;
@@ -519,7 +518,8 @@ port (
 	-- Chip dipendent I/O functions 
 	LVDSTX 				: buffer std_logic;
 	-- Other Logic 
-	FMTxBuff_wreq		: in std_logic
+	FMTxBuff_wreq			: in std_logic;
+	uWRDL 					: in std_logic_vector(1 downto 0)
 );
 end component;
 
@@ -562,7 +562,7 @@ port (
 -- Geographic address pins
 	GA 					: in std_logic_vector(1 downto 0);
 -- Synchronous edge detectors of uC read and write strobes
-	--uWRDL 				: in std_logic_vector(1 downto 0);
+	AddrReg			  	: in std_logic_vector(11 downto 0);
 	WRDL 				: in std_logic_vector(1 downto 0)
 	);
 end component;
@@ -581,6 +581,7 @@ port(
 	-- Geographic address pins
 	GA 						: in std_logic_vector(1 downto 0);
 	
+	uAddrReg 				: in std_logic_vector(11 downto 0);	
 	Diff_Reg				: inout Arrays_8x2x14;
 	GateWidth	    		: inout Array_2x12;
 	GateReq 				: inout std_logic_vector (1 downto 0);	
@@ -592,8 +593,12 @@ end component;
 component uControllerRegister is
 port(
 	Clk_100MHz	 			: in std_logic;	
+	ResetHi	 				: in std_logic;
 	-- AFE serial control lines
 	AFEPDn 				    : buffer std_logic_vector(1 downto 0);
+	AFECS 				    : buffer std_logic_vector(1 downto 0);
+	AFESClk, AFESDI  	    : buffer std_logic;
+	AFESDO 				    : in std_logic;
 	-- Microcontroller strobes
 	CpldRst					: in std_logic;
 	CpldCS					: in std_logic;
@@ -607,9 +612,16 @@ port(
 	-- Analog Mux address lines
 	MuxEn 					: buffer std_logic_vector(3 downto 0);
 	Muxad 					: buffer std_logic_vector(1 downto 0);	
+	-- Serial DAC control lines
+	DACCS 					: buffer std_logic_vector(2 downto 0);
+	DACClk 					: buffer std_logic;
+	DACDat 					: buffer std_logic;
+	DACLd 					: buffer std_logic;
 	
+	uAddrReg 				: inout std_logic_vector(11 downto 0);	
 	uWRDL 					: inout std_logic_vector(1 downto 0);
 	uRDDL 					: inout std_logic_vector(1 downto 0);
+	done		            : in std_logic_vector(1 downto 0); 
 	TrgSrc					: inout std_logic;
 	ADCSmplCntReg 			: inout std_logic_vector (3 downto 0);
 	ControllerNo 			: inout std_logic_vector (4 downto 0);
@@ -744,7 +756,49 @@ component Hist_Ram
   );
 end component;
 
+-- Fifo for queueing serial data. With this, the processor doesn't need to
+-- check for serial transmits being done before sending the next data word 
+component Cmd_FIFO 
+  port (
+    clk,rst,wr_en,rd_en : in std_logic;
+    din 				: in std_logic_vector(27 downto 0);
+    dout 				: out std_logic_vector(27 downto 0);
+    full,empty 			: out std_logic);
+end component;
+
+-- Ram used to shadow DAC writes for later readback
+component DAC_Ram
+  port (
+    clka 				: in std_logic;
+    wea 				: in std_logic_vector(0 downto 0);
+    addra 				: in std_logic_vector(7 downto 0);
+    dina 				: in std_logic_vector(15 downto 0);
+    douta 				: out std_logic_vector(15 downto 0) 
+);
+end component;
 
 
+component SysPLL 
+ port (
+	clk_in1_p			: in std_logic;
+	clk_in1_n			: in std_logic;
+	resetn				: in std_logic;
 
+	Clk_80MHz			: out std_logic;
+	Clk_100MHz			: out std_logic;
+	SysClk   			: out std_logic;
+	Clk_200MHz			: out std_logic
+ );
+ end component;
+ 
+ 
+ component HF_SysPLL 
+ port (
+	clk_in1				: in std_logic;
+	resetn				: in std_logic;
+
+	Clk_560MHz			: out std_logic
+ );
+ end component;
+ 
 end package;

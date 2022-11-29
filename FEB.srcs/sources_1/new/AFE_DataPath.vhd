@@ -55,6 +55,7 @@ entity AFE_DataPath is
     din_AFE0			: in Array_8x14; 
     din_AFE1			: in Array_8x14;
     done				: in std_logic_vector(1 downto 0); -- status of automatic alignment FSM
+	SerdesRst			: out std_logic_vector(1 downto 0);
 -- Pipeline signals
 	PipelineSet 		: in std_logic_vector (7 downto 0);	
 -- Histogram signals
@@ -70,7 +71,9 @@ entity AFE_DataPath is
 	uCA 				: in std_logic_vector(11 downto 0);
 	uCD 				: in std_logic_vector(15 downto 0);
 -- Geographic address pins
-	GA 					: in std_logic_vector(1 downto 0)
+	GA 					: in std_logic_vector(1 downto 0);
+	
+	iCD				  	: inout std_logic_vector(15 downto 0)
 	);
 end AFE_DataPath;
 
@@ -139,6 +142,7 @@ Gen_Two_AFEs : for i in 0 to 1 generate
 Two_AFEs : process (Clk_80MHz, CpldRst)
 begin
 if CpldRst = '0' then 
+	SerdesRst(i) 		  <= '1';
 	Avg_Req(i) 			  <= '0';
 	ADCSmplGate(i) 		  <= '0';
 	GateReq(i) 			  <= '0';
@@ -153,6 +157,14 @@ elsif rising_edge (Clk_80MHz) then
 -- Synchronous edge detector for uC write strobe w.r.t. deserializer output clock
 iWrtDL(i)(0) <= not CpldCS and not uCWR;
 iWrtDL(i)(1) <= iWrtDL(i)(0);
+
+-- Reset for the input deserializer
+if CpldCS = '0' and uCWR = '0' and uCD(2) = '1' 
+   and ((uCA(11 downto 10) = GA and uCA = CSRRegAddr)
+	or uCA(9 downto 0) = CSRBroadCastAd)
+ then SerdesRst(i) <= '1';
+ else SerdesRst(i) <= '0';
+end if;
 
 if iWrtDL(i) = 1 and uCD(8) = '1' and
 	((uCA(11 downto 10) = GA and uCA(9 downto 0) = CSRRegAddr)

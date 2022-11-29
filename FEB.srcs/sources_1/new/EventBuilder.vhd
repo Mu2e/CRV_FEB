@@ -41,7 +41,9 @@ port (
 	EvBuffOut			: out std_logic_vector(15 downto 0);
 	EvBuffEmpty			: out std_logic;
 	EvBuffWdsUsed		: out std_logic_vector(10 downto 0);
-	asp					: in std_logic
+	asp					: in std_logic;
+	
+	iCD				  	: inout std_logic_vector(15 downto 0)
 	);
 end EventBuilder;
 
@@ -295,5 +297,6 @@ end if;
 
 end if;
 end process;
+
 
 end Behavioral;

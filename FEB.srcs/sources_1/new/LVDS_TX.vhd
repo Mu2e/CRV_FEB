@@ -26,19 +26,19 @@ port (
 	-- Chip dipendent I/O functions 
 	LVDSTX 					: buffer std_logic;
 	-- Other Logic 
-	FMTxBuff_wreq			: in std_logic
+	FMTxBuff_wreq			: in std_logic;
+	uWRDL 					: in std_logic_vector(1 downto 0)
 	
 );
 end LVDS_TX;
 
 architecture Behavioral of LVDS_TX is
 
-signal uWRDL 	: std_logic_vector(1 downto 0);
-signal TxPDat	: std_logic_vector(15 downto 0);
-signal TxEn		: std_logic;
+signal TxPDat		  : std_logic_vector(15 downto 0);
+signal TxEn			  : std_logic;
 signal FMTxBuff_empty : std_logic;
 signal FMTxBuff_full  : std_logic;
-signal TxOuts 	: TxOutRec;
+signal TxOuts 		  : TxOutRec;
 
 begin
 -- Transmits an FM serial stream at 1/4 the clock rate.
@@ -68,28 +68,5 @@ port map(
     full 	=> FMTxBuff_full,
     empty 	=> FMTxBuff_empty
 );
-
-Clk100 : process(Clk_100MHz, CpldRst)
-begin 
-
-if CpldRst = '0' then
-
-	uWRDL <= "00";
-	FMTxBuff_wreq <= '0';
-
-elsif rising_edge (Clk_100MHz) then 
-
-uWRDL(0) <= not uCWR and not CpldCS;
-uWRDL(1) <= uWRDL(0);
-
-
--- Strobe to write data to LVDS FM return link
-if uWRDL = 1 and uCA(11 downto 10) = GA and uCA(9 downto 0) = LVDSTxFIFOAd 
-then FMTxBuff_wreq <= '1';
-else FMTxBuff_wreq <= '0';
-end if;
-
-end if;
-end process;
 
 end Behavioral;

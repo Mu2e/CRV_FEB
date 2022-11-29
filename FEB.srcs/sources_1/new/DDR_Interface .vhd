@@ -62,8 +62,10 @@ port (
 -- Geographic address pins
 	GA 					: in std_logic_vector(1 downto 0);
 -- Synchronous edge detectors of uC read and write strobes
-	--uWRDL 				: in std_logic_vector(1 downto 0);
-	WRDL 				: in std_logic_vector(1 downto 0)
+	AddrReg			  	: in std_logic_vector(11 downto 0);
+	WRDL 				: in std_logic_vector(1 downto 0);
+	
+	iCD				  	: inout std_logic_vector(15 downto 0)
 	);
 end DDR_Interface;
 
@@ -75,7 +77,6 @@ signal clk				  : std_logic;
 signal Buff_Rst		  	  : std_logic;
 signal reset			  : std_logic;
 signal RDDL				  : std_logic_vector(1 downto 0);
-signal AddrReg			  : std_logic_vector(11 downto 0);
 
 signal DDR3_addr          : std_logic_vector(28 downto 0); 
 signal DDR3_cmd           : std_logic_vector(2 downto 0);
@@ -137,6 +138,10 @@ signal PageRdReq		  : std_logic;
 signal PageWdCount 		  : std_logic_vector(10 downto 0);
 signal DDRRdPtr  		  : std_logic_vector(28 downto 0);
 signal DDR3_rd_addr       : std_logic_vector(28 downto 0);
+
+
+signal DDRRd_Mux 		  : std_logic_vector(15 downto 0);
+
 
 begin
 
@@ -253,7 +258,6 @@ if CpldRst = '0' then
 	
 	Buff_Rst 		<= '0';
 	RDDL 			<= "00";
-	AddrReg 		<= (others => '0');
 	
 	-- Write DDR Signals
 	DDR_Seq			<= Idle;
@@ -285,11 +289,7 @@ end if;
 RDDL(0) <= not uCRD and not CpldCS;
 RDDL(1) <= RDDL(0);
 
--- Latch the address for post increment during reads
-if RDDL = 1 or WRDL = 1 
-then AddrReg <= uCA;
-else AddrReg <= AddrReg;
-end if;
+
 
 -- Reset DRAM Read FIFO
 if (WRDL = 1 and uCA(9 downto 0) = PageStatAddr and uCD(8) = '1') or
@@ -564,11 +564,6 @@ if RDDL = 2 and AddrReg(11 downto 10) = GA and AddrReg(9 downto 0) = PageFIFOAdd
   then DRAMRdBuffRd <= '1'; 
   else DRAMRdBuffRd <= '0';
  end if;
-
-
-
-
-
 
 
 end if;

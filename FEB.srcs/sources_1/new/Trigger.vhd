@@ -17,6 +17,7 @@ entity Trigger is
 	BeamOn 				: buffer std_logic;
 	uBunch   			: buffer std_logic_vector(31 downto 0);
 	uBunchWrt			: out std_logic;
+	GPO			 		: inout std_logic;
 -- Microcontroller strobes
 	CpldRst				: in std_logic;
 	CpldCS				: in std_logic;
@@ -35,7 +36,9 @@ entity Trigger is
 -- LED pulser/Flash Gate
 	Pulse 				: out std_logic;
 	LEDSrc				: buffer std_logic;
-	GPI0 				: in std_logic
+	GPI0 				: in std_logic;
+		
+	iCD				  	: inout std_logic_vector(15 downto 0)
 	);
 end Trigger;
 
@@ -49,8 +52,6 @@ architecture Trigger_arch of Trigger is
 	signal TrigType : std_logic_vector(11 downto 0);
 	-- Counter that determines the trig out pulse width
 	signal GPOCount : std_logic_vector(2 downto 0);
-	-- Chip dependent drive
-	signal GPO 		: std_logic;
 	-- trigger logic signals
 	signal TmgSrcSel: std_logic; 
 	signal TrigReqD : std_logic; 
@@ -68,19 +69,19 @@ architecture Trigger_arch of Trigger is
 
 begin
 
-	-- FM Receiver for microbunch number
-	FMRx1 : FM_Rx 
-	generic map(Pwidth => 24)
-	port map(
-		SysClk => SysClk, 
-		RxClk  => SysClk, 
-		reset  => ResetHi,
-		Rx_In  => RxIn,
-		Data   => Rx1Dat, 
-		Rx_Out => RxOut
-	);
+-- FM Receiver for microbunch number
+FMRx1 : FM_Rx 
+generic map(Pwidth => 24)
+port map(
+	SysClk => SysClk, 
+	RxClk  => SysClk, 
+	reset  => ResetHi,
+	Rx_In  => RxIn,
+	Data   => Rx1Dat, 
+	Rx_Out => RxOut
+);
 
-	RxIn.FM <= GPI0; 
+RxIn.FM <= GPI0; 
 
 
 main : process(SysClk, CpldRst)
@@ -88,26 +89,26 @@ begin
 -- asynchronous reset/preset
 if CpldRst = '0' then
 
-	TrigReq <= '0';
-	TrigReqD <= '0';
-	GPOCount <= "000";
-	GPO <= '0';
-	SlfTrgEn <= '0';
+	TrigReq 	<= '0';
+	TrigReqD 	<= '0';
+	GPOCount 	<= "000";
+	GPO 		<= '0';
+	SlfTrgEn 	<= '0';
 	GateCounter <= '0' & X"00";
-	TurnOnTime <= '0' & X"01";
+	TurnOnTime 	<= '0' & X"01";
 	TurnOffTime <= '0' & X"70";  	
-	LEDTime <= '0' & X"30"; 
-	TmgSrcSel <= '0';
-	FlashEn <= '0';
-	PulseSel <= '0';
-	LEDSrc <= '0'; 
-	BeamOn <= '0';
-	FlashGate <= '0';
-	TrigType <= X"000"; 
+	LEDTime 	<= '0' & X"30"; 
+	TmgSrcSel 	<= '0';
+	FlashEn 	<= '0';
+	PulseSel 	<= '0';
+	LEDSrc 		<= '0'; 
+	BeamOn 		<= '0';
+	FlashGate 	<= '0';
+	TrigType 	<= X"000"; 
 	uBunchGuard <= '0';
-	uBunch <= (others => '0');
-	uBunchWrt <= '0'; 
-	Rx1DatReg <= (others => '0');
+	uBunch 		<= (others => '0');
+	uBunchWrt 	<= '0'; 
+	Rx1DatReg 	<= (others => '0');
 	
 
 elsif rising_edge (SysClk) then
@@ -183,13 +184,6 @@ else Pulse <= '0';
 end if;
 
 ------------------------------- Trigger Logic ----------------------------
-
-
-
-
-
-
-
 -- Trig out width counter
 if GPOCount = 0 and TrigReq = '1' then GPOCount <= "111";
 elsif GPOCount /= 0 then GPOCount <= GPOCount - 1;
@@ -247,11 +241,15 @@ end if;
 if SlfTrgEn = '1' and ((GateCounter = TurnOnTime and TmgSrcSel = '1')
    or (RxOut.Done = '1' and TmgSrcSel = '0'))
 	then TrigReq <= '1';
-elsif TrigReqD = '1' then TrigReq <= '0'; 
+elsif TrigReqD = '1' 
+	then TrigReq <= '0'; 
 end if;
-	TrigReqD <= TrigReq;
+	
+TrigReqD <= TrigReq;
 
 end if;
 end process;
+
+
 
 end Trigger_arch;

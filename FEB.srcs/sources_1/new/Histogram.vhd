@@ -35,18 +35,21 @@ port(
 	uCD 					: inout std_logic_vector(15 downto 0);
 	-- Geographic address pins
 	GA 						: in std_logic_vector(1 downto 0);
-	
+
+	uAddrReg 				: in std_logic_vector(11 downto 0);	
 	Diff_Reg				: inout Arrays_8x2x14;
 	GateWidth	    		: inout Array_2x12;
 	GateReq 				: inout std_logic_vector (1 downto 0);	
 	uWRDL 					: in std_logic_vector(1 downto 0);
-	uRDDL 					: in std_logic_vector(1 downto 0)
+	uRDDL 					: in std_logic_vector(1 downto 0);
+	
+	iCD				  	: inout std_logic_vector(15 downto 0)
   );
 end Histogram;
 
 architecture behavioural of Histogram is
 
-signal uAddrReg : std_logic_vector(11 downto 0);
+
 -- Histogrammer signals
 signal HistGateCnt0 : std_logic_vector(15 downto 0);
 signal HistGateCnt1 : std_logic_vector(15 downto 0);
@@ -105,7 +108,6 @@ uCregisters : process (Clk_100MHz, CpldRst)
 begin 
 if CpldRst = '0' then
 
-	uAddrReg 	<= (others => '0');
 	Hist_wenb 	<= (others => "0"); 
 	HistAddrb 	<= (others => (others => '0')); 
 	Hist_Datb 	<= (others => (others => '0'));  
@@ -123,13 +125,6 @@ if CpldRst = '0' then
 	
 	
 elsif rising_edge (Clk_100MHz) then 
-
--- Latch the address for post increment during reads
-if uRDDL = 1 or uWRDL = 1 then uAddrReg <= uCA;
-else uAddrReg <= uAddrReg;
-end if;
-
-
 -------------------------- Histogram Control Registers ------------------
 -- Specify the histogrammer accumulation interval
 if uWRDL = 1 and uCA(11 downto 10) = GA and uCA(9 downto 0) = HistIntvalAd 
@@ -355,9 +350,5 @@ end if;
 end if;
 end process histogram_gen;
 end generate;
-
-
-
-
 
 end behavioural;

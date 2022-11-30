@@ -321,3 +321,6 @@ set_property IOSTANDARD LVCMOS25 [get_ports DACClk]
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets CpldRst_IBUF]
 
 
+
+set_property PACKAGE_PIN P15 [get_ports ClkB_P]
+set_property IOSTANDARD DIFF_SSTL135 [get_ports ClkB_P]

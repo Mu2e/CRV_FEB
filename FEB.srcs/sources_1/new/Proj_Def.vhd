@@ -525,9 +525,11 @@ end component;
 
 component DDR_Interface is
 port (
-	VXO_P,VXO_N 		: in std_logic; 
+	ClkB_P,ClkB_N 		: in std_logic; 
 	SysClk				: in std_logic; -- 160 MHz
 	ResetHi				: in std_logic;
+	Clk_80MHz			: in std_logic;
+	Clk_200MHz			: in std_logic;
 -- DDR3L pins
 	DDR_DATA			: inout std_logic_vector(15 downto 0);
 	DDR_ADDR			: out std_logic_vector(14 downto 0);
@@ -542,6 +544,7 @@ port (
 	LDQS_P, LDQS_N 		: inout std_logic;
 	UDQS_P, UDQS_N 		: inout std_logic;
 	SDRzq 				: inout std_logic;
+	RESET_N				: out std_logic;
 -- Signals for the DDR	
 	EvBuffRd			: buffer std_logic;
 	EvBuffOut			: in std_logic_vector(15 downto 0);
@@ -563,7 +566,9 @@ port (
 	GA 					: in std_logic_vector(1 downto 0);
 -- Synchronous edge detectors of uC read and write strobes
 	AddrReg			  	: in std_logic_vector(11 downto 0);
-	WRDL 				: in std_logic_vector(1 downto 0)
+	WRDL 				: in std_logic_vector(1 downto 0);
+	RDDL				: in std_logic_vector(1 downto 0)
+
 	);
 end component;
 
@@ -732,11 +737,9 @@ component DDR3LController is
       ui_clk_sync_rst   : out   std_logic;
       init_calib_complete: out   std_logic;
       -- System Clock Ports
-      sys_clk_p          : in    std_logic;
-      sys_clk_n          : in    std_logic;
+      sys_clk_i          : in    std_logic;
       -- Reference Clock Ports
-      clk_ref_p          : in    std_logic;
-      clk_ref_n          : in    std_logic;
+      clk_ref_i          : in    std_logic;
       device_temp        : out std_logic_vector(11 downto 0);
     sys_rst              : in    std_logic
   );

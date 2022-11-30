@@ -21,9 +21,9 @@
 
   <Version>4.2</Version>
 
-  <SystemClock>Differential</SystemClock>
+  <SystemClock>Single-Ended</SystemClock>
 
-  <ReferenceClock>Differential</ReferenceClock>
+  <ReferenceClock>Single-Ended</ReferenceClock>
 
   <SysResetPolarity>ACTIVE LOW</SysResetPolarity>
 
@@ -118,10 +118,10 @@
       <Pin IN_TERM="" IOSTANDARD="" PADName="D21" SLEW="" VCCAUX_IO="" name="ddr3_we_n"/>
     </PinSelection>
     <Reference_Clock>
-      <Pin Bank="16" PADName="B15/B16(CC_P/N)" name="clk_ref_p/n"/>
+      <Pin Bank="34" PADName="AA6(MRCC_P)" name="clk_ref_i"/>
     </Reference_Clock>
     <System_Clock>
-      <Pin Bank="15" PADName="M15/L15(CC_P/N)" name="sys_clk_p/n"/>
+      <Pin Bank="16" PADName="B15(SRCC_P)" name="sys_clk_i"/>
     </System_Clock>
     <System_Control>
       <Pin Bank="Select Bank" PADName="No connect" name="sys_rst"/>

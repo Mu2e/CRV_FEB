@@ -59,6 +59,7 @@ port(
 	LDQS_P, LDQS_N 			: inout std_logic;
 	UDQS_P, UDQS_N 			: inout std_logic;
 	SDRzq 					: inout std_logic;
+	DDR_RESET_N 			: out std_logic;
 	-- Microcontroller strobes
 	CpldRst					: in std_logic;
 	CpldCS					: in std_logic;
@@ -379,10 +380,12 @@ port map(
 
 DDR_Interface_inst : DDR_Interface
 port map(
-	VXO_P			=> VXO_P,	
-	VXO_N 			=> VXO_N, 	
+	ClkB_P			=> ClkB_P,	
+	ClkB_N 			=> ClkB_N, 	
 	SysClk			=> SysClk,	
 	ResetHi			=> ResetHi,
+	Clk_80MHz		=> Clk_80MHz,
+	Clk_200MHz		=> Clk_200MHz,
 -- DDR3L pins
 	DDR_DATA		=> DDR_DATA,	
 	DDR_ADDR		=> DDR_ADDR,	
@@ -400,7 +403,8 @@ port map(
 	LDQS_N 		    => LDQS_N, 	
 	UDQS_P          => UDQS_P,
 	UDQS_N 		    => UDQS_N, 	
-	SDRzq 			=> SDRzq, 		
+	SDRzq 			=> SDRzq, 	
+	RESET_N			=> DDR_RESET_N,
 -- Signals for the DDR	
 	EvBuffRd		=> EvBuffRd,	
 	EvBuffOut		=> EvBuffOut,	
@@ -422,7 +426,8 @@ port map(
 	GA 				=> GA,
 -- Synchronous edge detectors of uC read and write strobes
 	AddrReg			=> AddrReg,
-	WRDL 			=> WRDL
+	WRDL 			=> WRDL,
+	RDDL			=> RDDL
 );
 
 -- Read the temperature/ID chip on the four connectoed CMBs

@@ -25,9 +25,11 @@ use work.Proj_Def.all;
 
 entity DDR_Interface is
 port (
-	VXO_P,VXO_N 		: in std_logic; 
+	ClkB_P,ClkB_N  		: in std_logic; 
 	SysClk				: in std_logic; -- 160 MHz
 	ResetHi				: in std_logic;
+	Clk_80MHz			: in std_logic;
+	Clk_200MHz			: in std_logic;
 -- DDR3L pins
 	DDR_DATA			: inout std_logic_vector(15 downto 0);
 	DDR_ADDR			: out std_logic_vector(14 downto 0);
@@ -42,6 +44,7 @@ port (
 	LDQS_P, LDQS_N 		: inout std_logic;
 	UDQS_P, UDQS_N 		: inout std_logic;
 	SDRzq 				: inout std_logic;
+	RESET_N				: out std_logic;
 -- Signals for the DDR	
 	EvBuffRd			: buffer std_logic;
 	EvBuffOut			: in std_logic_vector(15 downto 0);
@@ -64,20 +67,16 @@ port (
 -- Synchronous edge detectors of uC read and write strobes
 	AddrReg			  	: in std_logic_vector(11 downto 0);
 	WRDL 				: in std_logic_vector(1 downto 0);
-	
-	iCD				  	: inout std_logic_vector(15 downto 0)
+	RDDL				: in std_logic_vector(1 downto 0)
 	);
 end DDR_Interface;
 
 architecture Behavioral of DDR_Interface is
 
 -- Signals for the DDR3 Controller 
-signal RESET_N			  : std_logic;
-signal clk				  : std_logic;
 signal Buff_Rst		  	  : std_logic;
-signal reset			  : std_logic;
-signal RDDL				  : std_logic_vector(1 downto 0);
-
+signal clk 				  : std_logic;
+signal reset 			  : std_logic;
 signal DDR3_addr          : std_logic_vector(28 downto 0); 
 signal DDR3_cmd           : std_logic_vector(2 downto 0);
 signal DDR3_en            : std_logic;
@@ -232,20 +231,18 @@ port map(
     ui_clk_sync_rst   => reset,  -- This is the active-High UI reset.         
     init_calib_complete => init_calib_complete,  -- PHY asserts init_calib_complete when calibration is finished.
     -- System Clock Ports
-    sys_clk_p         => VXO_P,
-    sys_clk_n         => VXO_N,
+    sys_clk_i         => SysClk,
     -- Reference Clock Ports
-    clk_ref_p         => clk_ref_p,   
-    clk_ref_n         => clk_ref_n,   
+    clk_ref_i         => Clk_200MHz,      
     device_temp       => device_temp, 
-    sys_rst           => RESET_N     
+    sys_rst           => ResetHi     
 );
 
 main : process(SysClk, CpldRst)
 begin 
 if CpldRst = '0' then
 
-	RESET_N			<= '0';		  
+	--RESET_N			<= '0';		  
 	
 	DDR3_addr		<= (others => '0');         
 	DDR3_cmd    	<= (others => '0');       
@@ -256,8 +253,8 @@ if CpldRst = '0' then
 	clk_ref_p       <= '0';        
 	clk_ref_n       <= '0';  
 	
-	Buff_Rst 		<= '0';
-	RDDL 			<= "00";
+--	Buff_Rst 		<= '0';
+
 	
 	-- Write DDR Signals
 	DDR_Seq			<= Idle;
@@ -278,16 +275,14 @@ if CpldRst = '0' then
 	
 elsif rising_edge (SysClk) then
 
-	RESET_N			<= '1';	
+	--RESET_N			<= '1';	
 -- Global reset term
-if WRDL = 1 and uCD(5) = '1' and ((uCA(11 downto 10) = GA and uCA(9 downto 0) = CSRRegAddr)
-	or uCA(9 downto 0) = CSRBroadCastAd)
-then Buff_Rst <= '1';
-else Buff_Rst <= '0';
-end if;
+--if WRDL = 1 and uCD(5) = '1' and ((uCA(11 downto 10) = GA and uCA(9 downto 0) = CSRRegAddr)
+--	or uCA(9 downto 0) = CSRBroadCastAd)
+--then Buff_Rst <= '1';
+--else Buff_Rst <= '0';
+--end if;
 
-RDDL(0) <= not uCRD and not CpldCS;
-RDDL(1) <= RDDL(0);
 
 
 

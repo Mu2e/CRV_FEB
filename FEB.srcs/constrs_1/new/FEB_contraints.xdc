@@ -289,3 +289,35 @@ set_property PACKAGE_PIN Y19 [get_ports CpldRst]
 set_property PACKAGE_PIN AB19 [get_ports LVDSTX]
 
 set_property IOSTANDARD SSTL135 [get_ports SDRzq]
+
+set_property PACKAGE_PIN L7 [get_ports {MuxEn[0]}]
+set_property PACKAGE_PIN M7 [get_ports {MuxEn[1]}]
+set_property PACKAGE_PIN R4 [get_ports {MuxEn[2]}]
+set_property PACKAGE_PIN R3 [get_ports {MuxEn[3]}]
+set_property PACKAGE_PIN N5 [get_ports {Muxad[0]}]
+set_property PACKAGE_PIN M5 [get_ports {Muxad[1]}]
+set_property PACKAGE_PIN H7 [get_ports {DACCS[2]}]
+set_property PACKAGE_PIN H6 [get_ports {DACCS[1]}]
+set_property PACKAGE_PIN J7 [get_ports {DACCS[0]}]
+set_property PACKAGE_PIN H5 [get_ports DACDat]
+set_property PACKAGE_PIN K4 [get_ports DACLd]
+set_property PACKAGE_PIN J8 [get_ports DACClk]
+
+set_property IOSTANDARD LVCMOS25 [get_ports {MuxEn[3]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {MuxEn[2]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {MuxEn[1]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {MuxEn[0]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {Muxad[1]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {Muxad[0]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {DACCS[2]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {DACCS[1]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {DACCS[0]}]
+set_property IOSTANDARD LVCMOS25 [get_ports DACDat]
+set_property IOSTANDARD LVCMOS25 [get_ports DACLd]
+set_property IOSTANDARD LVCMOS25 [get_ports DACClk]
+
+
+
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets CpldRst_IBUF]
+
+

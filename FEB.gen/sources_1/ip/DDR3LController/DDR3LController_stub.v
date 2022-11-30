@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Tue Nov  1 14:22:50 2022
+// Date        : Wed Nov 30 14:29:27 2022
 // Host        : CD-135239 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController_stub.v
@@ -18,9 +18,8 @@ module DDR3LController(ddr3_dq, ddr3_dqs_p, ddr3_dqs_n, ddr3_addr,
   ddr3_cs_n, ddr3_dm, ddr3_odt, app_addr, app_cmd, app_en, app_wdf_data, app_wdf_end, app_wdf_mask, 
   app_wdf_wren, app_rd_data, app_rd_data_end, app_rd_data_valid, app_rdy, app_wdf_rdy, 
   app_sr_req, app_ref_req, app_zq_req, app_sr_active, app_ref_ack, app_zq_ack, ui_clk, 
-  ui_clk_sync_rst, init_calib_complete, sys_clk_p, sys_clk_n, clk_ref_p, clk_ref_n, 
-  device_temp, sys_rst)
-/* synthesis syn_black_box black_box_pad_pin="ddr3_dq[15:0],ddr3_dqs_p[1:0],ddr3_dqs_n[1:0],ddr3_addr[14:0],ddr3_ba[2:0],ddr3_ras_n,ddr3_cas_n,ddr3_we_n,ddr3_reset_n,ddr3_ck_p[0:0],ddr3_ck_n[0:0],ddr3_cke[0:0],ddr3_cs_n[0:0],ddr3_dm[1:0],ddr3_odt[0:0],app_addr[28:0],app_cmd[2:0],app_en,app_wdf_data[63:0],app_wdf_end,app_wdf_mask[7:0],app_wdf_wren,app_rd_data[63:0],app_rd_data_end,app_rd_data_valid,app_rdy,app_wdf_rdy,app_sr_req,app_ref_req,app_zq_req,app_sr_active,app_ref_ack,app_zq_ack,ui_clk,ui_clk_sync_rst,init_calib_complete,sys_clk_p,sys_clk_n,clk_ref_p,clk_ref_n,device_temp[11:0],sys_rst" */;
+  ui_clk_sync_rst, init_calib_complete, sys_clk_i, clk_ref_i, device_temp, sys_rst)
+/* synthesis syn_black_box black_box_pad_pin="ddr3_dq[15:0],ddr3_dqs_p[1:0],ddr3_dqs_n[1:0],ddr3_addr[14:0],ddr3_ba[2:0],ddr3_ras_n,ddr3_cas_n,ddr3_we_n,ddr3_reset_n,ddr3_ck_p[0:0],ddr3_ck_n[0:0],ddr3_cke[0:0],ddr3_cs_n[0:0],ddr3_dm[1:0],ddr3_odt[0:0],app_addr[28:0],app_cmd[2:0],app_en,app_wdf_data[63:0],app_wdf_end,app_wdf_mask[7:0],app_wdf_wren,app_rd_data[63:0],app_rd_data_end,app_rd_data_valid,app_rdy,app_wdf_rdy,app_sr_req,app_ref_req,app_zq_req,app_sr_active,app_ref_ack,app_zq_ack,ui_clk,ui_clk_sync_rst,init_calib_complete,sys_clk_i,clk_ref_i,device_temp[11:0],sys_rst" */;
   inout [15:0]ddr3_dq;
   inout [1:0]ddr3_dqs_p;
   inout [1:0]ddr3_dqs_n;
@@ -57,10 +56,8 @@ module DDR3LController(ddr3_dq, ddr3_dqs_p, ddr3_dqs_n, ddr3_addr,
   output ui_clk;
   output ui_clk_sync_rst;
   output init_calib_complete;
-  input sys_clk_p;
-  input sys_clk_n;
-  input clk_ref_p;
-  input clk_ref_n;
+  input sys_clk_i;
+  input clk_ref_i;
   output [11:0]device_temp;
   input sys_rst;
 endmodule

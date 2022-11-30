@@ -109,11 +109,9 @@ entity DDR3LController is
       ui_clk_sync_rst           : out   std_logic;
       init_calib_complete       : out   std_logic;
       -- System Clock Ports
-      sys_clk_p                      : in    std_logic;
-      sys_clk_n                      : in    std_logic;
+      sys_clk_i                      : in    std_logic;
       -- Reference Clock Ports
-      clk_ref_p                                : in    std_logic;
-      clk_ref_n                                : in    std_logic;
+      clk_ref_i                                : in    std_logic;
       device_temp                      : out std_logic_vector(11 downto 0);
     sys_rst                     : in    std_logic
   );
@@ -163,11 +161,9 @@ architecture arch_DDR3LController of DDR3LController is
       ui_clk_sync_rst           : out   std_logic;
       init_calib_complete       : out   std_logic;
       -- System Clock Ports
-      sys_clk_p                      : in    std_logic;
-      sys_clk_n                      : in    std_logic;
+      sys_clk_i                      : in    std_logic;
       -- Reference Clock Ports
-      clk_ref_p                                : in    std_logic;
-      clk_ref_n                                : in    std_logic;
+      clk_ref_i                                : in    std_logic;
       device_temp                      : out std_logic_vector(11 downto 0);
       sys_rst             : in std_logic
       );
@@ -219,11 +215,9 @@ begin
        ui_clk_sync_rst                => ui_clk_sync_rst,
        app_wdf_mask                   => app_wdf_mask,
        -- System Clock Ports
-       sys_clk_p                       => sys_clk_p,
-       sys_clk_n                       => sys_clk_n,
+       sys_clk_i                       => sys_clk_i,
        -- Reference Clock Ports
-       clk_ref_p                      => clk_ref_p,
-       clk_ref_n                      => clk_ref_n,
+       clk_ref_i                      => clk_ref_i,
 	  device_temp                      => device_temp,
       sys_rst                        => sys_rst
     );

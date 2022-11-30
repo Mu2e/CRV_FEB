@@ -2,8 +2,8 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Tue Nov 29 12:36:27 2022
-# Process ID: 19148
+# Start of session at: Wed Nov 30 15:18:04 2022
+# Process ID: 15012
 # Current directory: C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1
 # Command line: vivado.exe -log FEB.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source FEB.tcl
 # Log file: C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/FEB.vds
@@ -23,21 +23,21 @@ WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis b
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 17640
+INFO: [Synth 8-7075] Helper process launched with PID 14768
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1418.992 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1418.570 ; gain = 0.000
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-1565] actual for formal port reset is neither a static name nor a globally static expression [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:264]
-INFO: [Synth 8-638] synthesizing module 'FEB' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:92]
+WARNING: [Synth 8-1565] actual for formal port reset is neither a static name nor a globally static expression [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:265]
+INFO: [Synth 8-638] synthesizing module 'FEB' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:93]
 	Parameter DIFF_TERM bound to: 1 - type: bool 
 	Parameter IBUF_LOW_PWR bound to: 0 - type: bool 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
-INFO: [Synth 8-113] binding component instance 'GPI0DiffIn' to cell 'IBUFDS' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:204]
-INFO: [Synth 8-3491] module 'SysPLL' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/SysPLL_stub.vhdl:5' bound to instance 'PLL' of component 'SysPLL' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:215]
-INFO: [Synth 8-638] synthesizing module 'SysPLL' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/SysPLL_stub.vhdl:18]
-INFO: [Synth 8-3491] module 'HF_SysPLL' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/HF_SysPLL_stub.vhdl:5' bound to instance 'HF_PLL' of component 'HF_SysPLL' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:227]
-INFO: [Synth 8-638] synthesizing module 'HF_SysPLL' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/HF_SysPLL_stub.vhdl:14]
-INFO: [Synth 8-3491] module 'AFE_Interface' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:30' bound to instance 'AFE_Interface_inst' of component 'AFE_Interface' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:235]
+INFO: [Synth 8-113] binding component instance 'GPI0DiffIn' to cell 'IBUFDS' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:205]
+INFO: [Synth 8-3491] module 'SysPLL' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/SysPLL_stub.vhdl:5' bound to instance 'PLL' of component 'SysPLL' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:216]
+INFO: [Synth 8-638] synthesizing module 'SysPLL' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/SysPLL_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'HF_SysPLL' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/HF_SysPLL_stub.vhdl:5' bound to instance 'HF_PLL' of component 'HF_SysPLL' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:228]
+INFO: [Synth 8-638] synthesizing module 'HF_SysPLL' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/HF_SysPLL_stub.vhdl:14]
+INFO: [Synth 8-3491] module 'AFE_Interface' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:30' bound to instance 'AFE_Interface_inst' of component 'AFE_Interface' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:236]
 INFO: [Synth 8-638] synthesizing module 'AFE_Interface' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:63]
 	Parameter IOSTANDARD bound to: LVDS - type: string 
 INFO: [Synth 8-113] binding component instance 'OBUFDS_inst0' to cell 'OBUFDS' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:103]
@@ -102,35 +102,35 @@ WARNING: [Synth 8-3848] Net AFESClk in module/entity AFE_Interface does not have
 WARNING: [Synth 8-3848] Net AFESDI in module/entity AFE_Interface does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'AFE_Interface' (4#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Interface.vhd:63]
 WARNING: [Synth 8-5640] Port 'icd' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:338]
-INFO: [Synth 8-3491] module 'AFE_DataPath' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:36' bound to instance 'AFE_DataPath_inst' of component 'AFE_DataPath' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:271]
+INFO: [Synth 8-3491] module 'AFE_DataPath' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:36' bound to instance 'AFE_DataPath_inst' of component 'AFE_DataPath' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:272]
 INFO: [Synth 8-638] synthesizing module 'AFE_DataPath' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:80]
 INFO: [Synth 8-3491] module 'AFE_Pipeline' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:10' bound to instance 'AFE_Pipeline_inst' of component 'AFE_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:121]
 INFO: [Synth 8-638] synthesizing module 'AFE_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:26]
-INFO: [Synth 8-3491] module 'AFE_DP_Pipeline' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:5' bound to instance 'Pipeline' of component 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:45]
-INFO: [Synth 8-638] synthesizing module 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:18]
-INFO: [Synth 8-3491] module 'AFE_DP_Pipeline' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:5' bound to instance 'Pipeline' of component 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:45]
+INFO: [Synth 8-3491] module 'AFE_DP_Pipeline' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:5' bound to instance 'Pipeline' of component 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:45]
+INFO: [Synth 8-638] synthesizing module 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'AFE_DP_Pipeline' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/AFE_DP_Pipeline_stub.vhdl:5' bound to instance 'Pipeline' of component 'AFE_DP_Pipeline' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:45]
 WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'Gen_Two_AFEs[0].Gen_Eight_Chans[0].PipelineWrtEn_reg' in module 'AFE_Pipeline' in the same process may cause logic issues. 
  Please split the sync and async parts into different processes [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:48]
 WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'Gen_Two_AFEs[1].Gen_Eight_Chans[0].PipelineWrtEn_reg' in module 'AFE_Pipeline' in the same process may cause logic issues. 
  Please split the sync and async parts into different processes [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:48]
 INFO: [Synth 8-256] done synthesizing module 'AFE_Pipeline' (5#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:26]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-638] synthesizing module 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:18]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
-INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-638] synthesizing module 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
+INFO: [Synth 8-3491] module 'DPRAM_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DPRAM_1Kx16_stub.vhdl:5' bound to instance 'AFEBuff' of component 'DPRAM_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:230]
 WARNING: [Synth 8-5856] 3D RAM Diff_Reg_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-5856] 3D RAM SlfTrgEdge_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-5856] 3D RAM Ped_Reg_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
@@ -164,11 +164,11 @@ WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'Gen_Two_A
 WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'Gen_Two_AFEs[1].GateReq_reg' in module 'AFE_DataPath' in the same process may cause logic issues. 
  Please split the sync and async parts into different processes [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:148]
 INFO: [Synth 8-256] done synthesizing module 'AFE_DataPath' (6#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_DataPath.vhd:80]
-INFO: [Synth 8-3491] module 'Phase_Detector' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Phase_Detector.vhd:30' bound to instance 'Phase_Detector_inst' of component 'Phase_Detector' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:311]
+INFO: [Synth 8-3491] module 'Phase_Detector' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Phase_Detector.vhd:30' bound to instance 'Phase_Detector_inst' of component 'Phase_Detector' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:312]
 INFO: [Synth 8-638] synthesizing module 'Phase_Detector' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Phase_Detector.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'Phase_Detector' (7#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Phase_Detector.vhd:46]
 WARNING: [Synth 8-5640] Port 'icd' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:433]
-INFO: [Synth 8-3491] module 'Trigger' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:10' bound to instance 'Trigger_logic' of component 'Trigger' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:323]
+INFO: [Synth 8-3491] module 'Trigger' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:10' bound to instance 'Trigger_logic' of component 'Trigger' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:324]
 INFO: [Synth 8-638] synthesizing module 'Trigger' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:45]
 	Parameter Pwidth bound to: 24 - type: integer 
 INFO: [Synth 8-3491] module 'FM_Rx' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Deserializer.vhd:17' bound to instance 'FMRx1' of component 'FM_Rx' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:73]
@@ -179,59 +179,57 @@ WARNING: [Synth 8-6014] Unused sequential element TrigType_reg was removed.  [C:
 WARNING: [Synth 8-6014] Unused sequential element Rx1DatReg_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:111]
 INFO: [Synth 8-256] done synthesizing module 'Trigger' (9#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Trigger.vhd:45]
 WARNING: [Synth 8-5640] Port 'icd' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:466]
-INFO: [Synth 8-3491] module 'EventBuilder' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:26' bound to instance 'EventBuilder_logic' of component 'EventBuilder' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:358]
+INFO: [Synth 8-3491] module 'EventBuilder' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:26' bound to instance 'EventBuilder_logic' of component 'EventBuilder' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:359]
 INFO: [Synth 8-638] synthesizing module 'EventBuilder' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:50]
-WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:668]
-WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:668]
-INFO: [Synth 8-3491] module 'SCFIFO_32x256' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/SCFIFO_32x256_stub.vhdl:5' bound to instance 'uBunchBuffer' of component 'SCFIFO_32x256' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:87]
-INFO: [Synth 8-638] synthesizing module 'SCFIFO_32x256' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/SCFIFO_32x256_stub.vhdl:21]
-WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:677]
-WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:677]
-INFO: [Synth 8-3491] module 'SCFIFO_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/SCFIFO_1Kx16_stub.vhdl:5' bound to instance 'EventBuff' of component 'SCFIFO_1kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:100]
-INFO: [Synth 8-638] synthesizing module 'SCFIFO_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/SCFIFO_1Kx16_stub.vhdl:22]
+WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:673]
+WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:673]
+INFO: [Synth 8-3491] module 'SCFIFO_32x256' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/SCFIFO_32x256_stub.vhdl:5' bound to instance 'uBunchBuffer' of component 'SCFIFO_32x256' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:87]
+INFO: [Synth 8-638] synthesizing module 'SCFIFO_32x256' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/SCFIFO_32x256_stub.vhdl:21]
+WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:682]
+WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:682]
+INFO: [Synth 8-3491] module 'SCFIFO_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/SCFIFO_1Kx16_stub.vhdl:5' bound to instance 'EventBuff' of component 'SCFIFO_1kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:100]
+INFO: [Synth 8-638] synthesizing module 'SCFIFO_1Kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/SCFIFO_1Kx16_stub.vhdl:22]
 WARNING: [Synth 8-5856] 3D RAM NextEvAddr_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-5856] 3D RAM BufferRdAdd_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-6014] Unused sequential element Read_Seq_Stat_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:148]
 INFO: [Synth 8-256] done synthesizing module 'EventBuilder' (10#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/EventBuilder.vhd:50]
-WARNING: [Synth 8-5640] Port 'icd' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:526]
-INFO: [Synth 8-3491] module 'DDR_Interface' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:26' bound to instance 'DDR_Interface_inst' of component 'DDR_Interface' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:380]
-INFO: [Synth 8-638] synthesizing module 'DDR_Interface' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:72]
-WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:668]
-WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:668]
-INFO: [Synth 8-3491] module 'SCFIFO_32x256' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/SCFIFO_32x256_stub.vhdl:5' bound to instance 'DDRAddrBuff' of component 'SCFIFO_32x256' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:149]
-WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:677]
-WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:677]
-INFO: [Synth 8-3491] module 'SCFIFO_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/SCFIFO_1Kx16_stub.vhdl:5' bound to instance 'DDRRdBuff' of component 'SCFIFO_1kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:162]
-INFO: [Synth 8-3491] module 'DDR3LController' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DDR3LController_stub.vhdl:5' bound to instance 'DDR_Controller' of component 'DDR3LController' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:189]
-INFO: [Synth 8-638] synthesizing module 'DDR3LController' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DDR3LController_stub.vhdl:53]
-WARNING: [Synth 8-6014] Unused sequential element Buff_Rst_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:259]
-INFO: [Synth 8-256] done synthesizing module 'DDR_Interface' (11#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:72]
-INFO: [Synth 8-3491] module 'One_Wire' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:7' bound to instance 'OneWire' of component 'One_Wire' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:429]
+INFO: [Synth 8-3491] module 'DDR_Interface' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:26' bound to instance 'DDR_Interface_inst' of component 'DDR_Interface' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:381]
+INFO: [Synth 8-638] synthesizing module 'DDR_Interface' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:74]
+WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:673]
+WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:673]
+INFO: [Synth 8-3491] module 'SCFIFO_32x256' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/SCFIFO_32x256_stub.vhdl:5' bound to instance 'DDRAddrBuff' of component 'SCFIFO_32x256' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:148]
+WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:682]
+WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:682]
+INFO: [Synth 8-3491] module 'SCFIFO_1Kx16' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/SCFIFO_1Kx16_stub.vhdl:5' bound to instance 'DDRRdBuff' of component 'SCFIFO_1kx16' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:161]
+INFO: [Synth 8-3491] module 'DDR3LController' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DDR3LController_stub.vhdl:5' bound to instance 'DDR_Controller' of component 'DDR3LController' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:188]
+INFO: [Synth 8-638] synthesizing module 'DDR3LController' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DDR3LController_stub.vhdl:51]
+INFO: [Synth 8-256] done synthesizing module 'DDR_Interface' (11#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:74]
+INFO: [Synth 8-3491] module 'One_Wire' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:7' bound to instance 'OneWire' of component 'One_Wire' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:434]
 INFO: [Synth 8-638] synthesizing module 'One_Wire' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:22]
 WARNING: [Synth 8-614] signal 'OneWrRdROM' is read in the process but is not in the sensitivity list [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:57]
 WARNING: [Synth 8-6014] Unused sequential element ResponseBit_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:65]
 INFO: [Synth 8-256] done synthesizing module 'One_Wire' (12#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/One_Wire.vhd:22]
-INFO: [Synth 8-3491] module 'LVDS_TX' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:12' bound to instance 'uC_to_LVDSTX' of component 'LVDS_TX' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:451]
+INFO: [Synth 8-3491] module 'LVDS_TX' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:12' bound to instance 'uC_to_LVDSTX' of component 'LVDS_TX' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:456]
 INFO: [Synth 8-638] synthesizing module 'LVDS_TX' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:35]
 	Parameter Pwidth bound to: 16 - type: integer 
 INFO: [Synth 8-3491] module 'FM_Tx' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Serializer.vhd:18' bound to instance 'FMTx' of component 'FM_Tx' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:45]
 INFO: [Synth 8-638] synthesizing module 'FM_Tx' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Serializer.vhd:29]
 	Parameter Pwidth bound to: 16 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'FM_Tx' (13#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FM_Serializer.vhd:29]
-WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:687]
-WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:687]
-INFO: [Synth 8-3491] module 'LVDSTxBuff' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/LVDSTxBuff_stub.vhdl:5' bound to instance 'FMTx_Buff' of component 'LVDSTxBuff' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:60]
-INFO: [Synth 8-638] synthesizing module 'LVDSTxBuff' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/LVDSTxBuff_stub.vhdl:21]
+WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:692]
+WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:692]
+INFO: [Synth 8-3491] module 'LVDSTxBuff' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/LVDSTxBuff_stub.vhdl:5' bound to instance 'FMTx_Buff' of component 'LVDSTxBuff' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:60]
+INFO: [Synth 8-638] synthesizing module 'LVDSTxBuff' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/LVDSTxBuff_stub.vhdl:21]
 INFO: [Synth 8-256] done synthesizing module 'LVDS_TX' (14#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/LVDS_TX.vhd:35]
-WARNING: [Synth 8-5640] Port 'icd' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:593]
-INFO: [Synth 8-3491] module 'uControllerRegister' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/uControllerRegister.vhd:24' bound to instance 'uC' of component 'uControllerRegister' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:472]
+WARNING: [Synth 8-5640] Port 'icd' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:598]
+INFO: [Synth 8-3491] module 'uControllerRegister' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/uControllerRegister.vhd:24' bound to instance 'uC' of component 'uControllerRegister' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:477]
 INFO: [Synth 8-638] synthesizing module 'uControllerRegister' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/uControllerRegister.vhd:69]
-WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:761]
-WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:761]
-INFO: [Synth 8-3491] module 'CMD_Fifo' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/CMD_Fifo_stub.vhdl:5' bound to instance 'CmdFifo' of component 'Cmd_FIFO' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/uControllerRegister.vhd:130]
-INFO: [Synth 8-638] synthesizing module 'CMD_Fifo' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/CMD_Fifo_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'DAC_Ram' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DAC_Ram_stub.vhdl:5' bound to instance 'ShadowRam' of component 'DAC_Ram' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/uControllerRegister.vhd:142]
-INFO: [Synth 8-638] synthesizing module 'DAC_Ram' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/DAC_Ram_stub.vhdl:16]
+WARNING: [Synth 8-5640] Port 'wr_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:764]
+WARNING: [Synth 8-5640] Port 'rd_rst_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:764]
+INFO: [Synth 8-3491] module 'CMD_Fifo' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/CMD_Fifo_stub.vhdl:5' bound to instance 'CmdFifo' of component 'Cmd_FIFO' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/uControllerRegister.vhd:130]
+INFO: [Synth 8-638] synthesizing module 'CMD_Fifo' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/CMD_Fifo_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'DAC_Ram' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DAC_Ram_stub.vhdl:5' bound to instance 'ShadowRam' of component 'DAC_Ram' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/uControllerRegister.vhd:142]
+INFO: [Synth 8-638] synthesizing module 'DAC_Ram' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/DAC_Ram_stub.vhdl:16]
 INFO: [Synth 8-226] default block is never used [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/uControllerRegister.vhd:236]
 INFO: [Synth 8-226] default block is never used [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/uControllerRegister.vhd:236]
 WARNING: [Synth 8-6014] Unused sequential element MuxadReg_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/uControllerRegister.vhd:189]
@@ -246,16 +244,16 @@ WARNING: [Synth 8-6014] Unused sequential element SlipCntReg_reg[1] was removed.
 WARNING: [Synth 8-6014] Unused sequential element SClkDL_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/uControllerRegister.vhd:206]
 WARNING: [Synth 8-6014] Unused sequential element AFERdReg_reg was removed.  [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/uControllerRegister.vhd:207]
 INFO: [Synth 8-256] done synthesizing module 'uControllerRegister' (15#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/uControllerRegister.vhd:69]
-WARNING: [Synth 8-5640] Port 'icd' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:571]
-INFO: [Synth 8-3491] module 'Histogram' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Histogram.vhd:26' bound to instance 'Hist' of component 'Histogram' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:516]
+WARNING: [Synth 8-5640] Port 'icd' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:576]
+INFO: [Synth 8-3491] module 'Histogram' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Histogram.vhd:26' bound to instance 'Hist' of component 'Histogram' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:521]
 INFO: [Synth 8-638] synthesizing module 'Histogram' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Histogram.vhd:50]
-WARNING: [Synth 8-5640] Port 'rsta_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:746]
-WARNING: [Synth 8-5640] Port 'rstb_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:746]
-INFO: [Synth 8-3491] module 'Hist_Ram' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/Hist_Ram_stub.vhdl:5' bound to instance 'Hist' of component 'Hist_Ram' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Histogram.vhd:90]
-INFO: [Synth 8-638] synthesizing module 'Hist_Ram' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/Hist_Ram_stub.vhdl:25]
-WARNING: [Synth 8-5640] Port 'rsta_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:746]
-WARNING: [Synth 8-5640] Port 'rstb_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:746]
-INFO: [Synth 8-3491] module 'Hist_Ram' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-19148-CD-135239/realtime/Hist_Ram_stub.vhdl:5' bound to instance 'Hist' of component 'Hist_Ram' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Histogram.vhd:90]
+WARNING: [Synth 8-5640] Port 'rsta_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:749]
+WARNING: [Synth 8-5640] Port 'rstb_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:749]
+INFO: [Synth 8-3491] module 'Hist_Ram' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/Hist_Ram_stub.vhdl:5' bound to instance 'Hist' of component 'Hist_Ram' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Histogram.vhd:90]
+INFO: [Synth 8-638] synthesizing module 'Hist_Ram' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/Hist_Ram_stub.vhdl:25]
+WARNING: [Synth 8-5640] Port 'rsta_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:749]
+WARNING: [Synth 8-5640] Port 'rstb_busy' is missing in component declaration [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Proj_Def.vhd:749]
+INFO: [Synth 8-3491] module 'Hist_Ram' declared at 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/.Xil/Vivado-15012-CD-135239/realtime/Hist_Ram_stub.vhdl:5' bound to instance 'Hist' of component 'Hist_Ram' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Histogram.vhd:90]
 INFO: [Synth 8-226] default block is never used [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Histogram.vhd:263]
 INFO: [Synth 8-226] default block is never used [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Histogram.vhd:263]
 WARNING: [Synth 8-5856] 3D RAM Triplet_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
@@ -264,8 +262,8 @@ WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'Hist_Two_
 WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'Hist_Two_AFEs[1].HistInit_reg' in module 'Histogram' in the same process may cause logic issues. 
  Please split the sync and async parts into different processes [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Histogram.vhd:256]
 INFO: [Synth 8-256] done synthesizing module 'Histogram' (16#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Histogram.vhd:50]
-WARNING: [Synth 8-3848] Net SerdesRst in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:126]
-INFO: [Synth 8-256] done synthesizing module 'FEB' (17#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:92]
+WARNING: [Synth 8-3848] Net SerdesRst in module/entity FEB does not have driver. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:127]
+INFO: [Synth 8-256] done synthesizing module 'FEB' (17#1) [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/FEB.vhd:93]
 WARNING: [Synth 8-7129] Port iCD[15] in module Histogram is either unconnected or has no load
 WARNING: [Synth 8-7129] Port iCD[14] in module Histogram is either unconnected or has no load
 WARNING: [Synth 8-7129] Port iCD[13] in module Histogram is either unconnected or has no load
@@ -337,22 +335,11 @@ WARNING: [Synth 8-7129] Port GA[0] in module LVDS_TX is either unconnected or ha
 WARNING: [Synth 8-7129] Port uWRDL[1] in module LVDS_TX is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uWRDL[0] in module LVDS_TX is either unconnected or has no load
 WARNING: [Synth 8-7129] Port SDRzq in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[15] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[14] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[13] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[12] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[11] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[10] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[9] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[8] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[7] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[6] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[5] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[4] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[3] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[2] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[1] in module DDR_Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port iCD[0] in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ClkB_P in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ClkB_N in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Clk_80MHz in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CpldCS in module DDR_Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCRd in module DDR_Interface is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uCWr in module DDR_Interface is either unconnected or has no load
 WARNING: [Synth 8-7129] Port iCD[15] in module EventBuilder is either unconnected or has no load
 WARNING: [Synth 8-7129] Port iCD[14] in module EventBuilder is either unconnected or has no load
@@ -366,20 +353,31 @@ WARNING: [Synth 8-7129] Port iCD[7] in module EventBuilder is either unconnected
 WARNING: [Synth 8-7129] Port iCD[6] in module EventBuilder is either unconnected or has no load
 WARNING: [Synth 8-7129] Port iCD[5] in module EventBuilder is either unconnected or has no load
 WARNING: [Synth 8-7129] Port iCD[4] in module EventBuilder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port iCD[3] in module EventBuilder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port iCD[2] in module EventBuilder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port iCD[1] in module EventBuilder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port iCD[0] in module EventBuilder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SysClk in module FM_Rx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[15] in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[14] in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[13] in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[12] in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[11] in module Trigger is either unconnected or has no load
+WARNING: [Synth 8-7129] Port uCD[10] in module Trigger is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1449.223 ; gain = 30.230
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1449.707 ; gain = 31.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1449.223 ; gain = 30.230
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1449.707 ; gain = 31.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1449.223 ; gain = 30.230
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1449.707 ; gain = 31.137
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.131 . Memory (MB): peak = 1449.223 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.129 . Memory (MB): peak = 1449.707 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 75 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -447,18 +445,20 @@ Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/
 Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/HF_SysPLL/HF_SysPLL/HF_SysPLL_in_context.xdc] for cell 'HF_PLL'
 Finished Parsing XDC File [c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/HF_SysPLL/HF_SysPLL/HF_SysPLL_in_context.xdc] for cell 'HF_PLL'
 Parsing XDC File [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc]
+WARNING: [Vivado 12-507] No nets matched 'CpldRst_IBUF'. [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc:321]
 Finished Parsing XDC File [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/FEB_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/constrs_1/new/FEB_contraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/FEB_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/FEB_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Parsing XDC File [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1559.918 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1532.977 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 1559.918 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1532.977 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[0].AFEBuff' at clock pin 'clka' is different from the actual clock period '12.500', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[1].AFEBuff' at clock pin 'clka' is different from the actual clock period '12.500', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'AFE_DataPath_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[2].AFEBuff' at clock pin 'clka' is different from the actual clock period '12.500', this can lead to different synthesis results.
@@ -487,118 +487,116 @@ WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context s
 WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis because the design is too small; reverting to default synthesis
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1562.023 ; gain = 143.031
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1547.371 ; gain = 128.801
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50fgga484-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1562.023 ; gain = 143.031
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1547.371 ; gain = 128.801
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 8).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 9).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[10]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 10).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[10]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 11).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[11]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 12).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[11]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 13).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[12]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 14).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[12]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 15).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[13]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 16).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[13]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 17).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[14]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 18).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[14]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 19).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 20).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 21).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 22).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 23).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[3]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 24).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[3]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 25).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[4]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 26).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[4]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 27).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[5]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 28).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[5]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 29).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[6]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 30).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[6]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 31).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[7]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 32).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[7]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 33).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[8]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 34).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[8]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 35).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[9]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 36).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[9]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 37).
-Applied set_property IO_BUFFER_TYPE = NONE for BA[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 38).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for BA[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 39).
-Applied set_property IO_BUFFER_TYPE = NONE for BA[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 40).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for BA[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 41).
-Applied set_property IO_BUFFER_TYPE = NONE for BA[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 42).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for BA[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 43).
-Applied set_property IO_BUFFER_TYPE = NONE for CAS. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 44).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for CAS. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 45).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_CLKN[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 46).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_CLKN[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 47).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_CLKP[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 48).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_CLKP[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 49).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_CKE[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 50).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_CKE[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 51).
-Applied set_property IO_BUFFER_TYPE = NONE for CS[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 52).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for CS[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 53).
-Applied set_property IO_BUFFER_TYPE = NONE for DM[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 54).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DM[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 55).
-Applied set_property IO_BUFFER_TYPE = NONE for DM[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 56).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DM[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 57).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 58).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 59).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[10]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 60).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[10]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 61).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[11]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 62).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[11]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 63).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[12]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 64).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[12]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 65).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[13]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 66).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[13]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 67).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[14]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 68).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[14]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 69).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[15]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 70).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[15]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 71).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 72).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 73).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 74).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 75).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[3]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 76).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[3]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 77).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[4]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 78).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[4]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 79).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[5]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 80).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[5]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 81).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[6]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 82).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[6]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 83).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[7]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 84).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[7]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 85).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[8]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 86).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[8]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 87).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[9]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 88).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[9]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 89).
-Applied set_property IO_BUFFER_TYPE = NONE for UDQS_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 90).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for UDQS_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 91).
-Applied set_property IO_BUFFER_TYPE = NONE for UDQS_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 92).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for UDQS_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 93).
-Applied set_property IO_BUFFER_TYPE = NONE for LDQS_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 94).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for LDQS_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 95).
-Applied set_property IO_BUFFER_TYPE = NONE for LDQS_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 96).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for LDQS_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 97).
-Applied set_property IO_BUFFER_TYPE = NONE for ODT[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 98).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for ODT[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 99).
-Applied set_property IO_BUFFER_TYPE = NONE for RAS. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 100).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for RAS. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 101).
-Applied set_property IO_BUFFER_TYPE = NONE for DDR_WE. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 104).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_WE. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 105).
-Applied set_property IO_BUFFER_TYPE = NONE for VXO_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 106).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for VXO_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 107).
-Applied set_property IO_BUFFER_TYPE = NONE for VXO_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 108).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for VXO_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 109).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 6).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 7).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[10]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 8).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[10]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 9).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[11]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 10).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[11]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 11).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[12]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 12).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[12]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 13).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[13]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 14).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[13]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 15).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[14]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 16).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[14]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 17).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 18).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 19).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 20).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 21).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[3]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 22).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[3]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 23).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[4]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 24).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[4]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 25).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[5]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 26).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[5]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 27).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[6]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 28).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[6]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 29).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[7]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 30).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[7]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 31).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[8]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 32).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[8]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 33).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ADDR[9]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 34).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ADDR[9]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 35).
+Applied set_property IO_BUFFER_TYPE = NONE for BA[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 36).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for BA[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 37).
+Applied set_property IO_BUFFER_TYPE = NONE for BA[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 38).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for BA[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 39).
+Applied set_property IO_BUFFER_TYPE = NONE for BA[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 40).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for BA[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 41).
+Applied set_property IO_BUFFER_TYPE = NONE for CAS. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 42).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for CAS. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 43).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_CLKN[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 44).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_CLKN[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 45).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_CLKP[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 46).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_CLKP[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 47).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_CKE[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 48).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_CKE[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 49).
+Applied set_property IO_BUFFER_TYPE = NONE for CS[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 50).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for CS[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 51).
+Applied set_property IO_BUFFER_TYPE = NONE for DM[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 52).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DM[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 53).
+Applied set_property IO_BUFFER_TYPE = NONE for DM[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 54).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DM[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 55).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 56).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 57).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[10]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 58).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[10]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 59).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[11]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 60).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[11]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 61).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[12]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 62).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[12]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 63).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[13]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 64).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[13]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 65).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[14]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 66).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[14]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 67).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[15]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 68).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[15]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 69).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 70).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[1]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 71).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 72).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[2]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 73).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[3]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 74).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[3]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 75).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[4]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 76).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[4]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 77).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[5]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 78).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[5]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 79).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[6]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 80).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[6]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 81).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[7]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 82).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[7]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 83).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[8]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 84).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[8]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 85).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_DATA[9]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 86).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_DATA[9]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 87).
+Applied set_property IO_BUFFER_TYPE = NONE for UDQS_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 88).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for UDQS_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 89).
+Applied set_property IO_BUFFER_TYPE = NONE for UDQS_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 90).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for UDQS_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 91).
+Applied set_property IO_BUFFER_TYPE = NONE for LDQS_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 92).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for LDQS_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 93).
+Applied set_property IO_BUFFER_TYPE = NONE for LDQS_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 94).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for LDQS_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 95).
+Applied set_property IO_BUFFER_TYPE = NONE for ODT[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 96).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for ODT[0]. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 97).
+Applied set_property IO_BUFFER_TYPE = NONE for RAS. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 98).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for RAS. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 99).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_RESET_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 100).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_RESET_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 101).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_WE. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 102).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_WE. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/DDR3LController/DDR3LController/DDR3LController_in_context.xdc, line 103).
 Applied set_property IO_BUFFER_TYPE = NONE for ClkB_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SysPLL/SysPLL/SysPLL_in_context.xdc, line 6).
 Applied set_property CLOCK_BUFFER_TYPE = NONE for ClkB_N. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SysPLL/SysPLL/SysPLL_in_context.xdc, line 7).
 Applied set_property IO_BUFFER_TYPE = NONE for ClkB_P. (constraint file  c:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.gen/sources_1/ip/SysPLL/SysPLL/SysPLL_in_context.xdc, line 8).
@@ -634,7 +632,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for PLL. (constraint file  auto gener
 Applied set_property KEEP_HIERARCHY = SOFT for uC/ShadowRam. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for HF_PLL. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1562.023 ; gain = 143.031
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1547.371 ; gain = 128.801
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'auto_FSM'
 INFO: [Synth 8-802] inferred FSM for state register 'Gen_Two_AFEs[0].Gen_Eight_Chans[0].Input_Seqs_reg[0][0]' in module 'AFE_DataPath'
@@ -916,7 +914,6 @@ INFO: [Synth 8-3354] encoded FSM with state register 'Event_Builder_reg' using e
                  rddata4 |                     100000000000 |                             1011
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'DDR_Seq_reg' using encoding 'one-hot' in module 'DDR_Interface'
-WARNING: [Synth 8-327] inferring latch for variable 'clk_ref_p_reg' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:238]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -986,7 +983,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'OD_Write_reg' using encodi
 WARNING: [Synth 8-327] inferring latch for variable 'Hist_Datb_reg[1]' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Histogram.vhd:102]
 WARNING: [Synth 8-327] inferring latch for variable 'Counter1ms_reg' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/Histogram.vhd:115]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1562.023 ; gain = 143.031
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1547.371 ; gain = 128.801
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -1026,8 +1023,8 @@ Detailed RTL Component Info :
 	                5 Bit    Registers := 9     
 	                4 Bit    Registers := 23    
 	                3 Bit    Registers := 7     
-	                2 Bit    Registers := 37    
-	                1 Bit    Registers := 86    
+	                2 Bit    Registers := 36    
+	                1 Bit    Registers := 85    
 +---Muxes : 
 	   4 Input   64 Bit        Muxes := 1     
 	   6 Input   64 Bit        Muxes := 1     
@@ -1095,21 +1092,20 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-3332] Sequential element (FSM_onehot_Event_Builder_reg[9]) is unused and will be removed from module EventBuilder.
-WARNING: [Synth 8-3332] Sequential element (clk_ref_p_reg) is unused and will be removed from module DDR_Interface.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1562.023 ; gain = 143.031
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1547.371 ; gain = 128.801
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1562.023 ; gain = 143.031
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 1547.371 ; gain = 128.801
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 1562.023 ; gain = 143.031
+Finished Timing Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 1547.371 ; gain = 128.801
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
@@ -1216,7 +1212,7 @@ INFO: [Synth 8-4765] Removing register instance (\AFE_DataPath_inst/AFE_Pipeline
 INFO: [Synth 8-4765] Removing register instance (\AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[1].PipelineRdAdd_reg[0][3] ) from module (FEB) as it is equivalent to (\AFE_DataPath_inst/AFE_Pipeline_inst/Gen_Two_AFEs[0].Gen_Eight_Chans[7].PipelineRdAdd_reg[0][3] ) and driving same net [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/AFE_Pipeline.vhd:79]
 INFO: [Common 17-14] Message 'Synth 8-4765' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:45 ; elapsed = 00:00:47 . Memory (MB): peak = 1587.188 ; gain = 168.195
+Finished Technology Mapping : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1602.262 ; gain = 183.691
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1234,46 +1230,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 1601.840 ; gain = 182.848
+Finished IO Insertion : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 1617.336 ; gain = 198.766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 1601.840 ; gain = 182.848
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 1617.336 ; gain = 198.766
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin DDR_Interface_inst/RESET_N with 1st driver pin 'DDR_Interface_inst/RESET_N_reg/Q' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:201]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin DDR_Interface_inst/RESET_N with 2nd driver pin 'DDR_Interface_inst/DDR_Controller/ddr3_reset_n' [C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.srcs/sources_1/new/DDR_Interface .vhd:189]
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        1|Failed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1601.840 ; gain = 182.848
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:51 ; elapsed = 00:00:53 . Memory (MB): peak = 1617.336 ; gain = 198.766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1601.840 ; gain = 182.848
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:51 ; elapsed = 00:00:53 . Memory (MB): peak = 1617.336 ; gain = 198.766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1601.840 ; gain = 182.848
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:51 ; elapsed = 00:00:53 . Memory (MB): peak = 1617.336 ; gain = 198.766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1601.840 ; gain = 182.848
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:51 ; elapsed = 00:00:53 . Memory (MB): peak = 1617.336 ; gain = 198.766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1317,14 +1304,14 @@ Report Cell Usage:
 |34    |IDELAYE2             |    18|
 |35    |ISERDESE2            |    36|
 |37    |LUT1                 |   296|
-|38    |LUT2                 |   991|
-|39    |LUT3                 |   818|
-|40    |LUT4                 |   761|
-|41    |LUT5                 |   669|
-|42    |LUT6                 |  1409|
+|38    |LUT2                 |   989|
+|39    |LUT3                 |   842|
+|40    |LUT4                 |   767|
+|41    |LUT5                 |   672|
+|42    |LUT6                 |  1399|
 |43    |MUXF7                |    86|
 |44    |MUXF8                |    29|
-|45    |FDCE                 |  3074|
+|45    |FDCE                 |  3071|
 |46    |FDPE                 |    98|
 |47    |FDRE                 |   395|
 |48    |LD                   |    34|
@@ -1336,29 +1323,28 @@ Report Cell Usage:
 |54    |OBUFT                |     5|
 +------+---------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1601.840 ; gain = 182.848
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:51 ; elapsed = 00:00:53 . Memory (MB): peak = 1617.336 ; gain = 198.766
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 2 critical warnings and 166 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:39 ; elapsed = 00:00:49 . Memory (MB): peak = 1601.840 ; gain = 70.047
-Synthesis Optimization Complete : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1601.840 ; gain = 182.848
+Synthesis finished with 0 errors, 0 critical warnings and 155 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:40 ; elapsed = 00:00:50 . Memory (MB): peak = 1617.336 ; gain = 101.102
+Synthesis Optimization Complete : Time (s): cpu = 00:00:51 ; elapsed = 00:00:53 . Memory (MB): peak = 1617.336 ; gain = 198.766
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.171 . Memory (MB): peak = 1609.902 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.172 . Memory (MB): peak = 1625.359 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 635 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 2 inverter(s) to 70 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1622.559 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1633.012 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 50 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 16 instances
   LD => LDCE (inverted pins: G): 34 instances
 
-Synth Design complete, checksum: 4354c77f
+Synth Design complete, checksum: c5043a5a
 INFO: [Common 17-83] Releasing license: Synthesis
-287 Infos, 216 Warnings, 2 Critical Warnings and 0 Errors encountered.
+287 Infos, 214 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:56 ; elapsed = 00:01:03 . Memory (MB): peak = 1622.559 ; gain = 203.566
-INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+synth_design: Time (s): cpu = 00:00:56 ; elapsed = 00:01:05 . Memory (MB): peak = 1633.012 ; gain = 214.441
 INFO: [Common 17-1381] The checkpoint 'C:/Users/mrigatti/Desktop/CRV/2.Firmware/FEB/FEB.runs/synth_1/FEB.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file FEB_utilization_synth.rpt -pb FEB_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Nov 29 12:37:43 2022...
+INFO: [Common 17-206] Exiting Vivado at Wed Nov 30 15:19:20 2022...

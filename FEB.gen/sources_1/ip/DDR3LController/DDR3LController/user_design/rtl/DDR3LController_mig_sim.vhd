@@ -416,10 +416,10 @@ entity DDR3LController_mig is
                                      -- It is associated to a set of IODELAYs with
                                      -- an IDELAYCTRL that have same IODELAY CONTROLLER
                                      -- clock frequency (300MHz/400MHz).
-   SYSCLK_TYPE           : string  := "DIFFERENTIAL";
+   SYSCLK_TYPE           : string  := "SINGLE_ENDED";
                                      -- System clock type DIFFERENTIAL, SINGLE_ENDED,
                                      -- NO_BUFFER
-   REFCLK_TYPE           : string  := "DIFFERENTIAL";
+   REFCLK_TYPE           : string  := "SINGLE_ENDED";
                                      -- Reference clock type DIFFERENTIAL, SINGLE_ENDED
                                      -- NO_BUFFER, USE_SYSTEM_CLOCK
    SYS_RST_PORT          : string  := "FALSE";
@@ -444,7 +444,7 @@ entity DDR3LController_mig is
    --***************************************************************************
    REFCLK_FREQ           : real    := 200.0;
                                      -- IODELAYCTRL reference clock frequency
-   DIFF_TERM_REFCLK      : string  := "FALSE";
+   DIFF_TERM_REFCLK      : string  := "TRUE";
                                      -- Differential Termination for idelay
                                      -- reference clock input pins
    --***************************************************************************
@@ -504,12 +504,10 @@ entity DDR3LController_mig is
    ddr3_odt                       : out   std_logic_vector(ODT_WIDTH-1 downto 0);
 
    -- Inputs
-   -- Differential system clocks
-   sys_clk_p                      : in    std_logic;
-   sys_clk_n                      : in    std_logic;
-   -- differential iodelayctrl clk (reference clock)
-   clk_ref_p                                : in    std_logic;
-   clk_ref_n                                : in    std_logic;
+   -- Single-ended system clock
+   sys_clk_i                      : in    std_logic;
+   -- Single-ended iodelayctrl clk (reference clock)
+   clk_ref_i                                : in    std_logic;
    -- user interface signals
    app_addr             : in    std_logic_vector(ADDR_WIDTH-1 downto 0);
    app_cmd              : in    std_logic_vector(2 downto 0);
@@ -1067,9 +1065,11 @@ architecture arch_DDR3LController_mig of DDR3LController_mig is
       
   signal init_calib_complete_i       : std_logic;
 
-  signal sys_clk_i      : std_logic;
+  signal sys_clk_p       : std_logic;
+  signal sys_clk_n          : std_logic;
   signal mmcm_clk           : std_logic;
-  signal clk_ref_i               : std_logic;
+  signal clk_ref_p               : std_logic;
+  signal clk_ref_n               : std_logic;
   signal device_temp_s         : std_logic_vector(11 downto 0);
   signal device_temp_i           : std_logic_vector(11 downto 0);
 
@@ -1169,8 +1169,10 @@ begin
   ui_clk <= clk;
   ui_clk_sync_rst <= rst;
   
-  sys_clk_i <= '0';
-  clk_ref_i <= '0';
+  sys_clk_p <= '0';
+  sys_clk_n <= '0';
+  clk_ref_p <= '0';
+  clk_ref_n <= '0';
   init_calib_complete         <= init_calib_complete_i;
   device_temp <= device_temp_s;
       

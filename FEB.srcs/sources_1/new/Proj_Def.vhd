@@ -24,6 +24,10 @@ use ieee.numeric_std.all;
 package Proj_Def is
 
 
+	constant DATA_WIDTH			: integer := 16;  -- 16 Both ARTY and FEB
+	constant DDR3L_ADDR			: integer := 15;  -- 14: ARTY 15: FEB
+	constant APP_ADDR			: integer := 29;  -- 28: ARTY 29: FEB
+
     constant afe_data_bit_width_idelay_taps: integer := 12;
 
 	-- Define Arrays in terms of their size
@@ -448,7 +452,7 @@ component Trigger is
 	uCWr 				: in std_logic;
 -- Microcontroller data and address buses	
 	uCA 				: in std_logic_vector(11 downto 0);
-	uCD 				: inout std_logic_vector(15 downto 0);
+	uCD 				: in std_logic_vector(15 downto 0);
 -- Geographic address pins
 	GA 					: in std_logic_vector(1 downto 0);
 -- Synchronous edge detectors of uC read and write strobes
@@ -524,15 +528,21 @@ port (
 end component;
 
 component DDR_Interface is
+generic(
+	-- DDR3L parameters
+	DATA_WIDTH			: integer := 16;  -- 16 Both ARTY and FEB
+	DDR3L_ADDR			: integer := 15;  -- 14: ARTY 15: FEB
+	APP_ADDR			: integer := 29  -- 28: ARTY 29: FEB
+);
 port (
-	ClkB_P,ClkB_N 		: in std_logic; 
+	ClkB_P,ClkB_N  		: in std_logic; 
 	SysClk				: in std_logic; -- 160 MHz
 	ResetHi				: in std_logic;
 	Clk_80MHz			: in std_logic;
 	Clk_200MHz			: in std_logic;
 -- DDR3L pins
-	DDR_DATA			: inout std_logic_vector(15 downto 0);
-	DDR_ADDR			: out std_logic_vector(14 downto 0);
+	DDR_DATA			: inout std_logic_vector(DATA_WIDTH-1 downto 0);
+	DDR_ADDR			: out std_logic_vector(DDR3L_ADDR-1 downto 0);
 	BA 					: out std_logic_vector(2 downto 0);
 	DDR_CKE	 			: out std_logic_vector(0 downto 0);
 	ODT 				: out std_logic_vector(0 downto 0);
@@ -543,7 +553,6 @@ port (
 	DDR_CLKP,DDR_CLKN 	: out  std_logic_vector(0 downto 0);
 	LDQS_P, LDQS_N 		: inout std_logic;
 	UDQS_P, UDQS_N 		: inout std_logic;
-	SDRzq 				: inout std_logic;
 	RESET_N				: out std_logic;
 -- Signals for the DDR	
 	EvBuffRd			: buffer std_logic;
@@ -568,7 +577,6 @@ port (
 	AddrReg			  	: in std_logic_vector(11 downto 0);
 	WRDL 				: in std_logic_vector(1 downto 0);
 	RDDL				: in std_logic_vector(1 downto 0)
-
 	);
 end component;
 
@@ -700,10 +708,10 @@ end component;
 
 component DDR3LController is
   port (
-      ddr3_dq       	: inout std_logic_vector(15 downto 0);
+      ddr3_dq       	: inout std_logic_vector(DATA_WIDTH-1 downto 0);
       ddr3_dqs_p    	: inout std_logic_vector(1 downto 0);
       ddr3_dqs_n    	: inout std_logic_vector(1 downto 0);
-      ddr3_addr     	: out   std_logic_vector(14 downto 0);
+      ddr3_addr     	: out   std_logic_vector(DDR3L_ADDR-1 downto 0);
       ddr3_ba       	: out   std_logic_vector(2 downto 0);
       ddr3_ras_n    	: out   std_logic;
       ddr3_cas_n    	: out   std_logic;
@@ -715,7 +723,7 @@ component DDR3LController is
       ddr3_cs_n     	: out   std_logic_vector(0 downto 0);
       ddr3_dm       	: out   std_logic_vector(1 downto 0);
       ddr3_odt      	: out   std_logic_vector(0 downto 0);
-      app_addr          : in    std_logic_vector(28 downto 0);
+      app_addr          : in    std_logic_vector(APP_ADDR-1 downto 0);
       app_cmd           : in    std_logic_vector(2 downto 0);
       app_en            : in    std_logic;
       app_wdf_data      : in    std_logic_vector(63 downto 0);

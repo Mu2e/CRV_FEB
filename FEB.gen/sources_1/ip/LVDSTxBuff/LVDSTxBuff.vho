@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -45,9 +45,8 @@
 -- PART OF THIS FILE AT ALL TIMES.
 -- 
 -- DO NOT MODIFY THIS FILE.
-
 -- IP VLNV: xilinx.com:ip:fifo_generator:13.2
--- IP Revision: 6
+-- IP Revision: 7
 
 -- The following code must appear in the VHDL architecture header.
 
@@ -63,7 +62,7 @@ COMPONENT LVDSTxBuff
     full : OUT STD_LOGIC;
     empty : OUT STD_LOGIC;
     wr_rst_busy : OUT STD_LOGIC;
-    rd_rst_busy : OUT STD_LOGIC
+    rd_rst_busy : OUT STD_LOGIC 
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -90,4 +89,6 @@ your_instance_name : LVDSTxBuff
 -- You must compile the wrapper file LVDSTxBuff.vhd when simulating
 -- the core, LVDSTxBuff. When compiling the wrapper file, be sure to
 -- reference the VHDL simulation library.
+
+
 

@@ -24,6 +24,12 @@ use work.Proj_Def.all;
 
 
 entity DDR_Interface is
+generic(
+	-- DDR3L parameters
+	DATA_WIDTH			: integer := 16;  -- 16 Both ARTY and FEB
+	DDR3L_ADDR			: integer := 15;  -- 14: ARTY 15: FEB
+	APP_ADDR			: integer := 29  -- 28: ARTY 29: FEB
+);
 port (
 	ClkB_P,ClkB_N  		: in std_logic; 
 	SysClk				: in std_logic; -- 160 MHz
@@ -31,8 +37,8 @@ port (
 	Clk_80MHz			: in std_logic;
 	Clk_200MHz			: in std_logic;
 -- DDR3L pins
-	DDR_DATA			: inout std_logic_vector(15 downto 0);
-	DDR_ADDR			: out std_logic_vector(14 downto 0);
+	DDR_DATA			: inout std_logic_vector(DATA_WIDTH-1 downto 0);
+	DDR_ADDR			: out std_logic_vector(DDR3L_ADDR-1 downto 0);
 	BA 					: out std_logic_vector(2 downto 0);
 	DDR_CKE	 			: out std_logic_vector(0 downto 0);
 	ODT 				: out std_logic_vector(0 downto 0);
@@ -43,7 +49,6 @@ port (
 	DDR_CLKP,DDR_CLKN 	: out  std_logic_vector(0 downto 0);
 	LDQS_P, LDQS_N 		: inout std_logic;
 	UDQS_P, UDQS_N 		: inout std_logic;
-	SDRzq 				: inout std_logic;
 	RESET_N				: out std_logic;
 -- Signals for the DDR	
 	EvBuffRd			: buffer std_logic;
@@ -77,7 +82,7 @@ architecture Behavioral of DDR_Interface is
 signal Buff_Rst		  	  : std_logic;
 signal clk 				  : std_logic;
 signal reset 			  : std_logic;
-signal DDR3_addr          : std_logic_vector(28 downto 0); 
+signal DDR3_addr          : std_logic_vector(APP_ADDR-1 downto 0); 
 signal DDR3_cmd           : std_logic_vector(2 downto 0);
 signal DDR3_en            : std_logic;
 

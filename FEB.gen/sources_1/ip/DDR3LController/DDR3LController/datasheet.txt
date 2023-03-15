@@ -15,7 +15,7 @@ FPGA Options:
    System Clock Type               : Single-Ended
    Reference Clock Type            : Single-Ended
    Debug Port                      : OFF
-   Internal Vref                   : disabled
+   Internal Vref                   : enabled
    IO Power Reduction              : ON
    XADC instantiation in MIG       : Enabled
 
@@ -99,12 +99,13 @@ Memory Options:
 
 Bank Selections:
 	Bank: 15
-		Byte Group T1:	Address/Ctrl-1
-		Byte Group T2:	Address/Ctrl-2
-		Byte Group T3:	Address/Ctrl-0
+		Byte Group T0:	Address/Ctrl-2
+		Byte Group T1:	Address/Ctrl-0
+		Byte Group T2:	Address/Ctrl-1
+		Byte Group T3:	Address/Ctrl-3
 	Bank: 16
-		Byte Group T0:	DQ[0-7]
 		Byte Group T1:	DQ[8-15]
+		Byte Group T3:	DQ[0-7]
 
 
 Reference_Clock: 

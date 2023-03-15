@@ -102,6 +102,7 @@ end component;
 
 signal asp	: std_logic := '0';
 
+constant Clk100MHz_period: time := 10.0ns;   -- 200 MHz
 constant Clk200MHz_period: time := 5.0ns;   -- 200 MHz
 constant Clk160MHz_period: time := 6.25ns;  -- 160 MHz
 constant Clk80MHz_period:  time := 12.5ns;  -- 80 MHz
@@ -111,7 +112,7 @@ signal reset	: std_logic := '1';
 signal ResetHi	: std_logic := '1';
 signal CpldRst	: std_logic := '1';
 signal givetime	: std_logic := '1';
-signal Clk200MHz, Clk160MHz, Clk80MHz, Clk560MHz: std_logic := '0';
+signal Clk100MHz, Clk100MHz_N, Clk200MHz, Clk160MHz, Clk80MHz, Clk560MHz: std_logic := '0';
 signal VXO_P    : std_logic := '0';
 signal VXO_N    : std_logic := '1';		
 
@@ -123,6 +124,11 @@ signal uCD 		: std_logic_vector(15 downto 0):=(others => '0');
 signal GA 		: std_logic_vector(1 downto 0):=(others => '0');
 -- Synchronous edge detectors of uC read and write strobes
 signal WRDL 	: std_logic_vector(1 downto 0):=(others => '0');
+signal RDDL 				  : std_logic_vector(1 downto 0):=(others => '0');
+signal uWRDL 				  : std_logic_vector(1 downto 0):=(others => '0');
+signal uRDDL 				  : std_logic_vector(1 downto 0):=(others => '0');
+signal AddrReg				  : std_logic_vector(11 downto 0):=(others => '0');
+signal uAddrReg				  : std_logic_vector(11 downto 0):=(others => '0');
 
 signal dout_AFE0		      : Array_8x14; 
 signal dout_AFE1		      : Array_8x14; 
@@ -204,6 +210,8 @@ ResetHi <= not CpldRst;
 givetime <= '1', '0' after 500ns, '1' after 550ns;
 -- make the clocks
 Clk80MHz  <= not Clk80MHz  after Clk80MHz_period/2;
+Clk100MHz  <= not Clk100MHz  after Clk100MHz_period/2;
+Clk100MHz_N <= not Clk100MHz;
 Clk160MHz <= not Clk160MHz after Clk160MHz_period/2;
 Clk200MHz <= not Clk200MHz after Clk200MHz_period/2;
 Clk560MHz <= not Clk560MHz after Clk560MHz_period/2;
@@ -298,10 +306,12 @@ port map(
 
 DDR_Interface_inst : DDR_Interface
 port map(
-	VXO_P			=> VXO_P,	
-	VXO_N 			=> VXO_N, 	
+	ClkB_P  		=> Clk100MHz,			
+	ClkB_N  		=> Clk100MHz_N, 
 	SysClk			=> Clk160MHz,	
 	ResetHi			=> ResetHi,
+	Clk_80MHz		=> Clk80MHz,
+	Clk_200MHz		=> Clk200MHz,
 -- DDR3L pins
 	DDR_DATA		=> DDR_DATA,	
 	DDR_ADDR		=> DDR_ADDR,	
@@ -318,8 +328,7 @@ port map(
 	LDQS_P          => LDQS_P,
 	LDQS_N 		    => LDQS_N, 	
 	UDQS_P          => UDQS_P,
-	UDQS_N 		    => UDQS_N, 	
-	SDRzq 			=> SDRzq, 		
+	UDQS_N 		    => UDQS_N, 		
 -- Signals for the DDR	
 	EvBuffRd		=> EvBuffRd,	
 	EvBuffOut		=> EvBuffOut,	
@@ -340,8 +349,9 @@ port map(
 -- Geographic address pins
 	GA 				=> GA,
 -- Synchronous edge detectors of uC read and write strobes
-	--uWRDL 				: in std_logic_vector(1 downto 0);
-	WRDL 			=> WRDL
+	AddrReg			=> AddrReg,
+	WRDL 			=> WRDL,
+	RDDL			=> RDDL
 );
 
 uBunch_gen : process

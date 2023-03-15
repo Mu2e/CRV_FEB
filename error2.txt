@@ -1,0 +1,1 @@
+ERROR : The port "ddr3_dq[1]" is the "inout" port. Enable the Internal Vref to use the Vref pin as GPIO.

@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:ip:fifo_generator:13.2
-// IP Revision: 6
+// IP Revision: 7
 
 `timescale 1ns/1ps
 
@@ -87,7 +87,7 @@ output wire [10 : 0] data_count;
 output wire wr_rst_busy;
 output wire rd_rst_busy;
 
-  fifo_generator_v13_2_6 #(
+  fifo_generator_v13_2_7 #(
     .C_COMMON_CLOCK(1),
     .C_SELECT_XPM(0),
     .C_COUNT_TYPE(0),

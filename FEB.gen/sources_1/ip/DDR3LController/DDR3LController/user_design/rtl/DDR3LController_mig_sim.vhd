@@ -295,9 +295,9 @@ entity DDR3LController_mig is
    -- Do not change any of these parameters directly by editing the RTL.
    -- Any changes required should be done through GUI and the design regenerated.
    --***************************************************************************
-   BYTE_LANES_B0         : std_logic_vector(3 downto 0) := "1100";
+   BYTE_LANES_B0         : std_logic_vector(3 downto 0) := "0101";
                                      -- Byte lanes used in an IO column.
-   BYTE_LANES_B1         : std_logic_vector(3 downto 0) := "0111";
+   BYTE_LANES_B1         : std_logic_vector(3 downto 0) := "1111";
                                      -- Byte lanes used in an IO column.
    BYTE_LANES_B2         : std_logic_vector(3 downto 0) := "0000";
                                      -- Byte lanes used in an IO column.
@@ -305,7 +305,7 @@ entity DDR3LController_mig is
                                      -- Byte lanes used in an IO column.
    BYTE_LANES_B4         : std_logic_vector(3 downto 0) := "0000";
                                      -- Byte lanes used in an IO column.
-   DATA_CTL_B0           : std_logic_vector(3 downto 0) := "1100";
+   DATA_CTL_B0           : std_logic_vector(3 downto 0) := "0101";
                                      -- Indicates Byte lane is data byte lane
                                      -- or control Byte lane. '1' in a bit
                                      -- position indicates a data byte lane and
@@ -330,28 +330,28 @@ entity DDR3LController_mig is
                                      -- or control Byte lane. '1' in a bit
                                      -- position indicates a data byte lane and
                                      -- a '0' indicates a control byte lane
-   PHY_0_BITLANES        : std_logic_vector(47 downto 0) := X"3FE3FE000000";
-   PHY_1_BITLANES        : std_logic_vector(47 downto 0) := X"000DFF00D3FF";
+   PHY_0_BITLANES        : std_logic_vector(47 downto 0) := X"0003FD0003FD";
+   PHY_1_BITLANES        : std_logic_vector(47 downto 0) := X"FF2FFF200140";
    PHY_2_BITLANES        : std_logic_vector(47 downto 0) := X"000000000000";
 
    -- control/address/data pin mapping parameters
    CK_BYTE_MAP
      : std_logic_vector(143 downto 0) := X"000000000000000000000000000000000011";
    ADDR_MAP
-     : std_logic_vector(191 downto 0) := X"000109105106104123122100107110108101120102125103";
-   BANK_MAP   : std_logic_vector(35 downto 0) := X"12A128126";
-   CAS_MAP    : std_logic_vector(11 downto 0) := X"113";
+     : std_logic_vector(191 downto 0) := X"00010812B13613A119127138123134106137122120135121";
+   BANK_MAP   : std_logic_vector(35 downto 0) := X"124131125";
+   CAS_MAP    : std_logic_vector(11 downto 0) := X"126";
    CKE_ODT_BYTE_MAP : std_logic_vector(7 downto 0) := X"00";
-   CKE_MAP    : std_logic_vector(95 downto 0) := X"000000000000000000000124";
-   ODT_MAP    : std_logic_vector(95 downto 0) := X"000000000000000000000121";
-   CS_MAP     : std_logic_vector(119 downto 0) := X"000000000000000000000000000112";
+   CKE_MAP    : std_logic_vector(95 downto 0) := X"000000000000000000000139";
+   ODT_MAP    : std_logic_vector(95 downto 0) := X"00000000000000000000013B";
+   CS_MAP     : std_logic_vector(119 downto 0) := X"00000000000000000000000000012A";
    PARITY_MAP : std_logic_vector(11 downto 0) := X"000";
-   RAS_MAP    : std_logic_vector(11 downto 0) := X"127";
-   WE_MAP     : std_logic_vector(11 downto 0) := X"12B";
+   RAS_MAP    : std_logic_vector(11 downto 0) := X"129";
+   WE_MAP     : std_logic_vector(11 downto 0) := X"128";
    DQS_BYTE_MAP
-     : std_logic_vector(143 downto 0) := X"000000000000000000000000000000000203";
-   DATA0_MAP  : std_logic_vector(95 downto 0) := X"032033034035038039036037";
-   DATA1_MAP  : std_logic_vector(95 downto 0) := X"023024025021022026027028";
+     : std_logic_vector(143 downto 0) := X"000000000000000000000000000000000200";
+   DATA0_MAP  : std_logic_vector(95 downto 0) := X"000002004003005007008006";
+   DATA1_MAP  : std_logic_vector(95 downto 0) := X"028024023025022027029026";
    DATA2_MAP  : std_logic_vector(95 downto 0) := X"000000000000000000000000";
    DATA3_MAP  : std_logic_vector(95 downto 0) := X"000000000000000000000000";
    DATA4_MAP  : std_logic_vector(95 downto 0) := X"000000000000000000000000";
@@ -368,7 +368,7 @@ entity DDR3LController_mig is
    DATA15_MAP : std_logic_vector(95 downto 0) := X"000000000000000000000000";
    DATA16_MAP : std_logic_vector(95 downto 0) := X"000000000000000000000000";
    DATA17_MAP : std_logic_vector(95 downto 0) := X"000000000000000000000000";
-   MASK0_MAP  : std_logic_vector(107 downto 0) := X"000000000000000000000029031";
+   MASK0_MAP  : std_logic_vector(107 downto 0) := X"000000000000000000000020009";
    MASK1_MAP  : std_logic_vector(107 downto 0) := X"000000000000000000000000000";
 
    SLOT_0_CONFIG         : std_logic_vector(7 downto 0) := "00000001";

@@ -1,0 +1,14 @@
+ERROR : The port "ddr3_dq[3]" is not aligned with its strobe pair "ddr3_dqs_p[0]" & "ddr3_dqs_n[0]".
+ERROR : The port "ddr3_dq[1]" is not aligned with its strobe pair "ddr3_dqs_p[0]" & "ddr3_dqs_n[0]".
+ERROR : The port "ddr3_dq[5]" is not aligned with its strobe pair "ddr3_dqs_p[0]" & "ddr3_dqs_n[0]".
+ERROR : The port "ddr3_dq[7]" is not aligned with its strobe pair "ddr3_dqs_p[0]" & "ddr3_dqs_n[0]".
+ERROR : The port "ddr3_dq[14]" is not aligned with its strobe pair "ddr3_dqs_p[1]" & "ddr3_dqs_n[1]".
+ERROR : The port "ddr3_dq[10]" is not aligned with its strobe pair "ddr3_dqs_p[1]" & "ddr3_dqs_n[1]".
+ERROR : The port "ddr3_dq[8]" is not aligned with its strobe pair "ddr3_dqs_p[1]" & "ddr3_dqs_n[1]".
+ERROR : The port "ddr3_dq[15]" is not aligned with its strobe pair "ddr3_dqs_p[1]" & "ddr3_dqs_n[1]".
+ERROR : The port "ddr3_dq[12]" is not aligned with its strobe pair "ddr3_dqs_p[1]" & "ddr3_dqs_n[1]".
+ERROR : The port "ddr3_dq[13]" is not aligned with its strobe pair "ddr3_dqs_p[1]" & "ddr3_dqs_n[1]".
+ERROR : The port "ddr3_dq[11]" is not aligned with its strobe pair "ddr3_dqs_p[1]" & "ddr3_dqs_n[1]".
+ERROR : The port "ddr3_dq[9]" is not aligned with its strobe pair "ddr3_dqs_p[1]" & "ddr3_dqs_n[1]".
+ERROR : The port "ddr3_dm[0]" is not aligned with its strobe pair "ddr3_dqs_p[0]" & "ddr3_dqs_n[0]".
+ERROR : The port "ddr3_dm[1]" is not aligned with its strobe pair "ddr3_dqs_p[1]" & "ddr3_dqs_n[1]".

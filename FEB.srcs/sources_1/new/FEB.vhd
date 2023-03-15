@@ -46,8 +46,8 @@ port(
 	AFESClk, AFESDI  	    : buffer std_logic;
 	AFESDO 				    : in std_logic;
 	-- DDR3L pins
-	DDR_DATA 				: inout std_logic_vector(15 downto 0);
-	DDR_ADDR 				: out std_logic_vector(14 downto 0);
+	DDR_DATA				: inout std_logic_vector(DATA_WIDTH-1 downto 0);
+	DDR_ADDR				: out std_logic_vector(DDR3L_ADDR-1 downto 0);
 	BA 						: out std_logic_vector(2 downto 0);
 	DDR_CKE	 				: out std_logic_vector(0 downto 0);
 	ODT 					: out std_logic_vector(0 downto 0);
@@ -58,7 +58,6 @@ port(
 	DDR_CLKP,DDR_CLKN 		: out  std_logic_vector(0 downto 0);
 	LDQS_P, LDQS_N 			: inout std_logic;
 	UDQS_P, UDQS_N 			: inout std_logic;
-	SDRzq 					: inout std_logic;
 	DDR_RESET_N 			: out std_logic;
 	-- Microcontroller strobes
 	CpldRst					: in std_logic;
@@ -168,38 +167,43 @@ begin
 
 ResetHi <= not CpldRst;
 
-global_signals : process(SysClk, CpldRst)
+global_signals_160MHz : process(SysClk, CpldRst)
 	begin 
 	if CpldRst = '0' then
 	WRDL 	<= "00";
 	RDDL 	<= "00";
-	uWRDL 	<= "00"; 
-	uRDDL 	<= "00";
 	AddrReg <= (others => '0'); 
-	uAddrReg <= (others => '0');
 	elsif rising_edge (SysClk) then
 	-- Synchronous edge detectors for read and write strobes
 	WRDL(0) <= not uCWR and not CpldCS;
 	WRDL(1) <= WRDL(0);
 	RDDL(0) <= not uCRD and not CpldCS;
 	RDDL(1) <= RDDL(0);
-	uWRDL(0) <= not uCWR and not CpldCS;
-	uWRDL(1) <= uWRDL(0);	
-	uRDDL(0) <= not uCRD and not CpldCS;
-	uRDDL(1) <= uRDDL(0);
 		if RDDL = 1 or WRDL = 1 
 		then AddrReg <= uCA;
 		else AddrReg <= AddrReg;
 		end if;
-		
+	end if;
+end process;
+	
+global_signals_100MHz : process(Clk_100MHz, CpldRst)
+	begin 
+	if CpldRst = '0' then
+	uWRDL 	<= "00"; 
+	uRDDL 	<= "00";
+	uAddrReg <= (others => '0');
+	elsif rising_edge (Clk_100MHz) then
+	-- Synchronous edge detectors for read and write strobes
+	uWRDL(0) <= not uCWR and not CpldCS;
+	uWRDL(1) <= uWRDL(0);	
+	uRDDL(0) <= not uCRD and not CpldCS;
+	uRDDL(1) <= uRDDL(0);
 		if uRDDL = 1 or uWRDL = 1 
 		then uAddrReg <= uCA;
 		else uAddrReg <= uAddrReg;
 		end if;
-		
 	end if;
 end process;
-	
 
 -- IBUFDS: Differential Input Buffer
 GPI0DiffIn : IBUFDS
@@ -379,6 +383,12 @@ port map(
 
 
 DDR_Interface_inst : DDR_Interface
+generic map(
+	-- DDR3L parameters
+	DATA_WIDTH			=> DATA_WIDTH,  -- 16 Both ARTY and FEB
+	DDR3L_ADDR			=> DDR3L_ADDR,  -- 14: ARTY 15: FEB
+	APP_ADDR			=> APP_ADDR 	-- 28: ARTY 29: FEB
+)
 port map(
 	ClkB_P			=> ClkB_P,	
 	ClkB_N 			=> ClkB_N, 	
@@ -402,8 +412,7 @@ port map(
 	LDQS_P          => LDQS_P,
 	LDQS_N 		    => LDQS_N, 	
 	UDQS_P          => UDQS_P,
-	UDQS_N 		    => UDQS_N, 	
-	SDRzq 			=> SDRzq, 	
+	UDQS_N 		    => UDQS_N, 		
 	RESET_N			=> DDR_RESET_N,
 -- Signals for the DDR	
 	EvBuffRd		=> EvBuffRd,	
